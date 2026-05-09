@@ -1,0 +1,30 @@
+---
+title: "Bulk Import"
+description: "Import students, staff, and guardians from a CSV."
+---
+
+Use bulk import to onboard hundreds of records at once. Each import type has its own template.
+
+## How to bulk import
+
+1. Go to **Users → Bulk Import**.
+2. Choose the import type (Students, Staff, Guardians).
+3. Click **Download template**.
+4. Fill the CSV using the template's column headers exactly.
+5. Click **Upload** and select your file.
+6. R eview the validation summary.
+7. Click **Confirm import**.
+
+[Insert screenshot: Bulk import page showing template download buttons and the upload validation result with row-by-row errors]
+
+## Notes
+
+- Always start from the latest template — columns may change.
+- Dates use YYYY-MM-DD. Phone numbers use +254....
+- The validation step blocks the import if any row has errors.
+
+## Troubleshooting
+
+- "Invalid grade level"? Confirm grade levels exist in Curriculum.
+- Encoding issues? Save the CSV as UTF-8.
+- Partial import? Re-upload the failed rows only.
