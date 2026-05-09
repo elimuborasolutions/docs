@@ -10,13 +10,15 @@
   "favicon": "https://media.brand.dev/28107f06-65a0-45ce-9937-4bc6a00d197b.svg",
   "navbar": {
     "primary": {
-      "type": "Get Started",
+      "type": "button",
+      "label": "Get Started",
       "href": "https://elimuboraerp.com/contact/"
     },
     "links": [
       {
-        "href": "https://elimuboraerp.com/login",
-        "label": "Login"
+        "type": "button",
+        "label": "Login",
+        "href": "https://elimuboraerp.com/login"
       }
     ]
   },
