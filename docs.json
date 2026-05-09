@@ -118,5 +118,11 @@
   },
   "icons": {
     "library": "lucide"
+  },
+  "thumbnails": {
+    "background": "/images/cover.png",
+    "fonts": {
+      "family": "Sora"
+    }
   }
 }
