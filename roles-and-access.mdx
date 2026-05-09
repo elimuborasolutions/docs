@@ -1,149 +1,47 @@
 ---
-title: "Understanding User Roles and Access Control in Elimu Bora"
-description: "See what each role — Principal, Teacher, Bursar, Guardian, and more — can access, and learn how to assign roles to users in Settings > Roles & Permissions."
+title: "Roles & Access"
+description: "How role-based access works in Elimu Bora."
 ---
 
-Elimu Bora uses a role-based access control system. Every person who logs in is assigned a role, and that role determines which parts of the platform they can access and what actions they can take. You do not need to configure individual permissions — roles come pre-configured and are assigned when you create or edit a user account.
+Every user is assigned a role. Roles control which modules and actions are available. Roles are pre-configured — you assign them when creating or editing a user.
 
-## Roles overview
+For a per-role guide, see the [Roles section](/roles/overview).
 
-The table below summarises the roles available in Elimu Bora and the access level each one provides.
+## How to assign a role
+1. Open Users in the sidebar.
+2. Select a user (or click New user).
+3. Under Role, choose from the list.
+4. Click Save.
 
-| Role | Access level |
-|------|-------------|
-| **Super Admin** | Unrestricted access to all features within your school, including system settings and role management |
-| **Director** | Senior leadership access for school governance and oversight |
-| **Principal** | School-wide visibility — approvals, report cards, attendance summaries, and all modules |
-| **Deputy Principal** | Equivalent to Principal for most day-to-day operations |
-| **HOD** | Head of Department — manages their subject area, assessments, and teacher performance |
-| **Class Teacher** | Takes attendance for their assigned class, enters grades for their stream |
-| **Teacher** | Marks attendance, enters grades for assigned subjects and streams |
-| **HR/Secretary** | Administrative access for staff records and school documentation |
-| **Bursar** | Finance module access — creates invoices, records payments, and manages student wallets |
-| **Guardian** | Read-only view of their own children's attendance, grades, report cards, and invoices |
-| **Driver** | Limited staff access for transport-related records |
-| **Chef** | Staff access scoped to catering and kitchen inventory |
-| **Librarian** | Staff access scoped to library inventory and student book records |
-| **Lab Technician** | Staff access for laboratory supplies and equipment |
-| **Nurse** | Staff access for student health records and welfare |
-| **Patron / Matron** | Staff access for student welfare and residential management |
+[Insert screenshot: User edit form with Role dropdown expanded, showing all roles]
 
-## Role descriptions
+## Role Summary
+| Role | Access |
+|---|---|
+| Super Admin | Unrestricted access within your school |
+| School Admin | School-wide operations and configuration |
+| Principal | School-wide visibility, approvals, publishing |
+| Deputy Principal | Same as Principal for daily operations |
+| HOD | Manages a subject department |
+| Class Teacher | Register and grading for assigned class |
+| Teacher | Attendance and grades for assigned subjects |
+| Bursar / Finance | Full Finance module access |
+| Receptionist | Front desk records and basic enquiries |
+| Librarian | Library inventory and book records |
+| HR/Secretary | Staff records and school documentation |
+| Driver, Chef, Nurse, Patron, Lab Tech | Scoped staff access |
+| Guardian | Read-only view of own children |
+| Student | Read-only view of own records |
 
-<AccordionGroup>
-  <Accordion title="Super Admin">
-    The Super Admin has unrestricted access to every feature in your school's Elimu Bora account. This includes system settings, user management, module configuration, and all operational modules.
+<Info>
+## Notes
+- A user can hold one role at a time.
+- Guardians and Students see only their own data.
+- Only Super Admins can change role assignments.
+</Info>
 
-    The Super Admin is also the only role that can access **Settings > Roles & Permissions** to view role assignments across the school.
-
-    <Warning>
-      Assign the Super Admin role only to trusted administrators. This role can modify system-wide settings and access all school data.
-    </Warning>
-  </Accordion>
-
-  <Accordion title="Principal and Deputy Principal">
-    Principals and Deputy Principals have school-wide visibility. They can:
-
-    - Review and approve attendance registers
-    - Publish report cards and add principal remarks
-    - View financial summaries and outstanding invoices
-    - Manage school events and view the full events calendar
-    - Access all modules enabled on your plan
-
-    Deputy Principals have equivalent access to Principals for most operations.
-  </Accordion>
-
-  <Accordion title="HOD (Head of Department)">
-    HODs manage their subject department. They can:
-
-    - Create and manage assessments for their subjects
-    - Review grade entries made by teachers in their department
-    - View assessment performance reports for their subject area
-    - Receive notifications when assessments are published
-  </Accordion>
-
-  <Accordion title="Class Teacher and Teacher">
-    Teachers interact primarily with their assigned classes and subjects. They can:
-
-    - Open and complete attendance registers for their streams
-    - Enter student grades during the grading phase of an assessment
-    - View timetables for their assigned streams
-    - Receive reminders for incomplete registers and upcoming assessments
-
-    Class Teachers have the same access as Teachers, with the additional responsibility of managing registers for their assigned class stream.
-  </Accordion>
-
-  <Accordion title="Administrative staff roles">
-    Several roles cover non-teaching staff with access scoped to their area of work:
-
-    - **HR/Secretary** — staff records and administrative documentation
-    - **Bursar** — full access to the Finance module: fee billing, payments, invoices, and student wallets
-    - **Driver** — transport records
-    - **Chef** — catering inventory and kitchen supplies
-    - **Librarian** — library book catalogue and student borrowing records
-    - **Lab Technician** — laboratory equipment and consumables
-    - **Nurse** — student health records and welfare notes
-    - **Patron / Matron** — student welfare and residential management
-  </Accordion>
-
-  <Accordion title="Guardian">
-    Guardians log in to the same platform as staff but see only their own children's data. They cannot create or edit any records.
-
-    Guardians can view:
-
-    - Attendance records for their children (present, absent, late)
-    - Published report cards and grade summaries
-    - Fee invoices and payment history
-    - School events they or their children are invited to
-
-    <Note>
-      Guardians use the same login page as teachers and staff. Their dashboard automatically shows only data related to the students linked to their account. If a guardian is linked to more than one child, they can switch between children within their account.
-    </Note>
-  </Accordion>
-</AccordionGroup>
-
-## How to assign roles to users
-
-Roles are assigned when you create a user account, and can be changed at any time by a Super Admin or System Administrator.
-
-<Steps>
-  <Step title="Go to Settings">
-    From the left navigation, click **Settings**, then select **Roles & Permissions**.
-
-    This page shows all roles in your school, the number of permissions assigned to each role, and the users currently holding each role.
-  </Step>
-  <Step title="Find the user to update">
-    Navigate to the user's profile. Depending on their type, go to:
-
-    - **Teachers** — Academics > Teachers
-    - **Staff** — School > Staff
-    - **Guardians** — Students > Guardians
-
-    Open the user's record and click **Edit**.
-  </Step>
-  <Step title="Assign the role">
-    In the user's edit form, select the appropriate role from the **Role** field and save the record. The change takes effect immediately — the user will see updated navigation and permissions on their next page load.
-  </Step>
-</Steps>
-
-<Tip>
-  If a user should have access to a module that is not appearing in their navigation, first check that the module is enabled for your school under **Settings > Modules**, then verify the user's role has the appropriate access.
-</Tip>
-
-## Roles and module access
-
-Not all roles have access to all modules. The table below shows which modules each primary role can access when those modules are enabled on your plan.
-
-| Module | Super Admin | Principal | HOD | Teacher | Bursar | Guardian |
-|--------|-------------|-----------|-----|---------|--------|----------|
-| Academics | Full | Full | Department | Own classes | — | Read (children) |
-| Attendance | Full | Full | View | Own classes | — | Read (children) |
-| Finance | Full | Full | — | — | Full | Read (children) |
-| Inventory | Full | Full | — | — | — | — |
-| Events | Full | Full | Full | View | — | View (invited) |
-| Timetable | Full | Full | View | Own timetable | — | — |
-| Settings | Full | View | — | — | — | — |
-
-<Note>
-  The Roles & Permissions settings page is accessible only to the **Super Admin** role. Other roles, including Principal, cannot view or modify role assignments.
-</Note>
+<Warning>
+## Troubleshooting
+- User can't see a module? Confirm role and that the module is active on your plan.
+- Action blocked? Check whether the user owns the record (e.g. a teacher only marks their assigned classes).
+</Warning>
