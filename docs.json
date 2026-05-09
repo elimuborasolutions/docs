@@ -2,10 +2,11 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "Elimu Bora ERP Help Center",
+  "description": "Elimu Bora ERP is a school management system that unifies academics, attendance, fees, inventory, and parent communication in one platform — built for Kenyan schools running CBC & 8-4-4.",
   "colors": {
-    "primary": "#840404",
-    "light": "#bc7c7c",
-    "dark": "#e2c6c6"
+    "primary": "#800000",
+    "light": "#800000",
+    "dark": "#800000"
   },
   "favicon": "https://media.brand.dev/28107f06-65a0-45ce-9937-4bc6a00d197b.svg",
   "navbar": {
@@ -93,15 +94,22 @@
     "dark": "/images/elimubora-logo-white.png"
   },
   "fonts": {
-    "family": "Inter"
+    "heading": {
+        "family": "Sora",
+        "weight": 700
+    },
+    "body": {
+        "family": "DM Sans",
+        "weight": 400
+    }
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/elimuboraerp",
-      "linkedin": "https://www.linkedin.com/company/elimu-bora-solutions-co",
       "website": "https://elimuboraerp.com/",
+      "x": "https://x.com/elimuboraerp",
+      "facebook": "https://www.facebook.com/elimuborasolutions",
       "instagram": "https://www.instagram.com/elimuboraerp",
-      "facebook": "https://www.facebook.com/elimuborasolutions"
+      "linkedin": "https://www.linkedin.com/company/elimu-bora-solutions-co"
     }
   },
   "styling": {
