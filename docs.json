@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "almond",
-  "name": "Elimu Bora",
+  "theme": "mint",
+  "name": "Elimu Bora ERP Help Center",
   "colors": {
     "primary": "#840404",
     "light": "#bc7c7c",
@@ -12,7 +12,17 @@
     "primary": {
       "type": "github",
       "href": "https://github.com/elimuborasolutions/erp"
-    }
+    },
+    "links": [
+      {
+        "href": "https://elimuboraerp.com/login",
+        "label": "Login"
+      },
+      {
+        "href": "https://elimuboraerp.com/contact/",
+        "label": "Get Started"
+      }
+    ]
   },
   "navigation": {
     "tabs": [
@@ -73,5 +83,34 @@
         ]
       }
     ]
+  },
+  "appearance": {
+    "default": "system"
+  },
+  "background": {
+    "decoration": "grid"
+  },
+  "logo": {
+    "light": "/images/elimubora-logo-primary.png",
+    "dark": "/images/elimubora-logo-white.png"
+  },
+  "fonts": {
+    "family": "Inter"
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/elimuboraerp",
+      "linkedin": "https://www.linkedin.com/company/elimu-bora-solutions-co",
+      "website": "https://elimuboraerp.com/",
+      "instagram": "https://www.instagram.com/elimuboraerp",
+      "facebook": "https://www.facebook.com/elimuborasolutions"
+    }
+  },
+  "styling": {
+    "eyebrows": "breadcrumbs",
+    "latex": true
+  },
+  "icons": {
+    "library": "lucide"
   }
 }
