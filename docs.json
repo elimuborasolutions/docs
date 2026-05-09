@@ -59,7 +59,7 @@
             ]
           },
           {
-            "group": "Years & Terms",
+            "group": "Academic Years & Terms",
             "icon": "calendar",
             "pages": [
               "modules/academic-years/overview",
