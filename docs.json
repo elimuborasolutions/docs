@@ -10,17 +10,13 @@
   "favicon": "https://media.brand.dev/28107f06-65a0-45ce-9937-4bc6a00d197b.svg",
   "navbar": {
     "primary": {
-      "type": "github",
-      "href": "https://github.com/elimuborasolutions/erp"
+      "type": "Get Started",
+      "href": "https://elimuboraerp.com/contact/"
     },
     "links": [
       {
         "href": "https://elimuboraerp.com/login",
         "label": "Login"
-      },
-      {
-        "href": "https://elimuboraerp.com/contact/",
-        "label": "Get Started"
       }
     ]
   },
