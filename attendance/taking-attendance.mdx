@@ -1,0 +1,90 @@
+---
+title: "Taking Daily Attendance with Auto-Generated Class Registers"
+description: "Mark student, teacher, and staff attendance in Elimu Bora with auto-generated morning and afternoon registers, then confirm and review stats."
+---
+
+Every school day, Elimu Bora automatically generates attendance registers for each class and session — you don't need to create them manually. Your job is to open the register for your class, mark each person's status, and confirm the register when you're done. This page walks you through that process from start to finish.
+
+## How registers work
+
+Registers are generated twice each weekday: once for the morning session and once for the afternoon session. Each register is named after the class, date, and session it covers — for example, **Grade 5 - Stream A - Jan 15, 2026 - Morning**.
+
+There are three register types — Student, Teacher, and Staff — and the marking workflow is identical for all three.
+
+Every register moves through a defined lifecycle before it is finalised:
+
+| Status | What it means |
+|---|---|
+| **Open** | The register has been generated and is ready to use, but marking hasn't started yet. |
+| **In Progress** | Attendance marking is actively underway. |
+| **Confirmed** | The register has been formally signed off. It records who confirmed it and when. Changes are no longer allowed. |
+| **Closed** | The register is finalised without a formal sign-off. No further changes can be made. |
+
+## Marking attendance
+
+<Steps>
+  <Step title="Open the register">
+    Go to **Registers** in the left navigation. You'll see a list of today's registers. Find the one for your class and session, then click on it to open it.
+
+    The register status moves to **In Progress** as soon as you begin working on it.
+  </Step>
+
+  <Step title="Mark each attendee">
+    Inside the register, the **Attendance Records** tab lists every student (or teacher or staff member) in the register. For each person, select their status using the radio buttons in the row:
+
+    | Status | When to use it |
+    |---|---|
+    | **Present** | The person attended on time. |
+    | **Late** | The person arrived after the expected check-in time. The system compares the actual check-in time against the expected check-in time to flag late arrivals automatically. |
+    | **Absent** | The person did not attend. |
+    | **Early Leave** | The person left before the expected check-out time. |
+    | **Activity Leave** | The person was absent due to a school-sanctioned activity (e.g. a sports trip or excursion). |
+
+    You can also use the **Mark All Present** or **Mark All Absent** header buttons to apply a status to the entire class at once, then adjust individual records as needed.
+  </Step>
+
+  <Step title="Adjust check-in and check-out times (optional)">
+    If you need to record the exact time a person arrived or left, click the edit icon on their row. A modal opens where you can set the **Check-in Time** and **Check-out Time**, and add any **Notes** for that record.
+  </Step>
+
+  <Step title="Confirm the register">
+    Once you've finished marking, click **Confirm Register** in the page header. You'll be asked to confirm your action. Confirming locks the register and records your name and the time of confirmation.
+
+    If you need to finalise the register without a formal sign-off, use **Close Register** instead. A closed register is also locked but does not record a confirming user.
+  </Step>
+</Steps>
+
+<Note>
+When you mark a student as **Absent** or **Late**, their guardians automatically receive both an email notification and an in-app notification. This happens in the background — you don't need to contact guardians separately.
+</Note>
+
+## Viewing attendance statistics
+
+At the top of each register page, the **Register Stats** widget gives you an immediate summary of the session:
+
+- **Present count** — total number of people marked present
+- **Absent count** — total number of people marked absent
+- **Late count** — total number of people who arrived late
+- **Attendance rate** — the percentage of attendees who are present, calculated automatically
+
+These numbers update in real time as you mark attendance.
+
+## Bulk actions
+
+If you need to update multiple records at once, use the checkboxes in the attendance table to select several rows, then choose an action from the bulk actions menu:
+
+- **Mark Present** — marks all selected records as present
+- **Mark Absent** — marks all selected records as absent and creates a pending follow-up for each
+- **Mark Late** — marks all selected records as late and creates a pending follow-up for each
+
+<Warning>
+Bulk actions apply immediately without a confirmation prompt on individual records. Double-check your selection before using them on a large group.
+</Warning>
+
+## Reopening a register
+
+If a register was closed in error, you can reopen it. On a closed register, click **Reopen Register** in the page header. This returns the register to an editable state and allows further changes.
+
+<Tip>
+You can download a PDF attendance report for any closed register by clicking **Download Report** in the page header. This is useful for physical filing or sharing with school leadership.
+</Tip>

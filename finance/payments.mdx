@@ -1,0 +1,91 @@
+---
+title: "Recording Invoice Payments and Sending PDF Receipts"
+description: "Record cash, M-Pesa, and bank payments against student invoices, review payment history, and understand how PDF receipts are sent automatically."
+---
+
+When a student's guardian makes a payment, you record it against the relevant invoice in Elimu Bora. The system updates the invoice status automatically, calculates the remaining balance, and sends the guardian a PDF receipt by email — no manual steps required after you save the payment.
+
+## Recording a payment
+
+<Steps>
+  <Step title="Open the invoice">
+    Navigate to **Finance** → **Invoices** and locate the invoice you want to record a payment against. You can filter by status (e.g., **Pending** or **Partial**) or search by student name or admission number. Click the invoice to open it.
+  </Step>
+  <Step title="Open the Payment History tab">
+    On the invoice detail page, scroll to the **Payment History** tab at the bottom. This tab lists all payments recorded against this invoice.
+  </Step>
+  <Step title="Click Record Payment">
+    Select **Record Payment** to open the payment form.
+  </Step>
+  <Step title="Enter the payment details">
+    Fill in the following fields:
+
+    - **Amount** — the amount paid in KES
+    - **Payment Date** — the date the payment was received
+    - **Payment Method** — choose Cash, M-Pesa, Bank Transfer, Card, or Cheque
+    - **Transaction ID** — the M-Pesa transaction code, bank reference, or any manual reference number (optional for cash)
+  </Step>
+  <Step title="Save the payment">
+    Click **Save**. The payment is recorded, the invoice balance is reduced immediately, and the invoice status updates automatically.
+  </Step>
+</Steps>
+
+<Note>
+  As soon as you save a payment, a **PDF receipt is generated and emailed to the guardian automatically**. You do not need to send anything manually. The receipt includes the payment amount, date, method, transaction reference, and the updated invoice balance.
+</Note>
+
+---
+
+## How invoice status updates
+
+The invoice status changes automatically based on cumulative payments:
+
+| Payments recorded | Status |
+|---|---|
+| No payments yet | **Pending** |
+| Some payments, balance still outstanding | **Partial** |
+| Total payments equal invoice total | **Paid** |
+| Due date passed, not fully paid | **Overdue** |
+
+You never need to update the status manually — the system recalculates it each time a payment is saved.
+
+---
+
+## Cheque payments
+
+Cheque payments have an extra step before they are applied to the invoice balance.
+
+<Tabs>
+  <Tab title="Acknowledging a cheque">
+    When you record a payment with the method **Cheque**, it is saved with a status of **Pending** until the cheque clears. The invoice balance is not reduced yet.
+
+    Once the cheque clears at the bank, open the invoice, go to the **Payment History** tab, find the cheque payment, and click **Acknowledge**. You will be asked to confirm. The payment status moves to **Cleared**, the invoice balance is reduced, and a receipt is sent to the guardian.
+  </Tab>
+  <Tab title="Marking a cheque as bounced">
+    If a cheque bounces, open the payment record in the **Payment History** tab and click **Mark Bounced**. Enter the bounce reason and a penalty amount (the system pre-fills a default penalty amount if your school has a "Bounced Cheque Penalty" billable configured). The cheque is marked **Bounced** and a penalty line is automatically added to the invoice.
+  </Tab>
+</Tabs>
+
+---
+
+## Viewing payment history
+
+To review all payments recorded against a specific invoice:
+
+1. Go to **Finance** → **Invoices** and open the invoice.
+2. Click the **Payment History** tab.
+
+Each row shows the payment date, amount paid, payment method, balance before and after the payment, transaction ID, and status. You can filter by date range to narrow the view.
+
+To see all payments across all invoices in one place, go to **Finance** → **Invoice Payments**. You can filter this list by payment method, status, sponsor, or date range.
+
+---
+
+## Filtering invoices by status
+
+From **Finance** → **Invoices**, use the status filter to focus on what needs attention:
+
+- **Overdue** — students whose payments are past the due date; the system sends daily reminders to their guardians automatically
+- **Partial** — students who have paid something but still have an outstanding balance
+- **Pending** — students with no payment recorded at all
+- **Paid** — fully settled invoices for your records

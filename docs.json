@@ -1,0 +1,77 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "almond",
+  "name": "Elimu Bora",
+  "colors": {
+    "primary": "#840404",
+    "light": "#bc7c7c",
+    "dark": "#e2c6c6"
+  },
+  "favicon": "https://media.brand.dev/28107f06-65a0-45ce-9937-4bc6a00d197b.svg",
+  "navbar": {
+    "primary": {
+      "type": "github",
+      "href": "https://github.com/elimuborasolutions/erp"
+    }
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "roles-and-access"
+            ]
+          },
+          {
+            "group": "Academics",
+            "pages": [
+              "academics/curriculum-setup",
+              "academics/assessments",
+              "academics/report-cards",
+              "academics/timetables"
+            ]
+          },
+          {
+            "group": "Attendance",
+            "pages": [
+              "attendance/taking-attendance",
+              "attendance/follow-ups"
+            ]
+          },
+          {
+            "group": "Finance",
+            "pages": [
+              "finance/fee-management",
+              "finance/payments",
+              "finance/mpesa",
+              "finance/student-wallet"
+            ]
+          },
+          {
+            "group": "Inventory",
+            "pages": [
+              "inventory/products-and-stock",
+              "inventory/procurement",
+              "inventory/requisitions"
+            ]
+          },
+          {
+            "group": "School Management",
+            "pages": [
+              "school/events",
+              "school/notifications",
+              "school/reports",
+              "school/bulk-imports",
+              "school/settings"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

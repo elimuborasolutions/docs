@@ -1,0 +1,99 @@
+---
+title: "Collecting School Fees via M-Pesa and STK Push Payments"
+description: "Collect school fees through M-Pesa STK Push prompts or guardian-initiated paybill payments, with automatic invoice updates and receipt delivery."
+---
+
+Elimu Bora integrates directly with Safaricom's M-Pesa through the **Daraja API**. This means guardians can pay school fees via M-Pesa without needing to visit the school in person, and the system updates the invoice automatically once payment is confirmed — no manual entry required.
+
+There are two ways M-Pesa payments can flow into your school:
+
+1. **STK Push (Lipa Na M-Pesa)** — you initiate a payment prompt from the system to the guardian's phone
+2. **C2B (Customer to Business)** — the guardian sends payment directly using your school's paybill or till number
+
+---
+
+## STK Push — School-initiated payment
+
+With STK Push, you trigger a payment request from inside Elimu Bora. The guardian receives a pop-up prompt on their phone asking them to enter their M-Pesa PIN to approve the payment.
+
+<Steps>
+  <Step title="Open the student's invoice">
+    Navigate to **Finance** → **Invoices** and open the invoice you want to collect payment for.
+  </Step>
+  <Step title="Select Pay via M-Pesa">
+    On the invoice page, click **Pay via M-Pesa** to open the STK Push form.
+  </Step>
+  <Step title="Enter the guardian's phone number">
+    Type the guardian's M-Pesa phone number. Make sure it is in the correct format.
+
+    <Note>
+      Phone numbers must be in the format **2547XXXXXXXX** — starting with the country code 254, followed by the 9-digit number without a leading zero. For example, 0712 345 678 becomes 254712345678.
+    </Note>
+  </Step>
+  <Step title="Confirm and send the prompt">
+    Review the amount and click **Send Request**. Safaricom sends an M-Pesa prompt to the guardian's phone within seconds.
+  </Step>
+  <Step title="Guardian approves the payment">
+    The guardian enters their M-Pesa PIN on their phone to approve. Once they confirm, Safaricom sends a callback to Elimu Bora automatically.
+  </Step>
+  <Step title="Invoice updates automatically">
+    The invoice status updates to reflect the payment — no manual entry needed. A PDF receipt is emailed to the guardian automatically.
+  </Step>
+</Steps>
+
+<Warning>
+  If the guardian declines the prompt or does not respond before it times out, the payment is not recorded and the invoice remains **Pending**. You can send another STK Push request or ask the guardian to pay via the paybill directly.
+</Warning>
+
+---
+
+## C2B — Guardian-initiated payment
+
+With C2B payments, the guardian pays directly from their M-Pesa menu using your school's paybill or till number. This works even without any action from the school side.
+
+<Steps>
+  <Step title="Share the paybill details with the guardian">
+    Provide the guardian with:
+    - Your school's **paybill number** (or till number)
+    - The student's **admission number** as the account reference
+  </Step>
+  <Step title="Guardian pays via M-Pesa">
+    The guardian opens M-Pesa on their phone, selects **Lipa Na M-Pesa** → **Pay Bill**, enters your paybill number, uses the student's admission number as the account number, and enters the amount and their PIN.
+  </Step>
+  <Step title="Invoice updates automatically">
+    Once Safaricom confirms the transaction, Elimu Bora receives the payment and matches it to the student's invoice using the admission number. The invoice status updates immediately and a receipt is sent to the guardian.
+  </Step>
+</Steps>
+
+<Warning>
+  Guardians must use the **exact student admission number** as the M-Pesa account reference when paying via paybill. If the admission number is entered incorrectly, the system cannot match the payment to the student and the invoice will not be updated.
+</Warning>
+
+---
+
+## What happens after a successful M-Pesa payment
+
+Regardless of whether the payment came through STK Push or C2B:
+
+- The invoice balance is reduced automatically
+- The invoice status updates (Pending → Partial or Paid)
+- A PDF payment receipt is generated and emailed to the guardian
+- An in-app notification is stored for your finance team
+
+All M-Pesa transactions are logged in the system for audit purposes, including the transaction reference code and the payment details confirmed by Safaricom.
+
+---
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="What if the guardian paid but the invoice did not update?">
+    First check that the guardian used the correct admission number as the account reference (for C2B payments). If the payment was made but not matched, contact your Elimu Bora system administrator to look up the transaction in the M-Pesa logs and manually reconcile the payment.
+  </Accordion>
+  <Accordion title="Can I send an STK Push to multiple guardians?">
+    STK Push sends a prompt to one phone number per request. If a student has more than one guardian linked, you will need to choose which guardian's phone number to use for each STK Push.
+  </Accordion>
+  <Accordion title="What payment methods are available besides M-Pesa?">
+    You can also record payments made by **Cash**, **Bank Transfer**, **Card**, or **Cheque**. See the [Recording and Tracking Invoice Payments](/finance/payments) page for details.
+  </Accordion>
+</AccordionGroup>

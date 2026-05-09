@@ -1,0 +1,90 @@
+{
+  "projectType": "saas",
+  "projectName": "Elimu Bora School ERP",
+  "projectDescription": "A comprehensive school management platform built for Kenyan educational institutions, digitising academics, attendance, finance, inventory, and events in one unified system.",
+  "theme": "almond",
+  "primaryColor": "#840404",
+  "lightColor": "#bc7c7c",
+  "darkColor": "#e2c6c6",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "roles-and-access"
+            ]
+          },
+          {
+            "group": "Academics",
+            "pages": [
+              "academics/curriculum-setup",
+              "academics/assessments",
+              "academics/report-cards",
+              "academics/timetables"
+            ]
+          },
+          {
+            "group": "Attendance",
+            "pages": [
+              "attendance/taking-attendance",
+              "attendance/follow-ups"
+            ]
+          },
+          {
+            "group": "Finance",
+            "pages": [
+              "finance/fee-management",
+              "finance/payments",
+              "finance/mpesa",
+              "finance/student-wallet"
+            ]
+          },
+          {
+            "group": "Inventory",
+            "pages": [
+              "inventory/products-and-stock",
+              "inventory/procurement",
+              "inventory/requisitions"
+            ]
+          },
+          {
+            "group": "School Management",
+            "pages": [
+              "school/events",
+              "school/notifications",
+              "school/reports",
+              "school/bulk-imports",
+              "school/settings"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "Multi-curriculum support (CBC and 8-4-4)",
+    "Full academic lifecycle management: assessments, grading, and report cards",
+    "Attendance tracking for students, teachers, and staff with follow-up workflows",
+    "M-Pesa STK Push integration for fee payments",
+    "Per-student digital wallet with credit/debit tracking",
+    "Inventory and procurement management with low-stock alerts",
+    "School events management with targeted attendee notifications",
+    "Role-based access for principals, teachers, HODs, staff, and guardians",
+    "Automated email and in-app notifications for all key events",
+    "Bulk CSV imports for students, guardians, grades, invoices, and inventory",
+    "Downloadable reports for academics, finance, and inventory",
+    "Module-based feature gating (Starter, Base, Full, or Custom plans)"
+  ],
+  "publicApiSurface": [
+    "POST /api/mpesa/stk-push — initiate M-Pesa STK Push payment",
+    "POST /api/mpesa/c2b — M-Pesa C2B payment callback",
+    "POST /api/contact — contact form submission",
+    "POST /api/tenants/validate — check subdomain availability",
+    "POST /api/newsletter — newsletter / lead capture"
+  ]
+}

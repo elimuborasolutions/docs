@@ -1,0 +1,106 @@
+---
+title: "Generate, Review, and Publish Student Report Cards"
+description: "Generate report cards from a closed assessment, review and add remarks, publish to guardians, and download PDFs — all without leaving Elimu Bora."
+---
+
+Report cards in Elimu Bora are permanent academic records. When you generate a report card, the system takes a snapshot of every grade, attendance summary, and class ranking at that exact moment in time. Once published, guardians receive an in-app and email notification with access to their child's results.
+
+---
+
+## What a report card contains
+
+Each report card captures:
+
+- **Subject grades** — the raw score, percentage, and grade band (A+, A, B+…) for every subject in the assessment
+- **Attendance summary** — total school days, days present, days absent, days late, and attendance rate for the assessment period
+- **Class position** — the student's rank within their stream (e.g., 3rd out of 42)
+- **Teacher remarks** — qualitative notes entered during grade entry, editable before publishing
+- **Principal remarks** — a school-level comment, editable before publishing
+- **Conduct ratings** — optional scores for classroom conduct, work completion, communication, and other attributes
+- **Project work** — CBC-specific section for skill-based performance areas and ratings
+
+---
+
+## Generating report cards
+
+<Steps>
+  <Step title="Ensure the assessment is closed">
+    Report cards can only be generated from a **Closed** assessment. If the assessment is still in Grading status, close it first — go to the assessment, confirm all grades are entered, then click **Close Assessment**.
+  </Step>
+
+  <Step title="Trigger report card generation">
+    From a closed assessment, click **Generate Report Cards**. The system creates one report card per student who has at least one grade recorded for that assessment.
+
+    You will see a confirmation showing how many report cards were generated. You are then taken to the Report Cards list, filtered to show only the cards from that assessment.
+
+    Alternatively, if you chose **Close & Generate Reports Now** when closing the assessment, this step happens automatically.
+  </Step>
+
+  <Step title="Review the report cards">
+    Go to **Assessments & Grading → Report Cards** and open individual cards to review them. Check that grades, attendance, and rankings look correct before publishing.
+  </Step>
+
+  <Step title="Add or edit remarks">
+    Open a report card and click **Edit Remarks**. Enter the teacher's remarks and the principal's remarks. Both fields are free text. Click **Save** when done.
+
+    You can also click **Edit Conduct** to add conduct ratings (Classroom Conduct, Work Completion, Communication, etc.) and **Edit Project Work** for CBC project-based assessments.
+  </Step>
+
+  <Step title="Publish the report card">
+    When the report card is ready to share, change its status to **Published**. The system immediately dispatches a notification to the student's guardians — both an in-app alert and an email — informing them that the report card is available.
+
+    Guardians can log in and view the report card directly from their dashboard.
+  </Step>
+
+  <Step title="Download a PDF">
+    Open any report card and click **Download PDF** to save a formatted PDF copy. Use this to print physical copies or share directly with parents who prefer a document.
+  </Step>
+</Steps>
+
+---
+
+## How class ranking works
+
+The system automatically ranks each student within their stream based on their overall average percentage across all graded subjects. The **class position** field shows their rank (e.g., 5th) and the total number of students in the stream (e.g., out of 38). This ranking is calculated at the time of report card generation and is part of the immutable snapshot.
+
+---
+
+## Grading scale and grade bands
+
+The grade bands shown on report cards — A+, A, B+, and so on — come from the grading scale attached to the assessment. If your school uses different scales for different assessments, each report card will reflect the scale that was active for that specific assessment.
+
+To review or update your grading scales, go to **Settings → Grading Scales**.
+
+---
+
+## Report cards are immutable
+
+<Note>
+  Once a report card is generated, it is a permanent snapshot of the student's performance at that point in time. If you later correct a grade in the source assessment, published report cards are **not** retroactively updated. To issue a corrected report card, you would need to re-generate it — which creates a new record. Contact your system administrator if you need to handle grade corrections after publishing.
+</Note>
+
+---
+
+## Frequently asked questions
+
+<AccordionGroup>
+  <Accordion title="Can a guardian see report cards before they are published?">
+    No. Guardians only see report cards after they have been explicitly published. Until then, the report card exists in the system but is only visible to school staff.
+  </Accordion>
+
+  <Accordion title="What if a student has no grades — do they still get a report card?">
+    No. The system only generates a report card for students who have at least one grade recorded for the assessment. Students with no grades will not appear in the report cards list for that assessment.
+  </Accordion>
+
+  <Accordion title="Can I generate report cards for a single stream within a grade level?">
+    If the assessment was scoped to a specific stream, only students in that stream receive report cards. If the assessment covered the entire grade level, all students in all streams of that grade receive cards.
+  </Accordion>
+
+  <Accordion title="Who receives the notification when a report card is published?">
+    All guardians linked to the student receive the notification — both in-app and by email. If a student has multiple guardians (mother, father, sponsor), each receives an individual notification.
+  </Accordion>
+
+  <Accordion title="Can I re-generate report cards if I made an error?">
+    You can run **Generate Report Cards** again on a closed assessment. The system will create new report cards. Previously generated cards for the same assessment remain in the system — work with your administrator to manage duplicates.
+  </Accordion>
+</AccordionGroup>

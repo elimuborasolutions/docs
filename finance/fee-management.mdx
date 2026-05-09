@@ -1,0 +1,106 @@
+---
+title: "Setting Up Fee Billables and Generating Student Invoices"
+description: "Learn how to define reusable billable fees, generate invoices for students, and track the full invoice lifecycle from pending to paid."
+---
+
+Fee management in Elimu Bora is built around two concepts: **billables** and **invoices**. A billable is a reusable fee definition — think of it as a template. An invoice is the actual charge raised against a specific student (or staff member) for a given term. You define your fees once as billables, then generate invoices from them whenever needed.
+
+## Billables
+
+A billable captures a fee that your school charges repeatedly — for example, "Term 1 Tuition Fee", "Lunch Fee", or "Activity Fee". Each billable has a name, an amount per curriculum stage, and a **Recurring** flag. When a billable is marked recurring, it is automatically re-applied to all relevant students at the start of each new term, saving you from recreating the same invoices manually.
+
+### Creating a billable
+
+<Steps>
+  <Step title="Open the Billables list">
+    In the left navigation, go to **Finance** → **Billables**. You will see all existing fee definitions for your school.
+  </Step>
+  <Step title="Click New Billable">
+    Select **New Billable** in the top-right corner of the page.
+  </Step>
+  <Step title="Fill in the fee details">
+    Enter the fee **Name** (e.g., "Term 2 Tuition Fee"). Select the **Curricula** this fee applies to — CBC, 8-4-4, or both. Once you select a curriculum, an amount field appears for each curriculum stage so you can set stage-specific amounts in KES.
+  </Step>
+  <Step title="Set the Recurring flag">
+    Check **Recurring** if this fee should be re-raised automatically each term. Leave it unchecked for one-off charges.
+  </Step>
+  <Step title="Save the billable">
+    Click **Save**. The billable is now available to attach to invoices.
+  </Step>
+</Steps>
+
+<Tip>
+  Marking a fee as **Recurring** means you only have to define it once. When a new term opens, the system automatically creates invoices for all applicable students — no manual work required each term.
+</Tip>
+
+---
+
+## Invoices
+
+Once your billables are set up, you generate invoices to charge students for a specific term. An invoice groups one or more billable line items together and tracks how much has been paid and how much remains outstanding.
+
+### Generating an invoice
+
+<Steps>
+  <Step title="Go to Invoices">
+    Navigate to **Finance** → **Invoices**, then click **New Invoice**.
+  </Step>
+  <Step title="Select the academic year and term">
+    Choose the **Academic Year** and then the **Term** this invoice belongs to.
+  </Step>
+  <Step title="Choose the recipient">
+    Under **Invoice For**, select **Student** (or Teacher / Staff if applicable). Then search for and select the individual student by name or admission number.
+  </Step>
+  <Step title="Add an optional invoice label">
+    You can add a short label such as "Term 1 2026 Fees" to give the invoice a clear header. This appears on the invoice and receipt sent to the guardian.
+  </Step>
+  <Step title="Set a due date">
+    Choose a **Due Date**. The system uses this date to mark invoices overdue if payment has not been received by then.
+  </Step>
+  <Step title="Add line items">
+    In the **Line Items** section, click **Add line item** and select a billable from the dropdown. The amount auto-fills based on the student's curriculum stage. Add as many line items as needed.
+  </Step>
+  <Step title="Save the invoice">
+    Click **Save**. The invoice is created with a status of **Pending** and the student's guardian receives an automatic notification by email and in-app.
+  </Step>
+</Steps>
+
+<Note>
+  When you save a new invoice, the guardian linked to that student is notified immediately — both by email and through an in-app notification. You do not need to contact them separately.
+</Note>
+
+---
+
+## Invoice lifecycle
+
+Every invoice moves through a defined set of statuses as payments come in.
+
+<AccordionGroup>
+  <Accordion title="PENDING — Invoice created, no payment yet">
+    The invoice has been raised and sent to the guardian, but no payment has been recorded against it. This is the starting status for all new invoices.
+  </Accordion>
+  <Accordion title="PARTIAL — Some payment received">
+    At least one payment has been recorded, but the full balance has not been settled. The invoice shows the remaining amount due.
+  </Accordion>
+  <Accordion title="PAID — Fully settled">
+    The total amount of all recorded payments equals the invoice total. No further action is needed.
+  </Accordion>
+  <Accordion title="OVERDUE — Payment deadline passed">
+    The due date has passed and the invoice has not been fully paid. The system checks for overdue invoices daily at 08:00 and sends overdue reminder notifications to the guardian automatically. No manual follow-up is needed.
+  </Accordion>
+</AccordionGroup>
+
+The system tracks the **remaining balance** on each invoice automatically. Every time a payment is recorded, the balance is recalculated and the status updated in real time.
+
+---
+
+## Filtering and reviewing invoices
+
+From **Finance** → **Invoices**, you can filter the invoice list by status to get a focused view:
+
+- **Pending** — invoices with no payment recorded
+- **Partial** — invoices with a remaining balance
+- **Overdue** — invoices past their due date
+- **Paid** — fully settled invoices
+
+Use these filters during fee collection periods to quickly identify which students still owe fees.
