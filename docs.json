@@ -32,22 +32,22 @@
         "pages": [
           "introduction",
           "quickstart",
-          "modules/Curriculum",
-          "modules/Users",
-          "modules/AcademicYears",
-          "modules/Attendance",
-          "modules/Assessments",
-          "modules/Timetable",
-          "modules/Events",
-          "modules/Finance",
-          "modules/Inventory",
-          "modules/Sports",
-          "modules/Clubs",
-          "modules/ActivityLog",
+          "modules/users",
+          "modules/curriculum",
+          "modules/academic-years",
+          "modules/attendance",
+          "modules/assessments",
+          "modules/timetable",
+          "modules/events",
+          "modules/finance",
+          "modules/inventory",
+          "modules/sports",
+          "modules/clubs",
+          "modules/activity-log",
           "roles-permissions",
-          "guardians/Overview",
-          "settings/Overview",
-          "reports/Overview"
+          "guardians/overview",
+          "settings/overview",
+          "reports/overview"
         ]
       }
     ]
