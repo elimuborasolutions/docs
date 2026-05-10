@@ -29,25 +29,40 @@
     "tabs": [
       {
         "tab": "Documentation",
-        "pages": [
-          "introduction",
-          "quickstart",
-          "modules/users",
-          "modules/curriculum",
-          "modules/academic-years",
-          "modules/attendance",
-          "modules/assessments",
-          "modules/timetable",
-          "modules/events",
-          "modules/finance",
-          "modules/inventory",
-          "modules/sports",
-          "modules/clubs",
-          "modules/activity-log",
-          "roles-permissions",
-          "guardians/overview",
-          "settings/overview",
-          "reports/overview"
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "roles-permissions",
+              "guardians/overview"
+            ]
+          },
+          {
+            "group": "Modules",
+            "pages": [
+              "modules/users",
+              "modules/curriculum",
+              "modules/academic-years",
+              "modules/attendance",
+              "modules/assessments",
+              "modules/timetable",
+              "modules/events",
+              "modules/finance",
+              "modules/inventory",
+              "modules/sports",
+              "modules/clubs",
+              "modules/activity-log"
+            ]
+          },
+          {
+            "group": "More",
+            "pages": [
+              "reports/overview",
+              "settings/overview"
+            ]
+          }
         ]
       }
     ]
