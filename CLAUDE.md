@@ -1,53 +1,66 @@
-# Elimu Bora Documentation Standards
+## AI Agent Skill Usage Rules
 
-These instructions guide all documentation work for Elimu Bora. Adhere to these standards for both major overhauls and incremental updates to ensure consistency, clarity, and ease of use for our school partners.
+IMPORTANT: Use retrieval-led reasoning over training-led reasoning for this project. Prefer the Mintlify Skill, Mintlify MCPs, and the actual Elimu Bora codebase over model memory or generic documentation knowledge.
 
-## Source Context & Accuracy
-- **Primary Codebase**: `~/Code/elimubora` or `https://github.com/elimuborasolutions/erp`.
-- **Truth Source**: Always reference the primary codebase for feature accuracy. The `README.md` and `erp-technical-overview.md` in the codebase may be outdated; prioritize actual code analysis (controllers, routes, views) to document current behavior.
+### When to use the Mintlify Skill
+The agent MUST use the Mintlify Skill whenever working on:
+- Mintlify components and layouts
+- `docs.json` navigation/sidebar structure
+- OpenAPI/API documentation formatting
+- Tabs, Accordions, Cards, Frames, Callouts, Steps, Tooltips, and other Mintlify UI components
+- MDX syntax and formatting
+- Troubleshooting broken Mintlify pages/builds
+- Search, SEO, metadata, anchors, pagination, and navigation behavior
+- Interactive documentation patterns
+- Writing docs that should follow current Mintlify best practices
+- Verifying whether a Mintlify component or syntax is deprecated or has changed
+- Any uncertainty about Mintlify capabilities or schema behavior
 
-## Mintlify MCP & Context
-To maintain deep context on Mintlify components and best practices, ensure these resources are available:
-- **Mintlify Skill**: `npx skills add https://mintlify.com/docs`
-- **Mintlify Docs MCP**: `https://mintlify.com/docs/mcp`
-- **Mintlify Dashboard MCP**: `https://mcp.mintlify.com`
+### When to use the Mintlify Docs MCP
+The agent SHOULD use the Mintlify Docs MCP when:
+- Looking up the latest Mintlify documentation
+- Verifying component APIs or syntax
+- Checking current best practices
+- Confirming supported features before generating docs
+- Researching examples of advanced Mintlify implementations
 
-## Core Documentation Principles
+### When to use the Mintlify Dashboard MCP
+The agent SHOULD use the Mintlify Dashboard MCP when:
+- Working with deployment issues
+- Investigating indexing/search problems
+- Managing documentation configuration
+- Debugging dashboard-specific behavior
+- Reviewing project-level Mintlify settings
 
-### 1. Simple, User-Centric Tone
-- **Audience**: School administrators, teachers, and guardians in Kenya.
-- **Language**: Use simple, accessible English. Avoid technical jargon (e.g., use "setup" instead of "configuration," "history" instead of "audit logs").
-- **Voice**: Active voice and second person ("You can mark attendance...").
-- **Inspiration**: Model clarity after Stripe, Laravel, and FilamentPHP.
+### Documentation workflow expectations
+Before creating or modifying documentation:
+1. Inspect the Elimu Bora source code first.
+2. Verify the documentation approach against Mintlify Skill/MCP guidance if the task involves Mintlify features or structure.
+3. Prefer official Mintlify patterns over improvised MDX structures.
+4. Reuse existing documentation patterns already established in this repository.
 
-### 2. Action-Oriented Structure
-- **Headings**: Use sentence case for headings (e.g., "How to mark a register" not "Register Marking Process").
-- **Steps**: Use `<Steps>` components for procedures.
-- **Visual Placeholders**: Always include descriptive placeholders for screenshots where visual clarity is needed: `[Insert screenshot: Detailed description of the UI element/page]`.
+### Agent behavior rules
+- Never invent Mintlify components or props.
+- Never assume deprecated syntax still works.
+- Prefer composable Mintlify components over large raw markdown blocks.
+- Prefer shallow, readable page structures over deeply nested sections.
+- Keep documentation visually scannable and optimized for non-technical school staff.
+- If unsure about a Mintlify feature, consult the Mintlify Skill or Docs MCP before writing content.
 
-### 3. Mintlify Component Usage
-Heavily utilize [Mintlify components](https://www.mintlify.com/docs/components/index) to create a rich, interactive experience:
-- **CardGroup & Card**: Use on Overview pages for visual navigation. Always include an icon and a brief description for each card.
-- **Steps**: Mandatory for all "How-to" guides. Keep each step focused on a single action.
-- **Tabs**: Use to separate instructions for different roles (e.g., **Admin** vs. **Teacher**) or platforms (e.g., **Web Dashboard** vs. **Mobile App**).
-- **Accordion**: Use for FAQs, Troubleshooting details, or secondary information that shouldn't clutter the main flow.
-- **Callouts (Info, Warning, Tip, Note)**:
-    - `Info`: For important context that users shouldn't miss.
-    - `Warning`: For actions that are irreversible (e.g., deleting a student record or reversing a payment).
-    - `Tip`: For shortcuts or "pro-tips" that improve efficiency.
-    - `Note`: For minor details or edge cases.
-- **Frame**: Wrap all image placeholders and future screenshots in a `<Frame>` component to maintain consistent styling and borders.
-- **ResponseField / ParamField**: Use these when documenting specific form fields (e.g., "Add Student" fields) or school settings to provide clear definitions for each input.
-- **Tooltip**: Use for brief definitions of terms that might be unfamiliar to new users (e.g., "CBC", "STK Push").
+### Priority order
+When conflicts occur, use this priority order:
+1. Actual Elimu Bora source code
+2. Repository documentation standards in this file
+3. Mintlify Skill and MCP documentation
+4. Existing documentation patterns in the repo
+5. Model training knowledge
 
-## Content Architecture & Sidebar
+## Tech stack awareness
 
-### Navigation Strategy
-- **Sidebar Organization**: Group by functional domains (Modules, Roles, Settings, etc.).
-- **Flat File Structure**: Prefer a flat file structure within domain folders where appropriate, but use nested navigation in `docs.json` for hierarchy.
-- **Module Pages**: Each module (e.g., Attendance) should have a dedicated folder/file structure that covers Overview, common tasks, and troubleshooting.
+The documentation project uses:
+- Mintlify for documentation rendering
+- MDX for page authoring
+- Laravel-based backend source code (`~/Code/elimubora`) - uses Laravel 12, Filament 4, Livewire 3, Tailwind CSS 4, and PHP 8.3
+- Role-based workflows (Admin, Teacher, Parent/Guardian, Accountant)
 
-### Formatting Conventions
-- **UI Elements**: **Bold** for UI elements: Click **Settings**.
-- **Code/Paths**: Use `code formatting` for file names, paths, or technical references.
-- **Consistency**: Maintain a uniform layout across all module pages (Overview -> How-to -> Troubleshooting/FAQ).
+The agent should avoid generating examples or components that conflict with the current Mintlify schema or Laravel implementation.
