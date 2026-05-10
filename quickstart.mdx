@@ -1,116 +1,34 @@
 ---
-title: "Get Started: Set Up Your School on Elimu Bora Today"
-description: "Go from a fresh Elimu Bora account to a fully configured school — with staff, students, and guardians — by following these steps."
+title: "Quick Start"
+description: "Set up your school on Elimu Bora in under a day."
 ---
 
-When Elimu Bora provisions your school, you receive everything you need to get started: a dedicated subdomain, a Super Admin login, and an isolated database that belongs only to your school. This guide walks you through the first things to do after you receive that welcome email, so you can be up and running the same day.
+This guide takes a new school from welcome email to running daily operations.
 
-<Steps>
-  <Step title="Receive your account">
-    The Elimu Bora team creates your school's account and sends you a welcome email with:
+[Insert screenshot: Welcome email from Elimu Bora showing subdomain, Super Admin username, and temporary password]
 
-    - Your school's subdomain — for example, `sunrise.elimuboraerp.com`
-    - Your **Super Admin** username and temporary password
+## How to set up your school
 
-    Keep this email safe. The Super Admin role has unrestricted access within your school's account and is the starting point for all configuration.
-  </Step>
+1. Receive your account. The Elimu Bora team emails your subdomain and Super Admin login.
+2. Log in at `https://yourschool.elimuboraerp.com` and change your password.
+3. Enable MFA on the Super Admin account from your profile.
+4. Configure school details in Settings → School Details (name, motto, contact, logo, primary colour). See [School details](/settings/school-details).
+5. Set up curriculum — pick CBC or 8-4-4, add grade levels, streams, subjects. See [Curriculum overview](/modules/curriculum/overview).
+6. Create the academic year and terms. See [Academic years](/modules/academic-years/overview).
+7. Add staff in Users. Assign roles (Teacher, Bursar, Class Teacher, etc.). See [Add a user](/modules/users/add-user).
+8. Enrol students and link guardians. Use bulk import for large lists. See [Bulk import](/modules/users/bulk-import).
+9. Activate modules based on your subscription plan (Attendance, Finance, Inventory, etc.).
 
-  <Step title="Log in for the first time">
-    Open a browser and navigate to your subdomain (e.g., `https://sunrise.elimuboraerp.com`). Enter your Super Admin credentials on the login screen and click **Sign in**.
+[Insert screenshot: Settings → School Details form with Identity, Contact, and Branding sections visible]
 
-    On your first login you will be prompted to change your password. Choose a strong password and store it securely.
+## Notes
 
-    <Note>
-      Elimu Bora supports multi-factor authentication (MFA) for extra security. After logging in, go to your profile settings to enable TOTP-based MFA or email one-time passwords. We strongly recommend enabling MFA on the Super Admin account before inviting other users.
-    </Note>
-  </Step>
+- The Super Admin role is unrestricted — assign carefully.
+- Logos work best as transparent PNGs.
+- Module availability depends on your plan. Contact the Elimu Bora team to upgrade.
 
-  <Step title="Configure your school details">
-    Before adding staff or students, fill in your school's profile so that reports, invoices, and email notifications carry the correct information.
+## Troubleshooting
 
-    Go to **Settings → School Details** in the left sidebar. You will find three sections:
-
-    **Identity**
-    - **School Name** — the full official name of your school
-    - **Motto** — your school's motto (optional but recommended; it appears on report cards)
-    - **Vision** — a short vision statement for your school (optional)
-
-    **Contact Information**
-    - Phone number, email address, and website URL
-    - Physical address: county, city, and town
-
-    **Branding**
-    - **Logo** — upload your school logo (PNG or JPG, max 2 MB). The logo appears on report cards, invoices, and email communications sent to guardians.
-    - **Primary Colour** — pick your school's brand colour using the colour picker. Elimu Bora uses this colour across dashboards, email templates, and PDF reports.
-
-    Click **Save Changes** when done.
-
-    <Tip>
-      If your logo has a transparent background (PNG), it looks best on the white report card and invoice headers. Avoid logos with white backgrounds on white paper.
-    </Tip>
-  </Step>
-
-  <Step title="Set up your academic structure">
-    Before you can enrol students or run assessments, Elimu Bora needs to know your curriculum (CBC or 8-4-4), grade levels, and class streams. This structure governs everything else — attendance registers, timetables, assessments, and report cards all sit within it.
-
-    See [Curriculum setup](/academics/curriculum-setup) for step-by-step instructions on creating grade levels, grade streams, subjects, and academic years.
-  </Step>
-
-  <Step title="Add your team">
-    With your school structure in place, create user accounts for everyone who needs access to the system.
-
-    Go to the **Users** section and create accounts for:
-
-    - **Teaching staff** — assign roles such as Teacher, Class Teacher, or HOD
-    - **Administrative staff** — assign roles such as Bursar, HR/Secretary, or Librarian
-    - **School leadership** — assign Principal or Deputy Principal roles
-
-    Each user receives a welcome email with their login credentials. Their role determines which parts of the system they can see and what they can do.
-
-    <Note>
-      Elimu Bora uses role-based access control. A Teacher, for example, can mark attendance and enter grades for their own classes but cannot access finance records. See [Roles and access](/roles-and-access) for a full breakdown of what each role can do.
-    </Note>
-  </Step>
-
-  <Step title="Enrol your students">
-    Go to **Students** in the sidebar and click **New student** to add students one at a time, or use the bulk import feature to add hundreds of students from a spreadsheet.
-
-    For each student you will record:
-
-    - Full name and admission number
-    - Admission date and admission type (new, transfer, re-admission, or sponsorship)
-    - Curriculum and grade level assignment
-    - Blood group and any health conditions (optional)
-
-    <Tip>
-      If you are migrating from another system, use the CSV bulk import to bring in your entire student roll at once. Download the import template from the Students list page, fill it in with your existing data, and upload it. See [Bulk imports](/school/bulk-imports) for the full template reference and import instructions.
-    </Tip>
-  </Step>
-
-  <Step title="Link guardians to students">
-    After enrolling students, add their parents and guardians. Go to **Guardians** and create a guardian account for each parent or caregiver.
-
-    When you link a guardian to a student, Elimu Bora automatically sends the guardian a welcome email with their login credentials. Guardians sign in at your school's subdomain and see a read-only view of their children's data — attendance records, report cards, fee invoices, and wallet balance. They cannot edit any information.
-
-    You can link multiple guardians to a single student (e.g., both parents) and specify the relationship — Mother, Father, Aunt, Uncle, Sponsor, and so on.
-  </Step>
-
-  <Step title="You're ready">
-    Your school is now configured and your team is set up. Here is where to go next depending on what you want to do first:
-
-    <CardGroup cols={2}>
-      <Card title="Attendance" icon="clipboard-check" href="/attendance/taking-attendance">
-        Take daily morning and afternoon attendance for each class stream.
-      </Card>
-      <Card title="Finance" icon="money-bill" href="/finance/fee-management">
-        Create fee definitions, generate invoices, and collect payments via M-Pesa or cash.
-      </Card>
-      <Card title="Assessments" icon="graduation-cap" href="/academics/curriculum-setup">
-        Set up grading scales, create assessments, and publish report cards.
-      </Card>
-      <Card title="Reports" icon="chart-bar" href="/school/reports">
-        View attendance summaries, financial reports, and academic performance overviews.
-      </Card>
-    </CardGroup>
-  </Step>
-</Steps>
+- Welcome email missing? Check spam, then contact support@elimuboraerp.com.
+- Subdomain not loading? Confirm the URL has no typos and uses `https://`.
+- Can't change password? Use the same browser tab and ensure password meets the strength rule (8+ chars, mixed case, number).

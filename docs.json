@@ -2,7 +2,7 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "Elimu Bora ERP Help Center",
-  "description": "Elimu Bora ERP is a school management system that unifies academics, attendance, fees, inventory, and parent communication in one platform — built for Kenyan schools running CBC & 8-4-4.",
+  "description": "Help center for Elimu Bora ERP — a school management system for Kenyan schools running CBC and 8-4-4.",
   "colors": {
     "primary": "#800000",
     "light": "#800000",
@@ -15,93 +15,209 @@
       "label": "Get Started",
       "href": "https://elimuboraerp.com/contact/"
     },
-    "links": [
-      {
-        "type": "button",
-        "label": "Login",
-        "href": "https://elimuboraerp.com/login"
-      }
-    ]
+    "links": [{ "type": "button", "label": "Login", "href": "https://elimuboraerp.com/login" }]
   },
   "navigation": {
+    "global": {
+      "anchors": [
+        { "anchor": "Pricing", "href": "https://elimuboraerp.com/pricing/", "icon": "tag" },
+        { "anchor": "Book a Demo", "href": "https://elimuboraerp.com/contact/", "icon": "calendar-check" },
+        { "anchor": "Blog & Resources", "href": "https://elimuboraerp.com/blog/", "icon": "newspaper" },
+        { "anchor": "Contact Us", "href": "https://elimuboraerp.com/contact/", "icon": "mail" }
+      ]
+    },
     "tabs": [
       {
         "tab": "Documentation",
         "groups": [
           {
             "group": "Get Started",
+            "icon": "rocket",
+            "pages": ["introduction", "quickstart", "roles-and-access"]
+          },
+          {
+            "group": "Users & Identity",
+            "icon": "users",
             "pages": [
-              "introduction",
-              "quickstart",
-              "roles-and-access"
+              "modules/users/overview",
+              "modules/users/add-user",
+              "modules/users/students",
+              "modules/users/guardians",
+              "modules/users/staff",
+              "modules/users/bulk-import"
             ]
           },
           {
-            "group": "Academics",
+            "group": "Curriculum",
+            "icon": "book-open",
             "pages": [
-              "academics/curriculum-setup",
-              "academics/assessments",
-              "academics/report-cards",
-              "academics/timetables"
+              "modules/curriculum/overview",
+              "modules/curriculum/grade-levels",
+              "modules/curriculum/streams",
+              "modules/curriculum/subjects",
+              "modules/curriculum/grading-scales"
+            ]
+          },
+          {
+            "group": "Academic Years & Terms",
+            "icon": "calendar",
+            "pages": [
+              "modules/academic-years/overview",
+              "modules/academic-years/create-year",
+              "modules/academic-years/terms",
+              "modules/academic-years/rollover"
             ]
           },
           {
             "group": "Attendance",
+            "icon": "clipboard-check",
             "pages": [
-              "attendance/taking-attendance",
-              "attendance/follow-ups"
+              "modules/attendance/overview",
+              "modules/attendance/take-attendance",
+              "modules/attendance/follow-ups",
+              "modules/attendance/staff-attendance",
+              "modules/attendance/reports"
             ]
           },
           {
-            "group": "Finance",
+            "group": "Assessments",
+            "icon": "graduation-cap",
             "pages": [
-              "finance/fee-management",
-              "finance/payments",
-              "finance/mpesa",
-              "finance/student-wallet"
+              "modules/assessments/overview",
+              "modules/assessments/create-assessment",
+              "modules/assessments/enter-grades",
+              "modules/assessments/report-cards",
+              "modules/assessments/publish"
+            ]
+          },
+          {
+            "group": "Timetable",
+            "icon": "table",
+            "pages": [
+              "modules/timetable/overview",
+              "modules/timetable/build-timetable",
+              "modules/timetable/lessons",
+              "modules/timetable/renew"
+            ]
+          },
+          {
+            "group": "Events",
+            "icon": "calendar-days",
+            "pages": ["modules/events/overview", "modules/events/create-event", "modules/events/notices"]
+          },
+          {
+            "group": "Finance",
+            "icon": "wallet",
+            "pages": [
+              "modules/finance/overview",
+              "modules/finance/fee-billables",
+              "modules/finance/invoices",
+              "modules/finance/payments",
+              "modules/finance/mpesa",
+              "modules/finance/wallet",
+              "modules/finance/reports"
             ]
           },
           {
             "group": "Inventory",
+            "icon": "boxes",
             "pages": [
-              "inventory/products-and-stock",
-              "inventory/procurement",
-              "inventory/requisitions"
+              "modules/inventory/overview",
+              "modules/inventory/products",
+              "modules/inventory/stock",
+              "modules/inventory/procurement",
+              "modules/inventory/requisitions"
             ]
           },
           {
-            "group": "School Management",
+            "group": "Sports & Games",
+            "icon": "trophy",
+            "pages": ["modules/sports/overview", "modules/sports/teams", "modules/sports/fixtures"]
+          },
+          {
+            "group": "Clubs & Societies",
+            "icon": "users-round",
+            "pages": ["modules/clubs/overview", "modules/clubs/create-club", "modules/clubs/members"]
+          },
+          {
+            "group": "Activity Log",
+            "icon": "history",
+            "pages": ["modules/activity-log/overview", "modules/activity-log/audit"]
+          },
+          {
+            "group": "Roles",
+            "icon": "shield-check",
             "pages": [
-              "school/events",
-              "school/notifications",
-              "school/reports",
-              "school/bulk-imports",
-              "school/settings"
+              "roles/overview",
+              "roles/super-admin",
+              "roles/school-admin",
+              "roles/principal",
+              "roles/deputy-principal",
+              "roles/teacher",
+              "roles/class-teacher",
+              "roles/bursar",
+              "roles/receptionist",
+              "roles/librarian",
+              "roles/guardian",
+              "roles/student"
             ]
+          },
+          {
+            "group": "Parents & Guardians",
+            "icon": "heart",
+            "pages": [
+              "guardians/overview",
+              "guardians/login",
+              "guardians/attendance",
+              "guardians/performance",
+              "guardians/report-cards",
+              "guardians/fees",
+              "guardians/communication",
+              "guardians/profile"
+            ]
+          },
+          {
+            "group": "Settings",
+            "icon": "settings",
+            "pages": ["settings/school-details", "settings/branding", "settings/modules", "settings/notifications"]
+          },
+          {
+            "group": "Reports",
+            "icon": "file-bar-chart",
+            "pages": ["reports/overview"]
+          },
+          {
+            "group": "Troubleshooting",
+            "icon": "life-buoy",
+            "pages": [
+              "troubleshooting/overview",
+              "troubleshooting/login",
+              "troubleshooting/payments",
+              "troubleshooting/notifications"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Resources",
+        "groups": [
+          {
+            "group": "Elimu Bora",
+            "pages": ["resources/links"]
           }
         ]
       }
     ]
   },
-  "appearance": {
-    "default": "system"
-  },
-  "background": {
-    "decoration": "grid"
-  },
+  "appearance": { "default": "system" },
+  "background": { "decoration": "windows" },
   "logo": {
     "light": "/images/elimubora-logo-primary.png",
     "dark": "/images/elimubora-logo-white.png"
   },
   "fonts": {
-    "heading": {
-        "family": "Sora",
-        "weight": 700
-    },
-    "body": {
-        "family": "DM Sans",
-        "weight": 400
-    }
+    "heading": { "family": "Sora", "weight": 700 },
+    "body": { "family": "DM Sans", "weight": 400 }
   },
   "footer": {
     "socials": {
@@ -110,19 +226,45 @@
       "facebook": "https://www.facebook.com/elimuborasolutions",
       "instagram": "https://www.instagram.com/elimuboraerp",
       "linkedin": "https://www.linkedin.com/company/elimu-bora-solutions-co"
-    }
+    },
+    "links": [
+      {
+        "header": "Product",
+        "items": [
+          { "label": "Pricing", "href": "https://elimuboraerp.com/pricing/" },
+          { "label": "Book a Demo", "href": "https://elimuboraerp.com/contact/" }
+        ]
+      },
+      {
+        "header": "Company",
+        "items": [
+          { "label": "Blog & Resources", "href": "https://elimuboraerp.com/blog/" },
+          { "label": "Contact Us", "href": "https://elimuboraerp.com/contact/" }
+        ]
+      },
+      {
+        "header": "Legal",
+        "items": [
+          { "label": "Privacy Policy", "href": "https://elimuboraerp.com/privacy/" },
+          { "label": "Terms of Service", "href": "https://elimuboraerp.com/terms/" }
+        ]
+      },
+      {
+        "header": "Support",
+        "items": [
+          { "label": "support@elimuboraerp.com", "href": "mailto:support@elimuboraerp.com" },
+          { "label": "Contact Us", "href": "https://elimuboraerp.com/contact/" }
+        ]
+      }
+    ]
   },
   "styling": {
     "eyebrows": "breadcrumbs",
     "latex": true
   },
-  "icons": {
-    "library": "lucide"
-  },
+  "icons": { "library": "lucide" },
   "thumbnails": {
     "background": "/images/cover.png",
-    "fonts": {
-      "family": "Sora"
-    }
+    "fonts": { "family": "Sora" }
   }
 }
