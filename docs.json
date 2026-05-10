@@ -33,7 +33,12 @@
           {
             "group": "Get Started",
             "icon": "rocket",
-            "pages": ["introduction", "quickstart", "roles-and-access"]
+            "pages": [
+              "introduction",
+              "quickstart",
+              "roles-and-access"
+            ],
+            "expanded": true
           },
           {
             "group": "Users & Identity",
@@ -45,7 +50,8 @@
               "modules/users/guardians",
               "modules/users/staff",
               "modules/users/bulk-import"
-            ]
+            ],
+            "expanded": true
           },
           {
             "group": "Curriculum",
@@ -56,7 +62,8 @@
               "modules/curriculum/streams",
               "modules/curriculum/subjects",
               "modules/curriculum/grading-scales"
-            ]
+            ],
+            "expanded": true
           },
           {
             "group": "Academic Years & Terms",
@@ -66,7 +73,8 @@
               "modules/academic-years/create-year",
               "modules/academic-years/terms",
               "modules/academic-years/rollover"
-            ]
+            ],
+            "expanded": true
           },
           {
             "group": "Attendance",
@@ -77,7 +85,8 @@
               "modules/attendance/follow-ups",
               "modules/attendance/staff-attendance",
               "modules/attendance/reports"
-            ]
+            ],
+            "expanded": true
           },
           {
             "group": "Assessments",
@@ -88,7 +97,8 @@
               "modules/assessments/enter-grades",
               "modules/assessments/report-cards",
               "modules/assessments/publish"
-            ]
+            ],
+            "expanded": true
           },
           {
             "group": "Timetable",
@@ -98,12 +108,18 @@
               "modules/timetable/build-timetable",
               "modules/timetable/lessons",
               "modules/timetable/renew"
-            ]
+            ],
+            "expanded": true
           },
           {
             "group": "Events",
             "icon": "calendar-days",
-            "pages": ["modules/events/overview", "modules/events/create-event", "modules/events/notices"]
+            "pages": [
+              "modules/events/overview",
+              "modules/events/create-event",
+              "modules/events/notices"
+            ],
+            "expanded": true
           },
           {
             "group": "Finance",
@@ -116,7 +132,8 @@
               "modules/finance/mpesa",
               "modules/finance/wallet",
               "modules/finance/reports"
-            ]
+            ],
+            "expanded": true
           },
           {
             "group": "Inventory",
@@ -127,22 +144,37 @@
               "modules/inventory/stock",
               "modules/inventory/procurement",
               "modules/inventory/requisitions"
-            ]
+            ],
+            "expanded": true
           },
           {
             "group": "Sports & Games",
             "icon": "trophy",
-            "pages": ["modules/sports/overview", "modules/sports/teams", "modules/sports/fixtures"]
+            "pages": [
+              "modules/sports/overview",
+              "modules/sports/teams",
+              "modules/sports/fixtures"
+            ],
+            "expanded": true
           },
           {
             "group": "Clubs & Societies",
             "icon": "users-round",
-            "pages": ["modules/clubs/overview", "modules/clubs/create-club", "modules/clubs/members"]
+            "pages": [
+              "modules/clubs/overview",
+              "modules/clubs/create-club",
+              "modules/clubs/members"
+            ],
+            "expanded": true
           },
           {
             "group": "Activity Log",
             "icon": "history",
-            "pages": ["modules/activity-log/overview", "modules/activity-log/audit"]
+            "pages": [
+              "modules/activity-log/overview",
+              "modules/activity-log/audit"
+            ],
+            "expanded": true
           },
           {
             "group": "Roles",
@@ -160,7 +192,8 @@
               "roles/librarian",
               "roles/guardian",
               "roles/student"
-            ]
+            ],
+            "expanded": true
           },
           {
             "group": "Parents & Guardians",
@@ -174,17 +207,27 @@
               "guardians/fees",
               "guardians/communication",
               "guardians/profile"
-            ]
+            ],
+            "expanded": true
           },
           {
             "group": "Settings",
             "icon": "settings",
-            "pages": ["settings/school-details", "settings/branding", "settings/modules", "settings/notifications"]
+            "pages": [
+              "settings/school-details",
+              "settings/branding",
+              "settings/modules",
+              "settings/notifications"
+            ],
+            "expanded": true
           },
           {
             "group": "Reports",
-            "icon": "file-bar-chart",
-            "pages": ["reports/overview"]
+            "icon": "wallpaper",
+            "pages": [
+              "reports/overview"
+            ],
+            "expanded": true
           },
           {
             "group": "Troubleshooting",
@@ -194,7 +237,8 @@
               "troubleshooting/login",
               "troubleshooting/payments",
               "troubleshooting/notifications"
-            ]
+            ],
+            "expanded": true
           }
         ]
       },
