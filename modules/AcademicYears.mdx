@@ -1,0 +1,97 @@
+---
+title: "Academic Years & Terms"
+description: "Configure your school's academic calendar, terms, and year-end transitions."
+---
+
+Elimu Bora organizes all school data around Academic Years and Terms. Proper configuration ensures that attendance, assessments, and financial records are correctly categorized and searchable.
+
+<CardGroup cols={2}>
+  <Card title="Academic Years" icon="calendar-days" href="#academic-years">
+    Set up new academic years and manage their lifecycle.
+  </Card>
+  <Card title="Managing Terms" icon="calendar-range" href="#managing-terms">
+    Divide your academic year into terms (e.g., Term 1, 2, 3).
+  </Card>
+  <Card title="Year-End Transitions" icon="arrows-rotate" href="#year-end-transitions">
+    Handle promotions and rollover to the next academic year.
+  </Card>
+  <Card title="Calendar Settings" icon="gear" href="#calendar-settings">
+    Configure holidays and non-academic days.
+  </Card>
+</CardGroup>
+
+## Academic Years
+
+The Academic Year is the highest level of organization in Elimu Bora. Only one year can be active at any given time.
+
+<Steps>
+  <Step title="Navigate to Academic Years">
+    Go to **Settings** and select **Academic Years** under the Academic Structure group.
+  </Step>
+  <Step title="Create a New Year">
+    Click **New Academic Year**. Enter the year name (e.g., "2026") and the precise start and end dates for the entire year.
+  </Step>
+  <Step title="Set Status">
+    Newly created years are set to **Upcoming** by default. When the year begins, the system will automatically transition it to **Active** based on the start date, or you can manually activate it.
+  </Step>
+</Steps>
+
+<Info>
+  Once an academic year's end date has passed, it becomes a read-only historical record. This ensures the integrity of past school data.
+</Info>
+
+[Insert screenshot: List of academic years with status badges (Active, Upcoming, Completed)]
+
+## Managing Terms
+
+Terms divide your academic year into manageable periods for teaching and assessment. In the Kenyan system, this typically consists of three terms.
+
+<Steps>
+  <Step title="Open the Year">
+    Select the academic year you want to manage from the list.
+  </Step>
+  <Step title="Add a Term">
+    Navigate to the **Terms** section and click **New Term**.
+  </Step>
+  <Step title="Define Term Details">
+    Enter the term name (e.g., "Term 1") and its specific start and end dates. Ensure these dates do not overlap with other terms in the same year.
+  </Step>
+  <Step title="Configure Assessment Weights">
+    (Optional) Assign weights to the term if your school uses weighted termly averages for final year-end results.
+  </Step>
+</Steps>
+
+[Insert screenshot: Terms management view within an Academic Year]
+
+## Year-End Transitions
+
+As the academic year closes, you must transition students to their next grade levels and prepare the system for the upcoming year.
+
+<Tabs>
+  <Tab title="Student Promotions">
+    Move students to the next grade level:
+    1. Verify that all assessments for the current year are finalized.
+    2. Review the promotion list for each class.
+    3. Manually adjust any exceptions (e.g., students repeating a grade or transferring out).
+    4. Execute the promotion to update student profiles for the new year.
+  </Tab>
+  <Tab title="Financial Rollover">
+    Ensure unpaid balances are carried forward:
+    1. Run a final fee report for the closing year.
+    2. The system will automatically carry forward outstanding balances to the new academic year's invoices.
+  </Tab>
+</Tabs>
+
+## FAQs & Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Can I delete an academic year?">
+    Academic years with existing records (attendance, grades, invoices) cannot be deleted to preserve data integrity. You can only archive them.
+  </Accordion>
+  <Accordion title="Why can't I mark attendance for a new term?">
+    Ensure the term status is **Active** and that the current date falls within the term's start and end dates.
+  </Accordion>
+  <Accordion title="How do I handle middle-of-term breaks (Half-Term)?">
+    You don't need to create separate terms for half-term breaks. Simply mark those days as non-academic in the **Events** or **Holidays** module to prevent them from appearing in attendance registers.
+  </Accordion>
+</AccordionGroup>

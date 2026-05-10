@@ -1,0 +1,111 @@
+---
+title: "Curriculum"
+description: "Define your school's academic structure, including grades, streams, subjects, and grading standards."
+---
+
+The Curriculum module is the foundation of Elimu Bora. It defines how your school is organized academically, which in turn powers attendance registers, timetables, and automated report cards.
+
+<CardGroup cols={2}>
+  <Card title="Grade Levels" icon="layer-group" href="#grade-levels">
+    Define the different grades or forms in your school.
+  </Card>
+  <Card title="Streams (Classes)" icon="door-open" href="#streams">
+    Set up individual class sections within each grade.
+  </Card>
+  <Card title="Subjects" icon="book" href="#subjects">
+    Create subjects and assign them to specific grades and teachers.
+  </Card>
+  <Card title="Grading Scales" icon="percent" href="#grading-scales">
+    Set up the standards for scores and performance levels.
+  </Card>
+</CardGroup>
+
+## Grade Levels
+
+Grade Levels represent the academic stages in your school (e.g., PP1, Grade 4, Form 1). They act as the primary container for students and subjects.
+
+<Steps>
+  <Step title="Access Grade Levels">
+    Navigate to **Settings** and select **Grade Levels** within the Academic Structure cluster.
+  </Step>
+  <Step title="Create a Grade">
+    Click **New Grade Level**. Enter the name and assign a display order. The order determines how grades are sorted in reports and menus.
+  </Step>
+  <Step title="Configure Curriculum Type">
+    Specify whether the grade follows the **CBC** (Competency-Based Curriculum) or the **8-4-4** system. This affects how assessments and report cards are generated for this grade.
+  </Step>
+</Steps>
+
+<Info>
+  Grade Levels can be configured with specific "Age Ranges" to help flag students who might be in a grade that doesn't match their age profile.
+</Info>
+
+[Insert screenshot: Grade levels index showing names, curriculum types, and display orders]
+
+## Streams
+
+Streams (or classes) are sections within a Grade Level (e.g., Grade 6 Red, Grade 6 Blue).
+
+<Steps>
+  <Step title="Add a Stream">
+    Go to **Streams** and click **New Stream**.
+  </Step>
+  <Step title="Link to Grade">
+    Select the parent Grade Level and provide a name for the stream.
+  </Step>
+  <Step title="Assign Class Teacher">
+    Select a staff member as the **Class Teacher**. This person will have primary responsibility for marking daily registers and overseeing the students in this stream.
+  </Step>
+</Steps>
+
+[Insert screenshot: Stream creation form with Grade Level and Class Teacher selectors]
+
+## Subjects
+
+Subjects define what is taught at each level. They are linked to grade levels and assigned to specific teachers.
+
+<Tabs>
+  <Tab title="Creating Subjects">
+    1. Navigate to **Subjects** and click **New Subject**.
+    2. Enter the subject name and a short code (e.g., "Mathematics" / "MAT").
+    3. Select all the **Grade Levels** where this subject is taught.
+  </Tab>
+  <Tab title="Teacher Assignments">
+    1. Open a subject and navigate to the **Assignments** tab.
+    2. Link specific teachers to the streams where they teach this subject. This gives them access to enter assessment scores for those specific students.
+  </Tab>
+</Tabs>
+
+## Grading Scales
+
+Grading Scales translate numeric scores into grades (A, B, C) or performance descriptors (Exceeding, Meeting, Approaching).
+
+<Steps>
+  <Step title="Define Scale Type">
+    Create a new scale and choose between **Numeric** (8-4-4) or **Descriptor** (CBC).
+  </Step>
+  <Step title="Add Grade Bands">
+    Add the ranges for each grade. For example:
+    - 80% - 100%: **A (Excellent)**
+    - 70% - 79%: **B (Very Good)**
+  </Step>
+  <Step title="Link to Subjects">
+    Apply the scale to specific subjects or entire grade levels. You can have a default school scale and specialized scales for specific subjects (e.g., a different scale for Music or P.E.).
+  </Step>
+</Steps>
+
+[Insert screenshot: Grading scale editor with percentage ranges and associated labels/remarks]
+
+## FAQs & Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Can I change a grade's curriculum type mid-year?">
+    Changing the curriculum type (e.g., from 8-4-4 to CBC) while assessments are active is not recommended as it will invalidate existing grade reports. Contact support if you need to perform a migration.
+  </Accordion>
+  <Accordion title="Why can't I see a subject in the assessment list?">
+    Ensure the subject has been correctly linked to the relevant Grade Level in the Subject settings.
+  </Accordion>
+  <Accordion title="What is the difference between a Grade and a Stream?">
+    A **Grade** is the academic level (e.g., Grade 1), while a **Stream** is the specific group of students in that grade (e.g., Grade 1 West). Subjects are linked to Grades, but Teachers are assigned to Streams.
+  </Accordion>
+</AccordionGroup>

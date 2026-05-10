@@ -1,0 +1,111 @@
+---
+title: "Finance & Fee Management"
+description: "Manage school fees, invoicing, M-Pesa payments, and student wallets with automated reconciliation."
+---
+
+Elimu Bora provides a robust financial management system designed specifically for the needs of Kenyan schools. From automated termly invoicing to real-time M-Pesa integration, every transaction is tracked, reconciled, and reported.
+
+<CardGroup cols={2}>
+  <Card title="Fee Billables" icon="list-check" href="#fee-billables">
+    Define tuition, transport, and other recurring fees.
+  </Card>
+  <Card title="Invoicing" icon="file-invoice-dollar" href="#invoicing">
+    Generate and deliver termly invoices to guardians.
+  </Card>
+  <Card title="M-Pesa Integration" icon="mobile-screen-button" href="#mpesa-integration">
+    Collect fees via STK Push and automated Paybill reconciliation.
+  </Card>
+  <Card title="Student Wallets" icon="wallet" href="#student-wallets">
+    Manage pocket money and canteen spending for students.
+  </Card>
+</CardGroup>
+
+## Fee Billables
+
+Billables are the individual items that make up an invoice (e.g., Tuition, Lunch, Computer Lab Fees).
+
+<Steps>
+  <Step title="Create a Billable">
+    Go to **Finance → Billables** and click **New Billable**.
+  </Step>
+  <Step title="Set Amount and Category">
+    Enter the cost and categorize the fee. Categories help group similar items on report cards and financial statements.
+  </Step>
+  <Step title="Target by Grade & Term">
+    Specify which grade levels and academic terms this fee applies to. This ensures that a "Graduation Fee" only appears for final-year students.
+  </Step>
+</Steps>
+
+<Info>
+  Billables can be marked as **Optional**. These will only be applied to students who have specifically opted-in (e.g., School Bus or Swimming).
+</Info>
+
+[Insert screenshot: Billables setup screen showing amounts and grade-level toggles]
+
+## Invoicing
+
+The system automates the generation of termly invoices by combining all applicable billables for each student.
+
+<Steps>
+  <Step title="Run Invoice Generation">
+    At the start of a term, navigate to **Invoices** and select **Generate Invoices**.
+  </Step>
+  <Step title="Review and Filter">
+    Select the Term and Grades. The system will calculate the total for each student based on their grade and optional billable selections.
+  </Step>
+  <Step title="Bulk Delivery">
+    Once confirmed, invoices are generated in PDF format and sent directly to each student's primary guardian via the mobile app and email.
+  </Step>
+</Steps>
+
+[Insert screenshot: Invoice list view with balance summaries and payment status badges]
+
+## M-Pesa Integration
+
+Elimu Bora is fully integrated with Safaricom M-Pesa for seamless fee collection.
+
+<Tabs>
+  <Tab title="STK Push (Instant Pay)">
+    1. Open a student's invoice on the school dashboard.
+    2. Click **Pay with M-Pesa**.
+    3. Enter the guardian's phone number and the amount.
+    4. The guardian receives a prompt on their phone to enter their PIN. Once successful, the invoice is updated instantly.
+  </Tab>
+  <Tab title="Paybill Reconciliation">
+    1. Guardians pay using the school's **Paybill Number**.
+    2. They enter the **Student's Admission Number** as the Account Number.
+    3. Our system detects the payment in real-time and automatically applies it to the correct student's outstanding invoice.
+  </Tab>
+</Tabs>
+
+## Student Wallets
+
+The Wallet module manages "Pocket Money" or funds for non-fee expenses like the canteen or school trips.
+
+<Steps>
+  <Step title="Wallet Top-Up">
+    Guardians can top up the student's wallet via M-Pesa. Staff can also record cash top-ups at the accounts office.
+  </Step>
+  <Step title="Daily Spending Limits">
+    (Optional) Set a daily limit on how much a student can spend at the canteen to encourage better money management.
+  </Step>
+  <Step title="Deducting Funds">
+    When a student makes a purchase, the staff enters their admission number, and the amount is deducted from their wallet balance.
+  </Step>
+</Steps>
+
+[Insert screenshot: Student wallet transaction history showing top-ups and spending logs]
+
+## FAQs & Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="How do I handle fee waivers or scholarships?">
+    Apply a **Credit Note** or a **Waiver** to the student's invoice. This reduces the balance without affecting the original billable amount, ensuring your records stay clean for auditing.
+  </Accordion>
+  <Accordion title="What happens if a guardian pays too much?">
+    The excess amount is automatically credited to the student's **Wallet** or carried forward as a prepayment for the next academic term.
+  </Accordion>
+  <Accordion title="How can I track which guardians owe money?">
+    Use the **Balances & Aging Report**. This lists all outstanding amounts, categorized by how long they have been overdue, allowing you to send targeted reminders.
+  </Accordion>
+</AccordionGroup>

@@ -1,34 +1,43 @@
 ---
 title: "Quick Start"
-description: "Set up your school on Elimu Bora in under a day."
+description: "A step-by-step guide to onboarding your school onto Elimu Bora."
 ---
 
-This guide takes a new school from welcome email to running daily operations.
+Setting up Elimu Bora is a straightforward process. This guide will take you from your initial welcome email to running your first daily register.
 
-[Insert screenshot: Welcome email from Elimu Bora showing subdomain, Super Admin username, and temporary password]
+<Steps>
+  <Step title="Initialize Your Subdomain">
+    After signing up, you will receive a welcome email with your unique school URL (e.g., `https://yourschool.elimuboraerp.com`) and your **Super Admin** login credentials.
+  </Step>
+  <Step title="Configure School Identity">
+    Log in and navigate to **Settings**. Upload your school logo, set your official contact details, and choose your primary school color. These will appear on all system-generated documents.
+  </Step>
+  <Step title="Build Your Academic Structure">
+    1. Define your **Grade Levels** and **Streams** in the Curriculum module.
+    2. Add your **Academic Year** and define the specific **Terms**.
+    3. Assign **Subjects** to each grade level.
+  </Step>
+  <Step title="Onboard Users">
+    Add your staff members and assign their roles. For students and guardians, we recommend using the **Bulk Import** tool to upload your existing records from a CSV file.
+  </Step>
+  <Step title="Start Daily Operations">
+    Assign teachers to their classes and subjects. Your school is now ready to begin marking attendance and recording fees!
+  </Step>
+</Steps>
 
-## How to set up your school
+[Insert screenshot: The setup progress dashboard showing completed and pending onboarding tasks]
 
-1. Receive your account. The Elimu Bora team emails your subdomain and Super Admin login.
-2. Log in at `https://yourschool.elimuboraerp.com` and change your password.
-3. Enable MFA on the Super Admin account from your profile.
-4. Configure school details in Settings → School Details (name, motto, contact, logo, primary colour). See [School details](/settings/school-details).
-5. Set up curriculum — pick CBC or 8-4-4, add grade levels, streams, subjects. See [Curriculum overview](/modules/curriculum/overview).
-6. Create the academic year and terms. See [Academic years](/modules/academic-years/overview).
-7. Add staff in Users. Assign roles (Teacher, Bursar, Class Teacher, etc.). See [Add a user](/modules/users/add-user).
-8. Enrol students and link guardians. Use bulk import for large lists. See [Bulk import](/modules/users/bulk-import).
-9. Activate modules based on your subscription plan (Attendance, Finance, Inventory, etc.).
+## Key Configuration Checkpoints
 
-[Insert screenshot: Settings → School Details form with Identity, Contact, and Branding sections visible]
+- **Logos**: Use high-quality transparent PNGs for the best appearance on report cards.
+- **M-Pesa**: If you use Paybill or STK Push, ensure your credentials are correctly configured in **Settings → Modules**.
+- **Security**: We strongly recommend that all Administrative users enable **Multi-Factor Authentication (MFA)** on their profiles.
 
-## Notes
-
-- The Super Admin role is unrestricted — assign carefully.
-- Logos work best as transparent PNGs.
-- Module availability depends on your plan. Contact the Elimu Bora team to upgrade.
+<Tip>
+  Need help with your initial data migration? Our support team can assist you in formatting your CSV files for a smooth bulk import.
+</Tip>
 
 ## Troubleshooting
 
-- Welcome email missing? Check spam, then contact support@elimuboraerp.com.
-- Subdomain not loading? Confirm the URL has no typos and uses `https://`.
-- Can't change password? Use the same browser tab and ensure password meets the strength rule (8+ chars, mixed case, number).
+- **Login Issues**: If you haven't received your welcome email, check your spam folder or contact `support@elimuboraerp.com`.
+- **Module Access**: If a module (like Finance or Inventory) is missing from your sidebar, ensure it is enabled in **Settings → Modules** and included in your subscription plan.
