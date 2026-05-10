@@ -44,7 +44,7 @@
           "modules/Sports",
           "modules/Clubs",
           "modules/ActivityLog",
-          "roles/Overview",
+          "roles-permissions",
           "guardians/Overview",
           "settings/Overview",
           "reports/Overview"
