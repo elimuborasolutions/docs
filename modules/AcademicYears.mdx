@@ -1,6 +1,7 @@
 ---
 title: "Academic Years & Terms"
 description: "Configure your school's academic calendar, terms, and year-end transitions."
+icon: "calendar"
 ---
 
 Elimu Bora organizes all school data around Academic Years and Terms. Proper configuration ensures that attendance, assessments, and financial records are correctly categorized and searchable.
@@ -9,12 +10,15 @@ Elimu Bora organizes all school data around Academic Years and Terms. Proper con
   <Card title="Academic Years" icon="calendar-days" href="#academic-years">
     Set up new academic years and manage their lifecycle.
   </Card>
+
   <Card title="Managing Terms" icon="calendar-range" href="#managing-terms">
     Divide your academic year into terms (e.g., Term 1, 2, 3).
   </Card>
+
   <Card title="Year-End Transitions" icon="arrows-rotate" href="#year-end-transitions">
     Handle promotions and rollover to the next academic year.
   </Card>
+
   <Card title="Calendar Settings" icon="gear" href="#calendar-settings">
     Configure holidays and non-academic days.
   </Card>
@@ -40,7 +44,7 @@ The Academic Year is the highest level of organization in Elimu Bora. Only one y
   Once an academic year's end date has passed, it becomes a read-only historical record. This ensures the integrity of past school data.
 </Info>
 
-[Insert screenshot: List of academic years with status badges (Active, Upcoming, Completed)]
+\[Insert screenshot: List of academic years with status badges (Active, Upcoming, Completed)\]
 
 ## Managing Terms
 
@@ -61,7 +65,7 @@ Terms divide your academic year into manageable periods for teaching and assessm
   </Step>
 </Steps>
 
-[Insert screenshot: Terms management view within an Academic Year]
+\[Insert screenshot: Terms management view within an Academic Year\]
 
 ## Year-End Transitions
 
@@ -70,6 +74,7 @@ As the academic year closes, you must transition students to their next grade le
 <Tabs>
   <Tab title="Student Promotions">
     Move students to the next grade level:
+
     1. Verify that all assessments for the current year are finalized.
     2. Review the promotion list for each class.
     3. Manually adjust any exceptions (e.g., students repeating a grade or transferring out).
@@ -77,6 +82,7 @@ As the academic year closes, you must transition students to their next grade le
   </Tab>
   <Tab title="Financial Rollover">
     Ensure unpaid balances are carried forward:
+
     1. Run a final fee report for the closing year.
     2. The system will automatically carry forward outstanding balances to the new academic year's invoices.
   </Tab>
@@ -88,9 +94,11 @@ As the academic year closes, you must transition students to their next grade le
   <Accordion title="Can I delete an academic year?">
     Academic years with existing records (attendance, grades, invoices) cannot be deleted to preserve data integrity. You can only archive them.
   </Accordion>
+
   <Accordion title="Why can't I mark attendance for a new term?">
     Ensure the term status is **Active** and that the current date falls within the term's start and end dates.
   </Accordion>
+
   <Accordion title="How do I handle middle-of-term breaks (Half-Term)?">
     You don't need to create separate terms for half-term breaks. Simply mark those days as non-academic in the **Events** or **Holidays** module to prevent them from appearing in attendance registers.
   </Accordion>

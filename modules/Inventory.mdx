@@ -1,6 +1,7 @@
 ---
 title: "Inventory & Store Management"
 description: "Track school assets, manage stationery and uniforms, and handle staff requisitions."
+icon: "boxes"
 ---
 
 The Inventory module helps you maintain full visibility of your school's physical assets and consumable supplies. From tracking textbook distributions to managing laboratory equipment, Elimu Bora ensures your store remains organized and accountable.
@@ -9,12 +10,15 @@ The Inventory module helps you maintain full visibility of your school's physica
   <Card title="Product Registry" icon="boxes-stacked" href="#product-registry">
     Define the items you track in your school store.
   </Card>
+
   <Card title="Stock Movements" icon="right-left" href="#stock-movements">
     Record additions, deductions, and transfers of stock.
   </Card>
+
   <Card title="Staff Requisitions" icon="file-signature" href="#staff-requisitions">
     Manage internal requests for supplies and equipment.
   </Card>
+
   <Card title="Low Stock Alerts" icon="bell-exclamation" href="#low-stock-alerts">
     Set threshold levels and get notified when items run low.
   </Card>
@@ -39,7 +43,7 @@ Before tracking stock, you must define the "Products" or assets in your school's
   </Step>
 </Steps>
 
-[Insert screenshot: Product creation form showing category, unit of measure, and initial stock fields]
+\[Insert screenshot: Product creation form showing category, unit of measure, and initial stock fields\]
 
 ## Stock Movements
 
@@ -48,6 +52,7 @@ Track every time an item enters or leaves the store to maintain an accurate audi
 <Tabs>
   <Tab title="Stock Additions">
     When new supplies arrive from a supplier:
+
     1. Navigate to the **Product** and open the **Movements** tab.
     2. Select **Inbound / Purchase**.
     3. Enter the quantity added and any reference numbers (e.g., Delivery Note or LPO number).
@@ -55,6 +60,7 @@ Track every time an item enters or leaves the store to maintain an accurate audi
   </Tab>
   <Tab title="Stock Deductions">
     When items are used or distributed:
+
     1. Select **Outbound / Issuance**.
     2. Specify the quantity and the recipient (e.g., "Issued to Grade 4 Science Lab").
     3. The movement is logged, and the stock level decreases.
@@ -81,7 +87,7 @@ Stock Requisitions allow staff members to request items directly from the system
   </Step>
 </Steps>
 
-[Insert screenshot: Requisition list showing statuses: Pending Approval, Approved, Issued, and Rejected]
+\[Insert screenshot: Requisition list showing statuses: Pending Approval, Approved, Issued, and Rejected\]
 
 ## Low Stock Alerts
 
@@ -96,9 +102,11 @@ Never run out of essential supplies by setting up automated alerts.
   <Accordion title="How do I handle damaged or expired stock?">
     Use the **Stock Adjustment** movement type and select "Damage" or "Expiry" as the reason. Add a note explaining the loss for auditing purposes.
   </Accordion>
+
   <Accordion title="Can I track fixed assets (like computers) using this module?">
     Yes. While consumables (like chalk) move frequently, fixed assets can be tracked as "Serialized Products" with a quantity of 1, allowing you to track their location and assignment.
   </Accordion>
+
   <Accordion title="Why is my 'Stock on Hand' inaccurate?">
     Perform a **Stock Take** to reconcile physical counts with the system. You can then use the **Reconciliation** action to adjust the system totals to match your physical findings.
   </Accordion>

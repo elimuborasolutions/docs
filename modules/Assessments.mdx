@@ -1,6 +1,7 @@
 ---
 title: "Assessments & Report Cards"
 description: "Manage tests, exams, projects, and the generation of automated report cards."
+icon: "graduation-cap"
 ---
 
 The Assessments module handles the entire academic evaluation lifecycle—from creating a test to delivering a final, signed report card to a guardian's phone.
@@ -9,12 +10,15 @@ The Assessments module handles the entire academic evaluation lifecycle—from c
   <Card title="Assessment Lifecycle" icon="spinner" href="#assessment-lifecycle">
     Understand the stages from creation to closing.
   </Card>
+
   <Card title="Entering Scores" icon="input-numeric" href="#entering-scores">
     Guides for teachers to enter marks and comments.
   </Card>
+
   <Card title="Generating Report Cards" icon="file-invoice" href="#generating-report-cards">
     Aggregate scores into comprehensive termly reports.
   </Card>
+
   <Card title="Publishing to Guardians" icon="paper-plane" href="#publishing-to-guardians">
     Finalize and securely deliver results to parents.
   </Card>
@@ -40,7 +44,7 @@ Assessments (CATs, End of Term Exams, Projects) move through distinct stages to 
   You can set "Lock Dates" for grading. After this date, teachers will no longer be able to edit scores unless an Administrator manually extends the deadline.
 </Info>
 
-[Insert screenshot: Assessments list view with status indicators and stage transition buttons]
+\[Insert screenshot: Assessments list view with status indicators and stage transition buttons\]
 
 ## Entering Scores
 
@@ -61,7 +65,7 @@ Teachers can only enter scores for the subjects and streams they are assigned to
   </Step>
 </Steps>
 
-[Insert screenshot: Grade entry table with real-time validation and comment fields]
+\[Insert screenshot: Grade entry table with real-time validation and comment fields\]
 
 ## Generating Report Cards
 
@@ -72,7 +76,7 @@ Report Cards aggregate scores from one or more assessments within a term.
     Navigate to **Report Cards** and click **Generate**.
   </Step>
   <Step title="Select Source Data">
-    Choose the Term and Grade Level. Select which assessments should be included (e.g., "Term 1 CAT" + "Term 1 Final Exam").
+    Choose the Term and Grade Level. Select which assessments should be included (e.g., "Term 1 CAT" \+ "Term 1 Final Exam").
   </Step>
   <Step title="Add Teacher & Principal Remarks">
     Open the generated draft cards. Class Teachers can add their general remarks, and the Principal can add a final school-wide comment or individual sign-off.
@@ -83,7 +87,7 @@ Report Cards aggregate scores from one or more assessments within a term.
   Use the **Bulk Remarks** tool to apply common comments (e.g., "Very good progress") to multiple students at once, then manually tweak exceptions.
 </Tip>
 
-[Insert screenshot: Report card draft preview showing automated averages and manual remark fields]
+\[Insert screenshot: Report card draft preview showing automated averages and manual remark fields\]
 
 ## Publishing to Guardians
 
@@ -111,9 +115,11 @@ Publishing is the final step that makes the report card visible to guardians via
   <Accordion title="How do I handle students who missed an exam?">
     You can leave the score blank or use a specific "Absent" flag if configured. On the report card, these will be handled according to your school's policy (e.g., marked as "N/A" or "0").
   </Accordion>
+
   <Accordion title="Can I include scores from a previous term?">
     Report cards are term-specific. However, you can choose to include "Year-to-Date" averages on the final year-end report card.
   </Accordion>
+
   <Accordion title="Why is the 'Generate' button disabled?">
     The source assessments must be in the **Closed** or **Completed** stage before they can be aggregated into a report card.
   </Accordion>

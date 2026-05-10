@@ -29,153 +29,25 @@
     "tabs": [
       {
         "tab": "Documentation",
-        "groups": [
-          {
-            "group": "Get Started",
-            "icon": "rocket",
-            "pages": [
-              "introduction",
-              "quickstart"
-            ],
-            "expanded": true
-          },
-          {
-            "group": "Users & Identity",
-            "icon": "users",
-            "pages": [
-              "modules/Users"
-            ],
-            "expanded": true
-          },
-          {
-            "group": "Curriculum",
-            "icon": "book-open",
-            "pages": [
-              "modules/Curriculum"
-            ],
-            "expanded": true
-          },
-          {
-            "group": "Academic Years & Terms",
-            "icon": "calendar",
-            "pages": [
-              "modules/AcademicYears"
-            ],
-            "expanded": true
-          },
-          {
-            "group": "Attendance",
-            "icon": "clipboard-check",
-            "pages": [
-              "modules/Attendance"
-            ],
-            "expanded": true
-          },
-          {
-            "group": "Assessments",
-            "icon": "graduation-cap",
-            "pages": [
-              "modules/Assessments"
-            ],
-            "expanded": true
-          },
-          {
-            "group": "Timetable",
-            "icon": "table",
-            "pages": [
-              "modules/Timetable"
-            ],
-            "expanded": true
-          },
-          {
-            "group": "Events",
-            "icon": "calendar-days",
-            "pages": [
-              "modules/Events"
-            ],
-            "expanded": true
-          },
-          {
-            "group": "Finance",
-            "icon": "wallet",
-            "pages": [
-              "modules/Finance"
-            ],
-            "expanded": true
-          },
-          {
-            "group": "Inventory",
-            "icon": "boxes",
-            "pages": [
-              "modules/Inventory"
-            ],
-            "expanded": true
-          },
-          {
-            "group": "Sports & Games",
-            "icon": "trophy",
-            "pages": [
-              "modules/Sports"
-            ],
-            "expanded": true
-          },
-          {
-            "group": "Clubs & Societies",
-            "icon": "users-round",
-            "pages": [
-              "modules/Clubs"
-            ],
-            "expanded": true
-          },
-          {
-            "group": "Activity Log",
-            "icon": "history",
-            "pages": [
-              "modules/ActivityLog"
-            ],
-            "expanded": true
-          },
-          {
-            "group": "Roles & Permissions",
-            "icon": "shield-check",
-            "pages": [
-              "roles/Overview"
-            ],
-            "expanded": true
-          },
-          {
-            "group": "Parents & Guardians",
-            "icon": "heart",
-            "pages": [
-              "guardians/Overview"
-            ],
-            "expanded": true
-          },
-          {
-            "group": "Settings",
-            "icon": "settings",
-            "pages": [
-              "settings/Overview"
-            ],
-            "expanded": true
-          },
-          {
-            "group": "Reports",
-            "icon": "wallpaper",
-            "pages": [
-              "reports/Overview"
-            ],
-            "expanded": true
-          }
-        ]
-      },
-      {
-        "tab": "Resources",
-        "groups": [
-          {
-            "group": "Elimu Bora",
-            "pages": ["resources/links"]
-          }
+        "pages": [
+          "introduction",
+          "quickstart",
+          "modules/Curriculum",
+          "modules/Users",
+          "modules/AcademicYears",
+          "modules/Attendance",
+          "modules/Assessments",
+          "modules/Timetable",
+          "modules/Events",
+          "modules/Finance",
+          "modules/Inventory",
+          "modules/Sports",
+          "modules/Clubs",
+          "modules/ActivityLog",
+          "roles/Overview",
+          "guardians/Overview",
+          "settings/Overview",
+          "reports/Overview"
         ]
       }
     ]

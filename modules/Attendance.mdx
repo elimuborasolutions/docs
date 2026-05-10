@@ -1,6 +1,7 @@
 ---
 title: "Attendance"
 description: "Manage daily student and staff registers, track absences, and generate reports."
+icon: "clipboard-check"
 ---
 
 Elimu Bora simplifies attendance tracking for both students and staff. The system automatically generates daily registers, handles absence follow-ups, and notifies guardians in real-time.
@@ -9,12 +10,15 @@ Elimu Bora simplifies attendance tracking for both students and staff. The syste
   <Card title="Marking Registers" icon="clipboard-check" href="#marking-registers">
     Learn how to mark morning and afternoon student registers.
   </Card>
+
   <Card title="Absence Follow-Ups" icon="phone-arrow-up-right" href="#absence-follow-ups">
     Track and resolve reasons for student absences.
   </Card>
+
   <Card title="Staff Attendance" icon="user-check" href="#staff-attendance">
     Manage staff sign-ins and corrections.
   </Card>
+
   <Card title="Reports & Exports" icon="file-chart-column" href="#reports-and-exports">
     Generate and download attendance summaries.
   </Card>
@@ -30,6 +34,7 @@ Daily registers are automatically created for every class. Teachers can mark the
   </Step>
   <Step title="Mark Student Status">
     For each student, select their status:
+
     - **Present**: The student is in class.
     - **Absent**: The student is not in class (automatically triggers a follow-up).
     - **Late**: The student arrived after the grace period.
@@ -45,7 +50,7 @@ Daily registers are automatically created for every class. Teachers can mark the
   You can use the **Mark All Present** button to quickly mark all students as present and then manually adjust any absentees.
 </Info>
 
-[Insert screenshot: Register view page showing student list with status radio buttons and the Confirm Register button]
+\[Insert screenshot: Register view page showing student list with status radio buttons and the Confirm Register button\]
 
 ## Absence Follow-Ups
 
@@ -66,7 +71,7 @@ When a student is marked as **Absent** or **Late**, the system automatically cre
   </Step>
 </Steps>
 
-[Insert screenshot: Follow-up detail modal showing reason dropdown and attachment field]
+\[Insert screenshot: Follow-up detail modal showing reason dropdown and attachment field\]
 
 ## Staff Attendance
 
@@ -75,12 +80,14 @@ Staff members can sign in and out daily to track their attendance and punctualit
 <Tabs>
   <Tab title="Staff Sign-In">
     Staff members can sign in using their own devices or a designated school kiosk:
+
     1. Navigate to **Attendance → Staff**.
     2. Click **Sign In** when you arrive at school.
     3. Click **Sign Out** when leaving at the end of the day.
   </Tab>
   <Tab title="Management Review">
     Administrators can review and correct staff attendance records:
+
     1. Go to **Registers** and filter by staff.
     2. Use the **Edit** action to correct any missed sign-ins or sign-outs.
     3. View the **Attendance Heatmap** for a visual summary of staff punctuality.
@@ -94,6 +101,7 @@ Generate comprehensive reports to analyze attendance patterns across the school.
 <Steps>
   <Step title="Select Report Type">
     Go to **Attendance → Reports** (or the Reports section in Registers). Choose from:
+
     - **Daily Snapshot**: A summary of today's attendance.
     - **Student Summary**: Total attendance percentage for individual students.
     - **Class/Stream Report**: Performance of a specific class over a period.
@@ -116,12 +124,15 @@ Generate comprehensive reports to analyze attendance patterns across the school.
   <Accordion title="What happens if I forget to mark a register?">
     The register will remain in a "Pending" state. Administrators will see a warning badge on their dashboard, and you will receive a notification to complete it.
   </Accordion>
+
   <Accordion title="Can I change a register after it's confirmed?">
     Once confirmed, a register is locked. To make changes, an administrator must **Reopen** the register first.
   </Accordion>
+
   <Accordion title="Why is a student missing from the register?">
     Check if the student is correctly assigned to the grade and stream. If they were recently admitted or moved, the register might need to be refreshed or their profile updated.
   </Accordion>
+
   <Accordion title="Are notifications sent for Late arrivals?">
     Yes, depending on your school settings, guardians can be notified for both Absences and Late arrivals.
   </Accordion>
