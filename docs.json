@@ -35,8 +35,7 @@
             "icon": "rocket",
             "pages": [
               "introduction",
-              "quickstart",
-              "roles-and-access"
+              "quickstart"
             ],
             "expanded": true
           },
@@ -44,12 +43,7 @@
             "group": "Users & Identity",
             "icon": "users",
             "pages": [
-              "modules/users/overview",
-              "modules/users/add-user",
-              "modules/users/students",
-              "modules/users/guardians",
-              "modules/users/staff",
-              "modules/users/bulk-import"
+              "modules/Users"
             ],
             "expanded": true
           },
@@ -57,11 +51,7 @@
             "group": "Curriculum",
             "icon": "book-open",
             "pages": [
-              "modules/curriculum/overview",
-              "modules/curriculum/grade-levels",
-              "modules/curriculum/streams",
-              "modules/curriculum/subjects",
-              "modules/curriculum/grading-scales"
+              "modules/Curriculum"
             ],
             "expanded": true
           },
@@ -69,10 +59,7 @@
             "group": "Academic Years & Terms",
             "icon": "calendar",
             "pages": [
-              "modules/academic-years/overview",
-              "modules/academic-years/create-year",
-              "modules/academic-years/terms",
-              "modules/academic-years/rollover"
+              "modules/AcademicYears"
             ],
             "expanded": true
           },
@@ -80,11 +67,7 @@
             "group": "Attendance",
             "icon": "clipboard-check",
             "pages": [
-              "modules/attendance/overview",
-              "modules/attendance/take-attendance",
-              "modules/attendance/follow-ups",
-              "modules/attendance/staff-attendance",
-              "modules/attendance/reports"
+              "modules/Attendance"
             ],
             "expanded": true
           },
@@ -92,11 +75,7 @@
             "group": "Assessments",
             "icon": "graduation-cap",
             "pages": [
-              "modules/assessments/overview",
-              "modules/assessments/create-assessment",
-              "modules/assessments/enter-grades",
-              "modules/assessments/report-cards",
-              "modules/assessments/publish"
+              "modules/Assessments"
             ],
             "expanded": true
           },
@@ -104,10 +83,7 @@
             "group": "Timetable",
             "icon": "table",
             "pages": [
-              "modules/timetable/overview",
-              "modules/timetable/build-timetable",
-              "modules/timetable/lessons",
-              "modules/timetable/renew"
+              "modules/Timetable"
             ],
             "expanded": true
           },
@@ -115,9 +91,7 @@
             "group": "Events",
             "icon": "calendar-days",
             "pages": [
-              "modules/events/overview",
-              "modules/events/create-event",
-              "modules/events/notices"
+              "modules/Events"
             ],
             "expanded": true
           },
@@ -125,13 +99,7 @@
             "group": "Finance",
             "icon": "wallet",
             "pages": [
-              "modules/finance/overview",
-              "modules/finance/fee-billables",
-              "modules/finance/invoices",
-              "modules/finance/payments",
-              "modules/finance/mpesa",
-              "modules/finance/wallet",
-              "modules/finance/reports"
+              "modules/Finance"
             ],
             "expanded": true
           },
@@ -139,11 +107,7 @@
             "group": "Inventory",
             "icon": "boxes",
             "pages": [
-              "modules/inventory/overview",
-              "modules/inventory/products",
-              "modules/inventory/stock",
-              "modules/inventory/procurement",
-              "modules/inventory/requisitions"
+              "modules/Inventory"
             ],
             "expanded": true
           },
@@ -151,9 +115,7 @@
             "group": "Sports & Games",
             "icon": "trophy",
             "pages": [
-              "modules/sports/overview",
-              "modules/sports/teams",
-              "modules/sports/fixtures"
+              "modules/Sports"
             ],
             "expanded": true
           },
@@ -161,9 +123,7 @@
             "group": "Clubs & Societies",
             "icon": "users-round",
             "pages": [
-              "modules/clubs/overview",
-              "modules/clubs/create-club",
-              "modules/clubs/members"
+              "modules/Clubs"
             ],
             "expanded": true
           },
@@ -171,27 +131,15 @@
             "group": "Activity Log",
             "icon": "history",
             "pages": [
-              "modules/activity-log/overview",
-              "modules/activity-log/audit"
+              "modules/ActivityLog"
             ],
             "expanded": true
           },
           {
-            "group": "Roles",
+            "group": "Roles & Permissions",
             "icon": "shield-check",
             "pages": [
-              "roles/overview",
-              "roles/super-admin",
-              "roles/school-admin",
-              "roles/principal",
-              "roles/deputy-principal",
-              "roles/teacher",
-              "roles/class-teacher",
-              "roles/bursar",
-              "roles/receptionist",
-              "roles/librarian",
-              "roles/guardian",
-              "roles/student"
+              "roles/Overview"
             ],
             "expanded": true
           },
@@ -199,14 +147,7 @@
             "group": "Parents & Guardians",
             "icon": "heart",
             "pages": [
-              "guardians/overview",
-              "guardians/login",
-              "guardians/attendance",
-              "guardians/performance",
-              "guardians/report-cards",
-              "guardians/fees",
-              "guardians/communication",
-              "guardians/profile"
+              "guardians/Overview"
             ],
             "expanded": true
           },
@@ -214,10 +155,7 @@
             "group": "Settings",
             "icon": "settings",
             "pages": [
-              "settings/school-details",
-              "settings/branding",
-              "settings/modules",
-              "settings/notifications"
+              "settings/Overview"
             ],
             "expanded": true
           },
@@ -225,18 +163,7 @@
             "group": "Reports",
             "icon": "wallpaper",
             "pages": [
-              "reports/overview"
-            ],
-            "expanded": true
-          },
-          {
-            "group": "Troubleshooting",
-            "icon": "life-buoy",
-            "pages": [
-              "troubleshooting/overview",
-              "troubleshooting/login",
-              "troubleshooting/payments",
-              "troubleshooting/notifications"
+              "reports/Overview"
             ],
             "expanded": true
           }

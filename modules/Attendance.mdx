@@ -1,0 +1,128 @@
+---
+title: "Attendance"
+description: "Manage daily student and staff registers, track absences, and generate reports."
+---
+
+Elimu Bora simplifies attendance tracking for both students and staff. The system automatically generates daily registers, handles absence follow-ups, and notifies guardians in real-time.
+
+<CardGroup cols={2}>
+  <Card title="Marking Registers" icon="clipboard-check" href="#marking-registers">
+    Learn how to mark morning and afternoon student registers.
+  </Card>
+  <Card title="Absence Follow-Ups" icon="phone-arrow-up-right" href="#absence-follow-ups">
+    Track and resolve reasons for student absences.
+  </Card>
+  <Card title="Staff Attendance" icon="user-check" href="#staff-attendance">
+    Manage staff sign-ins and corrections.
+  </Card>
+  <Card title="Reports & Exports" icon="file-chart-column" href="#reports-and-exports">
+    Generate and download attendance summaries.
+  </Card>
+</CardGroup>
+
+## Marking Registers
+
+Daily registers are automatically created for every class. Teachers can mark them directly from the dashboard or the Registers module.
+
+<Steps>
+  <Step title="Open the Register">
+    Navigate to **Registers** in the sidebar. Select the register for your class and the correct session (Morning or Afternoon).
+  </Step>
+  <Step title="Mark Student Status">
+    For each student, select their status:
+    - **Present**: The student is in class.
+    - **Absent**: The student is not in class (automatically triggers a follow-up).
+    - **Late**: The student arrived after the grace period.
+    - **Early Leave**: The student left before the end of the session.
+    - **Activity Leave**: The student is away for an approved school activity.
+  </Step>
+  <Step title="Confirm the Register">
+    Once all students are marked, click **Confirm Register** at the top of the page. This finalizes the records and sends automatic notifications to guardians of absent students.
+  </Step>
+</Steps>
+
+<Info>
+  You can use the **Mark All Present** button to quickly mark all students as present and then manually adjust any absentees.
+</Info>
+
+[Insert screenshot: Register view page showing student list with status radio buttons and the Confirm Register button]
+
+## Absence Follow-Ups
+
+When a student is marked as **Absent** or **Late**, the system automatically creates a pending follow-up record to ensure the reason is documented.
+
+<Steps>
+  <Step title="Navigate to Follow-Ups">
+    Go to **Registers** and click on the **Follow-Ups** tab or navigate directly to the Follow-Ups section.
+  </Step>
+  <Step title="Document the Reason">
+    Open the pending follow-up for a student. Select the reason provided by the guardian (e.g., Sick, Family Emergency, Transport Issue).
+  </Step>
+  <Step title="Add Notes & Evidence">
+    Add any relevant notes and upload evidence if required (e.g., a medical note or a letter from the guardian).
+  </Step>
+  <Step title="Close the Follow-Up">
+    Click **Close Follow-Up** to mark the record as resolved. Resolved follow-ups are archived for auditing and reporting purposes.
+  </Step>
+</Steps>
+
+[Insert screenshot: Follow-up detail modal showing reason dropdown and attachment field]
+
+## Staff Attendance
+
+Staff members can sign in and out daily to track their attendance and punctuality.
+
+<Tabs>
+  <Tab title="Staff Sign-In">
+    Staff members can sign in using their own devices or a designated school kiosk:
+    1. Navigate to **Attendance → Staff**.
+    2. Click **Sign In** when you arrive at school.
+    3. Click **Sign Out** when leaving at the end of the day.
+  </Tab>
+  <Tab title="Management Review">
+    Administrators can review and correct staff attendance records:
+    1. Go to **Registers** and filter by staff.
+    2. Use the **Edit** action to correct any missed sign-ins or sign-outs.
+    3. View the **Attendance Heatmap** for a visual summary of staff punctuality.
+  </Tab>
+</Tabs>
+
+## Reports and Exports
+
+Generate comprehensive reports to analyze attendance patterns across the school.
+
+<Steps>
+  <Step title="Select Report Type">
+    Go to **Attendance → Reports** (or the Reports section in Registers). Choose from:
+    - **Daily Snapshot**: A summary of today's attendance.
+    - **Student Summary**: Total attendance percentage for individual students.
+    - **Class/Stream Report**: Performance of a specific class over a period.
+  </Step>
+  <Step title="Filter & Generate">
+    Set the date range and filters (e.g., specific grade levels or streams) and click **Generate**.
+  </Step>
+  <Step title="Download">
+    Download the report as a **PDF** for printing or **CSV** for further analysis in Excel.
+  </Step>
+</Steps>
+
+<Tip>
+  Regularly export attendance summaries for Parent-Teacher meetings to discuss student consistency.
+</Tip>
+
+## FAQs & Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="What happens if I forget to mark a register?">
+    The register will remain in a "Pending" state. Administrators will see a warning badge on their dashboard, and you will receive a notification to complete it.
+  </Accordion>
+  <Accordion title="Can I change a register after it's confirmed?">
+    Once confirmed, a register is locked. To make changes, an administrator must **Reopen** the register first.
+  </Accordion>
+  <Accordion title="Why is a student missing from the register?">
+    Check if the student is correctly assigned to the grade and stream. If they were recently admitted or moved, the register might need to be refreshed or their profile updated.
+  </Accordion>
+  <Accordion title="Are notifications sent for Late arrivals?">
+    Yes, depending on your school settings, guardians can be notified for both Absences and Late arrivals.
+  </Accordion>
+</AccordionGroup>

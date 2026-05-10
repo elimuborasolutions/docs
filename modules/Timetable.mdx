@@ -1,0 +1,101 @@
+---
+title: "Timetable"
+description: "Schedule lessons, manage teacher workloads, and organize the weekly school calendar."
+---
+
+The Timetable module allows you to build recurring weekly schedules for every stream in your school. It automatically handles conflict detection and allows for easy term-by-term renewal.
+
+<CardGroup cols={2}>
+  <Card title="Building Timetables" icon="table" href="#building-timetables">
+    Create a weekly grid for a specific grade and stream.
+  </Card>
+  <Card title="Managing Lessons" icon="chalkboard-user" href="#managing-lessons">
+    Define subjects, teachers, and rooms for individual slots.
+  </Card>
+  <Card title="Conflict Detection" icon="triangle-exclamation" href="#conflict-detection">
+    Prevent double-booking of teachers and classrooms.
+  </Card>
+  <Card title="Termly Renewal" icon="arrows-spin" href="#termly-renewal">
+    Copy and adapt timetables for a new academic term.
+  </Card>
+</CardGroup>
+
+## Building Timetables
+
+Each stream has its own dedicated timetable. You can build these from scratch or copy a template from another class.
+
+<Steps>
+  <Step title="Create New Timetable">
+    Go to **Timetables** and click **New Timetable**. Select the current Term, Grade Level, and Stream.
+  </Step>
+  <Step title="Define Periods">
+    Set the school's standard period times (e.g., Period 1: 8:00 AM - 8:40 AM). You can add breaks and lunch slots that aren't linkable to subjects.
+  </Step>
+  <Step title="Populate the Grid">
+    Click on an empty slot in the weekly grid (Monday–Friday) to assign a subject and a teacher to that period.
+  </Step>
+  <Step title="Save and Activate">
+    Save the draft. Once finalized, activate the timetable to make it visible to teachers and students on their respective dashboards.
+  </Step>
+</Steps>
+
+[Insert screenshot: Weekly timetable grid builder showing drag-and-drop slots or click-to-assign modal]
+
+## Managing Lessons
+
+A "Lesson" is a specific instance in the timetable where a Subject, Teacher, and Location (Room) meet.
+
+<Tabs>
+  <Tab title="Lesson Details">
+    When assigning a lesson, you can specify:
+    - **Subject**: Linked to the grade level's curriculum.
+    - **Teacher**: Must be assigned to the subject in Curriculum settings.
+    - **Room/Venue**: (Optional) The specific laboratory, field, or classroom.
+    - **Recurring Status**: Whether the lesson repeats every week or is a one-off.
+  </Tab>
+  <Tab title="Bulk Assignments">
+    Use the bulk assign tool to fill multiple slots for the same subject and teacher simultaneously (e.g., assigning all "Mathematics" blocks for the week).
+  </Tab>
+</Tabs>
+
+## Conflict Detection
+
+The system automatically checks for scheduling conflicts in real-time.
+
+- **Teacher Overlap**: Warns you if a teacher is already assigned to another stream during the same period.
+- **Room Conflict**: Ensures a laboratory or specific room isn't booked by two different classes at once.
+- **Student Load**: Helps ensure that core subjects meet the required number of weekly periods.
+
+<Info>
+  Conflicts are highlighted in **Red** on the grid. You cannot activate a timetable until all critical conflicts are resolved.
+</Info>
+
+## Termly Renewal
+
+Instead of rebuilding every timetable at the start of a new term, use the **Renew** feature.
+
+<Steps>
+  <Step title="Select Previous Timetable">
+    Find the timetable from the previous term that you wish to use as a base.
+  </Step>
+  <Step title="Run Renewal Action">
+    Click **Renew for Next Term**. Select the target term and adjust the start/end dates.
+  </Step>
+  <Step title="Adjust for Changes">
+    The system copies all lessons. You can now make adjustments for any staff changes or subject re-assignments before saving.
+  </Step>
+</Steps>
+
+## FAQs & Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Can I have different period times for different days?">
+    Yes, you can customize the periods for specific days (e.g., shorter periods on Fridays for assembly or prayer).
+  </Accordion>
+  <Accordion title="How do I print the timetable?">
+    Use the **Download PDF** action on the timetable view page. You can print a version for the Class Teacher or a combined version for the staff room notice board.
+  </Accordion>
+  <Accordion title="Why is a teacher not appearing in the selection list?">
+    Ensure the teacher is correctly assigned to that specific subject and stream in the **Curriculum → Subjects** settings.
+  </Accordion>
+</AccordionGroup>

@@ -1,0 +1,122 @@
+---
+title: "Users & Identity"
+description: "Manage students, staff, and guardians, and control their access to the platform."
+---
+
+Elimu Bora uses a role-based identity system to ensure that everyone in your school community—from the Principal to the students—has the right level of access to the information they need.
+
+<CardGroup cols={2}>
+  <Card title="Student Management" icon="graduation-cap" href="#students">
+    Enroll and manage student profiles, classes, and academic history.
+  </Card>
+  <Card title="Staff & Teachers" icon="user-tie" href="#staff">
+    Set up staff accounts, assign roles, and manage teaching assignments.
+  </Card>
+  <Card title="Guardians" icon="family" href="#guardians">
+    Link parents to students and manage communication preferences.
+  </Card>
+  <Card title="Bulk Onboarding" icon="file-import" href="#bulk-import">
+    Import large numbers of users quickly using CSV templates.
+  </Card>
+</CardGroup>
+
+## Students
+
+Each student profile is the central hub for their academic, financial, and behavioral records.
+
+<Steps>
+  <Step title="Enroll a Student">
+    Go to **Students** in the sidebar and click **New Student**. Fill in their personal details, admission number, and date of birth.
+  </Step>
+  <Step title="Assign Grade and Stream">
+    Select the student's current Grade Level and Stream. This determines which registers and assessments they appear in.
+  </Step>
+  <Step title="Link Guardians">
+    (Optional during enrollment) Link the student to their primary and secondary guardians for billing and notifications.
+  </Step>
+  <Step title="Save and Notify">
+    Save the profile. If the student has an email address, they can be sent login credentials for their own portal.
+  </Step>
+</Steps>
+
+<Tip>
+  Use the **Student Timeline** on their profile to see a chronological history of their activities, including attendance, grades, and fee payments.
+</Tip>
+
+[Insert screenshot: Student profile page showing tabs for Personal, Academic, Finance, and Guardians]
+
+## Staff
+
+Staff accounts represent everyone employed by the school, including teachers, administrators, and support staff.
+
+<Tabs>
+  <Tab title="Creating Staff">
+    1. Navigate to **Staff** and click **New Staff**.
+    2. Enter their personal information and contact details.
+    3. Assign a **Role** (e.g., Teacher, Bursar, Principal). This controls their permissions.
+    4. Set their **Department** and employee number.
+  </Tab>
+  <Tab title="Teaching Assignments">
+    For teachers, you must assign **Subjects** and **Classes**:
+    1. Open the staff profile.
+    2. Go to the **Assignments** tab.
+    3. Link the teacher to specific grade levels, streams, and subjects. This allows them to mark registers and enter grades for those classes.
+  </Tab>
+</Tabs>
+
+[Insert screenshot: Staff assignment interface showing subjects linked to specific streams]
+
+## Guardians
+
+Guardians are linked to students and have restricted, read-only access to their children's data.
+
+<Steps>
+  <Step title="Create Guardian Account">
+    Go to **Guardians** and click **New Guardian**. Provide their name, phone number, and email.
+  </Step>
+  <Step title="Link to Students">
+    Open the guardian profile and use the **Link Student** action to search for and connect them to one or more children in the school.
+  </Step>
+  <Step title="Set Primary Contact">
+    Mark the primary guardian for each student. This contact will receive all official billing communications and emergency notifications.
+  </Step>
+</Steps>
+
+<Info>
+  A single guardian account can be linked to multiple siblings across different grades, allowing the parent to switch between their children's profiles with one login.
+</Info>
+
+## Bulk Import
+
+For initial onboarding or new year intakes, use the Bulk Import tool to add users in seconds.
+
+<Steps>
+  <Step title="Download Template">
+    Navigate to **Bulk Import** and download the CSV template for your user type (Students, Staff, or Guardians).
+  </Step>
+  <Step title="Prepare Your Data">
+    Fill in the CSV with your school's data, ensuring all required fields (like Admission Number or Phone) are included and correctly formatted.
+  </Step>
+  <Step title="Upload and Validate">
+    Upload the file. The system will perform a validation check to highlight any errors (e.g., duplicate admission numbers or invalid grade levels).
+  </Step>
+  <Step title="Confirm Import">
+    Once the validation passes, confirm the import to create all accounts simultaneously.
+  </Step>
+</Steps>
+
+[Insert screenshot: Bulk import validation screen showing successful rows and rows with errors]
+
+## FAQs & Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="What happens when a student leaves the school?">
+    Do not delete the student record. Use the **Archive** or **Graduate** action. This preserves their historical data for future transcripts while removing them from active registers and billing.
+  </Accordion>
+  <Accordion title="How do I reset a user's password?">
+    Open the user's profile and click **Resend Welcome Email** or use the **Reset Password** action.
+  </Accordion>
+  <Accordion title="Can one user have multiple roles?">
+    Yes, a staff member can be assigned multiple roles (e.g., both a **Teacher** and a **Department Head**) to grant them the necessary permissions for both positions.
+  </Accordion>
+</AccordionGroup>
