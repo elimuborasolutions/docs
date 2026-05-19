@@ -59,68 +59,75 @@ This approach is preferred over a verify-all-first sweep or a codebase-first rew
 
 Every module page follows this shape. Variants are noted below for non-module pages.
 
-```
+````text
 ---
-title: "<Module name as shown in the sidebar>"
-description: "<One sentence stating the user-visible purpose>"
-icon: "<lucide-icon-name>"
+title: "[Module name as shown in the sidebar]"
+description: "[One sentence stating the user-visible purpose]"
+icon: "[lucide-icon-name]"
 ---
 
-<One short paragraph: what the module does and who uses it.>
+[One short paragraph: what the module does and who uses it.]
 
-<Optional-module note (only on optional modules):
-  <Note>This is an optional module. A school can enable or
-  disable it under Settings.</Note>
->
+[Optional-module note (only on optional modules): a Mintlify Note component
+stating "This is an optional module. A school can enable or disable it
+under Settings."]
 
 ## Records you'll work with
-<A short table mapping every model in the module to a plain-English meaning,
-one row per model. Every model in the source doc's Domain model section
-appears here.>
+[A short table mapping every model in the module to a plain-English
+meaning, one row per model. Every model in the source doc's Domain model
+section appears here, except internal bookkeeping records that the user
+never sees in the panel.]
 
 | Record | What it is |
 |---|---|
-| <Record> | <Plain-English definition> |
+| [Record] | [Plain-English definition] |
 
 ## What you can do
-<CardGroup of anchor cards linking to the workflow groups below.
-Include only when the page has three or more groups.>
+[CardGroup of anchor cards linking to the workflow groups below. Include
+only when the page has three or more groups.]
 
-## <Workflow group, named by area of work>
+## [Workflow group, named by area of work]
 
-### <Verb-led workflow name>
-<Lead with the goal. Steps block. Screenshot placeholder. Name what each
+### [Verb-led workflow name]
+[Prerequisite callout (only when the workflow has a real dependency): a
+Mintlify Note component naming the dependency and linking to where it is
+set up. Examples of real dependencies: an integration being configured, a
+setting being on, a permission being granted, or another record already
+existing. Skip the callout when the prerequisite is satisfied
+automatically.]
+
+[Lead with the goal. Steps block. Screenshot placeholder. Name what each
 step changes in the system: which records are created or updated, and
-what status moves.>
+what status moves.]
 
-[Insert screenshot: <specific page, modal, or form with named fields and
-visible state>]
+[Insert screenshot: specific page, modal, or form with named fields and
+visible state]
 
 ## Statuses and lifecycle
 
-### <Record name> statuses
+### [Record name] statuses
 | Status | What it means | Who can act | What they can do |
 
-```mermaid
-stateDiagram-v2
-    <every transition, labelled with the actor and the action>
-```
+[Mermaid stateDiagram-v2 block here: include every transition, labelled
+with the actor and the action.]
 
 ## How records relate
-<erDiagram, only when relationships are non-trivial.>
+[Plain-prose bullets describing user-visible relationships. No erDiagram.
+No database table or column names. Skip the section if relationships add
+nothing the workflows have not already conveyed.]
 
 ## Reports and analytics
-<Each report: name, filters available, intended audience, where it lives
-in the panel.>
+[Each report: name, filters available, intended audience, where it lives
+in the panel.]
 
 ## What guardians see
-<Short paragraph stating read-only access and which child-scoped records
+[Short paragraph stating read-only access and which child-scoped records
 are visible. List actions hidden from the Guardian role. Skip the section
-only when the module exposes nothing to guardians.>
+only when the module exposes nothing to guardians.]
 
 ## FAQs and troubleshooting
-<AccordionGroup>
-```
+[AccordionGroup of frequent questions and answers.]
+````
 
 ### Rules baked into every page
 
@@ -130,10 +137,13 @@ only when the module exposes nothing to guardians.>
 - Headings at `##` and `###` only. The page H1 comes from frontmatter `title`.
 - Screenshot placeholders follow the format in `CONTRIBUTING.md`. The description names the page, the fields or controls, and any state worth showing. Vague placeholders such as `[Insert screenshot: the page]` are not acceptable.
 - Statuses are exhaustive. Transitions are labelled with the actor and the action. Reversibility is stated.
+- **Prerequisite callouts.** Every workflow that depends on prior setup, an integration, a setting, or another record existing must open with a `<Note>` callout that names the dependency and links to where it is set up. Examples: M-Pesa workflows depend on the M-Pesa integration being configured; an invoice depends on an active term and the billable existing; a per-stage amount depends on curriculum stages already being set up; attaching a sponsor depends on the sponsor record existing; refunding a payment depends on a cleared payment to refund. Skip the callout only when the prerequisite is satisfied automatically (for example, a wallet is auto-created with a student).
+- **Diagrams.** Use `stateDiagram-v2` for status lifecycles. Do not include `erDiagram`s on any module page. The audience does not need database structure. Describe relationships in plain prose when they help understanding.
+- **No developer-level detail.** Do not name database tables, columns, migration files, classes, services, jobs, observers, enums, command strings, or methods. Do not use code-style permission identifiers such as `invoices.forceDelete`; describe the permission in plain English and reference its role-editor label when needed. The source-of-truth docs under `~/Code/elimubora/docs/` are internal company IP and guide understanding; they are not copy-pasted into the help center.
 
 ### Non-module page variant
 
-Get Started pages (`introduction`, `quickstart`, `roles-permissions`, `staff/overview`, `guardians/overview`) and the Settings page (`settings/overview`) use a trimmed variant of the same skeleton. The `Records you'll work with` table is replaced by a short glossary or omitted. Statuses appear only where a record on the page has a status. `erDiagram` is omitted by default.
+Get Started pages (`introduction`, `quickstart`, `roles-permissions`, `staff/overview`, `guardians/overview`) and the Settings page (`settings/overview`) use a trimmed variant of the same skeleton. The `Records you'll work with` table is replaced by a short glossary or omitted. Statuses appear only where a record on the page has a status. No `erDiagram` on any page.
 
 ## Workflow inventory
 

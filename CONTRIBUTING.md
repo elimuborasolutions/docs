@@ -67,9 +67,12 @@ The product modules are defined in the product itself (`App\Enums\Module`). When
   ```
 
   Vague placeholders like `[Insert screenshot: the page]` are not acceptable.
-- **Voice.** Use active voice. Address the reader as "you". One idea per sentence. Lead with the goal ("To enroll a student, ..."). Use consistent terminology — match the labels used in the product UI.
-- **No emojis.**
+- **Voice.** Use active voice. Address the reader as "you". One idea per sentence. Lead with the goal ("To enroll a student, ..."). Use consistent terminology that matches the labels used in the product UI.
+- **No emojis, no em-dashes, no informal language.** Use commas, periods, or "and" / "or" instead of em-dashes. Hyphens in compound words are fine.
 - **Headings.** The page body uses `##` and `###`. Keep the structure shallow.
+- **Prerequisite callouts.** Every workflow that depends on prior setup, an integration, a setting, a permission, or another record existing must open with a `<Note>` callout that names the dependency and links to where it is set up. Examples: M-Pesa workflows depend on the M-Pesa integration being configured; an invoice depends on an active term and the billable existing; a per-stage amount depends on curriculum stages already being set up; attaching a sponsor depends on the sponsor record existing; refunding a payment depends on a cleared payment to refund. Skip the callout only when the prerequisite is satisfied automatically (for example, a wallet is auto-created with a student).
+- **No developer-level detail.** Help-center pages are read by non-technical school staff. Do not use any of the following on user-facing pages: database table or column names, migration filenames, class names, service names, job names, observer names, enum case identifiers, scheduled-command strings, method names, or code-style permission identifiers such as `invoices.forceDelete` or `payment-integrations.manage`. Describe permissions in plain English and reference the role-editor label when needed. The only product internals that may appear are values a user sees in the panel (status names, action button labels, navigation menu items, URLs they need to copy into Safaricom Daraja, and so on).
+- **Source docs are guides, not templates.** The developer docs under `~/Code/elimubora/docs/` are internal company intellectual property. They guide your understanding of how the product works. Do not transcribe their structure, technical depth, schema details, or terminology into help-center pages. Translate, do not copy. If a fact lives only in the developer docs (a database column, an internal service name, a job class) and is not visible to the user in the panel, it does not belong on a help-center page.
 
 ## Level of detail
 
@@ -77,7 +80,7 @@ Write thoroughly. A school admin should not have to guess or experiment — the 
 
 - **Statuses.** Where a record has a status (an invoice, a requisition, an assessment, an academic year), document **every** status — list each one, explain what it means, and explain what the user can do while a record is in it.
 - **Transitions.** Explain how a record moves from one status to the next: what action triggers the change, who can perform it, and whether the move can be reversed. Do not leave a status flow implicit.
-- **Diagrams.** For status flows and entity relationships, use a Mermaid diagram. Mintlify renders Mermaid from a fenced code block:
+- **Diagrams.** Use Mermaid `stateDiagram-v2` for status lifecycles. Mintlify renders Mermaid from a fenced code block:
 
   ````
   ```mermaid
@@ -89,7 +92,7 @@ Write thoroughly. A school admin should not have to guess or experiment — the 
   ```
   ````
 
-  Use a `stateDiagram-v2` for status lifecycles and an `erDiagram` for how records relate to one another. Place the diagram alongside the prose that describes it — the diagram supports the text, it does not replace it.
+  Do not include `erDiagram`s on user-facing pages. The school staff audience does not need database structure, and an `erDiagram` typically leaks internal table names, join tables, and foreign-key columns that are company intellectual property. Where relationships need explaining, describe them in plain prose using the user-facing record names. Place the diagram alongside the prose that describes it; the diagram supports the text, it does not replace it.
 
 ## Keeping docs in sync with the product
 
