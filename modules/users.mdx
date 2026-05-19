@@ -1,129 +1,536 @@
 ---
 title: "Users & Identity"
-description: "Manage students, staff, and guardians, and control their access to the platform."
+description: "Admit students, onboard teachers and staff, register guardians, and decide who can do what in the panel."
 icon: "users"
 ---
 
-Elimu Bora uses a role-based identity system to ensure that everyone in your school community—from the Principal to the students—has the right level of access to the information they need.
+Users & Identity covers everyone the school keeps a record of: students, teachers, non-teaching staff, and guardians, together with the panel accounts those people log in with and the roles that decide what each account can do. Identity is the foundation every other module reads from, so it cannot be turned off. School leadership and HR run admissions and staff onboarding day to day. Guardians log in with a locked, read-only account scoped to their own children.
+
+## Records you'll work with
+
+| Record | What it is |
+|---|---|
+| Student | An enrolled learner. The subject of registers, assessments, invoices, wallets, and earmarks. Identified by an admission number that is unique within the school. |
+| Teacher | A teaching staff member with a panel account. Can be linked to a curriculum, a stage, subjects they teach, and one or more class streams they lead. |
+| Staff | A non-teaching staff member with a panel account, such as a bursar, librarian, nurse, driver, or chef. Carries a department and a position. |
+| Guardian | A parent or guardian with a panel account. Linked to one or more students. Holds any per-billable discounts the family is entitled to, and receives notifications about their children. |
+| Student–guardian link | The connection between a student and one of their guardians. Carries the guardian's stated relationship to the child (Mother, Father, Aunt, and so on). |
+| Account | The login a teacher, staff member, or guardian uses to reach the panel. Created automatically with the person record; the welcome email contains a link to set a password. Students do not have accounts and do not log in. |
+| Role | A bundle of permissions. The school ships with seventeen pre-seeded roles (Director, Principal, Bursar, Class Teacher, Guardian, and so on) and can also create custom roles. Super Admin and Guardian are locked. |
+
+## What you can do
 
 <CardGroup cols={2}>
-  <Card title="Student Management" icon="graduation-cap" href="#students">
-    Enroll and manage student profiles, classes, and academic history.
+  <Card title="Sign in to the panel" icon="log-in" href="#sign-in-to-the-panel">
+    First sign-in, password reset, profile edits, and two-factor authentication.
   </Card>
 
-  <Card title="Staff & Teachers" icon="user-tie" href="#staff">
-    Set up staff accounts, assign roles, and manage teaching assignments.
+  <Card title="Manage students" icon="graduation-cap" href="#manage-students">
+    Admit, edit, transfer, archive, and bulk-import students.
   </Card>
 
-  <Card title="Guardians" icon="family" href="#guardians">
-    Link parents to students and manage communication preferences.
+  <Card title="Manage teachers" icon="user-check" href="#manage-teachers">
+    Onboard teachers, assign roles and subjects, and pin them to class streams.
   </Card>
 
-  <Card title="Bulk Onboarding" icon="file-import" href="#bulk-import">
-    Import large numbers of users quickly using CSV templates.
+  <Card title="Manage staff" icon="user-cog" href="#manage-staff">
+    Onboard non-teaching staff, set department and position, and assign roles.
+  </Card>
+
+  <Card title="Manage guardians" icon="user-circle" href="#manage-guardians">
+    Register guardians, link them to students, hold discounts, and update contacts.
+  </Card>
+
+  <Card title="Manage roles" icon="shield-check" href="#manage-roles">
+    Assign roles to a user, create a custom role, or edit the permissions a role grants.
   </Card>
 </CardGroup>
 
-## Students
+## Sign in to the panel
 
-Each student profile is the central hub for their academic, financial, and behavioral records.
+Everyone except students reaches the system at the school's tenant subdomain. Sign in is the same for staff and guardians; the panel then shows each person only what their roles permit.
+
+### Sign in for the first time
+
+<Note>
+  **You will need:** the welcome email Elimu Bora sent when your account was created. The email contains a **Set Your Password** button that opens a one-time password-set link on your school's subdomain. If you cannot find it, ask the office to resend it (see [Resend the welcome email](#resend-the-welcome-email-for-a-user)).
+</Note>
 
 <Steps>
-  <Step title="Enroll a Student">
-    Go to **Students** in the sidebar and click **New Student**. Fill in their personal details, admission number, and date of birth.
+  <Step title="Open the welcome email">
+    Find the email titled **Welcome to Elimu Bora**. Click **Set Your Password**.
   </Step>
-  <Step title="Assign Grade and Stream">
-    Select the student's current Grade Level and Stream. This determines which registers and assessments they appear in.
+  <Step title="Choose a password">
+    The link opens the password-set page on your school's subdomain (`https://<your-school>.elimuboraerp.com`). Enter a new password and confirm it.
   </Step>
-  <Step title="Link Guardians">
-    (Optional during enrollment) Link the student to their primary and secondary guardians for billing and notifications.
-  </Step>
-  <Step title="Save and Notify">
-    Save the profile. If the student has an email address, they can be sent login credentials for their own portal.
+  <Step title="Sign in">
+    You are taken to the sign-in page. Enter your email and the password you just set. You land on your dashboard.
   </Step>
 </Steps>
 
-<Tip>
-  Use the **Student Timeline** on their profile to see a chronological history of their activities, including attendance, grades, and fee payments.
-</Tip>
+[Insert screenshot: Sign-in page at /login on a tenant subdomain showing the school logo and brand colour, Email and Password fields, the Sign in button, and the Forgot password link]
 
-\[Insert screenshot: Student profile page showing tabs for Personal, Academic, Finance, and Guardians\]
+### Reset your password
 
-## Staff
+<Steps>
+  <Step title="Open the sign-in page">
+    Go to `https://<your-school>.elimuboraerp.com/login` and click **Forgot password?**.
+  </Step>
+  <Step title="Request a reset link">
+    Enter your email and submit. If the email matches an account, a reset link is sent.
+  </Step>
+  <Step title="Set a new password">
+    Open the link from the email and enter a new password. Sign in.
+  </Step>
+</Steps>
 
-Staff accounts represent everyone employed by the school, including teachers, administrators, and support staff.
+### Update your own profile
+
+Each user owns the **My profile** page at `/profile`. You can change your name, your phone numbers (up to three), your email, your password, and your two-factor authentication setup.
+
+<Steps>
+  <Step title="Open your profile">
+    Click your avatar at the top right and pick **My profile**, or go to `/profile` directly.
+  </Step>
+  <Step title="Edit the section you want">
+    The page has three sections: **Personal Information**, **Email Address**, and **Change Password**. Each has its own **Save** action. Edits to your email require you to re-enter your current password and trigger a verification email to the new address; the email is only updated after you click the verification link.
+  </Step>
+  <Step title="Set up two-factor authentication (recommended)">
+    Scroll to the **Authenticator App** or **Email Authentication** section. **Authenticator App** uses a code from Google Authenticator, Authy, or a similar app and is recoverable with one-time codes the system shows you when you set it up. **Email Authentication** sends a one-time code to your email address each time you sign in. Either method is optional; turn one on if your school requires stronger sign-in.
+  </Step>
+</Steps>
+
+[Insert screenshot: Profile page at /profile showing the Personal Information, Email Address, Change Password sections each with its own Save action, and the Authenticator App and Email Authentication sections below]
+
+### Resend the welcome email for a user
+
+The system has no one-click resend action on a user's profile. To send a fresh sign-in link, point the person at the **Forgot password?** link on the sign-in page. Filament's password-reset flow then emails them a link that lets them set a new password and sign in.
+
+## Manage students
+
+A student profile is the central hub for that learner's records across the system: attendance, grades, invoices, wallet, earmarks, club memberships, sports, and assigned items all hang off the profile. Open **Students** in the sidebar, or go to `/students`.
+
+### Admit a student
+
+<Note>
+  **You will need:** a curriculum, a curriculum stage, a grade level, and a stream the student will sit in. These ship pre-seeded for CBC and 8-4-4, so no setup is needed; see [Curriculum & Grade Structure](/modules/curriculum). If you also want to issue fees during admission, the relevant billables and billable groups must already exist (see [Set up fees](/modules/finance#set-up-fees)). If they do not, skip the second wizard step and raise invoices later.
+</Note>
+
+Admission is a two-step wizard. Step 1 captures the student and at least one guardian. Step 2 is optional: pick which billing groups apply, confirm or override per-billable amounts, and let the system raise a consolidated **Fee Structure** invoice for the term in one click.
+
+<Steps>
+  <Step title="Open the wizard">
+    Go to **Students** and click **New student**. The wizard opens on **Student Details**.
+  </Step>
+  <Step title="Fill in Personal Information">
+    Upload an **Avatar** (optional), enter the **Admission Number**, the student's name, **Date of Birth**, **Blood Group**, **Religion**, **Gender**, and **House** (if Sports is on).
+  </Step>
+  <Step title="Add at least one guardian">
+    In the **Guardians** repeater, fill in **First Name**, **Last Name**, up to three **Phone Numbers**, **Email** (optional), the guardian's **Role** (Mother, Father, Aunt, Uncle, Sibling, Sponsor, Emergency Contact, or Other), and **Occupation** (optional). You can add up to three guardians at this point; more can be added or removed later by editing the student.
+  </Step>
+  <Step title="Capture the home address">
+    Enter the address in the **Home Address** fieldset. **Country** defaults to Kenya.
+  </Step>
+  <Step title="Set the Academic Context">
+    Pick **Curriculum** (CBC or 8-4-4), **Curriculum Stage**, **Grade/Class**, and **Stream**. For CBC, also pick the **Pathways** and the **Subjects** the student is taking. The selectors cascade: changing the curriculum clears the stage; changing the stage clears the grade; and so on.
+  </Step>
+  <Step title="Fill Health & Medical Information">
+    Note **Known Allergies**, **Chronic Conditions**, and **Special Needs** where relevant. The Nurse role uses these.
+  </Step>
+  <Step title="Pick Billing Context (Finance only)">
+    If Finance is on, pick the **Billing Groups** that apply to this student. Groups marked as default at admission are pre-selected. This drives the Fee Structure invoice in step 2. Skip if Finance is off.
+  </Step>
+  <Step title="Move to Assign Fees">
+    Click **Next** to move to step 2. The wizard pre-fills one row per matching billable, with the per-stage amount where one exists. Set the **Due Date** (defaults to 30 days from today), tweak any line, and **Add Fee** for any extras.
+  </Step>
+  <Step title="Save">
+    Click **Create**. The student is saved, an empty wallet is auto-created for them, the listed guardians are created as users with panel logins, and (if you filled step 2 with an active term in place) a consolidated **Fee Structure** invoice is raised for the term. Welcome emails go out to the new guardian accounts; a **Student Enrolled** notification goes to all linked guardians and to the class teacher of the chosen stream.
+  </Step>
+</Steps>
+
+[Insert screenshot: New student wizard step 1 at /students/create showing Personal Information, Guardians repeater, Home Address, Academic Context, Health, and Billing Context fieldsets]
+
+[Insert screenshot: New student wizard step 2 showing Due Date and the Fee Assignments repeater with Billable Item, Variant, Quantity, and Amount columns]
+
+### Bulk-import students
+
+Use a CSV when an intake brings in many students at once. Importing students does **not** create their guardians or link them; do that with the [Guardian import](#bulk-import-guardians) or [Student–Guardian link import](#bulk-link-students-and-guardians) afterwards.
+
+<Note>
+  **You will need:** the **curriculum code** (for example, `CBC`), the **grade level name**, and the **stream name** for each row. These must already exist for the school. The importer rejects a row that references an unknown curriculum, grade level, or stream.
+</Note>
+
+<Steps>
+  <Step title="Open the import action">
+    Go to **Students** and click **Import Students**.
+  </Step>
+  <Step title="Download the template">
+    Download the CSV template. Required columns are admission number, first name, last name, date of birth, gender, admission date, curriculum code, grade level name, and stream name. Optional columns cover middle name, blood group, religion, allergies, chronic conditions, special needs, expected graduation date, admission type, and admission notes.
+  </Step>
+  <Step title="Choose Update existing if needed">
+    Toggle **Update existing students (matched by admission number)** to update rather than reject existing students.
+  </Step>
+  <Step title="Upload and confirm">
+    Upload the file. Filament queues the import and shows a notification with the number of rows that succeeded and failed when it finishes. Failed rows are listed with the reason (missing curriculum, duplicate admission number, and so on) so you can correct and re-import.
+  </Step>
+</Steps>
+
+### Edit a student profile
+
+Open the student from **Students** and click **Edit**. The same form used at admission opens, with the guardians and the address pre-filled. You can:
+
+- Update name, date of birth, religion, blood group, gender, avatar, allergies, conditions, and special needs.
+- Move the student to a different curriculum, stage, grade level, stream, pathway, or subject set. The role-scoped lists for teachers and the guardian view follow the new placement automatically.
+- Add new guardians, edit an existing guardian's contact details, or remove a guardian from the student.
+
+There is no separate "transfer between streams" or "promote at year-end" action. To move a student to a new stream mid-year, edit the **Stream** field. To promote a cohort at the start of a new academic year, edit each student's **Grade/Class** and **Stream**, or use the Students importer with **Update existing students** enabled and the new grade-level and stream names in the CSV.
+
+### Archive or restore a student
+
+Students are not hard-deleted in normal use; they are archived (soft-deleted) so attendance, grades, invoices, and reports stay intact.
+
+<Steps>
+  <Step title="Archive the student">
+    Open the student and click **Delete**. The record is soft-deleted: it disappears from active registers, assessments, and invoicing, but stays visible in the **Students** list so you can restore or hard-delete it later.
+  </Step>
+  <Step title="Restore an archived student">
+    On the student's view page, click **Restore**. The student becomes active again and is visible to teachers and guardians per the usual scoping.
+  </Step>
+  <Step title="Hard-delete (rarely used)">
+    Only a Super Admin can hard-delete a student. Use **Force delete** on the view page. This removes the student row permanently. The student–guardian links are removed automatically; the wallet, invoices, and other dependent records are governed by their own retention rules.
+  </Step>
+</Steps>
+
+### Reports on a student
+
+The view page for a student carries report actions in the header. Each is a download. The visible set depends on which modules are enabled in your tenant:
+
+- **Attendance Report** — PDF or Excel covering a date range, optionally restricted to one session (Morning, Afternoon). See [Attendance](/modules/attendance).
+- **Financial Statement** — PDF or Excel rollup of invoices, payments, wallet activity, and earmarks for the chosen window. See [Finance](/modules/finance).
+- **Export Report Card** — PDF of a chosen report card. See [Assessments](/modules/assessments).
+- **Assigned Items** — PDF list of inventory items currently issued to the student. See [Inventory](/modules/inventory).
+
+The list page also carries a **Student Directory** export (PDF or Excel) that can be filtered by grade level and stream.
+
+## Manage teachers
+
+Open **Teachers** in the sidebar, or go to `/teachers`.
+
+### Onboard a teacher
+
+<Note>
+  **You will need:** at least one **Role** to assign to the new teacher, and (optionally) the **Subjects** the teacher will teach. The system ships with the **Teacher**, **Class Teacher**, and **HOD** roles pre-seeded; see [Roles & Permissions](/roles-permissions). Custom roles can be added under [Settings → Roles & Permissions](#create-a-custom-role).
+</Note>
+
+<Steps>
+  <Step title="Open the form">
+    Go to **Teachers** and click **New teacher**.
+  </Step>
+  <Step title="Personal Information">
+    Enter the teacher's name, **Email** (must be unique across the school), and up to three **Phone Numbers**.
+  </Step>
+  <Step title="Employment Details">
+    Enter the **Employee Number** and (optionally) the **Curriculum** and **Curriculum Stage** the teacher works in.
+  </Step>
+  <Step title="Subjects">
+    Pick the subjects this teacher teaches. When a curriculum is set, the subject list is restricted to that curriculum's subjects. At least one subject is required.
+  </Step>
+  <Step title="Roles">
+    Pick one or more **Roles**. A teacher can hold several roles at once. A teacher who needs to mark registers and own a stream typically holds **Teacher** plus **Class Teacher**; a department head adds **HOD**.
+  </Step>
+  <Step title="Save">
+    Click **Create**. The system creates the underlying user account and emails a **Welcome to Elimu Bora** message with a **Set Your Password** link. A starter timetable is also created for the teacher so lessons can be added later (see [Timetable](/modules/timetable)).
+  </Step>
+</Steps>
+
+### Bulk-import teachers
+
+<Note>
+  **You will need:** the **Curriculum code** for each row when you want the teacher tied to a curriculum. The importer skips that field if it is blank.
+</Note>
+
+<Steps>
+  <Step title="Open Import Teachers">
+    Go to **Teachers** and click **Import Teachers**.
+  </Step>
+  <Step title="Fill in the template">
+    Required columns are employee number, first name, last name, and email. Optional columns are middle name, phone, curriculum code, and curriculum stage name. The importer creates each underlying user account with a one-time random password, assigns the **Teacher** role, and emails a welcome message that lets the teacher set their own password.
+  </Step>
+  <Step title="Upload">
+    Upload the file. The import runs in the background and reports successes and failures when done.
+  </Step>
+</Steps>
+
+### Assign or change a teacher's classes
+
+A teacher becomes a **Class Teacher** by being assigned to one or more class streams. Stream assignments also drive the role-scoped student list: a teacher only sees students in streams they own or subjects they teach.
+
+<Steps>
+  <Step title="Open the teacher">
+    Open the teacher from **Teachers** and switch to the **Class Assignments** tab on the view page.
+  </Step>
+  <Step title="Assign a class">
+    Click **Assign Class** and pick a stream. The picker shows streams that are currently unassigned or assigned to another teacher.
+  </Step>
+  <Step title="Unassign a class">
+    On any row, click **Unassign** and confirm. The stream becomes available for another teacher; existing student records and lessons keep their data.
+  </Step>
+</Steps>
+
+### Edit or remove a teacher
+
+Open the teacher and click **Edit** to change anything on the form, including the role list. To remove a teacher, open the **Teachers** list and click the row's **Delete** action: the teacher record is deleted, the linked user account is deleted with it, and the user is signed out of the panel. Lessons, grades, and other history they wrote remain on the records they belong to.
+
+### Reports on a teacher
+
+The view page carries: **Download Timetable** (PDF for a chosen timetable period), **Attendance Report** (PDF), **Assigned Items** (PDF), and **Subject Performance** (landscape PDF showing average percentage per subject and stream the teacher teaches, for a chosen closed assessment). The list page also carries a **Teacher Directory** export (PDF or Excel) and a **Teacher Timetable** picker that lets you download any teacher's timetable from the list page.
+
+## Manage staff
+
+Non-teaching staff are managed at `/staff`. The form mirrors the Teachers form, with **Department** and **Position** in place of curriculum and subjects.
+
+### Onboard a non-teaching staff member
+
+<Note>
+  **You will need:** at least one **Role** to assign. The pre-seeded non-teaching roles are Bursar, HR/Secretary, Driver, Chef, Librarian, Lab Technician, Nurse, Patron, and Matron; you can also add custom roles.
+</Note>
+
+<Steps>
+  <Step title="Open the form">
+    Go to **Staff** and click **New staff**.
+  </Step>
+  <Step title="Personal Information">
+    Name, email (unique), and up to three phone numbers.
+  </Step>
+  <Step title="Employment Details">
+    Enter the **Employee Number**, pick the **Department** (Administration, Finance, Human Resources, ICT, Library, Laboratory, Student Welfare, Sports, Transport, Catering, Security, Maintenance, or Procurement), and enter the **Position** (free text such as Head Librarian or School Driver).
+  </Step>
+  <Step title="Roles">
+    Pick one or more **Roles**. A bursar typically holds the **Bursar** role; a librarian holds **Librarian**; an HR officer holds **HR/Secretary**. Library, Health, and Boarding-leaning roles exist as future modules ship.
+  </Step>
+  <Step title="Save">
+    Click **Create**. The underlying user account is created and a welcome email is sent with a **Set Your Password** link.
+  </Step>
+</Steps>
+
+### Bulk-import staff
+
+<Note>
+  **You will need:** the **Department** value for each row (one of the values above), and optionally a **Role** name to assign at sign-in.
+</Note>
+
+Open **Staff**, click **Import Staff**, download the CSV template, fill in employee number, name, email, department, position, and role, and upload. The importer creates each user, assigns the named role (creating it if missing), and sends the welcome email.
+
+### Edit or remove a staff member
+
+Open the staff member and click **Edit** to change their department, position, or roles. To remove, click **Delete** on the Staff list row: the staff record and the linked user account are deleted. The directory exports a **Staff Directory** (PDF or Excel) that can be filtered to one department.
+
+### Reports on a staff member
+
+The view page carries **Attendance Report** and **Assigned Items** downloads, scoped to the staff member.
+
+## Manage guardians
+
+Open **Guardians** in the sidebar, or go to `/guardians`. A guardian holds:
+
+- A panel account they sign in with.
+- The relationship they have to each linked child (Mother, Father, and so on).
+- Any per-billable **Discounts** they are entitled to. Discounts attached here are applied automatically to invoice lines raised for the guardian's children. See [Hold a discount for a guardian](/modules/finance#hold-a-discount-for-a-guardian) for the discount flow.
+
+### Register a guardian
+
+<Steps>
+  <Step title="Open the form">
+    Go to **Guardians** and click **New guardian**.
+  </Step>
+  <Step title="Personal Information">
+    Enter the guardian's name, **Email** (unique across the school), and up to three **Phone Numbers**.
+  </Step>
+  <Step title="Guardian Details">
+    Pick the **Role** the guardian holds in relation to the children (Mother, Father, Aunt, Uncle, Sibling, Sponsor, Emergency Contact, or Other). Enter the **Occupation** if useful.
+  </Step>
+  <Step title="Save">
+    Click **Create**. The underlying user account is created, the **Guardian** role is assigned (it is locked, read-only, and scoped to the guardian's own children), and a welcome email is sent.
+  </Step>
+</Steps>
+
+Linking the guardian to a student is a separate step (see below).
+
+### Link a guardian to one or more students
+
+There is no **Link Student** action on the guardian profile. Guardian–student linking is done from the student side, or in bulk via an importer.
 
 <Tabs>
-  <Tab title="Creating Staff">
-    1. Navigate to **Staff** and click **New Staff**.
-    2. Enter their personal information and contact details.
-    3. Assign a **Role** (e.g., Teacher, Bursar, Principal). This controls their permissions.
-    4. Set their **Department** and employee number.
+  <Tab title="From the student profile">
+    1. Open the student under **Students**.
+    2. Click **Edit**.
+    3. In the **Guardians** repeater, add a new row. Either pick an existing guardian by typing the same email you registered them under (the form re-uses the existing guardian when the email matches), or fill in a fresh guardian's details to register and link in one step.
+    4. Save. The link is created, an activity-log entry records who linked the guardian, and the guardian gets a **You've Been Linked** notification.
   </Tab>
-  <Tab title="Teaching Assignments">
-    For teachers, you must assign **Subjects** and **Classes**:
-
-    1. Open the staff profile.
-    2. Go to the **Assignments** tab.
-    3. Link the teacher to specific grade levels, streams, and subjects. This allows them to mark registers and enter grades for those classes.
+  <Tab title="In bulk (link existing records)">
+    1. Go to **Guardians** and click **Import Student–Guardian Links**.
+    2. Download the CSV. Required columns are **Student Admission Number** and **Guardian Email**.
+    3. Upload the file. Rows that already link the pair are skipped; rows whose student or guardian cannot be found are reported as failures.
+  </Tab>
+  <Tab title="In bulk (register and link)">
+    Use **Import Guardians** when you have both new guardians and the admission numbers of their children. The CSV's **Student Admission Numbers (comma-separated)** column triggers a link to each named student after the guardian is registered.
   </Tab>
 </Tabs>
 
-\[Insert screenshot: Staff assignment interface showing subjects linked to specific streams\]
+### Unlink a guardian from a student
 
-## Guardians
+Open the student, click **Edit**, remove the guardian row from the **Guardians** repeater, and save. The link is removed. The guardian's account is not deleted, and any of the guardian's other children stay linked. The guardian stops receiving notifications about the unlinked student.
 
-Guardians are linked to students and have restricted, read-only access to their children's data.
+### Update a guardian's contacts
+
+Either open the guardian under **Guardians** and use **Edit**, or open the student and edit the guardian's row in the **Guardians** repeater. Both edits write to the same underlying user account.
+
+### Bulk-import guardians
+
+<Note>
+  **You will need:** the **Role** value for each row (Mother, Father, Aunt, Uncle, Sibling, Sponsor, Emergency Contact, or Other). The importer rejects rows with any other value.
+</Note>
 
 <Steps>
-  <Step title="Create Guardian Account">
-    Go to **Guardians** and click **New Guardian**. Provide their name, phone number, and email.
+  <Step title="Open Import Guardians">
+    Go to **Guardians** and click **Import Guardians**.
   </Step>
-  <Step title="Link to Students">
-    Open the guardian profile and use the **Link Student** action to search for and connect them to one or more children in the school.
+  <Step title="Fill in the template">
+    Required columns are first name, last name, email, and role. Optional columns are middle name, phone, occupation, and **Student Admission Numbers (comma-separated)** to link each guardian to one or more students at the same time.
   </Step>
-  <Step title="Set Primary Contact">
-    Mark the primary guardian for each student. This contact will receive all official billing communications and emergency notifications.
+  <Step title="Upload">
+    Upload the file. The importer creates each user (with the Guardian role), sends the welcome email, and writes any student links named in the row.
   </Step>
 </Steps>
 
-<Info>
-  A single guardian account can be linked to multiple siblings across different grades, allowing the parent to switch between their children's profiles with one login.
-</Info>
+### Hold a discount for a guardian
 
-## Bulk Import
+Discounts are held on the guardian and scoped to a single billable. The full workflow lives on the Finance page: see [Hold a discount for a guardian](/modules/finance#hold-a-discount-for-a-guardian).
 
-For initial onboarding or new year intakes, use the Bulk Import tool to add users in seconds.
+### Remove a guardian
+
+Open the guardian and click **Delete**. The guardian record is removed, the linked user account is removed, and all student–guardian link rows are cleaned up automatically. Children remain on the student list and any other guardians they have stay linked to them.
+
+### Reports on guardians
+
+The list page carries a **Guardian Contact List** export (PDF or Excel) that can be filtered by grade level or stream so you can hand out a list of contacts for one class.
+
+## Manage roles
+
+Roles bundle permissions. Most schools sit on the pre-seeded set; teachers and HR rarely need to touch the role editor. For a full picture of every role and how permissions compose, see [Roles & Permissions](/roles-permissions).
+
+### Assign a role to a user
+
+Roles are assigned on the **Teachers** or **Staff** form, in the **Roles** section. A user can hold any number of roles; their effective permissions are the union of all roles they hold. For example, a teacher who also acts as a class teacher and a head of department holds **Teacher**, **Class Teacher**, and **HOD** simultaneously.
+
+To change someone's roles after onboarding, open the teacher or staff member, click **Edit**, and update the **Roles** picker.
+
+Guardians always hold the locked **Guardian** role; it is assigned automatically when the guardian record is created and cannot be removed.
+
+### Create a custom role
+
+<Note>
+  **You will need:** the **Roles & Permissions** permission, which the **Director** and **Principal** roles hold by default. The Roles & Permissions resource is gated by this permission and is hidden from anyone without it.
+</Note>
 
 <Steps>
-  <Step title="Download Template">
-    Navigate to **Bulk Import** and download the CSV template for your user type (Students, Staff, or Guardians).
+  <Step title="Open Roles & Permissions">
+    In the sidebar, go to **Settings → Roles & Permissions**, or open `/settings/roles`.
   </Step>
-  <Step title="Prepare Your Data">
-    Fill in the CSV with your school's data, ensuring all required fields (like Admission Number or Phone) are included and correctly formatted.
+  <Step title="Create a new role">
+    Click **New Role**. Enter a name (it must be unique).
   </Step>
-  <Step title="Upload and Validate">
-    Upload the file. The system will perform a validation check to highlight any errors (e.g., duplicate admission numbers or invalid grade levels).
+  <Step title="Pick permissions">
+    The **Permissions** checklist groups every permission by area (Identity, Curriculum, Academics, Attendance, Finance, Inventory, Sports, Clubs, Events, Library, Health, Boarding, Settings, and so on). Tick the boxes for what the role can do. Use the search box to find a permission quickly, and the **Bulk toggle** to flip a whole group at once.
   </Step>
-  <Step title="Confirm Import">
-    Once the validation passes, confirm the import to create all accounts simultaneously.
+  <Step title="Save">
+    Click **Create**. The role appears in the list and is now selectable on any teacher or staff form.
   </Step>
 </Steps>
 
-\[Insert screenshot: Bulk import validation screen showing successful rows and rows with errors\]
+### Edit a role's permissions
 
-## FAQs & Troubleshooting
+Open the role from **Settings → Roles & Permissions** and click **Edit**. Adjust the permissions checklist and save. The change applies to every user who already holds the role; nobody has to be re-assigned. Locked roles (**Super Admin** and **Guardian**) cannot have their name or permissions changed; the form shows the fields read-only and the **Save** action returns an error if pressed.
+
+### Delete a custom role
+
+A role can only be deleted when it is **not locked** and has **no users assigned**. Open **Settings → Roles & Permissions**, click the row's **Delete** action, and confirm. If users still hold the role, re-assign them to another role first; the action refuses to run until the role is empty.
+
+## How records relate
+
+A few user-visible relationships are worth keeping in mind:
+
+- A teacher, staff member, or guardian is built from two rows: a person record (Teacher, Staff, or Guardian) and a user account. The two are created together; deleting the person deletes the account, and the user can no longer sign in.
+- A student has one or more guardians. The same guardian account can be linked to several siblings, so one sign-in covers all the children in a family. Each link carries the guardian's stated relationship to that child.
+- Each student is auto-assigned a single wallet on admission (see [Finance](/modules/finance#run-wallets)). The wallet stays with the student through every grade change and is never re-created.
+- A teacher's view of students is shaped by two things: the streams the teacher owns and the subjects they teach. Changing either changes which students appear on the teacher's list.
+- A user can hold any number of roles. Their effective permissions are the union of all those roles.
+
+## Notifications
+
+The system sends emails and in-panel notifications during normal Identity flows.
+
+| Notification | When it fires | Who receives it | Delivery |
+|---|---|---|---|
+| Welcome to Elimu Bora | A new user account is created (teacher, staff, or guardian — including those created during student admission, on the Teachers / Staff / Guardians forms, or via any importer that creates user accounts). | The new user | Email with **Set Your Password** link |
+| Student Enrolled | A student is created. | Every linked guardian, and the class teacher of the student's stream | Email and in-panel notification |
+| You've Been Linked to a Student | A guardian is linked to a student (from the student form, the Guardian importer, or the Student–Guardian link importer). | The guardian who was just linked | Email and in-panel notification |
+
+## What guardians see
+
+Guardians sign in to the same tenant subdomain as staff (`https://<your-school>.elimuboraerp.com/login`). They hold the locked **Guardian** role, which is read-only and scoped to their own children. In the Identity area, the guardian sees:
+
+- **Students** — a list and view page restricted to the guardian's own children. Admission number, photo, grade, stream, and the health and academic context the school has captured for that child are all visible.
+- **Their own profile** — the same `/profile` page every user has, so a guardian can update their own name, phone numbers, email, password, and two-factor settings.
+
+The Guardian role does **not** see:
+
+- The **Teachers**, **Staff**, **Guardians**, or **Settings → Roles & Permissions** resources in the sidebar.
+- Any **Create**, **Edit**, **Delete**, or **Restore** action on a student profile. The view page shows the same tabs (Attendance, Academics, Clubs, Sports, Invoices, Wallet, Earmarks, Assigned Items, Activity) but every action button is hidden.
+- Other guardians' children. The student list query is filtered to children the guardian is linked to before any permission check runs, so even direct URLs to a non-linked student are denied.
+
+Identity-related notifications guardians receive even without signing in:
+
+- The welcome email when their account is created.
+- The **Student Enrolled** email if they are linked to a newly admitted child.
+- The **You've Been Linked** email each time the school links them to another student.
+
+## FAQs and troubleshooting
 
 <AccordionGroup>
-  <Accordion title="What happens when a student leaves the school?">
-    Do not delete the student record. Use the **Archive** or **Graduate** action. This preserves their historical data for future transcripts while removing them from active registers and billing.
+  <Accordion title="Do students log in to Elimu Bora?">
+    No. Students do not have panel accounts. Anything they need to share — attendance, grades, report cards, invoices — reaches the guardian instead, either as a notification or through the guardian's read-only login.
   </Accordion>
 
-  <Accordion title="How do I reset a user's password?">
-    Open the user's profile and click **Resend Welcome Email** or use the **Reset Password** action.
+  <Accordion title="How do I let a teacher act as a class teacher?">
+    Assign the **Class Teacher** role on the teacher's profile (the role is pre-seeded; you do not need to create it), and then assign at least one stream under the teacher's **Class Assignments** tab. The role grants the permissions a class teacher needs; the stream assignment scopes which students they see and which stream's discipline, attendance, and report-card flows they own.
   </Accordion>
 
-  <Accordion title="Can one user have multiple roles?">
-    Yes, a staff member can be assigned multiple roles (e.g., both a **Teacher** and a **Department Head**) to grant them the necessary permissions for both positions.
+  <Accordion title="Can one staff member hold more than one role?">
+    Yes. The **Roles** picker on the Teachers and Staff forms is multi-select. A user's effective permissions are the union of every role they hold. A common pattern is a teacher who also runs the library: hold **Teacher** and **Librarian** together.
+  </Accordion>
+
+  <Accordion title="A guardian says they did not get the welcome email. What now?">
+    Confirm the email on their guardian profile is correct (open **Guardians**, click the guardian, and check **Email Address**). If it is wrong, edit it; saving with a new email triggers Filament's email-change verification so the guardian has to confirm the new address. Once the email is right, ask the guardian to go to `/login`, click **Forgot password?**, and request a reset link — that produces a fresh sign-in link with no need for an admin action.
+  </Accordion>
+
+  <Accordion title="How do I link a guardian to several children?">
+    Edit each child and add the guardian to that student's **Guardians** repeater. The form re-uses the existing guardian when the email matches, so the same account ends up linked to every child you add it to. The guardian can then switch between children from a single login. For a one-shot bulk run, use **Import Student–Guardian Links** under **Guardians**.
+  </Accordion>
+
+  <Accordion title="A guardian holds more than one discount for the same billable. Which one applies?">
+    The system picks the largest applicable discount automatically and stamps it onto the invoice line. The other discounts stay on the guardian's record for future invoices but are not double-applied. See [Hold a discount for a guardian](/modules/finance#hold-a-discount-for-a-guardian).
+  </Accordion>
+
+  <Accordion title="What happens to a student's records when they leave?">
+    Use **Delete** to archive (soft-delete) the student. Their attendance, grades, invoices, wallet, and earmarks stay on the records they were written against; the student simply drops out of active registers, assessments, and invoicing. You can restore them later from the **Students** list. **Force delete** is reserved for the Super Admin and removes the student row permanently — use only when a record was created in error.
+  </Accordion>
+
+  <Accordion title="Why can a teacher not see one of their students?">
+    Teachers see students in streams they own or subjects they teach. If a student has been moved to a stream the teacher does not own, or off a subject the teacher does not teach, the student drops off the teacher's list automatically. Open the student under **Students** as an administrator and confirm the **Stream** and **Subjects** match the teacher's assignments. Class assignments are managed on the teacher's **Class Assignments** tab; subject assignments are on the teacher's **Edit** form.
+  </Accordion>
+
+  <Accordion title="How do I rename a pre-seeded role like Bursar?">
+    You cannot rename **Super Admin** or **Guardian** — those are locked. Other pre-seeded roles can be renamed by editing them under **Settings → Roles & Permissions**, but think twice before doing so: schools that hand a renamed role to a new staff member sometimes confuse it for a custom role. The safer pattern is to keep the pre-seeded role names and create a custom role with the name and permission set you want.
   </Accordion>
 </AccordionGroup>
