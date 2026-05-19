@@ -52,10 +52,44 @@ The product modules are defined in the product itself (`App\Enums\Module`). When
 
   The `title` is the page H1 — do not add a separate `#` heading. Icons use the Lucide library (set in `docs.json`).
 - **Components over raw markdown.** Prefer Mintlify components — `Steps`, `Tabs`, `Card`, `Accordion`, `Note`, `Tip`, `Warning` — for anything structured. Use the Mintlify Skill when unsure of a component's syntax.
-- **Screenshots.** Where a screenshot belongs but is not yet available, leave a placeholder on its own line: `[Insert screenshot: <description>]`.
+- **Screenshots.** The audience is non-technical, so pages should be image-rich — a school admin should be able to follow along by matching the docs to what they see on screen. Add a screenshot anywhere it helps the reader orient: the relevant page, form, modal, or status badge.
+
+  Where a screenshot belongs but is not yet available, leave a placeholder on its own line so an admin can later drop in the real image:
+
+  ```
+  [Insert screenshot: <description>]
+  ```
+
+  Make the description specific enough that someone who has never seen the screen knows exactly what to capture — name the page or modal, the key fields or controls, and any state worth showing. For example:
+
+  ```
+  [Insert screenshot: Requisition list showing statuses: Pending Approval, Approved, Issued, and Rejected]
+  ```
+
+  Vague placeholders like `[Insert screenshot: the page]` are not acceptable.
 - **Voice.** Use active voice. Address the reader as "you". One idea per sentence. Lead with the goal ("To enroll a student, ..."). Use consistent terminology — match the labels used in the product UI.
 - **No emojis.**
 - **Headings.** The page body uses `##` and `###`. Keep the structure shallow.
+
+## Level of detail
+
+Write thoroughly. A school admin should not have to guess or experiment — the page should answer the question before they have to ask it. When in doubt, document more, not less.
+
+- **Statuses.** Where a record has a status (an invoice, a requisition, an assessment, an academic year), document **every** status — list each one, explain what it means, and explain what the user can do while a record is in it.
+- **Transitions.** Explain how a record moves from one status to the next: what action triggers the change, who can perform it, and whether the move can be reversed. Do not leave a status flow implicit.
+- **Diagrams.** For status flows and entity relationships, use a Mermaid diagram. Mintlify renders Mermaid from a fenced code block:
+
+  ````
+  ```mermaid
+  stateDiagram-v2
+      [*] --> PendingApproval
+      PendingApproval --> Approved: approved by bursar
+      PendingApproval --> Rejected: rejected by bursar
+      Approved --> Issued: stock released
+  ```
+  ````
+
+  Use a `stateDiagram-v2` for status lifecycles and an `erDiagram` for how records relate to one another. Place the diagram alongside the prose that describes it — the diagram supports the text, it does not replace it.
 
 ## Keeping docs in sync with the product
 
