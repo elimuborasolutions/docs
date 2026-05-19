@@ -36,6 +36,7 @@
               "introduction",
               "quickstart",
               "roles-permissions",
+              "staff/overview",
               "guardians/overview"
             ]
           },
@@ -59,7 +60,6 @@
           {
             "group": "More",
             "pages": [
-              "reports/overview",
               "settings/overview"
             ]
           }
