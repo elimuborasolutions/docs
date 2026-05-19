@@ -45,9 +45,9 @@
           "modules/clubs",
           "modules/activity-log",
           "roles-permissions",
+          "staff/overview",
           "guardians/overview",
-          "settings/overview",
-          "reports/overview"
+          "settings/overview"
         ]
       }
     ]
