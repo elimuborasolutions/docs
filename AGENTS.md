@@ -66,6 +66,7 @@ Before creating or modifying documentation:
 - Never invent Mintlify components or props.
 - Never assume deprecated syntax still works.
 - Never document product behavior you have not verified against the source docs or code.
+- Never use em-dashes, emojis, or informal language.
 - Prefer composable Mintlify components over large raw markdown blocks.
 - Prefer shallow, readable page structures over deeply nested sections.
 - Keep documentation visually scannable and optimized for non-technical school staff.
