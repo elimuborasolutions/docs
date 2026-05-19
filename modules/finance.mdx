@@ -1,10 +1,10 @@
 ---
 title: "Finance & Fee Management"
-description: "Charge fees, issue invoices, accept M-Pesa, run wallets and earmarks, and reconcile payments."
+description: "Charge fees, issue invoices, accept M-Pesa, run student wallets and earmarks, and reconcile payments."
 icon: "wallet"
 ---
 
-Finance covers everything a school does with money in Elimu Bora: defining fee items, issuing invoices, accepting and reconciling payments (including M-Pesa STK push and Paybill), tracking student wallets, and reserving funds for specific purposes with earmarks. Bursars run it day to day. School leadership uses it for oversight and reports. Guardians can view their children's invoices, payments, wallets, and earmarks, but cannot record payments or move money from the panel.
+Finance covers everything a school does with money in Elimu Bora: defining fee items, issuing invoices, accepting and reconciling payments (including M-Pesa STK push and Paybill), running per-student wallets for canteen-style spending, and locking prepaid funds against specific charges with earmarks. Bursars run it day to day. School leadership uses it for oversight and reports. Guardians can view their children's invoices, payments, wallets, and earmarks, but cannot record payments or move money from the panel.
 
 <Note>
   Finance is an optional module. A school can enable or disable it under Settings. When Finance is disabled, every Finance resource disappears from the sidebar, scheduled overdue checks are skipped for the tenant, and outbound finance notifications are dropped. Inbound M-Pesa callbacks are still received so that late callbacks for payments started before the module was disabled can still be reconciled.
@@ -17,45 +17,43 @@ Finance covers everything a school does with money in Elimu Bora: defining fee i
 | Billable | A fee item that can be charged, such as tuition, transport, or lunch. |
 | Billable group | A bundle of billables grouped together (for example, a Term 1 fees bundle). |
 | Billable variant | A pricing variation of a billable when one fee has more than one price (for example, per bus route). |
-| Per-stage amount | A grade-stage override of a billable's price, so Grade 1 tuition can differ from Grade 8 tuition. |
-| Discount | A reduction applied to an invoice or a billable, either a percentage or a fixed amount. |
-| Quotation | A pre-invoice quote a school can issue, which a recipient can accept or reject. |
-| Sponsor | A third party paying for an invoice (Government, NGO, Corporate, or Individual). |
+| Per-stage amount | A stage-level override of a billable's price, so Grade 1 tuition can differ from Grade 8 tuition. |
 | Invoice | A bill issued to a student, teacher, or staff member, scoped to a term. |
-| Invoice line | One charge on an invoice, tied to a billable or recorded as ad-hoc. |
+| Invoice line | One charge on an invoice, tied to a billable or recorded as ad-hoc. Each line carries its own optional discount. |
 | Invoice payment | A payment recorded against an invoice. |
 | Payment allocation | The split of one payment across the lines of its invoice. |
-| Wallet | A per-student credit balance held inside the platform. |
+| Wallet | A per-student credit balance for student spending (school canteen and similar non-invoice use). |
 | Wallet transaction | A credit or debit entry on a wallet, with a balance snapshot for audit. |
-| Earmark | A portion of wallet balance reserved for a specific billable. |
+| Earmark | Prepaid funds locked against a specific billable for a student, drained automatically when a matching invoice payment is recorded. |
 | Earmark transaction | A funding, drain, refund, or bounce entry on an earmark, with a balance snapshot for audit. |
-| M-Pesa integration | The school's stored M-Pesa credentials (shortcode and passkey) and the callback URLs registered with Safaricom. |
+| Sponsor | A third party paying for an invoice payment (Government, NGO, Corporate, or Individual). |
+| M-Pesa integration | The school's stored M-Pesa credentials (Paybill shortcode, passkey, consumer key and secret) and the callback URLs registered with Safaricom. |
 
 ## What you can do
 
 <CardGroup cols={2}>
   <Card title="Set up fees" icon="list-check" href="#set-up-fees">
-    Define billables, variants, per-stage amounts, and discounts.
+    Define billables, variants, and per-stage amounts.
   </Card>
 
   <Card title="Issue invoices" icon="file-text" href="#issue-invoices">
-    Create invoices, add lines, edit, cancel, and read the balance.
+    Create invoices, add lines with optional discounts, and read the balance.
   </Card>
 
   <Card title="Record payments" icon="hand-coins" href="#record-payments">
-    Cash, bank transfer, cheque, M-Pesa STK push, Paybill (C2B), and refunds.
+    Cash, bank transfer, cheque, M-Pesa STK push, and Paybill (C2B).
   </Card>
 
   <Card title="Run wallets" icon="piggy-bank" href="#run-wallets">
-    Top up, spend, and read a student's wallet ledger.
+    Top up, read the ledger, and handle low-balance notifications.
   </Card>
 
   <Card title="Manage earmarks" icon="lock" href="#manage-earmarks">
-    Reserve funds against a specific billable; release, refund, or drain them.
+    Lock prepaid funds against a billable; let them drain automatically, or refund what is left.
   </Card>
 
-  <Card title="Quotations and sponsors" icon="handshake" href="#quotations-and-sponsors">
-    Issue quotations and attach sponsors to invoices.
+  <Card title="Attach sponsors" icon="handshake" href="#attach-sponsors">
+    Tag payments with the sponsor that funded them for reconciliation.
   </Card>
 </CardGroup>
 
@@ -84,7 +82,7 @@ Fees are built from billables. Each billable has a pricing model that decides wh
   </Step>
 </Steps>
 
-[Insert screenshot: Billables list at /admin/billables with columns Name, Pricing model, Default amount, Group, and the New billable button in the header]
+[Insert screenshot: Billables list at /billables with columns Name, Pricing model, Default amount, Group, and the New billable button in the header]
 
 ### Add a billable variant
 
@@ -108,11 +106,7 @@ When the pricing model is **Variants**, each variant carries its own amount.
 
 ### Set a per-stage amount
 
-<Note>
-  **You will need:** curriculum stages already set up. Stages are configured under [Curriculum & Structure](/modules/curriculum). Without stages, there is nothing to override on.
-</Note>
-
-Use per-stage amounts to charge different prices by curriculum stage (for example, Grade 1 tuition is lower than Grade 8 tuition).
+Use per-stage amounts to charge different prices by curriculum stage (for example, Grade 1 tuition is lower than Grade 8 tuition). Curriculum stages ship pre-seeded and read-only, so there is no setup before this step.
 
 <Steps>
   <Step title="Open the billable and scroll to Per-stage amounts">
@@ -123,23 +117,6 @@ Use per-stage amounts to charge different prices by curriculum stage (for exampl
   </Step>
   <Step title="Save">
     Save the billable. Invoice generation will use the per-stage amount for students in the matching stage.
-  </Step>
-</Steps>
-
-### Define a discount
-
-<Steps>
-  <Step title="Open Discounts">
-    Go to **Discounts** and click **New discount**.
-  </Step>
-  <Step title="Pick a discount type and amount">
-    Pick **Percentage** to reduce by a percent of the subtotal, or **Fixed** to reduce by a flat currency amount.
-  </Step>
-  <Step title="Optionally target a billable">
-    Leave the target empty to make the discount available for any invoice line, or pick a specific billable to restrict its use.
-  </Step>
-  <Step title="Save">
-    Save the discount. The reduction is capped at the subtotal and floored at zero, so a discount can never produce a negative line.
   </Step>
 </Steps>
 
@@ -164,49 +141,30 @@ An invoice is the document a school issues to a student, teacher, or staff membe
     Pick the term this invoice covers, and an optional due date. The due date is what the overdue scan uses.
   </Step>
   <Step title="Add invoice lines">
-    Add one line per charge. Each line is either tied to a billable (and inherits its amount) or recorded as an ad-hoc line with a label and amount you type in.
+    Add one line per charge. Each line is either tied to a billable (and inherits its amount) or recorded as an ad-hoc line with a label and amount you type in. Each line has its own **Discount** field for an optional reduction on that line; the discount is capped at the line subtotal and floored at zero, so a discount can never produce a negative line.
   </Step>
   <Step title="Save the invoice">
-    Click **Save**. The invoice starts in **Pending** status. Adding lines automatically recomputes the invoice total. A notification is queued to the invoiceable's guardians (or the staff/teacher themselves).
+    Click **Save**. The invoice starts in **Pending** status. Adding lines automatically recomputes the invoice total. A notification is queued to the invoiceable's guardians (for student invoices) or to the staff or teacher themselves.
   </Step>
 </Steps>
 
-[Insert screenshot: New invoice form at /admin/invoices/create showing the Invoiceable picker (Student/Teacher/Staff), Term selector, Due date, and the repeating Lines block with Billable, Quantity, Amount, and Discount columns]
-
-### Edit an invoice line
-
-<Steps>
-  <Step title="Open the invoice">
-    Open the invoice from the list. Use the **Lines** relation manager on the view page.
-  </Step>
-  <Step title="Edit the line and save">
-    Edit the quantity, amount, or discount on the line, then save. The invoice total is recomputed automatically. Direct edits to the invoice's overall **Amount**, **Total paid**, and **Status** fields should not be made by hand because the system maintains those.
-  </Step>
-</Steps>
-
-### Cancel or delete an invoice
-
-<Steps>
-  <Step title="Open the invoice">
-    Open the invoice from the list.
-  </Step>
-  <Step title="Soft delete">
-    Use the **Delete** action. This is a soft delete: the invoice can be restored later by a bursar.
-  </Step>
-  <Step title="Hard delete (Super Admin only)">
-    Hard delete (which permanently removes the invoice and cannot be undone) is reserved for Super Admin.
-  </Step>
-</Steps>
+[Insert screenshot: New invoice form at /invoices/create showing the Invoiceable picker (Student/Teacher/Staff), Term selector, Due date, and the repeating Lines block with Billable, Quantity, Amount, and Discount columns]
 
 ### Read an invoice's balance and history
 
-The invoice view page shows the running total, the **Total paid**, and the current **Balance**. The **Lines** tab lists every charge. The **Payments** tab lists every payment with its method and status. The **Activity log** captures every change.
+<Note>
+  **Invoices are immutable once created.** The invoice's lines, amounts, and payments are part of the school's ledger and cannot be edited or deleted from the panel. If a charge was wrong, raise a new invoice for the corrected amount, or wait for the payment flow to balance things out (a refund happens on the earmark side, not on the invoice itself).
+</Note>
 
-[Insert screenshot: Invoice view page at /admin/invoices/{id} showing the header summary (Amount, Total paid, Balance, Status badge), the Lines relation manager, and the Payments relation manager with method and status columns]
+The invoice view page shows the running total, the **Total paid**, and the current **Balance**. The **Lines** tab lists every charge with its discount and total. The **Payments** tab lists every payment with its method and status. The **Activity log** captures every change.
+
+[Insert screenshot: Invoice view page at /invoices/{id} showing the header summary (Amount, Total paid, Balance, Status badge), the Lines relation manager, and the Payments relation manager with method and status columns]
 
 ## Record payments
 
-Payments are recorded against a specific invoice. Five payment methods can be picked manually: **M-Pesa**, **Cash**, **Bank Transfer**, **Cheque**, and the implicit **Earmark** and **Wallet refund** which the system sets for you when those are the source of funds.
+All payments are recorded from one place: the **Record Invoice Payment** modal. Pick a method on the form, fill in the method-specific fields, and save. M-Pesa is one of the methods; selecting it reveals a phone-number input and lets the bursar send an STK push.
+
+Payment methods available on the form: **M-Pesa**, **Cash**, **Bank Transfer**, **Cheque**. The system also sets two internal methods automatically when they apply: **Earmark** (when a payment is settled from an earmark balance) and **Wallet refund** (when an earmark is refunded back into a wallet).
 
 ### Record a cash or bank transfer payment
 
@@ -214,14 +172,14 @@ Payments are recorded against a specific invoice. Five payment methods can be pi
   <Step title="Open the invoice">
     Open the invoice from **Invoices**.
   </Step>
-  <Step title="Add a payment">
-    On the **Payments** relation manager, click **Add payment**.
+  <Step title="Open the payment modal">
+    On the invoice view page, click **Record Invoice Payment**.
   </Step>
   <Step title="Pick the method and enter the amount">
     Pick **Cash** or **Bank Transfer**. Enter the amount. For bank transfers, record the bank reference.
   </Step>
   <Step title="Save">
-    Save the payment. Cash and bank transfer payments go straight to **Cleared** status. The payment is allocated proportionally across the invoice's unpaid lines unless you override the allocation manually. The invoice status moves to **Partial** or **Paid** based on the new balance, and a receipt PDF is queued to email to the contact.
+    Save the payment. Cash and bank transfer payments go straight to **Cleared** status. The payment is allocated proportionally across the invoice's unpaid lines unless you override the allocation manually. The invoice status moves to **Partial** or **Paid** based on the new balance. A dashboard notification appears for the school, and a receipt PDF is emailed to the invoice owner (the guardian for a student invoice, or the staff or teacher for theirs).
   </Step>
 </Steps>
 
@@ -230,88 +188,103 @@ Payments are recorded against a specific invoice. Five payment methods can be pi
 Cheques start in **Pending** until a bursar marks them cleared or bounced.
 
 <Steps>
-  <Step title="Add a cheque payment">
-    On the invoice's **Payments** relation manager, click **Add payment** and pick **Cheque**.
+  <Step title="Open the payment modal">
+    On the invoice view page, click **Record Invoice Payment** and pick **Cheque** as the method.
   </Step>
   <Step title="Enter cheque details">
     Enter the cheque number, the drawing bank, the cheque drawn date, and the amount.
   </Step>
-  <Step title="Mark cleared or bounced">
-    When the cheque clears at the bank, open the payment and use the **Mark cleared** action. The status becomes **Cleared** and the invoice is credited. If the cheque bounces, use **Mark bounced**: the payment status becomes **Bounced**, the credit is reversed, and a **Cheque bounced** notification is sent to the bursar and the relevant guardians.
+  <Step title="Save">
+    Save the payment. The payment status is **Pending**. The invoice balance is not yet credited because the cheque has not cleared.
+  </Step>
+</Steps>
+
+### Mark a cheque cleared
+
+<Note>
+  **You will need:** a cheque payment in **Pending** status on the invoice.
+</Note>
+
+<Steps>
+  <Step title="Open the payment">
+    On the invoice's **Payments** tab, find the cheque row.
+  </Step>
+  <Step title="Use Mark cleared">
+    Use the **Mark cleared** action. The payment status becomes **Cleared** and the invoice is credited. The invoice status moves to **Partial** or **Paid**, and the receipt PDF is emailed to the invoice owner.
+  </Step>
+</Steps>
+
+### Mark a cheque bounced
+
+<Note>
+  **You will need:** a cheque payment in **Pending** status on the invoice, and the system billable **Bounced Cheque Penalty** present in your Billables list (it is pre-seeded; if it is missing, ask a Super Admin to re-seed the billables).
+</Note>
+
+<Steps>
+  <Step title="Open the payment">
+    On the invoice's **Payments** tab, find the cheque row.
+  </Step>
+  <Step title="Use Mark bounced">
+    Use the **Mark bounced** action.
+  </Step>
+  <Step title="Enter the bounce reason and the penalty amount">
+    The modal prompts for a **Bounce reason** (free text) and a **Penalty amount** (the fine to charge the guardian). The penalty defaults to the **Bounced Cheque Penalty** billable's default amount; the bursar can override it for this case.
+  </Step>
+  <Step title="Confirm">
+    Confirm. The payment status becomes **Bounced** (terminal). A new **Bounced cheque penalty** line is added to the same invoice for the penalty amount, increasing the balance. A **Cheque bounced** notification goes to the relevant guardians and a dashboard notification appears for the bursar.
   </Step>
 </Steps>
 
 ### Trigger an M-Pesa STK push
 
 <Note>
-  **You will need:** the M-Pesa integration configured under [Configure M-Pesa](#configure-m-pesa), and a phone number on file for the guardian who will pay. The guardian's phone number is added when the guardian profile is created under [Users & Identity](/modules/users). Without the integration, the **Pay via M-Pesa** action has no phone-number input because there is nowhere to send the prompt.
+  **You will need:** the M-Pesa integration configured under [Configure M-Pesa](#configure-m-pesa), and a phone number for the guardian who will pay. The guardian's phone number is on their profile under [Users & Identity](/modules/users). Without the integration, the **Record Invoice Payment** modal does not show the phone-number input for the M-Pesa method, because there is nowhere to send the prompt.
 </Note>
 
-M-Pesa STK push is initiated from the school side. The bursar opens an invoice and triggers the push to the guardian's phone. Guardians cannot initiate STK push from their own logins; the **Pay via M-Pesa** action is hidden from the Guardian role.
+M-Pesa STK push is initiated from the school side. The bursar opens the **Record Invoice Payment** modal, picks M-Pesa, enters the guardian's phone number, and sends the prompt. Guardians cannot initiate STK push from their own logins; the **Record Invoice Payment** action is hidden from the Guardian role.
 
 <Steps>
   <Step title="Open the invoice">
     Open the invoice from **Invoices**, or from the **Invoices** tab on the student's profile.
   </Step>
-  <Step title="Click Pay via M-Pesa">
-    Click **Pay via M-Pesa**. Enter the guardian's phone number and the amount.
+  <Step title="Open the payment modal and pick M-Pesa">
+    Click **Record Invoice Payment** and pick **M-Pesa**. The phone-number input appears.
   </Step>
-  <Step title="Confirm and send the prompt">
-    Click **Send prompt**. An M-Pesa payment intent is created (status **Pending**) and Safaricom delivers a SIM Toolkit prompt to the guardian's phone.
+  <Step title="Enter the phone and amount, then send the prompt">
+    Enter the guardian's phone number and the amount. Click **Record Payment** to send the prompt. The system creates an M-Pesa payment intent (status **Pending**) and Safaricom delivers a SIM Toolkit prompt to the guardian's phone.
   </Step>
   <Step title="Wait for the callback">
-    The guardian enters their M-Pesa PIN on their phone. Safaricom posts a callback to the school's tenant subdomain. The system matches the callback to the payment intent, creates an invoice payment, and recomputes the invoice balance. The guardian receives the standard M-Pesa SMS receipt; the school receives a payment receipt email.
+    The guardian enters their M-Pesa PIN on their phone. Safaricom posts a callback to the school's tenant subdomain. The system matches the callback to the payment intent, creates a cleared invoice payment, and recomputes the invoice balance. A dashboard notification appears for the school, and a receipt PDF is emailed to the invoice owner.
   </Step>
 </Steps>
 
-[Insert screenshot: Pay via M-Pesa modal launched from a student invoice showing the Phone number and Amount fields and the Send prompt button]
+[Insert screenshot: Record Invoice Payment modal launched from a student invoice showing Method set to M-Pesa with the Phone number and Amount fields and the Record Payment button]
 
 ### Reconcile an M-Pesa Paybill (C2B) payment
 
 <Note>
-  **You will need:** the M-Pesa integration configured under [Configure M-Pesa](#configure-m-pesa), and the Paybill callback URLs registered with Safaricom Daraja. Without these URLs, deposits will land in the Paybill account but the system will not know about them, so they will not flow into Elimu Bora automatically.
+  **You will need:** the M-Pesa integration configured under [Configure M-Pesa](#configure-m-pesa), and the Paybill callback URLs registered with Safaricom Daraja. Without these URLs, deposits will land in the Paybill account but the system will not know about them.
 </Note>
 
-When a guardian pays the school's Paybill number from their own M-Pesa menu, the same callback infrastructure receives the deposit and applies it automatically.
+When a guardian pays the school's Paybill number from their own M-Pesa menu, the same callback infrastructure receives the deposit and applies it to the matching invoice automatically.
 
 <Steps>
   <Step title="Guardian pays the Paybill">
-    The guardian sends money to the school's M-Pesa Paybill number, using the student's admission number as the account reference.
+    The guardian sends money to the school's M-Pesa Paybill number. The guardian enters the **invoice ID** as the account reference (this is the number shown on the invoice). The invoice ID, not the admission number, is what the system uses to match the deposit to the right invoice.
   </Step>
   <Step title="System receives the C2B callback">
-    Safaricom posts a Confirmation callback to the school's tenant subdomain. The system writes an M-Pesa payment intent and resolves it to the matching invoice, wallet, or earmark using the account reference.
+    Safaricom posts a Confirmation callback to the school's tenant subdomain. The system writes an M-Pesa payment intent, looks up the invoice by the account reference, and creates a cleared invoice payment for the deposited amount.
   </Step>
   <Step title="Verify in the panel">
-    The payment appears on the **Payments** tab of the resolved invoice (or as a wallet credit, or as earmark funding) within seconds.
-  </Step>
-</Steps>
-
-### Refund a payment
-
-<Note>
-  **You will need:** a cleared payment on the invoice. Pending and bounced payments cannot be refunded; they are reversed by marking them bounced instead.
-</Note>
-
-A refund either pays the guardian back externally or credits the value back into the student's wallet for future invoices.
-
-<Steps>
-  <Step title="Open the payment">
-    Open the payment from the **Payments** relation manager on the invoice.
-  </Step>
-  <Step title="Pick a refund destination">
-    Click **Refund** and pick a destination:
-
-    - **External payout**: the bursar pays the guardian back through a channel outside the system (cash, bank transfer, or M-Pesa B2C). The system records the refund but does not move the money.
-    - **Credit to wallet**: the system moves the value into the student's wallet as a credit, ready to settle future invoices.
-  </Step>
-  <Step title="Confirm">
-    Confirm the refund. The original invoice payment is reversed, the invoice balance is recomputed, and (for the wallet path) a wallet credit and a matching earmark transaction are created.
+    The payment appears on the **Payments** tab of the resolved invoice within seconds. The invoice status moves to **Partial** or **Paid** based on the new balance.
   </Step>
 </Steps>
 
 ## Run wallets
 
-Each student has a single wallet. The wallet holds a credit balance the school can apply to future invoices.
+Each student has a single wallet. A wallet is auto-created when the student is admitted, so there is nothing to set up beforehand.
+
+The wallet is a credit balance for **student spending outside the invoicing flow**: school canteen purchases, similar small-value drawdowns the school manages directly. **Wallets cannot be used to settle invoices.** Use [earmarks](#manage-earmarks) for prepaid funds that should pay down a specific invoice charge.
 
 ### Top up a wallet
 
@@ -323,34 +296,34 @@ Each student has a single wallet. The wallet holds a credit balance the school c
   <Step title="Open the wallet">
     Open **Wallets** and pick the student's wallet, or open the student profile and use the **Wallet** tab.
   </Step>
-  <Step title="Pick the funding method">
-    Pick the method. For **M-Pesa**, click **Top up via M-Pesa** and follow the STK push flow on the guardian's phone. For **Cash**, **Bank Transfer**, or **Cheque**, record a wallet transaction directly (cheque transactions clear or bounce just like cheque invoice payments).
+  <Step title="Click Add funds">
+    Click **Add funds**. Pick the funding method: **M-Pesa**, **Cash**, **Bank Transfer**, or **Cheque**. For M-Pesa, enter the guardian's phone number to send the STK push. For cheque, enter the cheque number, the drawing bank, and the cheque drawn date.
   </Step>
-  <Step title="Confirm">
-    On success, a wallet transaction is recorded, the balance is updated with a before-and-after snapshot, and a **Wallet funded** notification is sent to the student's guardians.
+  <Step title="Save">
+    Save the top-up. For cash, bank transfer, and successful M-Pesa STK pushes, the wallet is credited immediately, the balance is updated with a before-and-after snapshot, and a **Wallet funded** notification is sent to the student's guardians. For cheques, the wallet transaction is **Pending** until you mark the cheque cleared. If a cheque bounces, you are prompted for a bounce reason and an optional penalty amount; when a penalty is entered, a penalty invoice is raised against the student.
   </Step>
 </Steps>
 
-### Spend from a wallet
-
-The wallet is spent when an invoice payment is recorded with the **Wallet** source. The bursar opens an invoice, records a payment, and picks the wallet as the source. A debit wallet transaction is written, and the corresponding invoice payment is allocated to the invoice's unpaid lines.
-
-If the debit takes the wallet below a configured low-balance threshold, a **Wallet low balance** notification is sent to the guardians.
-
 ### Read the wallet ledger
 
-Open the wallet and scroll to the **Transactions** tab. Every credit and debit is listed in date order with the amount, balance before, balance after, and the related invoice payment or earmark transaction. Use the **Wallet statement** header action to download a single-wallet PDF, or **Wallet balances report** on the wallets list to export every wallet's balance to PDF or Excel.
+Open the wallet and scroll to the **Transactions** tab. Every credit and debit is listed in date order with the amount, balance before, balance after, and the related earmark transaction (when the entry comes from an earmark refund-to-wallet). Use the **Wallet statement** header action to download a single-wallet PDF, or the **Wallet balances report** on the wallets list to export every wallet's balance to PDF or Excel.
 
-[Insert screenshot: Wallet view page at /admin/wallets/{id} showing the balance summary, the Transactions tab with columns Date, Type, Amount, Balance after, Related, and the Wallet statement action in the header]
+[Insert screenshot: Wallet view page at /wallets/{id} showing the balance summary, the Transactions tab with columns Date, Type, Amount, Balance after, Related, and the Wallet statement action in the header]
+
+### Wallet low-balance notification
+
+When a debit takes a wallet below the configured low-balance threshold, the system sends a **Wallet low balance** notification to the student's guardians so they can top up. The threshold is set by the school's deployment and is not changed from the staff panel.
 
 ## Manage earmarks
 
-An earmark reserves part of a wallet's balance against a specific billable so the bursar cannot accidentally use it for anything else.
+An earmark is prepaid funds locked against a **specific billable** for a **specific student**. When the bursar later records a payment on an invoice that charges the same billable for the same student, the earmark drains automatically and settles that line. Earmarks are how a school accepts payment in advance for a known charge (for example, paying the Term 2 transport fee in January).
+
+Earmarks are **separate from wallets**. Funding an earmark does not pull money from the wallet; it is its own deposit. Refunding an earmark can credit the wallet (one of the refund destinations) but the two balances are not the same balance.
 
 ### Lock funds with an earmark (Prepay)
 
 <Note>
-  **You will need:** the target billable to exist (so the earmark has something to be reserved for). For **M-Pesa** or **Cheque** funding, the M-Pesa integration must be configured under [Configure M-Pesa](#configure-m-pesa). Cash and bank transfer funding do not need any integration.
+  **You will need:** the target billable to exist. For **M-Pesa** funding, the M-Pesa integration must be configured under [Configure M-Pesa](#configure-m-pesa) and a phone number must be on file for the guardian. Cash, bank transfer, and cheque funding do not need any integration.
 </Note>
 
 <Steps>
@@ -361,30 +334,34 @@ An earmark reserves part of a wallet's balance against a specific billable so th
     Pick the billable the earmark is for. Pick the funding method: **Cash**, **M-Pesa**, **Bank Transfer**, or **Cheque**.
   </Step>
   <Step title="Enter the amount and confirm">
-    Enter the amount. Confirm. The earmark is created. For non-cheque methods it starts in **Active** and a funding entry is added to the earmark transaction ledger. For cheques it starts in **Pending clearance** until the cheque clears; if the cheque bounces, an **Earmark cheque bounced** notification is sent.
+    Enter the amount. Confirm. For non-cheque methods the earmark starts in **Active**; a **Funding** entry is added to the earmark transaction ledger. For cheques the earmark starts in **Pending clearance** until the cheque clears; if the cheque bounces, the earmark funding is reversed and you are prompted for an optional penalty amount that, when greater than zero, raises a penalty invoice against the student. An **Earmark cheque bounced** notification is sent to the relevant guardians.
   </Step>
 </Steps>
 
-[Insert screenshot: Earmark view page at /admin/earmarks/{id} showing the reserved amount, the linked billable, the source wallet, status badge (Active, Pending clearance, Depleted, Refunded), and the Refund action]
+[Insert screenshot: Earmark view page at /earmarks/{id} showing the reserved amount, the linked billable, the student, the status badge (Active, Pending clearance, Depleted, Refunded), and the Refund action]
 
 ### Drain an earmark against an invoice payment
 
-Earmark drain happens automatically. When a bursar records a payment on an invoice for the billable the earmark covers, and the student has an active earmark for that billable, the system can settle the payment from the earmark. The earmark transaction ledger gets a **Drain** entry, the wallet records a matching debit, and the invoice is credited. When the earmark balance reaches zero, the status moves to **Depleted**.
+Earmark drain happens automatically. When the bursar records an invoice payment for the same student and the same billable the earmark covers, the system can settle the payment from the earmark instead of asking the guardian to pay again. A **Drain** entry is added to the earmark transaction ledger and the invoice is credited. When the earmark balance reaches zero, the earmark status moves to **Depleted**.
 
 ### Refund an earmark
 
+<Note>
+  **You will need:** an earmark in **Active** status with a positive remaining balance. Depleted, Refunded, and Pending clearance earmarks cannot be refunded.
+</Note>
+
 <Steps>
   <Step title="Open the earmark">
-    Open the earmark from **Earmarks**.
+    Open the earmark from **Earmarks**, or from the **Earmarks** tab on the student's profile.
   </Step>
   <Step title="Pick a refund destination">
     Click **Refund** and pick:
 
-    - **External payout**: the bursar pays out the remaining balance through a channel outside the system. The earmark transaction ledger gets a **Refund** entry.
-    - **Credit to wallet**: the remaining balance returns to the student's wallet. The ledger gets a **Refund to wallet** entry, and the wallet gets a credit.
+    - **External payout**: the bursar pays out the remaining balance through a channel outside the system (cash at the office, bank transfer, M-Pesa B2C). The earmark transaction ledger gets a **Refund** entry. Elimu Bora records the refund but does not move the money.
+    - **Credit to wallet**: the remaining balance is moved to the student's wallet. The earmark ledger gets a **Refund to wallet** entry, and the wallet records a matching credit.
   </Step>
   <Step title="Confirm">
-    Confirm. The earmark status becomes **Refunded**.
+    Confirm. The earmark status becomes **Refunded** (terminal).
   </Step>
 </Steps>
 
@@ -392,36 +369,31 @@ Earmark drain happens automatically. When a bursar records a payment on an invoi
 
 Open the earmark and scroll to the **Transactions** tab. Every funding, drain, refund, refund-to-wallet, and bounce entry is listed in date order.
 
-## Quotations and sponsors
+## Attach sponsors
 
-### Issue a quotation
+A sponsor is a third party paying for a student's charges, such as a government scholarship or an NGO. Sponsors are attached to **payments**, not invoices: when a sponsor pays, the bursar records the payment and tags it with the sponsor so the reconciliation report can group the payment under that sponsor.
+
+### Add a sponsor record
 
 <Steps>
-  <Step title="Create a quotation">
-    Open **Quotations** and click **New quotation**. Add line items the same way you would on an invoice, plus an expiry date.
+  <Step title="Open Sponsors">
+    Go to **Sponsors** and click **New sponsor**.
   </Step>
-  <Step title="Send the quotation">
-    Save the quotation as **Draft**, then use **Send** to mark it **Sent** and deliver it to the recipient.
+  <Step title="Pick a type and enter contact details">
+    Pick a sponsor type: **Government**, **NGO**, **Individual**, or **Corporate**. Enter the sponsor's contact details.
   </Step>
-  <Step title="Convert or close">
-    When the recipient accepts, mark it **Accepted** and convert it to an invoice. If declined, mark it **Rejected**. If the expiry date passes with no response, the status becomes **Expired**.
+  <Step title="Save">
+    Save. The sponsor is now selectable on any new invoice payment.
   </Step>
 </Steps>
 
 ### Attach a sponsor to a payment
 
 <Note>
-  **You will need:** the sponsor record to exist before you record the payment. Add the sponsor first if it does not.
+  **You will need:** the sponsor record to exist before you record the payment.
 </Note>
 
-<Steps>
-  <Step title="Add the sponsor record">
-    Open **Sponsors** and click **New sponsor**. Pick a type (**Government**, **NGO**, **Individual**, **Corporate**) and enter contact details.
-  </Step>
-  <Step title="Record a payment with the sponsor">
-    When recording an invoice payment, pick the sponsor from the **Sponsor** field. The payment is tagged so the bursar can run a sponsor-by-sponsor reconciliation later.
-  </Step>
-</Steps>
+When you record an invoice payment, pick the sponsor from the **Sponsor** field on the payment form. The payment is tagged. Later, the bursar can group payments by sponsor on the reconciliation reports.
 
 ## Configure M-Pesa
 
@@ -429,7 +401,7 @@ Open the earmark and scroll to the **Transactions** tab. Every funding, drain, r
   **You will need:** an M-Pesa Daraja account with the credentials Safaricom issued for your Paybill: shortcode, passkey, consumer key, and consumer secret. If you do not have these, contact Safaricom to register your school as a business and request Daraja API access.
 </Note>
 
-A school's M-Pesa credentials live on a **Payment integration** row. The permission to read or change them is restricted to school leadership and bursars in the default role setup.
+A school's M-Pesa credentials live on a **Payment integration** row. Read or change them is restricted to school leadership and bursars in the default role setup.
 
 <Steps>
   <Step title="Open Payment Integrations">
@@ -455,16 +427,16 @@ A school's M-Pesa credentials live on a **Payment integration** row. The permiss
 
 ## Statuses and lifecycle
 
-Finance carries four lifecycle status enums. Each status table lists every case, every transition is labelled with the actor or trigger that moves the record, and reversibility is stated.
+Finance carries three lifecycle status lists. Each table lists every status, every transition is labelled with the actor or trigger that moves the record, and reversibility is stated.
 
 ### Invoice statuses
 
 | Status | What it means | Who can act | What they can do |
 |---|---|---|---|
-| Pending | Invoice was created. No payments yet, or all payments have been reversed. | Bursar, school leadership | Add lines, edit lines, record a payment, soft-delete. |
-| Partial | Some payment has cleared. Balance is still positive. | Bursar, school leadership | Record additional payments, edit lines (carefully), refund a payment. |
-| Paid | The full amount has cleared. Balance is zero. | Bursar, school leadership | Refund a payment (returns the invoice to Partial), view the receipt history. |
-| Overdue | The due date has passed and the balance is positive. Set by the system's daily overdue scan at 08:00, which also sends an overdue notification. | Bursar, school leadership | Record a payment (returns to Partial or Paid). |
+| Pending | New invoice with no cleared payments yet. | Bursar, school leadership | Record a payment. |
+| Partial | Some payment has cleared. Balance is still positive. | Bursar, school leadership | Record additional payments. |
+| Paid | The full amount has cleared. Balance is zero. | Bursar, school leadership | View the receipt history. The invoice is settled. |
+| Overdue | The due date has passed and the balance is positive. Set by the daily overdue scan at 08:00, which also sends an overdue notification. | Bursar, school leadership | Record a payment (returns to Partial or Paid). |
 
 ```mermaid
 stateDiagram-v2
@@ -476,21 +448,18 @@ stateDiagram-v2
     Partial --> Overdue: due date passes with balance > 0
     Overdue --> Partial: payment recorded, balance > 0
     Overdue --> Paid: full payment recorded
-    Paid --> Partial: payment reversed or refunded
     Paid --> [*]
 ```
 
-A refund on a Paid invoice returns it to Partial (or Pending if the refund covered every cleared payment). Overdue is not a terminal state; once any payment clears, the invoice returns to Partial or Paid.
+A cheque bounce on a previously-cleared cheque payment can reduce the **Total paid** and return a Paid invoice to Partial; in addition, a penalty line is added to the invoice for the bounce, which increases the **Amount**.
 
 ### Payment statuses
 
 | Status | What it means | Who can act | What they can do |
 |---|---|---|---|
 | Pending | Recorded but not yet usable. Typically a cheque awaiting clearance. | Bursar | Mark cleared once funds arrive, or mark bounced if the cheque bounces. |
-| Partial | Partial clearance (rare; used for multi-stage bank settlements). | Bursar | Mark cleared once the remainder lands. |
-| Paid | Recorded as paid but not yet bank-cleared (legacy or manual override). | Bursar | Mark cleared once the bank confirms. |
-| Cleared | Funds confirmed. The payment counts toward the invoice balance. | Bursar | Refund the payment (issues a refund and reverses the cleared amount). |
-| Bounced | Cheque or M-Pesa reversal bounced the payment. The credit is reversed and a notification is sent to the bursar and the relevant guardians. | Bursar | View the bounce reason; record a replacement payment. |
+| Cleared | Funds confirmed. The payment counts toward the invoice's **Total paid**. | (none) | View the audit trail and the receipt. |
+| Bounced | A cheque bounced. The credit is reversed and a penalty line is added to the invoice for the configured penalty amount. A **Cheque bounced** notification is sent to the relevant guardians. | (none) | View the bounce reason on the payment; record a replacement payment when the funds arrive again. |
 
 ```mermaid
 stateDiagram-v2
@@ -498,19 +467,18 @@ stateDiagram-v2
     [*] --> Cleared: M-Pesa, cash, or bank transfer
     Pending --> Cleared: cheque cleared
     Pending --> Bounced: cheque bounced
-    Paid --> Cleared: bank confirms
     Cleared --> [*]
     Bounced --> [*]
 ```
 
-Cleared and Bounced are terminal. To reverse a Cleared payment, a refund is recorded against it; that creates a new transaction rather than mutating the original payment.
+Cleared and Bounced are terminal for the payment itself. To reverse a Cleared payment, mark the underlying cheque bounced (for cheque payments) or record a compensating earmark refund elsewhere; the original payment record is not edited or deleted.
 
 ### Earmark statuses
 
 | Status | What it means | Who can act | What they can do |
 |---|---|---|---|
-| Pending clearance | Earmark was funded by a cheque that has not yet cleared. Not drainable. | Bursar | Mark cheque cleared (status becomes Active) or wait for bounce. |
-| Active | Funded and available to drain against the target billable. | Bursar | Drain (automatic when a matching invoice payment is recorded), refund. |
+| Pending clearance | Earmark was funded by a cheque that has not yet cleared. Not drainable. | Bursar | Mark cheque cleared (status becomes Active) or mark bounced. |
+| Active | Funded and available to drain against the target billable. | Bursar | Refund. Drain is automatic when a matching invoice payment is recorded. |
 | Depleted | The earmark has been fully drained by invoice payments. | (none) | View the audit trail. |
 | Refunded | The remaining balance was refunded, either externally or back to the wallet. | (none) | View the audit trail. |
 
@@ -526,39 +494,15 @@ stateDiagram-v2
     Refunded --> [*]
 ```
 
-A bounced cheque voids the earmark and reverses the funding entry; the earmark does not transition to Refunded in that case.
-
-### Quotation statuses
-
-| Status | What it means | Who can act | What they can do |
-|---|---|---|---|
-| Draft | Being assembled, not yet sent. | Bursar | Edit lines, send. |
-| Sent | Delivered to the recipient. | Bursar | Mark accepted, mark rejected, or wait for the expiry date. |
-| Accepted | The recipient accepted. Typically converted to an invoice. | Bursar | Convert to invoice. |
-| Rejected | The recipient declined. | (none) | View the audit trail. |
-| Expired | The expiry date passed with no response. | Bursar | Reissue a new quotation if needed. |
-
-```mermaid
-stateDiagram-v2
-    [*] --> Draft
-    Draft --> Sent: send to recipient
-    Sent --> Accepted: recipient accepts
-    Sent --> Rejected: recipient declines
-    Sent --> Expired: expiry date passes
-    Accepted --> [*]
-    Rejected --> [*]
-    Expired --> [*]
-```
+A bounced funding cheque voids the earmark and reverses the funding entry; the earmark does not transition to Refunded in that case.
 
 ### Categorical values used on forms
 
 These are not lifecycles. They appear on form pickers when recording or reading finance records.
 
 - **Payment method**: M-Pesa, Cash, Bank Transfer, Cheque, plus Earmark and Wallet refund which the system sets for you.
-- **Payment provider**: M-Pesa today. The system is structured so additional providers can be added later without schema changes.
 - **Pricing model**: Flat, Variants, or Per unit (on a billable).
-- **Discount type**: Percentage or Fixed (on a discount).
-- **Refund destination**: External payout (pay the guardian outside the system) or Credit to wallet (return the value to the student wallet).
+- **Refund destination**: External payout (pay the guardian outside the system) or Credit to wallet (return the value to the student's wallet).
 - **Sponsor type**: Government, NGO, Individual, or Corporate.
 - **Earmark transaction type**: Funding (initial deposit), Drain (consumed by an invoice payment), Refund (paid out externally), Refund to wallet (returned to the wallet), Bounce (cheque-funded earmark voided).
 
@@ -567,9 +511,10 @@ These are not lifecycles. They appear on form pickers when recording or reading 
 A few relationships are worth keeping in mind:
 
 - An invoice is made of one or more lines, and is paid by one or more payments. Each payment is split (allocated) across the invoice's unpaid lines. The allocation is automatic and proportional by default; a bursar can override it line by line.
-- Each student has a single wallet, and a wallet keeps a running ledger of every credit and debit.
-- An earmark belongs to a student and reserves part of the wallet for one specific billable. An earmark keeps its own ledger of every funding, drain, refund, or bounce entry.
-- An M-Pesa flow targets exactly one of an invoice, a wallet, or an earmark. The account reference the guardian uses (or the action a bursar takes) tells the system where the cleared payment should land.
+- A discount is not a separate record. It is a field on each invoice line, applied when the invoice is created.
+- Each student has a single wallet. The wallet keeps a running ledger of every credit and debit. Wallets are spent outside the invoicing flow (canteen and similar).
+- An earmark belongs to a student and is funded against a specific billable. It is independent of the wallet (refunding an earmark to the wallet is the only path where the two balances meet).
+- An M-Pesa flow targets exactly one of an invoice, a wallet, or an earmark. The action a bursar takes in the panel, or the invoice ID the guardian uses as the Paybill account reference, tells the system where the cleared payment should land.
 
 ## Reports and analytics
 
@@ -584,9 +529,9 @@ Reports come in two shapes: downloads (PDF or Excel, generated when you click th
 | Payment Receipt | Per-row action on the **Payments** tab of an invoice | None (single payment) | Portrait PDF receipt (same template as the emailed receipt) |
 | Wallet Balances Report | Header action on the **Wallets** list | Optional grade level, stream, maximum-balance threshold | PDF or Excel listing every wallet balance |
 | Wallet Statement | Header action on a single wallet | None (single wallet) | Portrait PDF showing every credit and debit on the wallet |
-| Emailed receipt | Sent automatically when a payment clears | None | PDF receipt emailed to the contact via the **Send payment receipt** job |
+| Emailed receipt | Sent automatically when a payment clears | None | PDF receipt emailed to the invoice owner |
 
-Every download inherits the same permission as its parent page (for example, **invoices.viewAny** for the invoice reports), so a user who can see the invoice can pull the report.
+Every download inherits the same permission as its parent page, so a user who can see the invoice can pull the report.
 
 ## What guardians see
 
@@ -599,11 +544,10 @@ Guardians log in to the tenant panel under the locked **Guardian** role and have
 
 The Guardian role explicitly **cannot**:
 
-- Record a payment (the **Add payment** and **Pay via M-Pesa** actions are hidden).
-- Refund a payment (the **Refund** action is hidden).
-- Top up a wallet from the panel (the wallet top-up actions are hidden).
+- Record a payment (the **Record Invoice Payment** action is hidden).
+- Top up a wallet from the panel (the **Add funds** action is hidden).
 - Lock funds with an earmark from the panel (the **Prepay** action is hidden).
-- Edit any invoice, line, payment, or wallet record.
+- Refund an earmark.
 - See or manage M-Pesa payment integration credentials.
 
 Notifications still reach guardians regardless of whether they log in. Invoice creation, overdue reminders, wallet funded, wallet debited, wallet low balance, cheque bounced, and earmark cheque bounced messages are sent to the guardian's stored contacts. M-Pesa STK push prompts are initiated by the school; the guardian sees them on their phone the same way they would for any other Daraja STK push.
@@ -611,35 +555,35 @@ Notifications still reach guardians regardless of whether they log in. Invoice c
 ## FAQs and troubleshooting
 
 <AccordionGroup>
-  <Accordion title="How do I handle a partial scholarship?">
-    Use a **Discount** if the reduction is a known amount or percentage off the billable price: create a discount of the right type and amount, then apply it on the invoice line during invoice creation. Use a **Sponsor** if a third party is paying the balance: add the sponsor record, then when you record the payment, pick the sponsor on the payment form so the reconciliation report can group the payment under that sponsor.
+  <Accordion title="How do I apply a partial scholarship?">
+    Use a **discount** on the relevant invoice line if the reduction is a known amount or percentage off that line's subtotal; the **Discount** field appears on each line in the invoice form. Use a **Sponsor** if a third party is paying part of the balance: add the sponsor record under **Sponsors**, then when you record the payment from the sponsor, pick the sponsor on the payment form so the reconciliation report can group the payment under that sponsor.
   </Accordion>
 
   <Accordion title="What happens when a guardian overpays?">
-    The cleared payment still applies in full to the invoice, which moves the invoice to **Paid**. To return the surplus, record a **Refund** on the relevant payment and pick **Credit to wallet** to keep the value on the student's account for future invoices, or **External payout** if the bursar is paying the guardian back through a channel outside the system.
+    The cleared payment applies in full to the invoice and the invoice moves to **Paid**. To put the surplus to use, create an **earmark** for the student against the relevant billable for the surplus amount; the earmark will drain automatically the next time you record a payment on an invoice line that charges the same billable.
   </Accordion>
 
-  <Accordion title="How do refunds reach a guardian?">
-    The school decides. **External payout** records the refund in Elimu Bora but the money movement happens outside the system (cash at the office, bank transfer, M-Pesa B2C). **Credit to wallet** keeps the value inside the platform by moving it into the student's wallet, ready for the next invoice. Either way the original invoice payment is reversed and the invoice balance is recomputed.
+  <Accordion title="Can invoices be refunded?">
+    No, invoice payments are not refundable inside Elimu Bora. Refunds exist only on **earmarks**: when an active earmark still has a positive balance, the bursar can refund what remains, either as an external payout (the bursar pays the guardian outside the system) or as a credit back to the student's wallet. If a guardian is owed money for a paid invoice, handle the payout outside the system; the invoice itself stays Paid.
   </Accordion>
 
   <Accordion title="Why did an M-Pesa Paybill payment not apply to the right invoice?">
-    Paybill (C2B) deposits are matched using the **account reference** the guardian typed in their M-Pesa menu. If that reference does not match a student admission number, the deposit will land but will not auto-apply. Open the M-Pesa payment intents list, find the unresolved deposit, and use the manual resolution action to apply it to the right invoice or wallet.
+    Paybill (C2B) deposits are matched using the **account reference** the guardian typed in their M-Pesa menu, which must be the **invoice ID** shown on the invoice. If the guardian typed something else (an admission number, a name, a wrong digit), the deposit will land in the school's M-Pesa account but the system will not match it to any invoice. Confirm with the guardian which reference they used. The system does not expose a manual match action; if the wrong reference was used, treat the deposit as an out-of-band payment and record a fresh payment against the correct invoice.
   </Accordion>
 
   <Accordion title="What happens when a cheque bounces?">
-    For an invoice payment, mark the payment **Bounced**. The cleared credit is reversed, the invoice balance is recomputed, and the **Cheque bounced** notification is sent to the bursar and the relevant guardians. For an earmark funded by cheque, the earmark is voided: the funding entry on its ledger is reversed and the **Earmark cheque bounced** notification is sent. In both cases the bursar should record a replacement payment when the funds arrive again.
+    For an invoice payment, mark the payment **Bounced** from the Payments tab. The bursar is prompted for a bounce reason and a penalty amount; on confirm, a new **Bounced cheque penalty** line is added to the same invoice for the penalty amount, the cheque payment status becomes **Bounced**, and a **Cheque bounced** notification is sent to the relevant guardians. For an earmark funded by cheque, the earmark is voided: the funding entry on its ledger is reversed, the bursar can record an optional penalty amount that raises a separate penalty invoice for the student, and an **Earmark cheque bounced** notification is sent. For a wallet top-up by cheque, the wallet credit is reversed, and a penalty invoice is raised if the bursar entered a penalty amount greater than zero. In every case, ask the guardian to send a replacement payment for the original amount.
   </Accordion>
 
   <Accordion title="Can a guardian pay an invoice directly from their login?">
-    No. Guardians have read-only access to invoices, payments, wallets, and earmarks. The **Pay via M-Pesa**, **Add payment**, **Top up**, and **Prepay** actions are hidden from the Guardian role. M-Pesa STK push prompts are initiated by the school side; the guardian then authorises the prompt on their phone. Guardians can still push payments to the school's Paybill from their own M-Pesa menu, and those will reconcile automatically through C2B.
+    No. Guardians have read-only access to invoices, payments, wallets, and earmarks. The **Record Invoice Payment**, **Add funds**, and **Prepay** actions are hidden from the Guardian role. M-Pesa STK push prompts are initiated by the school side; the guardian then authorises the prompt on their phone. Guardians can still push payments to the school's Paybill from their own M-Pesa menu and use the invoice ID as the account reference; those payments reconcile automatically through C2B.
+  </Accordion>
+
+  <Accordion title="Why can I not edit or delete an invoice?">
+    Invoices are part of the school's financial ledger and stay immutable once created. Lines, amounts, and statuses change only through valid actions (recording payments, marking cheques cleared or bounced, the daily overdue scan), never through manual edits. If a charge was wrong on an issued invoice, raise a new invoice for the correction or wait for the payment flow to reconcile.
   </Accordion>
 
   <Accordion title="Where do M-Pesa callbacks go if Finance is disabled?">
     They are still received and logged. Inbound Safaricom callbacks are intentionally not gated by the module so that late callbacks for payments started before the module was disabled can still be matched. With Finance disabled, however, no new payment intents are being created, so most inbound callbacks find nothing to resolve and become no-ops.
-  </Accordion>
-
-  <Accordion title="Why can I not delete an invoice?">
-    Standard delete is a soft delete and is available to bursars and school leadership. The invoice can be restored later. **Hard delete** (which permanently removes the invoice and cannot be undone) is reserved for Super Admin. If a soft-deleted invoice is in your way, ask a bursar to restore it instead of hard-deleting.
   </Accordion>
 </AccordionGroup>
