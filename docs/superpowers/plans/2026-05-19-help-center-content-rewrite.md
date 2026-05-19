@@ -18,6 +18,35 @@
 - **Doc conventions:** `AGENTS.md`, `CONTRIBUTING.md`.
 - **Style rule (AGENTS.md line 69):** No em-dashes, no emojis, no informal language.
 
+## Execution order (overrides task numbering)
+
+Tasks below are content-grouped by file and keep their original numbers, but they execute in the order below. Two pattern-setters are reviewed closely before any other module page is written.
+
+| Order | Task | Page | Notes |
+|---|---|---|---|
+| 1 | Task 0 | (pre-flight) | |
+| 2 | Task 8 | `modules/finance` | Primary pattern-setter. Pause for close review after commit. |
+| 3 | Task 2 | `modules/users` | Secondary pattern-setter. Pause for close review after commit. |
+| 4 | Task 1 | `modules/attendance` | Normal review. |
+| 5 | Task 3 | `modules/curriculum` | |
+| 6 | Task 4 | `modules/academic-years` | |
+| 7 | Task 5 | `modules/assessments` | |
+| 8 | Task 6 | `modules/timetable` | |
+| 9 | Task 7 | `modules/events` | |
+| 10 | Task 9 | `modules/inventory` | |
+| 11 | Task 10 | `modules/sports` | |
+| 12 | Task 11 | `modules/clubs` | |
+| 13 | Task 12 | `modules/activity-log` | |
+| 14 | Task 13 | `introduction` | |
+| 15 | Task 14 | `quickstart` | |
+| 16 | Task 15 | `roles-permissions` | |
+| 17 | Task 16 | `staff/overview` | |
+| 18 | Task 17 | `guardians/overview` | |
+| 19 | Task 18 | `settings/overview` | |
+| 20 | Task 19 | open PR | |
+
+The "Pause for review" step originally on Task 1 (attendance) moves to Task 8 (finance) and Task 2 (users).
+
 ## Locked page skeleton (applies to every module page)
 
 ```

@@ -318,9 +318,10 @@ The inventory below is the coverage check, not the final table of contents. Fina
 One commit per page. The order is:
 
 1. The design spec itself (this document).
-2. `modules/attendance` (the pattern-setter, reviewed closely).
-3. `modules/users`, `modules/curriculum`, `modules/academic-years`, `modules/assessments`, `modules/timetable`, `modules/events`, `modules/finance`, `modules/inventory`, `modules/sports`, `modules/clubs`, `modules/activity-log`.
-4. `introduction`, `quickstart`, `roles-permissions`, `staff/overview`, `guardians/overview`, `settings/overview`.
+2. `modules/finance` (primary pattern-setter, reviewed closely). Finance has the most records, the most lifecycle statuses, the most cross-module dependencies, and the heaviest guardian-portal restrictions, so it stress-tests every part of the page skeleton.
+3. `modules/users` (secondary pattern-setter, reviewed closely). Identity is depended on by every other module and exercises the polymorphic, role-scoped patterns the rest of the modules inherit. Reviewing it second confirms the skeleton holds for the foundational module too.
+4. `modules/attendance`, `modules/curriculum`, `modules/academic-years`, `modules/assessments`, `modules/timetable`, `modules/events`, `modules/inventory`, `modules/sports`, `modules/clubs`, `modules/activity-log`.
+5. `introduction`, `quickstart`, `roles-permissions`, `staff/overview`, `guardians/overview`, `settings/overview`.
 
 That is 1 spec commit + 18 page commits = 19 commits.
 
@@ -333,9 +334,10 @@ That is 1 spec commit + 18 page commits = 19 commits.
 ## Stopping points for review
 
 1. Spec written and committed: reviewed before any page work begins.
-2. `modules/attendance` written and committed: reviewed closely. Lessons here update the skeleton for the rest.
-3. Each subsequent page written and committed: short review per page, since the pattern is locked.
-4. PR opened: reviewed before merge.
+2. `modules/finance` written and committed: reviewed closely. Primary pattern-setter; lessons here update the skeleton before any other module page is written.
+3. `modules/users` written and committed: reviewed closely. Secondary pattern-setter; confirms the skeleton holds for the foundational identity module.
+4. Each subsequent page written and committed: short review per page, since the pattern is locked after the two pattern-setters.
+5. PR opened: reviewed before merge.
 
 ## Verification commands
 
