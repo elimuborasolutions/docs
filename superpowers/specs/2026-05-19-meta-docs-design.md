@@ -59,7 +59,8 @@ Removes the template boilerplate and the dead `development.mdx` link. Sections:
 
 Replaces the starter-kit boilerplate with: one-paragraph repo description, tech stack (Mintlify + MDX), local-dev steps, and links to the deployed help center and the product repo.
 
-**Needs user input:** the deployed help-center URL (likely `help.elimuboraerp.com`) and the product-repo link (GitHub URL, or note it as private/internal).
+- Deployed help center: `https://help.elimuboraerp.com`
+- Product repo: `https://github.com/elimuborasolutions/erp` (private repo — note that access is internal).
 
 ## Section 4 — Navigation change (docs.json)
 
