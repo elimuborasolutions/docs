@@ -19,7 +19,8 @@ Finance covers everything a school does with money in Elimu Bora: defining fee i
 | Billable variant | A pricing variation of a billable when one fee has more than one price (for example, per bus route). |
 | Per-stage amount | A stage-level override of a billable's price, so Grade 1 tuition can differ from Grade 8 tuition. |
 | Invoice | A bill issued to a student, teacher, or staff member, scoped to a term. |
-| Invoice line | One charge on an invoice, tied to a billable or recorded as ad-hoc. Each line carries its own optional discount. |
+| Invoice line | One charge on an invoice, tied to a billable or recorded as ad-hoc. The line's discount is filled in automatically when the invoice is created, from any active discount the student's guardians hold for that billable. |
+| Discount | A reduction held on a guardian, scoped to one billable, expressed as a percentage or a fixed amount, with an effective date range. Applied automatically to matching invoice lines. |
 | Invoice payment | A payment recorded against an invoice. |
 | Payment allocation | The split of one payment across the lines of its invoice. |
 | Wallet | A per-student credit balance for student spending (school canteen and similar non-invoice use). |
@@ -33,7 +34,7 @@ Finance covers everything a school does with money in Elimu Bora: defining fee i
 
 <CardGroup cols={2}>
   <Card title="Set up fees" icon="list-check" href="#set-up-fees">
-    Define billables, variants, and per-stage amounts.
+    Define billables, variants, per-stage amounts, and guardian-level discounts.
   </Card>
 
   <Card title="Issue invoices" icon="file-text" href="#issue-invoices">
@@ -45,7 +46,7 @@ Finance covers everything a school does with money in Elimu Bora: defining fee i
   </Card>
 
   <Card title="Run wallets" icon="piggy-bank" href="#run-wallets">
-    Top up, read the ledger, and handle low-balance notifications.
+    Credit a wallet for canteen-style spending, debit it as funds are used, and handle low-balance notifications.
   </Card>
 
   <Card title="Manage earmarks" icon="lock" href="#manage-earmarks">
@@ -120,6 +121,29 @@ Use per-stage amounts to charge different prices by curriculum stage (for exampl
   </Step>
 </Steps>
 
+### Hold a discount for a guardian
+
+<Note>
+  **You will need:** the billable the discount applies to, and the guardian record. Discounts are held on the **guardian**, not the student. When an invoice is later raised for one of that guardian's children for the matching billable, the system applies the discount automatically.
+</Note>
+
+A discount reduces the line amount for a specific billable on any invoice raised for the guardian's children. If a child has more than one guardian and more than one of them holds a discount for the same billable, the largest applicable discount is the one that lands on the line.
+
+<Steps>
+  <Step title="Open the guardian">
+    Go to **Guardians** and open the guardian who is entitled to the discount.
+  </Step>
+  <Step title="Open the Discounts tab">
+    Switch to the **Discounts** tab on the guardian's profile.
+  </Step>
+  <Step title="Add a discount">
+    Click the create action. Pick the **Billable** the discount applies to, the **Type** (**Percentage** or **Amount**), and enter the value. Pick the **Effective From** date (defaults to today) and an optional **Effective Until** date. Leave **Active** on. Add notes if useful.
+  </Step>
+  <Step title="Save">
+    Save. The discount is now in effect. The next invoice line raised for one of this guardian's children that charges the same billable, within the effective date range, will pick up the discount automatically.
+  </Step>
+</Steps>
+
 ## Issue invoices
 
 An invoice is the document a school issues to a student, teacher, or staff member. Most invoices target students. The invoice is scoped to a single term.
@@ -141,14 +165,14 @@ An invoice is the document a school issues to a student, teacher, or staff membe
     Pick the term this invoice covers, and an optional due date. The due date is what the overdue scan uses.
   </Step>
   <Step title="Add invoice lines">
-    Add one line per charge. Each line is either tied to a billable (and inherits its amount) or recorded as an ad-hoc line with a label and amount you type in. Each line has its own **Discount** field for an optional reduction on that line; the discount is capped at the line subtotal and floored at zero, so a discount can never produce a negative line.
+    Add one line per charge. Each line is either tied to a billable (and inherits its amount, including any per-stage override for the student's grade stage) or recorded as an ad-hoc line with a label and amount you type in. The bursar does not enter discounts on the line itself: when the line is saved, the system looks up active **Discounts** the student's guardians hold for that billable and applies the largest applicable one automatically, snapshotting it onto the line. See [Hold a discount for a guardian](#hold-a-discount-for-a-guardian).
   </Step>
   <Step title="Save the invoice">
     Click **Save**. The invoice starts in **Pending** status. Adding lines automatically recomputes the invoice total. A notification is queued to the invoiceable's guardians (for student invoices) or to the staff or teacher themselves.
   </Step>
 </Steps>
 
-[Insert screenshot: New invoice form at /invoices/create showing the Invoiceable picker (Student/Teacher/Staff), Term selector, Due date, and the repeating Lines block with Billable, Quantity, Amount, and Discount columns]
+[Insert screenshot: New invoice form at /invoices/create showing the Invoiceable picker (Student/Teacher/Staff), Term selector, Due date, and the repeating Line Items block with Billable, Label, Unit Amount, and Qty columns]
 
 ### Read an invoice's balance and history
 
@@ -199,18 +223,18 @@ Cheques start in **Pending** until a bursar marks them cleared or bounced.
   </Step>
 </Steps>
 
-### Mark a cheque cleared
+### Acknowledge a cheque
 
 <Note>
-  **You will need:** a cheque payment in **Pending** status on the invoice.
+  **You will need:** a cheque payment in **Pending** status on the invoice. The action is only available for cheque payments that have not yet cleared.
 </Note>
 
 <Steps>
   <Step title="Open the payment">
     On the invoice's **Payments** tab, find the cheque row.
   </Step>
-  <Step title="Use Mark cleared">
-    Use the **Mark cleared** action. The payment status becomes **Cleared** and the invoice is credited. The invoice status moves to **Partial** or **Paid**, and the receipt PDF is emailed to the invoice owner.
+  <Step title="Use Acknowledge">
+    Use the **Acknowledge** action and confirm. The payment status becomes **Cleared** and the invoice is credited. The invoice status moves to **Partial** or **Paid**, and the receipt PDF is emailed to the invoice owner.
   </Step>
 </Steps>
 
@@ -286,7 +310,7 @@ Each student has a single wallet. A wallet is auto-created when the student is a
 
 The wallet is a credit balance for **student spending outside the invoicing flow**: school canteen purchases, similar small-value drawdowns the school manages directly. **Wallets cannot be used to settle invoices.** Use [earmarks](#manage-earmarks) for prepaid funds that should pay down a specific invoice charge.
 
-### Top up a wallet
+### Credit a wallet (top up)
 
 <Note>
   **You will need:** for **M-Pesa** top-ups, the M-Pesa integration configured under [Configure M-Pesa](#configure-m-pesa) and a phone number on file for the guardian. Cash, bank transfer, and cheque top-ups do not need any integration.
@@ -296,13 +320,39 @@ The wallet is a credit balance for **student spending outside the invoicing flow
   <Step title="Open the wallet">
     Open **Wallets** and pick the student's wallet, or open the student profile and use the **Wallet** tab.
   </Step>
-  <Step title="Click Add funds">
-    Click **Add funds**. Pick the funding method: **M-Pesa**, **Cash**, **Bank Transfer**, or **Cheque**. For M-Pesa, enter the guardian's phone number to send the STK push. For cheque, enter the cheque number, the drawing bank, and the cheque drawn date.
+  <Step title="Click Credit Wallet">
+    Click **Credit Wallet**. Pick the funding method: **M-Pesa**, **Cash**, **Bank Transfer**, or **Cheque**. For M-Pesa, enter the guardian's phone number to send the STK push. For cheque, enter the cheque number, the drawing bank, and the cheque drawn date. Add a short description so the ledger entry is self-explanatory.
   </Step>
   <Step title="Save">
-    Save the top-up. For cash, bank transfer, and successful M-Pesa STK pushes, the wallet is credited immediately, the balance is updated with a before-and-after snapshot, and a **Wallet funded** notification is sent to the student's guardians. For cheques, the wallet transaction is **Pending** until you mark the cheque cleared. If a cheque bounces, you are prompted for a bounce reason and an optional penalty amount; when a penalty is entered, a penalty invoice is raised against the student.
+    Save. For cash, bank transfer, and successful M-Pesa STK pushes, the wallet is credited immediately, the balance is updated with a before-and-after snapshot, and a **Wallet funded** notification is sent to the student's guardians. For cheques, the wallet transaction is **Pending** until the cheque is acknowledged or marked bounced. If a cheque bounces, you are prompted for a bounce reason and an optional penalty amount; when a penalty greater than zero is entered, a penalty invoice is raised against the student.
   </Step>
 </Steps>
+
+### Debit a wallet (record spending)
+
+<Note>
+  **You will need:** a wallet with a positive balance. The **Debit Wallet** action is hidden when the balance is zero. Debits cover student spending that happens **outside** the invoice flow (school canteen, kiosk, similar) and are recorded by the bursar to keep the wallet ledger accurate. To settle an invoice from prepaid funds, use an [earmark](#manage-earmarks) instead.
+</Note>
+
+<Steps>
+  <Step title="Open the wallet">
+    Open **Wallets** and pick the student's wallet, or open the student profile and use the **Wallet** tab.
+  </Step>
+  <Step title="Click Debit Wallet">
+    Click **Debit Wallet**. Pick the method (**Cash** or **Bank Transfer**) and enter the amount; the form caps the amount at the available balance. Add a short description so the entry on the ledger explains what the money was spent on.
+  </Step>
+  <Step title="Save">
+    Save. A debit wallet transaction is written, the balance is updated, and the **Wallet debited** notification is queued to the student's guardians. If the debit takes the balance below the low-balance threshold, the **Wallet low balance** notification fires as well.
+  </Step>
+</Steps>
+
+### Acknowledge a cheque on a wallet
+
+<Note>
+  **You will need:** a cheque-funded wallet transaction in **Pending** status (from a Credit Wallet step that used the Cheque method).
+</Note>
+
+On the wallet's **Transactions** tab, find the pending cheque row and use the **Acknowledge Cheque** action. The wallet transaction status becomes Cleared, the wallet balance is updated, and the **Wallet funded** notification fires. If the cheque bounces instead, use **Mark Bounced**; the modal prompts for a bounce reason and an optional penalty amount that, when greater than zero, raises a penalty invoice against the student.
 
 ### Read the wallet ledger
 
@@ -328,7 +378,7 @@ Earmarks are **separate from wallets**. Funding an earmark does not pull money f
 
 <Steps>
   <Step title="Open the student or the billable">
-    Open the student profile and pick the **Earmarks** tab, or open the billable and use the **Prepay** action.
+    Open the student profile and pick the **Earmarks** tab, or open the billable and use the **Prepay Billable** action.
   </Step>
   <Step title="Pick the billable and the funding method">
     Pick the billable the earmark is for. Pick the funding method: **Cash**, **M-Pesa**, **Bank Transfer**, or **Cheque**.
@@ -457,7 +507,7 @@ A cheque bounce on a previously-cleared cheque payment can reduce the **Total pa
 
 | Status | What it means | Who can act | What they can do |
 |---|---|---|---|
-| Pending | Recorded but not yet usable. Typically a cheque awaiting clearance. | Bursar | Mark cleared once funds arrive, or mark bounced if the cheque bounces. |
+| Pending | Recorded but not yet usable. Typically a cheque awaiting clearance. | Bursar | Acknowledge the cheque once funds arrive, or mark bounced if the cheque bounces. |
 | Cleared | Funds confirmed. The payment counts toward the invoice's **Total paid**. | (none) | View the audit trail and the receipt. |
 | Bounced | A cheque bounced. The credit is reversed and a penalty line is added to the invoice for the configured penalty amount. A **Cheque bounced** notification is sent to the relevant guardians. | (none) | View the bounce reason on the payment; record a replacement payment when the funds arrive again. |
 
@@ -504,6 +554,7 @@ These are not lifecycles. They appear on form pickers when recording or reading 
 - **Pricing model**: Flat, Variants, or Per unit (on a billable).
 - **Refund destination**: External payout (pay the guardian outside the system) or Credit to wallet (return the value to the student's wallet).
 - **Sponsor type**: Government, NGO, Individual, or Corporate.
+- **Discount type**: Percentage (reduce by N% of the line subtotal) or Amount (reduce by a fixed currency amount).
 - **Earmark transaction type**: Funding (initial deposit), Drain (consumed by an invoice payment), Refund (paid out externally), Refund to wallet (returned to the wallet), Bounce (cheque-funded earmark voided).
 
 ## How records relate
@@ -511,7 +562,7 @@ These are not lifecycles. They appear on form pickers when recording or reading 
 A few relationships are worth keeping in mind:
 
 - An invoice is made of one or more lines, and is paid by one or more payments. Each payment is split (allocated) across the invoice's unpaid lines. The allocation is automatic and proportional by default; a bursar can override it line by line.
-- A discount is not a separate record. It is a field on each invoice line, applied when the invoice is created.
+- A discount is held on a guardian and scoped to a single billable. When an invoice line for one of that guardian's children charges the same billable, the system snapshots the discount amount onto the line; the value lives on the invoice line afterwards, independent of any later changes to the discount record.
 - Each student has a single wallet. The wallet keeps a running ledger of every credit and debit. Wallets are spent outside the invoicing flow (canteen and similar).
 - An earmark belongs to a student and is funded against a specific billable. It is independent of the wallet (refunding an earmark to the wallet is the only path where the two balances meet).
 - An M-Pesa flow targets exactly one of an invoice, a wallet, or an earmark. The action a bursar takes in the panel, or the invoice ID the guardian uses as the Paybill account reference, tells the system where the cleared payment should land.
@@ -545,8 +596,8 @@ Guardians log in to the tenant panel under the locked **Guardian** role and have
 The Guardian role explicitly **cannot**:
 
 - Record a payment (the **Record Invoice Payment** action is hidden).
-- Top up a wallet from the panel (the **Add funds** action is hidden).
-- Lock funds with an earmark from the panel (the **Prepay** action is hidden).
+- Credit or debit a wallet from the panel (the **Credit Wallet** and **Debit Wallet** actions are hidden).
+- Lock funds with an earmark from the panel (the **Prepay Billable** action is hidden).
 - Refund an earmark.
 - See or manage M-Pesa payment integration credentials.
 
@@ -556,7 +607,7 @@ Notifications still reach guardians regardless of whether they log in. Invoice c
 
 <AccordionGroup>
   <Accordion title="How do I apply a partial scholarship?">
-    Use a **discount** on the relevant invoice line if the reduction is a known amount or percentage off that line's subtotal; the **Discount** field appears on each line in the invoice form. Use a **Sponsor** if a third party is paying part of the balance: add the sponsor record under **Sponsors**, then when you record the payment from the sponsor, pick the sponsor on the payment form so the reconciliation report can group the payment under that sponsor.
+    Hold a **discount** on the guardian if the reduction is a known amount or percentage off a specific billable: open the guardian, switch to the **Discounts** tab, and add a discount scoped to that billable (see [Hold a discount for a guardian](#hold-a-discount-for-a-guardian)). The next invoice line raised for one of the guardian's children that charges the same billable will pick up the discount automatically. Use a **Sponsor** if a third party is paying part of the balance: add the sponsor record under **Sponsors**, then when you record the payment from the sponsor, pick the sponsor on the payment form so the reconciliation report can group the payment under that sponsor.
   </Accordion>
 
   <Accordion title="What happens when a guardian overpays?">
@@ -576,7 +627,7 @@ Notifications still reach guardians regardless of whether they log in. Invoice c
   </Accordion>
 
   <Accordion title="Can a guardian pay an invoice directly from their login?">
-    No. Guardians have read-only access to invoices, payments, wallets, and earmarks. The **Record Invoice Payment**, **Add funds**, and **Prepay** actions are hidden from the Guardian role. M-Pesa STK push prompts are initiated by the school side; the guardian then authorises the prompt on their phone. Guardians can still push payments to the school's Paybill from their own M-Pesa menu and use the invoice ID as the account reference; those payments reconcile automatically through C2B.
+    No. Guardians have read-only access to invoices, payments, wallets, and earmarks. The **Record Invoice Payment**, **Credit Wallet**, **Debit Wallet**, and **Prepay Billable** actions are hidden from the Guardian role. M-Pesa STK push prompts are initiated by the school side; the guardian then authorises the prompt on their phone. Guardians can still push payments to the school's Paybill from their own M-Pesa menu and use the invoice ID as the account reference; those payments reconcile automatically through C2B.
   </Accordion>
 
   <Accordion title="Why can I not edit or delete an invoice?">
