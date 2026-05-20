@@ -4,7 +4,7 @@ description: "Mark daily student and staff registers and follow up on absences."
 icon: "clipboard-list"
 ---
 
-Attendance is how the school records who showed up each day: students, teachers, and non-teaching staff alike. Each register is one sheet for one date, one session (morning, afternoon, or evening), and, for student registers, one class stream. Class teachers run it day to day, marking their stream's register and confirming the sheet at the end of each session. School leadership pulls reports and watches for patterns. Guardians read their child's attendance through their own login but never touch the register itself.
+Attendance is how the school records who showed up each day: students, teachers, and non-teaching staff alike. Each register is one sheet for one date, one session (morning or afternoon), and, for student registers, one class stream. Class teachers run it day to day, marking their stream's register and confirming the sheet at the end of each session. School leadership pulls reports and watches for patterns. Guardians read their child's attendance through their own login but never touch the register itself.
 
 <Note>
   Attendance is an optional module. A school can enable or disable it under Settings. When Attendance is disabled, the **Registers** and **Pending Follow-ups** sidebar entries disappear, daily registers stop being generated, and absence, late, and follow-up notifications stop going out. The Attendance tab on a student, teacher, or staff profile shows a locked message until the module is re-enabled. Existing attendance records are kept in place and are visible again once the module is turned back on.
@@ -40,7 +40,7 @@ Attendance is how the school records who showed up each day: students, teachers,
 
 ## Daily registers
 
-A register is one sheet for one date, one session, and (for student registers) one class stream. The school never has to create them by hand on a normal day: the system generates them automatically at the start of each weekday session. Class teachers open the day's register for their stream, flip statuses, and confirm.
+A register is one sheet for one date, one session (morning or afternoon), and, for student registers, one class stream. The school never has to create them by hand on a normal day: the system generates them automatically at the start of each weekday session. Class teachers open the day's register for their stream, flip statuses, and confirm.
 
 ### Open today's register
 
@@ -57,7 +57,7 @@ A register is one sheet for one date, one session, and (for student registers) o
   </Step>
 </Steps>
 
-[Insert screenshot: Registers list at /registers showing columns Name, Date, Session, Class, Status badge, Attendance rate, and the count badge over the Registers navigation entry]
+[Insert screenshot: Registers list at /registers showing columns Register, Type, Date, Session, Class, Attendees, Status badge, and the count badge over the Registers navigation entry]
 
 ### Generate a register manually
 
@@ -75,7 +75,7 @@ Use the manual creator when the auto-generation did not produce a sheet, for exa
     Pick **Student (Class)**, **Teachers**, or **Staff**. For a student register, the **Class** picker appears so you can pick the grade and stream.
   </Step>
   <Step title="Pick the date and session">
-    Pick the **Date** (defaults to today) and the **Session** (**Morning**, **Afternoon**, or **Evening**).
+    Pick the **Date** (defaults to today) and the **Session** (**Morning** or **Afternoon**).
   </Step>
   <Step title="Save">
     Confirm. The system first checks for an existing register that matches your selection; if one already exists, you are redirected to it instead of creating a duplicate. Otherwise the new register is created, populated with one row per attendee, and opens on the view page.
@@ -227,18 +227,19 @@ The same **Attendance** tab is available on a teacher's profile and on a non-tea
 
 ## Guardian notifications
 
-The system emails and posts an in-panel notification to the relevant audience as soon as an attendance row is marked. Class teachers, leadership, and guardians all receive these without needing to log in.
+The system notifies the relevant audience as soon as an attendance row is marked or a register changes hands. Class teachers, leadership, and guardians all receive these without needing to log in.
 
-| When | Who is notified |
-|---|---|
-| A new register is generated for the day | The class teacher of the stream (student register); leadership and any user with attendance view access (teacher or staff register) |
-| A student is marked **Absent** | The student's linked guardians |
-| A student is marked **Late** | The student's linked guardians |
-| A teacher or non-teaching staff member is marked **Absent** | School leadership and any user with attendance view access |
-| A follow-up is raised against an attendance row | The class teacher of the register the row belongs to |
-| Today's student registers are still Open or In progress at 09:30 on a weekday | The class teacher of each unfinished register |
+| When | Who is notified | Delivery |
+|---|---|---|
+| A new register is generated for the day | The class teacher of the stream (student register); school leadership (teacher or staff register) | In-panel notification |
+| A student is marked **Absent** | The student's linked guardians | Email and in-panel notification |
+| A student is marked **Late** | The student's linked guardians | Email and in-panel notification |
+| A teacher or non-teaching staff member is marked **Absent** | School leadership | Email and in-panel notification |
+| A follow-up is raised on a student register | The class teacher of the stream | Email and in-panel notification |
+| A follow-up is raised on a teacher or non-teaching staff register | School leadership | Email and in-panel notification |
+| Today's student registers are still Open or In progress at 09:30 on a weekday | The class teacher of each unfinished register | Email and in-panel notification |
 
-Every notification is delivered as both an email and an in-panel notification. If a guardian says they did not receive a message, confirm the email and phone numbers on their profile under [Users & Identity](/modules/users#manage-guardians). To resend an absence or late notification, re-mark the row to the same status; the notification fires again for that change.
+If a guardian says they did not receive a message, confirm the email and phone numbers on their profile under [Users & Identity](/modules/users#manage-guardians). To resend an absence or late notification, re-mark the row to the same status; the notification fires again for that change.
 
 ## Reports and analytics
 
@@ -298,7 +299,7 @@ Resolved is terminal. A resolved follow-up cannot be reopened. To replace a reso
 These are not lifecycles. They appear on form pickers when creating registers or marking attendees.
 
 - **Register type:** Student (Class), Teachers, or Staff.
-- **Session:** Morning (defaults to a check-in time of 08:00), Afternoon (13:00), or Evening (18:00).
+- **Session:** Morning (defaults to a check-in time of 08:00) or Afternoon (13:00).
 - **Attendance status:** Present, Late, Absent, Early Leave, or Activity Leave. Absent, Late, and Early Leave open a pending follow-up; Present and Activity Leave do not.
 
 ## How records relate
@@ -351,7 +352,7 @@ Even without logging in, guardians receive an email and an in-panel notification
   </Accordion>
 
   <Accordion title="Can a guardian mark or correct attendance from their login?">
-    No. Guardians have read-only access to the Attendance tab on their children's profiles. The **Edit**, **Add Note**, and **Resolve** actions are hidden from the Guardian role, and the **Registers** and **Pending Follow-ups** sidebar entries are not visible to them either. To dispute or explain an absence, guardians contact the school, and a staff member resolves the follow-up on their behalf.
+    No. Guardians have read-only access to the Attendance tab on their children's profiles. The **Add Note** and **Resolve** actions are hidden from the Guardian role, and the **Registers** and **Pending Follow-ups** sidebar entries are not visible to them either. To dispute or explain an absence, guardians contact the school, and a staff member resolves the follow-up on their behalf.
   </Accordion>
 
   <Accordion title="What happens when Attendance is turned off?">
