@@ -1,46 +1,78 @@
 ---
-title: "Quick Start"
-description: "A step-by-step guide to onboarding your school onto Elimu Bora."
+title: "Quickstart"
+description: "Set up a new school in under an hour."
 icon: "rocket"
 ---
 
+This page is the dependency order an administrator follows on the first sign-in to a brand-new Elimu Bora tenant. Each step is short and links to the module page that owns the detail. The platform does most of the heavy lifting before you sign in: your tenant ships with both Kenyan curricula already in place, the academic calendar seeded with terms for the year, the seventeen pre-seeded roles ready to assign, and a Super Admin account waiting in your welcome email. What is left for you to do is name the school, decide how many class streams to run, bring your people in, and turn on the optional modules your school uses.
 
+<Note>
+  This is the school-administrator path. Other people in the school (teachers, bursars, registrars, guardians) reach the panel from their own welcome emails after you add them in step 6.
+</Note>
 
-Setting up Elimu Bora is a straightforward process. This guide will take you from your initial welcome email to running your first daily register.
+## Before you start
 
 <Steps>
-  <Step title="Initialize Your Subdomain">
-    After signing up, you will receive a welcome email with your unique school URL (e.g., `https://yourschool.elimuboraerp.com`) and your **Super Admin** login credentials.
+  <Step title="Check your welcome email">
+    Elimu Bora sends a welcome email to the address used to onboard your school. It carries your tenant subdomain (`https://<your-school>.elimuboraerp.com`) and a **Set Your Password** link for the Super Admin account. Open it before you start.
   </Step>
-  <Step title="Configure School Identity">
-    Log in and navigate to **Settings**. Upload your school logo, set your official contact details, and choose your primary school color. These will appear on all system-generated documents.
-  </Step>
-  <Step title="Build Your Academic Structure">
-    1. Define your **Grade Levels** and **Streams** in the Curriculum module.
-    2. Add your **Academic Year** and define the specific **Terms**.
-    3. Assign **Subjects** to each grade level.
-  </Step>
-  <Step title="Onboard Users">
-    Add your staff members and assign their roles. For students and guardians, we recommend using the **Bulk Import** tool to upload your existing records from a CSV file.
-  </Step>
-  <Step title="Start Daily Operations">
-    Assign teachers to their classes and subjects. Your school is now ready to begin marking attendance and recording fees!
+  <Step title="Have your school basics ready">
+    A high-quality transparent PNG of your school logo, the official school email and phone numbers, and the primary brand colour you want to use across the panel and on report cards.
   </Step>
 </Steps>
 
-\[Insert screenshot: The setup progress dashboard showing completed and pending onboarding tasks\]
+## Set up the school
 
-## Key Configuration Checkpoints
+<Steps>
+  <Step title="Sign in as Super Admin">
+    Click **Set Your Password** in the welcome email, choose a password on the sign-in page on your subdomain, and sign in. You land on the **Dashboard**. The Super Admin role is locked and holds full access; you will use it for the rest of this setup. Detail: [Users & Identity](/modules/users#sign-in-to-the-panel).
+  </Step>
+  <Step title="Set the school identity">
+    Open **Settings** in the sidebar and fill in the school's name, logo, contacts, and primary colour. This is the only step that touches branding, and the values appear on every system-generated document (report cards, invoice PDFs, exports). Detail: [Settings](/settings).
+  </Step>
+  <Step title="Read the current year and term">
+    Go to the **Dashboard**. The **Academic Year** widget shows the active year and how much of it has elapsed; the **Current Term** widget shows the active term and the days remaining. Both update automatically each day. No setup is needed here: your academic years and terms are pre-seeded from the Kenya Ministry of Education calendar. Detail: [Academic Years & Terms](/modules/academic-years).
 
-- **Logos**: Use high-quality transparent PNGs for the best appearance on report cards.
-- **M-Pesa**: If you use Paybill or STK Push, ensure your credentials are correctly configured in **Settings → Modules**.
-- **Security**: We strongly recommend that all Administrative users enable **Multi-Factor Authentication (MFA)** on their profiles.
+    <Tip>
+      If today is between two terms (a holiday break), the **Current Term** widget reads **No Active Term**. That is expected; the next term becomes active automatically on its start date.
+    </Tip>
+  </Step>
+  <Step title="Open the class streams you will run">
+    Your tenant ships with both curricula, every stage, every grade level, every subject, every senior-school pathway, and every grading scale already in place. The only structural decision left is how many **streams** to open inside each grade and what to call them (for example, **Grade 1 East**, **Form 4 Red**). Go to **Settings → Grade Streams** and add, rename, or move streams to match the classes your school actually runs. Assign a class teacher to each stream once you have onboarded staff in step 6. Detail: [Curriculum](/modules/curriculum#run-your-classes).
 
-<Tip>
-  Need help with your initial data migration? Our support team can assist you in formatting your CSV files for a smooth bulk import.
-</Tip>
+    <Note>
+      Curriculum, stages, grade levels, subjects, pathways, and grading scales are pre-seeded and not editable from the panel. Schools do not build the academic structure from scratch; you only adjust the parts that vary school to school (grade streams, class teachers, compulsory-subject flags, custom grading scales).
+    </Note>
+  </Step>
+  <Step title="Review the pre-seeded roles">
+    The system ships with seventeen pre-seeded roles (Director, Principal, Bursar, Class Teacher, HOD, HR/Secretary, Librarian, Nurse, and so on). **Super Admin** and **Guardian** are locked and cannot be edited or deleted. Open **Roles & Permissions** in the sidebar and skim what each role grants. If a role's defaults do not fit your school, you can edit it, or create a custom role, before you start onboarding staff in step 6. Detail: [Roles & Permissions](/roles-permissions).
+  </Step>
+  <Step title="Onboard teachers and non-teaching staff">
+    Go to **Teachers** and add each teaching staff member (name, email, employee number, the subjects they teach, the roles they hold). Then go to **Staff** and add each non-teaching staff member (department, position, role). Each save creates the underlying panel account and emails the person a welcome message with a **Set Your Password** link. For a large intake, use the **Import Teachers** and **Import Staff** actions instead. Detail: [Users & Identity](/modules/users#manage-teachers).
 
-## Troubleshooting
+    <Tip>
+      Assign **Class Teacher** to any teacher who will own a stream, then go back to **Settings → Grade Streams** and pin them to their streams. The streams now have a named class teacher attached to them.
+    </Tip>
+  </Step>
+  <Step title="Admit students and link guardians">
+    Go to **Students** and click **New student**. The admission wizard captures the student, at least one guardian, the home address, the academic placement (curriculum, stage, grade, stream, and CBC pathway and subjects where they apply), and, if Finance is on, the billing groups that apply. Step 2 of the wizard raises a consolidated **Fee Structure** invoice for the term. Saving the wizard creates the student's wallet, creates user accounts for the listed guardians, and emails each guardian their own **Set Your Password** link. For a large intake, use **Import Students** and then **Import Guardians**. Detail: [Users & Identity](/modules/users#manage-students).
 
-- **Login Issues**: If you haven't received your welcome email, check your spam folder or contact `support@elimuboraerp.com`.
-- **Module Access**: If a module (like Finance or Inventory) is missing from your sidebar, ensure it is enabled in **Settings → Modules** and included in your subscription plan.
+    <Note>
+      Students do not log in to Elimu Bora. Guardians do, under the locked **Guardian** role, which is read-only and scoped to their own children.
+    </Note>
+  </Step>
+  <Step title="Enable the optional modules you use">
+    Optional modules ship turned off so each school decides whether to use them. Go to **Settings** to enable the ones that apply to your school: Finance, Attendance, Inventory, Events, Timetable, Sports, Clubs, and Activity Log. Detail: [Settings](/settings).
+
+    The four foundation modules (Users & Identity, Curriculum, Academic Years & Terms, Assessments & Report Cards) are always on and have no on/off switch.
+  </Step>
+  <Step title="If Finance is on, set up fees and invoices">
+    Open **Billables** in the sidebar and create the fee items your school charges (tuition, transport, lunch, exam, and so on). Group related billables under a **Billable group** (for example, "Term 1 fees") so admission can attach the whole bundle in one step. Once billables exist, raise the term's invoices, either one student at a time on the **Invoices** page or in bulk from a billable group. M-Pesa STK push and Paybill come on by configuring the school's M-Pesa credentials under **Settings**. Detail: [Finance](/modules/finance).
+  </Step>
+</Steps>
+
+## You are ready
+
+At this point staff can sign in from their welcome emails and start working: class teachers mark daily registers ([Attendance](/modules/attendance)), subject teachers enter grades when an assessment opens ([Assessments & Report Cards](/modules/assessments)), the timetable lays out the school week ([Timetable & Lessons](/modules/timetable)), the bursar accepts payments ([Finance](/modules/finance)), and guardians read what concerns their own children ([For Guardians](/guardians)).
+
+Every change anyone makes is captured in the [Activity Log](/modules/activity-log), so you can answer "who changed this and when?" without leaving the panel.

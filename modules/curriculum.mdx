@@ -1,118 +1,303 @@
 ---
 title: "Curriculum"
-description: "Define your school's academic structure, including grades, streams, subjects, and grading standards."
+description: "Review the school's academic structure, run your class streams, assign class teachers, and set the rules that turn scores into grades."
 icon: "book-open"
 ---
 
-The Curriculum module is the foundation of Elimu Bora. It defines how your school is organized academically, which in turn powers attendance registers, timetables, and automated report cards.
+Curriculum is the academic spine of the school: the curricula you teach (CBC and 8-4-4), the stages and grades inside each curriculum, the class streams students sit in, the subjects taught, the senior-school pathways for CBC, and the grading scales used on report cards. School leadership uses the Curriculum pages to review the structure, run the classes the school actually opens, and pick the grading rules. Teachers, bursars, registrars, and guardians never edit these records, but they read them everywhere: a student's grade, stream, and pathway show up on their profile, on their report card, on their invoices, and on the registers a teacher marks each morning.
+
+<Note>
+  Curriculum ships pre-built. Each new school starts with both Kenyan curricula (CBC and 8-4-4) and a full set of curriculum stages, grade levels, class streams, subjects, pathways, and grading scales already in place. Most setup is reviewing what is there and adjusting the parts your school actually runs (class streams, class teachers, compulsory subjects, grading scales). Curriculum is a core module and cannot be disabled under Settings.
+</Note>
+
+## Records you'll work with
+
+| Record | What it is |
+|---|---|
+| Curriculum | A curriculum the school runs. Two are pre-seeded: **8-4-4 Education System** (Nursery, Primary, High School) and **Competency-Based Curriculum** (Playgroup through Senior Secondary). Pre-seeded and not editable from the panel. |
+| Curriculum stage | A stage inside a curriculum, such as **Lower Primary**, **Junior Secondary**, **Primary School**, or **High School**. Pre-seeded for both curricula and not editable from the panel. |
+| Grade level | A single grade or class inside a stage, such as **Grade 1**, **PP1**, **Class 5**, or **Form 3**. Pre-seeded and not editable from the panel. |
+| Grade stream | A concrete class section inside a grade level, such as **Grade 1 A** or **Form 4 Red**. Pre-seeded with the labels picked during onboarding; new streams can be added, and existing streams can be renamed, moved between grade levels, or deleted. Each stream can have one class teacher. |
+| Subject | A teachable subject (for example, **Mathematics**, **English**, **Biology**, **Music**). The full catalogue is pre-seeded for both curricula. The only field a school can change on a subject is whether it is marked **Compulsory**. |
+| Pathway | A senior-school subject track for CBC. Three are pre-seeded: **STEM**, **Social Sciences**, and **Arts & Sports**. Subjects and students are attached to a pathway from its page. |
+| Grading scale | A score-to-grade mapping used on report cards. Four are pre-seeded: **CBC Rubric Scale**, **8-4-4 KCSE Percentage Scale**, **8-4-4 12 Point Scale**, and **8-4-4 84 Point Scale**. Each scale holds **Grade bands** (for example, 80–100 → A or Exceeds Expectations). Schools can add their own scales and edit grade bands. |
+
+## What you can do
 
 <CardGroup cols={2}>
-  <Card title="Grade Levels" icon="layer-group" href="#grade-levels">
-    Define the different grades or forms in your school.
+  <Card title="Review the structure" icon="folder-tree" href="#review-the-structure">
+    Browse the pre-seeded curricula, stages, and grade levels for your school.
   </Card>
 
-  <Card title="Streams (Classes)" icon="door-open" href="#streams">
-    Set up individual class sections within each grade.
+  <Card title="Run your classes" icon="door-open" href="#run-your-classes">
+    Add and edit grade streams, and assign class teachers.
   </Card>
 
-  <Card title="Subjects" icon="book" href="#subjects">
-    Create subjects and assign them to specific grades and teachers.
+  <Card title="Subjects and pathways" icon="book" href="#subjects-and-pathways">
+    Mark subjects compulsory, attach subjects to a pathway, and place students into a pathway.
   </Card>
 
-  <Card title="Grading Scales" icon="percent" href="#grading-scales">
-    Set up the standards for scores and performance levels.
+  <Card title="Grading scales" icon="percent" href="#grading-scales">
+    Add a grading scale, define its grade bands, and edit existing scales.
   </Card>
 </CardGroup>
 
-## Grade Levels
+## Review the structure
 
-Grade Levels represent the academic stages in your school (e.g., PP1, Grade 4, Form 1). They act as the primary container for students and subjects.
+Curriculum pages live under **Settings** in the sidebar. Three navigation groups carry the seven pages:
+
+- **Academic Structure** holds **Curriculums**, **Curriculum Stages**, **Pathways**, and **Subjects**.
+- **Grade Levels & Streams** holds **Grade Levels** and **Grade Streams**.
+- **Grading** holds **Grading Scales** (visible only when the Academics module is enabled).
+
+A new school does not need to build any of this from scratch. The pages exist to let you check what is in place and to adjust the parts your school actually runs.
+
+### Read the curriculum catalogue
 
 <Steps>
-  <Step title="Access Grade Levels">
-    Navigate to **Settings** and select **Grade Levels** within the Academic Structure cluster.
+  <Step title="Open Curriculums">
+    In the sidebar, go to **Settings → Curriculums**, or open `/settings/curriculums`. The list shows the two pre-seeded curricula along with a **Students** count badge so you can see how many learners sit on each.
   </Step>
-  <Step title="Create a Grade">
-    Click **New Grade Level**. Enter the name and assign a display order. The order determines how grades are sorted in reports and menus.
+  <Step title="Open Curriculum Stages">
+    Go to **Settings → Curriculum Stages**, or open `/settings/curriculum-stages`. The list shows every stage with its parent curriculum, the grade range inside the stage (for example, **Grade 1 to Grade 3** for **Lower Primary**), and the students at that stage. Open a row to see the school-day periods configured for the stage (these power the timetable).
   </Step>
-  <Step title="Configure Curriculum Type">
-    Specify whether the grade follows the **CBC** (Competency-Based Curriculum) or the **8-4-4** system. This affects how assessments and report cards are generated for this grade.
+  <Step title="Open Grade Levels">
+    Go to **Settings → Grade Levels**, or open `/settings/grade-levels`. The list shows every grade level with its stage, the number of streams in that grade, and the number of students.
   </Step>
 </Steps>
 
-<Info>
-  Grade Levels can be configured with specific "Age Ranges" to help flag students who might be in a grade that doesn't match their age profile.
-</Info>
+[Insert screenshot: Curriculum Stages list at /settings/curriculum-stages showing columns Name, Curriculum, Grades, and Students for the pre-seeded CBC and 8-4-4 stages]
 
-\[Insert screenshot: Grade levels index showing names, curriculum types, and display orders\]
+## Run your classes
 
-## Streams
+This is where most of the day-to-day Curriculum work happens: deciding how many streams to open in each grade, naming them, and assigning a class teacher to each.
 
-Streams (or classes) are sections within a Grade Level (e.g., Grade 6 Red, Grade 6 Blue).
+### Add a class stream
 
 <Steps>
-  <Step title="Add a Stream">
-    Go to **Streams** and click **New Stream**.
+  <Step title="Open Grade Streams">
+    Go to **Settings → Grade Streams**, or open `/settings/grade-streams`. Click **New grade stream** in the page header.
   </Step>
-  <Step title="Link to Grade">
-    Select the parent Grade Level and provide a name for the stream.
+  <Step title="Pick the curriculum stage and grade level">
+    Pick the **Curriculum Stage** the stream sits in, then the **Grade Level** inside that stage.
   </Step>
-  <Step title="Assign Class Teacher">
-    Select a staff member as the **Class Teacher**. This person will have primary responsibility for marking daily registers and overseeing the students in this stream.
+  <Step title="Pick a class teacher (optional)">
+    Use the **Class Teacher** picker to assign one of the school's teachers. The picker shows every teacher in the school, searchable by name. Leave it blank if the class teacher has not been decided yet; you can assign one later (see [Assign a class teacher](#assign-a-class-teacher-to-a-stream)).
+  </Step>
+  <Step title="Name the stream and save">
+    Enter the stream's **Name** (for example, **Grade 1 East** or **Form 4 Red**). The name must be unique across the school. Click **Save**. The stream becomes available for student admission and lesson scheduling.
   </Step>
 </Steps>
 
-\[Insert screenshot: Stream creation form with Grade Level and Class Teacher selectors\]
+[Insert screenshot: New grade stream form at /settings/grade-streams/create showing Curriculum Stage, Grade Level, Class Teacher, and Name fields]
 
-## Subjects
+You can also add a stream from inside a grade level: open **Settings → Grade Levels**, open the grade level, and use **New** on the **Grade Streams** tab. The form there asks for the stream name and class teacher only; the grade level is set automatically.
 
-Subjects define what is taught at each level. They are linked to grade levels and assigned to specific teachers.
+### Edit or rename a stream
 
-<Tabs>
-  <Tab title="Creating Subjects">
-    1. Navigate to **Subjects** and click **New Subject**.
-    2. Enter the subject name and a short code (e.g., "Mathematics" / "MAT").
-    3. Select all the **Grade Levels** where this subject is taught.
-  </Tab>
-  <Tab title="Teacher Assignments">
-    1. Open a subject and navigate to the **Assignments** tab.
-    2. Link specific teachers to the streams where they teach this subject. This gives them access to enter assessment scores for those specific students.
-  </Tab>
-</Tabs>
+Open the stream from **Settings → Grade Streams**, click **Edit**, change any of **Stream Name**, **Grade Level**, **Curriculum Stage**, or **Class Teacher**, and save. Students enrolled in the stream stay enrolled when you rename it or move it to a different grade level.
 
-## Grading Scales
+### Delete a stream
 
-Grading Scales translate numeric scores into grades (A, B, C) or performance descriptors (Exceeding, Meeting, Approaching).
+<Note>
+  **You will need:** the stream to be empty of students. The delete action does not transfer students to another stream; if students are still enrolled, move them to a different stream first (see [Users & Identity](/modules/users#edit-a-student-profile)).
+</Note>
+
+Open the stream from **Settings → Grade Streams** and click **Delete** in the header. The stream is soft-deleted and disappears from the active list. Existing attendance records, lessons, and other history written against the stream stay on the records they belong to.
+
+### Assign a class teacher to a stream
+
+<Note>
+  **You will need:** the teacher's record to exist. Add teachers under [Users & Identity](/modules/users#manage-teachers) first if they have not been onboarded yet.
+</Note>
+
+A class teacher owns the stream's daily registers, the stream's discipline and follow-up flow, and is the staff member named on the stream's view page. A stream can have at most one class teacher; a teacher can be class teacher for several streams.
 
 <Steps>
-  <Step title="Define Scale Type">
-    Create a new scale and choose between **Numeric** (8-4-4) or **Descriptor** (CBC).
+  <Step title="Open the stream">
+    Open the stream from **Settings → Grade Streams**.
   </Step>
-  <Step title="Add Grade Bands">
-    Add the ranges for each grade. For example:
-
-    - 80% - 100%: **A (Excellent)**
-    - 70% - 79%: **B (Very Good)**
-  </Step>
-  <Step title="Link to Subjects">
-    Apply the scale to specific subjects or entire grade levels. You can have a default school scale and specialized scales for specific subjects (e.g., a different scale for Music or P.E.).
+  <Step title="Use Assign Teacher">
+    Click **Assign Teacher** in the header. Pick the teacher from the **Class Teacher** picker and confirm. A success notification appears in the panel.
   </Step>
 </Steps>
 
-\[Insert screenshot: Grading scale editor with percentage ranges and associated labels/remarks\]
+You can also do this from the teacher's profile: open **Teachers**, open the teacher, switch to the **Class Assignments** tab, and use **Assign Class** to attach a stream.
 
-## FAQs & Troubleshooting
+### Change or unassign a class teacher
+
+Open the stream from **Settings → Grade Streams**. The header action reads **Change Teacher** when a teacher is already assigned. Click it, pick a different teacher, and save. To unassign without picking a replacement, open the picker, clear the selection, and save. The stream stays in place without a class teacher until you assign one.
+
+## Subjects and pathways
+
+The school does not create subjects from scratch. Both curricula come with a full subject catalogue (Mathematics, English, Kiswahili, the sciences, the languages, the senior-school pathway subjects, and so on). The only choice a school makes on a subject is whether it is marked **Compulsory**.
+
+### Mark a subject compulsory or optional
+
+<Steps>
+  <Step title="Open Subjects">
+    Go to **Settings → Subjects**, or open `/settings/subjects`. Filter by **Curriculum** to narrow the list, or tick **Compulsory only** to see what is currently flagged.
+  </Step>
+  <Step title="Edit the subject">
+    Click **Edit** on the row. The subject's **Code** and **Name** are read-only because the catalogue is shared across schools; only the **Compulsory** toggle is editable.
+  </Step>
+  <Step title="Toggle Compulsory and save">
+    Switch the **Compulsory** toggle on or off and save. Compulsory subjects are the ones every student in the curriculum is expected to take.
+  </Step>
+</Steps>
+
+### Add a subject to a pathway
+
+<Note>
+  **You will need:** the pathway you want to add the subject to. Three CBC pathways ship pre-seeded (**STEM**, **Social Sciences**, **Arts & Sports**), and so does the senior-school subject catalogue. There is no setup before this step.
+</Note>
+
+Pathway membership decides which subjects a senior-school student can pick. The pre-seeded subjects already cover each of the three pathways; this workflow is for the cases where your school offers a subject the seed did not place.
+
+<Steps>
+  <Step title="Open the pathway">
+    Go to **Settings → Pathways**, or open `/settings/pathways`. Open the pathway you want to edit. The view page shows the pathway, its curriculum (always the **Competency-Based Curriculum**), and tabs for **Subjects** and **Students**.
+  </Step>
+  <Step title="Attach a subject">
+    On the **Subjects** tab, click **Attach** in the header. Pick the subject from the list and save. The subject is now selectable for students placed in this pathway.
+  </Step>
+</Steps>
+
+### Remove a subject from a pathway
+
+Open the pathway from **Settings → Pathways** and switch to the **Subjects** tab. On the subject's row, click **Detach** and confirm. The subject record itself stays in the catalogue; it just stops appearing in this pathway's subject options.
+
+### Place a student into a pathway
+
+<Note>
+  **You will need:** the student to be enrolled in the **Competency-Based Curriculum**. Pathways do not apply to 8-4-4. If the student is on 8-4-4, no Pathways field appears on the form.
+</Note>
+
+CBC senior-school students pick a pathway (STEM, Social Sciences, or Arts & Sports) and the subjects inside it. Pathway placement is captured on the student's own profile.
+
+<Steps>
+  <Step title="Open the student">
+    Go to **Students** and open the student. Click **Edit**.
+  </Step>
+  <Step title="Set the pathway in Academic Context">
+    Scroll to the **Academic Context** section. Tick the box for one (or more) of **STEM**, **Social Sciences**, or **Arts & Sports** in the **Pathways** list. The **Subjects** list refreshes to show only subjects attached to the chosen pathway, so the student can pick the subjects they will take.
+  </Step>
+  <Step title="Save">
+    Save. The student now shows on the pathway's **Students** tab and on the subject's roster for each subject they were enrolled in.
+  </Step>
+</Steps>
+
+You can also attach a student from the pathway side: open **Settings → Pathways**, open the pathway, switch to the **Students** tab, and use **Attach** to add the student. Either path produces the same link.
+
+### Remove a student from a pathway
+
+Open the pathway, switch to the **Students** tab, and use **Detach** on the student's row, or open the student, click **Edit**, and clear the pathway tick box in **Academic Context**. The student stays enrolled and stays on the stream and grade level; only the pathway link is removed.
+
+## Grading scales
+
+A grading scale turns raw scores into the codes that appear on a report card. **CBC Rubric Scale** uses descriptor codes (**E.E** Exceeds Expectations, **M.E** Meets Expectations, **A.E** Approaching Expectations, **B.E** Below Expectations). The **8-4-4 KCSE Percentage Scale** uses letter grades from **A** down to **E**. The two 8-4-4 point scales (**12 Point** and **84 Point**) are alternates for schools that grade in points rather than percentages.
+
+### Add a grading scale
+
+<Steps>
+  <Step title="Open Grading Scales">
+    Go to **Settings → Grading Scales**, or open `/settings/grading-scales`. Click **New grading scale** in the page header.
+  </Step>
+  <Step title="Pick the curriculum and name the scale">
+    Pick the **Curriculum** the scale belongs to and enter a **Name** that describes the scale (for example, **Junior Secondary Internal Scale**).
+  </Step>
+  <Step title="Save">
+    Save. The scale appears on the list. Open it to add grade bands.
+  </Step>
+</Steps>
+
+### Add a grade band
+
+<Note>
+  **You will need:** the grading scale the band belongs to. Bands hang off a scale and cannot exist on their own. Add the scale first (see above) if it does not exist.
+</Note>
+
+A grade band is one row in the score-to-grade mapping: a **Code** (the badge that prints, such as **A** or **E.E**), a **Name** (the label, such as **Grade A** or **Exceeds Expectations**), a **Min Points**, and a **Max Points**. Bands should cover the full range without overlap.
+
+<Steps>
+  <Step title="Open the grading scale">
+    From **Settings → Grading Scales**, open the scale. The view page opens on the **Grade Bands** tab.
+  </Step>
+  <Step title="Click Add Grade Band">
+    Click **Add Grade Band** in the tab's header.
+  </Step>
+  <Step title="Enter the band's code, name, and range">
+    Enter the **Code** (up to 10 characters; for example, **A** or **E.E**), the **Name** (for example, **Grade A** or **Exceeds Expectations**), the **Min Points** for the band, and the **Max Points**. The band covers any score from min to max, inclusive.
+  </Step>
+  <Step title="Save">
+    Save. The band appears on the list, sorted by minimum points. Repeat for every grade the scale should produce.
+  </Step>
+</Steps>
+
+[Insert screenshot: Grading Scale view page at /settings/grading-scales/{id} showing the scale name and curriculum header, the Grade Bands tab with columns Code, Name, Min, Max, and the Add Grade Band header action]
+
+### Edit or delete a grade band
+
+On the scale's **Grade Bands** tab, use **Edit** on a row to change a band's code, name, or score range, or **Delete** to remove it. Changes take effect the next time a report card is generated; existing report cards keep the labels they were generated with.
+
+### Edit or delete a grading scale
+
+Open the scale from **Settings → Grading Scales** and use **Edit** to rename it or move it to a different curriculum, or **Delete** to remove it. Deleting a scale that is no longer attached to any assessment is safe; deleting one that is still in use will leave those assessments without a scale, so check the assessment list under [Assessments](/modules/assessments) before deleting.
+
+## How records relate
+
+A few user-visible relationships are worth keeping in mind:
+
+- The structure is a tree: every grade stream sits inside a grade level, every grade level sits inside a curriculum stage, every stage sits inside a curriculum. A student carries all four labels on their profile.
+- A grade stream has at most one class teacher; a teacher can be class teacher for several streams. Teachers see students whose stream they own and students enrolled in the subjects they teach.
+- Subjects are shared across both curricula by code and name where the subject is the same (Mathematics, English, Biology, French, and so on); curriculum-specific subjects (for example, the CBC senior-school pathway subjects) live only under their curriculum. Marking a subject **Compulsory** applies in every curriculum the subject is attached to.
+- Pathways are a CBC-only concept. A student on 8-4-4 has no pathway. A CBC senior-school student can be placed in one or more pathways; the subjects available to them are the union of those pathways' subjects.
+- A grading scale belongs to one curriculum and carries its own grade bands. Assessments and report cards pick which scale they use; see [Assessments](/modules/assessments).
+
+## Reports and analytics
+
+Most curriculum data is read on-screen rather than downloaded. The one printable report on these pages is the class timetable, which lives on the Grade Streams page because it is scoped to a single stream.
+
+| Report | Where | Filters | Output |
+|---|---|---|---|
+| Class Timetable | **Class Timetable** header action on **Settings → Grade Streams**, or **Download Timetable** on a single stream's view page | Class (required from the list page), Timetable period (required) | Landscape PDF showing the chosen stream's lessons across the timetable period, with periods on the left and weekdays across the top |
+
+The **Download Timetable** action appears on a stream's view page only when the Timetable module is enabled. From the list page, the **Class Timetable** action is available whenever you have permission to read grade streams.
+
+## What guardians see
+
+Guardians do not see the Settings cluster at all. The **Curriculums**, **Curriculum Stages**, **Grade Levels**, **Grade Streams**, **Subjects**, **Pathways**, and **Grading Scales** pages are hidden from the Guardian role and the sidebar does not show the **Settings** group for guardian logins.
+
+Curriculum information still reaches guardians indirectly: it appears as plain labels on their child's profile (curriculum, stage, grade level, stream, subjects, and pathway), on each report card, on registers the guardian reads, and on invoices that use per-stage pricing. Guardians cannot change any of these values.
+
+## FAQs and troubleshooting
 
 <AccordionGroup>
-  <Accordion title="Can I change a grade's curriculum type mid-year?">
-    Changing the curriculum type (e.g., from 8-4-4 to CBC) while assessments are active is not recommended as it will invalidate existing grade reports. Contact support if you need to perform a migration.
+  <Accordion title="Why can I not create a new curriculum, stage, or grade level?">
+    The two curricula (CBC and 8-4-4), their stages, and the grade levels inside each stage ship pre-seeded because the system uses them to drive every other module: students, lessons, assessments, registers, and invoicing all key off these records. To prevent that wiring from breaking, the panel does not expose **Create** or **Delete** actions for curricula, stages, or grade levels. You can rename grade levels, and you can add, edit, and remove grade streams. If your school runs a structure that the seeded set does not match, contact support.
   </Accordion>
 
-  <Accordion title="Why can't I see a subject in the assessment list?">
-    Ensure the subject has been correctly linked to the relevant Grade Level in the Subject settings.
+  <Accordion title="What is the difference between a grade level and a stream?">
+    A **grade level** is the academic level (for example, **Grade 1**, **Form 3**). A **stream** is a specific class of students at that level (for example, **Grade 1 A**, **Form 3 Red**). A grade level can hold many streams, and each student is enrolled in exactly one stream. Class teachers are assigned to streams, not to grade levels.
   </Accordion>
 
-  <Accordion title="What is the difference between a Grade and a Stream?">
-    A **Grade** is the academic level (e.g., Grade 1), while a **Stream** is the specific group of students in that grade (e.g., Grade 1 West). Subjects are linked to Grades, but Teachers are assigned to Streams.
+  <Accordion title="Why are the Code and Name fields on a subject read-only?">
+    The subject catalogue is shared across both Kenyan curricula and across every school running on Elimu Bora, so the **Code** and **Name** of a subject are not editable from the panel. The only field a school can change is the **Compulsory** toggle, which decides whether the subject is mandatory for students in the curriculum. If a subject you need is missing entirely, contact support.
+  </Accordion>
+
+  <Accordion title="Why can I not see a subject on the assessment list?">
+    Two usual causes. First, the subject may not be attached to the curriculum the student is on: open **Settings → Subjects**, filter by the curriculum, and confirm the subject is listed. Second, for CBC senior-school students, a subject only appears on a student's assessment list when the subject is attached to one of the student's pathways: open the pathway under **Settings → Pathways** and confirm the subject is on its **Subjects** tab; if not, attach it (see [Add a subject to a pathway](#add-a-subject-to-a-pathway)).
+  </Accordion>
+
+  <Accordion title="A new student is missing from a teacher's class list. What now?">
+    Teachers see students by stream and by subject. Open the student under **Students**, click **Edit**, and check the **Grade Stream** and **Subjects** in the **Academic Context** section. If the stream is not the one the teacher owns, change it. If a subject is missing, tick it on the student form. Both changes take effect immediately.
+  </Accordion>
+
+  <Accordion title="Can I move a stream to a different grade level?">
+    Yes. Open the stream from **Settings → Grade Streams**, click **Edit**, and change **Grade Level** (and **Curriculum Stage** if needed). Students enrolled in the stream stay enrolled, so the move is rare in practice; it is typically used to correct a stream that was created in the wrong grade level.
+  </Accordion>
+
+  <Accordion title="Can a guardian see the curriculum settings?">
+    No. The Guardian role has no permission to read any of the **Settings** pages, so guardians never see the **Curriculums**, **Stages**, **Grade Levels**, **Streams**, **Subjects**, **Pathways**, or **Grading Scales** lists. They see curriculum data only as labels on their child's profile and on the records (report cards, registers, invoices) that mention it.
   </Accordion>
 </AccordionGroup>

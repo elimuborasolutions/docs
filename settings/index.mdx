@@ -1,0 +1,53 @@
+---
+title: "Settings"
+description: "Configure how the school runs."
+icon: "settings"
+---
+
+**Settings** is the bottom group in the sidebar, and it gathers everything that configures the school rather than runs it day to day: the school's identity, which optional modules are switched on, the academic structure, grading scales, roles, and the audit log. Most of it is set once during onboarding and rarely touched again. This page is a map of what lives under Settings and where each piece is documented in full.
+
+<Note>
+  The configuration permissions (managing settings, modules, roles, and the activity log) ship only with the **Super Admin** role. Other roles can run the school but won't see most of Settings unless you grant them those permissions. See [Roles & permissions](/roles-permissions).
+</Note>
+
+## School identity and branding
+
+**Settings → School Details** holds the information that identifies your school across the panel and on every document it generates:
+
+- **Identity** — the school name, its subdomain, motto, and vision.
+- **Contact information** — phone, email, website, and the postal/physical address (address line, town, city, county).
+- **Branding** — the school logo and a primary colour. These flow onto report cards, invoice PDFs, and other exports.
+
+Set these first; the [Quickstart](/quickstart) walks through it as the opening step.
+
+## Modules
+
+**Settings → Modules** is where you turn the optional parts of the system on or off. Switching a module off hides its pages from every sidebar; switching it on brings them back.
+
+- **Always on** — Users & Identity, Curriculum, Academic Years & Terms, and Assessments & Report Cards. These are the foundation the rest of the school is built on and have no on/off switch.
+- **Optional** — Attendance, Timetable & Lessons, Finance, Inventory & Procurement, Events, Sports & Games, Clubs & Societies, and the Activity Log. Turn on the ones your school uses.
+
+A page that a colleague can see but you cannot is usually down to one of two things: your role, or a module that is switched off here.
+
+## Academic structure
+
+The academic structure ships pre-seeded for both Kenyan curricula, so this area is for **reviewing and adjusting**, not building from scratch. It sits under Settings in a few groups:
+
+| Setting | What it covers | Documented in |
+| --- | --- | --- |
+| Curriculums, Curriculum Stages, Pathways, Subjects | The CBC and 8-4-4 structures, their stages, senior-school pathways, and the subject catalogue. | [Curriculum](/modules/curriculum) |
+| Grade Levels & Streams | The grades each curriculum runs and the streams (classes) your school opens inside them. | [Curriculum](/modules/curriculum) |
+| Grading Scales | The bands that turn raw scores into grades on report cards. | [Curriculum](/modules/curriculum) |
+| Academic Years & Terms | The school calendar that anchors every register, assessment, invoice, and event to a term. | [Academic Years & Terms](/modules/academic-years) |
+
+<Tip>
+  Opening the streams your school actually runs, and pinning a class teacher to each, is the one structural step every school does at setup. The rest of the academic structure is already in place.
+</Tip>
+
+## Roles, files, and the audit log
+
+| Setting | What it covers | Documented in |
+| --- | --- | --- |
+| Roles & Permissions | The seventeen pre-seeded roles, custom roles, and the permissions inside each. | [Roles & permissions](/roles-permissions) |
+| File Categories | The categories used to organise documents uploaded across the school. | — |
+| Activity Log | The searchable audit trail of every recorded change — who did what, and when. | [Activity Log](/modules/activity-log) |

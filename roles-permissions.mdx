@@ -1,86 +1,120 @@
 ---
-title: "Roles & Permissions"
-description: "Understand the different user roles in Elimu Bora and how they control access to features and data."
-icon: "shield-check"
+title: "Roles & permissions"
+description: "Decide who sees what."
+icon: "shield-user"
 ---
 
-Elimu Bora uses a Role-Based Access Control (RBAC) system. Each user is assigned one or more roles that define what they can view and which actions they can perform.
+Every person who signs in to Elimu Bora carries one or more **roles**, and each role is a named bundle of **permissions**. A permission is a single thing you are allowed to do — view a student, create an invoice, mark a register, manage payment integrations. Roles group those permissions so you assign a job, not a checklist: give someone the **Bursar** role and they get the whole finance toolkit; give someone **Class Teacher** and they get their class's registers, assessments, and report cards. This page explains the seventeen roles your school starts with, how the locked **Guardian** role differs from the rest, and how to assign, edit, or build roles.
 
-<CardGroup cols={2}>
-  <Card title="Administrative Roles" icon="shield-check" href="#administrative-roles">
-    Full school oversight and system configuration.
-  </Card>
+<Note>
+  Roles and permissions live under **Settings → Roles & Permissions** in the sidebar. Only a user who holds the **Roles & Permissions** management permission can open it — by default that is the **Super Admin** alone. Leadership roles can run the school, but they cannot reassign permissions unless you grant them that.
+</Note>
 
-  <Card title="Academic Roles" icon="user-graduate" href="#academic-roles">
-    Teaching, grading, and classroom management.
-  </Card>
+## How roles work
 
-  <Card title="Financial Roles" icon="money-bill-transfer" href="#financial-roles">
-    Fee collection, invoicing, and reporting.
-  </Card>
+- **Permissions flow only through roles.** There is no per-person permission switch. To change what someone can do, you change the roles they hold, or you change the permissions inside a role.
+- **A person can hold more than one role.** Roles are a required, multi-select field on each Teacher and Staff record. Someone who is both a class teacher and the sports patron holds both roles, and their access is the **union** of the two — every permission either role grants.
+- **The sidebar follows the permissions.** A page only appears for a user when one of their roles grants the permission for it (and, for an optional module, when the school has that module switched on). Two colleagues at the same school routinely see different menus.
+- **Permissions are grouped by module.** When you edit a role you pick from a searchable checklist organised by area — Identity, Curriculum, Academics, Finance, Inventory, Sports, Clubs, Events, and Settings — so it is easy to hand a role everything in one module and nothing in another.
 
-  <Card title="Support Roles" icon="user-gear" href="#support-roles">
-    Front office, library, and laboratory management.
-  </Card>
-</CardGroup>
+## The seventeen pre-seeded roles
 
-## Role Assignments
+Every school starts with these seventeen roles already created and populated with sensible defaults. You can use them as they are, adjust their permissions, or add your own.
 
-Roles are assigned during [User Creation](/modules/Users#staff). A user can have multiple roles if they perform multiple functions in the school (e.g., a **Teacher** who is also a **Department Head**).
+### Leadership
 
-## Detailed Role Guide
+| Role | What it's for |
+| --- | --- |
+| **Super Admin** | The account in your welcome email. Locked. Holds **every** permission, and is the only role that can manage roles, school settings, modules, payment integrations, and the activity log. |
+| **Director** | School-wide oversight. Manage people, the curriculum, assessments, attendance, invoices and payments; view the rest of finance; manage inventory, sports, clubs, and events. Does not include system settings. |
+| **Principal** | Same default access as Director. |
+| **Deputy Principal** | Same default access as Director and Principal. |
+
+### Academic staff
+
+| Role | What it's for |
+| --- | --- |
+| **HOD** | Department oversight. Full control of assessments and report cards, attendance, and view access to curriculum and student performance, plus competitions, fixtures, teams, and events. |
+| **Class Teacher** | Their own class. View and update students, see guardian contacts, create and update assessments, report cards, and registers, mark the student register, and post events. |
+| **Teacher** | Subject teaching. View students, create and update assessments, view report cards, mark the student register, and read the curriculum, sports, and clubs they teach against. |
+
+### Finance and administration
+
+| Role | What it's for |
+| --- | --- |
+| **Bursar** | The full finance desk: billables, billable groups, invoices, payments, discounts, earmarks, wallets, and sponsors, plus inventory and purchasing, and the school's payment-integration settings. |
+| **HR/Secretary** | The people desk: full control of student, staff, teacher, and guardian records, view access to report cards, staff attendance, and events. |
+
+### Support staff
+
+| Role | What it's for |
+| --- | --- |
+| **Patron** | Clubs and games. View and update students, run clubs and view sports, competitions, fixtures, teams, and houses, award house points, and post events. |
+| **Nurse** | View and update students with medical information and guardian contacts, view inventory, and raise stock requisitions. |
+| **Matron** | View and update students with medical information and guardian contacts, mark the student register, and raise stock requisitions. |
+| **Librarian** | View students and the books issued to them, view products and inventory, and raise stock requisitions. |
+| **Lab Technician** | View students, view products and inventory, and raise stock requisitions. |
+| **Chef** | View students and their medical information (allergies and dietary needs), view products and inventory, and raise stock requisitions. |
+| **Driver** | View students and their guardian contacts. |
+
+### Family
+
+| Role | What it's for |
+| --- | --- |
+| **Guardian** | Locked. A read-only account scoped to the holder's own children. See [The Guardian role](#the-guardian-role) below. |
+
+<Tip>
+  Director, Principal, and Deputy Principal ship with identical permissions. If your school splits those duties — say, the deputy handles discipline but not finance — edit each role so its permissions match the job, rather than relying on the titles alone.
+</Tip>
+
+## The Guardian role
+
+The **Guardian** role is locked, like Super Admin: you cannot edit its permissions or delete it. It is also the only role meant for people outside the staffroom. A guardian account is created automatically when you admit a student and list their guardian, and it is **read-only and scoped to that guardian's own children** — a guardian never sees another family's records.
+
+A guardian can:
+
+- View their children's profiles, report cards (with a PDF download), and attendance history.
+- View their children's invoices, payments, and wallet balance, and export a financial statement.
+- View the clubs and club activities their children belong to, the fixtures and awards involving them, and the school events they are invited to.
+
+A guardian cannot create, edit, or delete anything, cannot see staff or other students, and cannot reach any settings.
+
+<Note>
+  The Guardian role's reach is fixed by the system, not by its permission checklist. Built-in scoping decides which of their own children's records a guardian may open — and it grants a little more than the role's raw permissions (report cards and attendance, for instance, are opened to guardians by that scoping rather than by a permission). This is why Guardian is locked: its access is wired in, not configured. What each module shows a guardian is documented on each module page and gathered in [For Guardians](/guardians).
+</Note>
+
+## Editing roles and building custom roles
+
+Open **Settings → Roles & Permissions**, then either pick a role to edit or use **New role**.
+
+- **Editing a role** opens its name and a checklist of permissions grouped by module. Tick or untick permissions and save; the change applies to everyone holding that role.
+- **The two locked roles — Super Admin and Guardian — cannot be edited or deleted.** Their name and permission checklist are disabled, and the system blocks any attempt to save changes to them.
+- **Custom roles** are created with a name and a set of permissions, exactly like editing. Build one when none of the seventeen fits — for example a "Transport Coordinator" who needs more than the Driver default.
+- **A role can be deleted only when it is custom and unused** — the delete action is hidden for locked roles and for any role still assigned to someone. Reassign those people first.
+
+The step-by-step screens for each of these live on the Users page: [assign a role](/modules/users#assign-a-role-to-a-user), [create a custom role](/modules/users#create-a-custom-role), and [edit a role's permissions](/modules/users#manage-roles).
+
+## Assigning roles to people
+
+Roles are set on the person's record, not on the roles screen. When you onboard or edit a [teacher](/modules/users#manage-teachers) or [staff member](/modules/users#manage-staff), the **Roles** section is a required multi-select — choose every role the person needs and save. Their access becomes the union of those roles from their next sign-in.
+
+<Note>
+  Students are never assigned a role and never sign in. Guardians are not assigned a role by hand either; the **Guardian** role attaches automatically when their account is created during admission.
+</Note>
+
+## FAQs
 
 <AccordionGroup>
-  <Accordion title="Super Admin & Principal" icon="crown">
-    - **Access**: Full access to all modules and school-wide settings.
-    - **Key Actions**: Managing academic years, bulk importing users, overriding financial records, and viewing school-wide performance reports.
+  <Accordion title="Why can't a Principal manage roles or settings?">
+    The system-configuration permissions (roles, settings, modules, payment integrations, the activity log) ship only with the **Super Admin** role. Leadership roles are built to run the school day to day, not to reconfigure it. If you want a principal to manage roles, edit the Principal role and add the **Roles & Permissions** management permission.
   </Accordion>
-
-  <Accordion title="Bursar / Accounts Office" icon="money-bill-trend-up">
-    - **Access**: Full Finance module access.
-    - **Key Actions**: Creating billables, generating invoices, recording bank/cash payments, and running financial aging reports.
-    - **Restrictions**: Cannot change academic curriculum or delete attendance records.
+  <Accordion title="Someone can't see a page a colleague can. Why?">
+    Either their roles don't grant the permission for that page, or the module that page belongs to is switched off for the school. Check the person's roles under their record, and check the module under [Settings](/settings).
   </Accordion>
-
-  <Accordion title="Teacher" icon="chalkboard-user">
-    - **Access**: Assigned classes and subjects.
-    - **Key Actions**: Entering assessment scores, viewing student academic history for their assigned students, and managing their own profile.
+  <Accordion title="Can I change what the Guardian role sees?">
+    No. Guardian is locked. Its read-only, own-children scope is fixed so no configuration mistake can expose one family's data to another.
   </Accordion>
-
-  <Accordion title="Class Teacher" icon="clipboard-user">
-    - **Access**: Full access to their assigned stream.
-    - **Key Actions**: Marking daily registers (Morning/Afternoon), adding student remarks on report cards, and managing classroom-level events.
-  </Accordion>
-
-  <Accordion title="Guardian" icon="family">
-    - **Access**: Read-only access to their linked children's data.
-    - **Key Actions**: Viewing invoices, paying via M-Pesa, checking attendance history, and downloading published report cards.
-    - **Restrictions**: Cannot edit any data.
-  </Accordion>
-
-  <Accordion title="Receptionist / HR" icon="phone">
-    - **Access**: User management and Staff Attendance.
-    - **Key Actions**: Creating new user accounts, correcting staff sign-ins, and managing school notices.
-  </Accordion>
-
-  <Accordion title="Librarian & Storekeeper" icon="book-bookmark">
-    - **Access**: Inventory and Library modules.
-    - **Key Actions**: Managing stock levels, issuing items to staff, and tracking book loans.
-  </Accordion>
-</AccordionGroup>
-
-## FAQs & Troubleshooting
-
-<AccordionGroup>
-  <Accordion title="Can I create custom roles?">
-    Currently, Elimu Bora provides a comprehensive set of pre-defined roles optimized for Kenyan schools. If you have a unique requirement, contact support to discuss custom permission mapping.
-  </Accordion>
-
-  <Accordion title="Why can't a teacher see their class?">
-    Permissions are tied to both **Role** and **Assignment**. Ensure the teacher has the "Teacher" role AND is correctly assigned to the specific subject/stream in **Curriculum → Subjects**.
-  </Accordion>
-
-  <Accordion title="What happens if a user is assigned two conflicting roles?">
-    The system uses an additive permission model. The user will have the combined permissions of both roles (e.g., if one role allows Finance and another allows Attendance, they will see both).
+  <Accordion title="What happens when a person holds two roles?">
+    Their permissions are added together. If one role grants view-only on students and another grants edit, the person can edit. To take an ability away, remove it from every role that person holds.
   </Accordion>
 </AccordionGroup>

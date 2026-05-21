@@ -1,108 +1,217 @@
 ---
-title: "Timetable"
-description: "Schedule lessons, manage teacher workloads, and organize the weekly school calendar."
-icon: "table"
+title: "Timetable & Lessons"
+description: "Build weekly timetables and run daily lessons."
+icon: "calendar-clock"
 ---
 
-The Timetable module allows you to build recurring weekly schedules for every stream in your school. It automatically handles conflict detection and allows for easy term-by-term renewal.
+Timetable & Lessons holds each teacher's weekly teaching schedule. The school first sets up the time grid each curriculum stage runs on (its periods and breaks), then builds a timetable for each teacher and fills it with lessons that tie a subject to a class stream and repeat each week. School leadership builds and maintains the timetables; teachers read their own weekly grid. A timetable belongs to a teacher and stays current for a fixed window of dates; once that window passes, the system rolls the teacher onto a fresh timetable on its own, so there is no start-of-term rebuild to do by hand.
+
+<Note>
+  Timetable & Lessons is an optional module. A school can turn it on or off under **Settings**. While it is off, the **Timetables** pages disappear from the panel and the timetable view embedded on teacher and class pages shows a locked card explaining the feature is switched off. The school day periods you set under [Curriculum](/modules/curriculum) stay editable either way, because they belong to the curriculum stage rather than to this module.
+</Note>
+
+## Records you'll work with
+
+| Record | What it is |
+|---|---|
+| Timetable | A teacher's weekly schedule, valid between a **Valid From** and a **Valid To** date. Each teacher has one current timetable plus any expired ones kept as history. It holds the teacher's lessons. |
+| Lesson | One scheduled teaching slot inside a timetable: a subject taught to one class stream, with a start and end time and an optional weekly (or daily) repeat. A lesson shows on the weekly grid in the period its time falls in. |
+| School day period | A named time slot for a curriculum stage, such as **Period 1**, **Morning Break**, or **Lunch**, with a start and end time. Periods are the rows of the weekly grid that lessons are laid onto. A period can be a teaching period or a break. |
+
+## What you can do
 
 <CardGroup cols={2}>
-  <Card title="Building Timetables" icon="table" href="#building-timetables">
-    Create a weekly grid for a specific grade and stream.
+  <Card title="Configure school days" icon="clock" href="#configure-school-days">
+    Set the periods and breaks each curriculum stage runs on.
   </Card>
 
-  <Card title="Managing Lessons" icon="chalkboard-user" href="#managing-lessons">
-    Define subjects, teachers, and rooms for individual slots.
+  <Card title="Build a timetable" icon="table" href="#build-a-timetable">
+    Create a teacher's timetable and fill its weekly grid with lessons.
   </Card>
 
-  <Card title="Conflict Detection" icon="triangle-exclamation" href="#conflict-detection">
-    Prevent double-booking of teachers and classrooms.
-  </Card>
-
-  <Card title="Termly Renewal" icon="arrows-spin" href="#termly-renewal">
-    Copy and adapt timetables for a new academic term.
+  <Card title="Run lessons" icon="chalkboard-user" href="#run-lessons">
+    Read the grid, repeat lessons weekly, and adjust a lesson when plans change.
   </Card>
 </CardGroup>
 
-## Building Timetables
+## Configure school days
 
-Each stream has its own dedicated timetable. You can build these from scratch or copy a template from another class.
+Before a timetable grid can show anything, each curriculum stage needs its school day periods: the named time slots that become the rows of the grid. Periods are set per curriculum stage (for example, the periods for Lower Primary can differ from those for Senior School), and they are managed from the stage, not from the Timetable pages.
+
+### Add school day periods
+
+<Note>
+  **You will need:** the curriculum stage the periods belong to. Stages ship pre-seeded under [Curriculum](/modules/curriculum), so there is no setup before this step. Periods stay editable whether or not the Timetable module is enabled, because they belong to the curriculum stage.
+</Note>
+
+To set the time grid a stage teaches on, add one period per time slot in the school day.
 
 <Steps>
-  <Step title="Create New Timetable">
-    Go to **Timetables** and click **New Timetable**. Select the current Term, Grade Level, and Stream.
+  <Step title="Open the curriculum stage">
+    Go to **Settings → Curriculum Stages**, open the stage, and find the **Periods** section.
   </Step>
-  <Step title="Define Periods">
-    Set the school's standard period times (e.g., Period 1: 8:00 AM - 8:40 AM). You can add breaks and lunch slots that aren't linkable to subjects.
+  <Step title="Add a period">
+    Click **New**. Enter a **Label** (for example, **Period 1**, **Morning Break**, or **Lunch**), the **Start time** and **End time** in 24-hour format (for example, **08:20**), and switch on **Break period (non-teaching)** if the slot is a break rather than a teaching period.
   </Step>
-  <Step title="Populate the Grid">
-    Click on an empty slot in the weekly grid (Monday–Friday) to assign a subject and a teacher to that period.
-  </Step>
-  <Step title="Save and Activate">
-    Save the draft. Once finalized, activate the timetable to make it visible to teachers and students on their respective dashboards.
+  <Step title="Save">
+    Save. The period joins the stage's list, which always stays ordered by start time. A new period cannot overlap one already on the stage; if its time range clashes with another, the save is rejected with a message naming the period it clashes with.
   </Step>
 </Steps>
 
-\[Insert screenshot: Weekly timetable grid builder showing drag-and-drop slots or click-to-assign modal\]
+[Insert screenshot: Periods section on a Curriculum Stage view at /settings/curriculum-stages/{id} showing columns Label, Start, End, Duration (min), and Break, with the New action and rows for Period 1, Morning Break, and Lunch]
 
-## Managing Lessons
+### Edit or remove a period
 
-A "Lesson" is a specific instance in the timetable where a Subject, Teacher, and Location (Room) meet.
+On the stage's **Periods** list, use **Edit** on a row to change its label, times, or break flag (the same overlap check applies), or **Delete** to remove it. A stage must always keep at least one teaching period, so the last teaching period cannot be deleted; break periods can be removed freely. Changing a period's times reshapes the grid for every timetable that uses the stage.
 
-<Tabs>
-  <Tab title="Lesson Details">
-    When assigning a lesson, you can specify:
+## Build a timetable
 
-    - **Subject**: Linked to the grade level's curriculum.
-    - **Teacher**: Must be assigned to the subject in Curriculum settings.
-    - **Room/Venue**: (Optional) The specific laboratory, field, or classroom.
-    - **Recurring Status**: Whether the lesson repeats every week or is a one-off.
-  </Tab>
-  <Tab title="Bulk Assignments">
-    Use the bulk assign tool to fill multiple slots for the same subject and teacher simultaneously (e.g., assigning all "Mathematics" blocks for the week).
-  </Tab>
-</Tabs>
+A timetable is one teacher's weekly schedule for a date window. Each teacher is given a timetable automatically when they are onboarded (see [Users & Identity](/modules/users)), so in most cases you do not create one by hand. You then open the timetable and fill its weekly grid with lessons. Open **Timetables** in the sidebar (under **Timetables**), or go to `/timetables`.
 
-## Conflict Detection
+### Create a teacher's timetable
 
-The system automatically checks for scheduling conflicts in real-time.
-
-- **Teacher Overlap**: Warns you if a teacher is already assigned to another stream during the same period.
-- **Room Conflict**: Ensures a laboratory or specific room isn't booked by two different classes at once.
-- **Student Load**: Helps ensure that core subjects meet the required number of weekly periods.
-
-<Info>
-  Conflicts are highlighted in **Red** on the grid. You cannot activate a timetable until all critical conflicts are resolved.
-</Info>
-
-## Termly Renewal
-
-Instead of rebuilding every timetable at the start of a new term, use the **Renew** feature.
+<Note>
+  **You will need:** the teacher's record to exist. Add teachers under [Users & Identity](/modules/users) first. A new teacher already receives a timetable on onboarding, so create one here only when you need an extra date window for a teacher.
+</Note>
 
 <Steps>
-  <Step title="Select Previous Timetable">
-    Find the timetable from the previous term that you wish to use as a base.
+  <Step title="Open the form">
+    Go to **Timetables** and click **New timetable**.
   </Step>
-  <Step title="Run Renewal Action">
-    Click **Renew for Next Term**. Select the target term and adjust the start/end dates.
+  <Step title="Pick the teacher and the window">
+    Choose the **Teacher**, then set **Valid From** and **Valid To**. The Valid To date must fall after Valid From. These two dates are the window the timetable is current for.
   </Step>
-  <Step title="Adjust for Changes">
-    The system copies all lessons. You can now make adjustments for any staff changes or subject re-assignments before saving.
+  <Step title="Save">
+    Click **Create**. The timetable is saved against the teacher, and the owning teacher is notified that a timetable is ready. Open it to start adding lessons.
   </Step>
 </Steps>
 
-## FAQs & Troubleshooting
+[Insert screenshot: New timetable form at /timetables/create showing the Teacher selector and the Valid From and Valid To date pickers]
+
+### Add lessons to the grid
+
+<Note>
+  **You will need:** the curriculum stage to have school day periods (see [Add school day periods](#add-school-day-periods)), the subject, and the class stream the lesson is taught to. Subjects and streams are managed under [Curriculum](/modules/curriculum). Without periods, the grid has no rows to drop a lesson onto.
+</Note>
+
+Lessons are added straight onto the weekly grid, one slot at a time. Click an empty slot in the day and period you want, and the lesson form opens pre-filled for that day and time.
+
+<Steps>
+  <Step title="Open the timetable">
+    From **Timetables**, open the teacher's timetable to see the weekly grid: school day periods down the left, weekdays across the top.
+  </Step>
+  <Step title="Click an empty slot">
+    Click the empty slot for the day and period you want. The **Add Lesson** form opens with the day and the slot's start and end times already filled in.
+  </Step>
+  <Step title="Fill in the lesson">
+    Pick the **Subject** (the **Lesson Title** fills in from the subject name, and you can change it). Pick the **Grade & Stream** the lesson is taught to. Add an optional **Description**. Adjust the **Start** and **End** times if needed.
+  </Step>
+  <Step title="Set how it repeats">
+    Under **Recurrence**, leave **Recurring Lesson** on for a slot that runs every week (the default), and choose how it repeats: **Weekly** on a chosen day, **Daily**, or **Every Weekday (Mon-Fri)**. Set an **Until** date to stop the repeat early; left blank, it runs to the end of the timetable's window. Switch **Recurring Lesson** off for a one-off lesson on a single date.
+  </Step>
+  <Step title="Save">
+    Save. The lesson appears on the grid in its slot, and on every later week the repeat covers.
+  </Step>
+</Steps>
+
+[Insert screenshot: Add Lesson modal opened from a grid slot showing Lesson Title, Description, Subject, Grade & Stream, the Schedule fieldset (Start, End), and the Recurrence fieldset (Recurring Lesson toggle, Repeat, On Day, Until)]
+
+### View a class timetable
+
+The same weekly grid can be read from the class side as well as the teacher side. On a class stream's page under [Curriculum](/modules/curriculum), the grid shows every lesson scheduled for that stream across teachers, so you can check a class's full week in one place. From a teacher's timetable you can also narrow the grid to a single grade and stream using the selector at the top.
+
+### Renew a timetable for a new term
+
+You do not rebuild timetables at the start of a term. Each teacher's timetable is current only between its **Valid From** and **Valid To** dates. Once that window passes, the system gives the teacher a fresh timetable on its own and notifies them, while the old one stays in place as history. To carry a teacher's schedule into the new window, open the new timetable and add its lessons. There is no copy-forward action that clones the previous term's lessons.
+
+## Run lessons
+
+Once a timetable is built, day-to-day work is reading the grid and adjusting individual lessons when plans change.
+
+### Read the weekly grid
+
+Open a teacher's timetable from **Timetables**, or open a class stream to read its grid. Periods run down the left, weekdays across the top, and each lesson sits in the slot its start time falls in. A recurring lesson shows in its slot every week the repeat covers, up to the timetable's Valid To date or the lesson's own **Until** date, whichever comes first.
+
+### Change or cancel a lesson
+
+To handle a substitution, a room change, or a cancelled lesson, edit or delete the lesson directly on the grid.
+
+<Steps>
+  <Step title="Open the lesson">
+    On the grid, click the lesson you want to change.
+  </Step>
+  <Step title="Edit it, or delete it">
+    Use **Edit** to change the subject, the class stream, the title, the times, or how it repeats. To substitute the teacher who delivers it, edit the lesson from the class-stream grid and pick a different **Teacher**, which moves the lesson onto that teacher's current timetable. Use **Delete** to remove a lesson that is no longer running; confirm when prompted.
+  </Step>
+  <Step title="Save">
+    Save. The change shows on the grid for the affected weeks straight away.
+  </Step>
+</Steps>
+
+[Insert screenshot: A grid slot with a lesson selected, showing the Edit and Delete actions, and the Edit form with Subject, Grade & Stream, Schedule, and Recurrence fields]
+
+## Statuses and lifecycle
+
+A timetable does not carry a status that staff move it through. Its state is read from its dates: a timetable shows a **Status** badge of **Active** while today falls between its **Valid From** and **Valid To** dates, and **Expired** once the Valid To date has passed. Nothing on the panel activates or closes a timetable; the badge follows the calendar. An expired timetable stays readable as history, and the teacher is rolled onto a fresh timetable automatically when their current one lapses (see [Renew a timetable for a new term](#renew-a-timetable-for-a-new-term)).
+
+Lessons and school day periods carry no status of their own.
+
+## How records relate
+
+A few user-visible relationships are worth keeping in mind:
+
+- A timetable belongs to one teacher, and a teacher has one current timetable (the one whose date window contains today) plus any expired ones kept for reference.
+- A lesson belongs to one timetable, so it belongs to that timetable's teacher, and it points at one subject and one class stream. The subject and stream come from [Curriculum](/modules/curriculum); the teacher comes from [Users & Identity](/modules/users).
+- The rows of the weekly grid are the school day periods of the teacher's (or the class stream's) curriculum stage. Change a stage's periods and every grid built on that stage reshapes to match.
+- A recurring lesson never runs past its timetable's **Valid To** date, even if its **Until** date is later. The timetable's window is the hard stop.
+- Every lesson is anchored to dates, so the academic year and term it falls in come from the calendar (see [Academic Years & Terms](/modules/academic-years)).
+
+## Reports and analytics
+
+The timetable prints as a PDF from three places. All three stream straight to your device.
+
+| Report | Where | Filters | Output |
+|---|---|---|---|
+| Teacher timetable | **Download PDF** on a teacher's timetable view page (`/timetables/{id}`), and **Download Timetable** on a teacher's profile under [Users & Identity](/modules/users) | Timetable period (on the profile action) | Landscape PDF of that teacher's weekly grid, periods down the left and weekdays across the top |
+| Class timetable | **Download Timetable** on a class stream's view page under [Curriculum](/modules/curriculum) | Timetable period | Landscape PDF of one class stream's weekly grid across all its teachers |
+| Class timetable (from the list) | **Class Timetable** header action on **Settings → Grade Streams** under [Curriculum](/modules/curriculum) | Class (required), Timetable period (required) | The same class-stream PDF, chosen from the list rather than from one stream |
+
+The teacher-profile and class-stream download actions appear only while the Timetable module is enabled.
+
+## What guardians see
+
+Guardians do not see the Timetable pages. The **Timetables** sidebar entry and every timetable page are hidden from the locked, read-only **Guardian** role, so a guardian never reaches the timetable list, a teacher's grid, the **Add Lesson** form, or any edit or delete action.
+
+Guardians can still receive their child's schedule as a document the school shares with them. The school produces a class timetable PDF from a class stream under [Curriculum](/modules/curriculum) and a teacher timetable PDF from a teacher profile under [Users & Identity](/modules/users), then sends or hands those PDFs to families. The guardian does not generate them and cannot change anything on a timetable.
+
+## FAQs and troubleshooting
 
 <AccordionGroup>
-  <Accordion title="Can I have different period times for different days?">
-    Yes, you can customize the periods for specific days (e.g., shorter periods on Fridays for assembly or prayer).
+  <Accordion title="How do I substitute a teacher for one lesson?">
+    Open the class stream's grid under [Curriculum](/modules/curriculum), click the lesson, and **Edit** it. Change the **Teacher** to the replacement, which moves that lesson onto the replacement teacher's current timetable. For a one-off cover rather than a permanent change, switch **Recurring Lesson** off on the substitute lesson so it runs on the single date only, and leave the original arrangement in place for the following weeks.
   </Accordion>
 
-  <Accordion title="How do I print the timetable?">
-    Use the **Download PDF** action on the timetable view page. You can print a version for the Class Teacher or a combined version for the staff room notice board.
+  <Accordion title="What happens to a timetable at the end of a term?">
+    Nothing you have to do. A timetable is current only between its **Valid From** and **Valid To** dates and shows **Expired** once the Valid To date passes. The teacher is then rolled onto a fresh timetable automatically and notified, while the expired one stays readable as history. To carry the schedule forward, open the new timetable and add its lessons; there is no action that copies the old term's lessons across.
   </Accordion>
 
-  <Accordion title="Why is a teacher not appearing in the selection list?">
-    Ensure the teacher is correctly assigned to that specific subject and stream in the **Curriculum → Subjects** settings.
+  <Accordion title="Why does a recurring lesson stop appearing on a certain date?">
+    A recurring lesson runs until the earlier of its own **Until** date and its timetable's **Valid To** date. If a lesson disappears from a week you expected, check the lesson's **Until** date, and check the timetable's **Valid To** date, since the timetable window is a hard stop the lesson cannot run past.
+  </Accordion>
+
+  <Accordion title="A grid slot will not accept a lesson, or the grid has no rows. What now?">
+    The rows of the grid are the curriculum stage's school day periods. If the grid is empty or a time has no slot, the stage has no matching period. Add the periods under **Settings → Curriculum Stages** (see [Add school day periods](#add-school-day-periods)), then return to the timetable.
+  </Accordion>
+
+  <Accordion title="Why was I stopped from adding a school day period?">
+    A period cannot overlap another period on the same curriculum stage. If the save is rejected, its start and end times clash with an existing period (the message names which one). Adjust the times so the slots do not overlap, or edit the existing period first.
+  </Accordion>
+
+  <Accordion title="Why can a guardian not see the timetable in their login?">
+    The Timetable pages are hidden from the Guardian role by design, so guardians never see timetables in the panel. To give a family a child's schedule, download the class timetable PDF for the child's stream under [Curriculum](/modules/curriculum), or the teacher timetable PDF under [Users & Identity](/modules/users), and share it with them.
+  </Accordion>
+
+  <Accordion title="Where do I set the period times the grid uses?">
+    Under **Settings → Curriculum Stages**, on each stage's **Periods** list. Periods belong to the curriculum stage, not to a single timetable, so every teacher and class on that stage shares the same grid rows. Editing a period's times reshapes the grid for all of them, and the periods stay editable even when the Timetable module is switched off.
   </Accordion>
 </AccordionGroup>

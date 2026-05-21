@@ -1,100 +1,215 @@
 ---
-title: "Events & Notifications"
-description: "Schedule school activities, send important notices, and keep the school community informed."
-icon: "calendar-fold"
+title: "Events"
+description: "Plan school events, invite attendees, and send reminders."
+icon: "calendar-check"
 ---
 
-The Events module serves as the primary communication hub for your school. Whether it's scheduling a Parents' Day or sending an urgent notice about school closure, Elimu Bora ensures the message reaches the right audience.
+Events is the school's shared calendar. Leadership and teaching staff post a dated happening, a parent meeting, a sports day, an exam window, a holiday, attach who it concerns and any supporting files, and the people invited are notified. The calendar also carries the term markers (term openings, term closings, and mid-term breaks) that the school year sets automatically, so the whole school can see the shape of the term at a glance. Staff create and manage the entries; guardians are notified about, and can read, the events their own children are invited to.
+
+<Note>
+  Events is an optional module. A school can enable or disable it under Settings. When Events is turned off, the **School Calendar** sidebar entry disappears, the calendar and its create, view, and edit pages become unreachable, and event invitation and reminder notifications stop going out. Term markers are still written behind the scenes by [Academic Years & Terms](/modules/academic-years) and reappear on the calendar the moment Events is turned back on. Existing events are kept in place.
+</Note>
+
+## Records you'll work with
+
+| Record | What it is |
+|---|---|
+| Event | A calendar entry with a title, an optional description and location, a start and end date and time, and an academic year and term it belongs to. An event can be one-off or set to repeat, and it can be marked school-wide or limited to chosen attendees. |
+| Attendee | A person or group invited to an event: an individual student, a teacher, a guardian, a whole grade level, or a whole stream. Inviting a grade level or a stream invites every student in it. An event can instead be marked school-wide, which invites everyone. |
+| Resource attachment | A link from an event to an existing [assessment](/modules/assessments) or [invoice](/modules/finance), so staff opening the event can jump straight to the related record. This is separate from uploaded files. |
+| File attachment | A document uploaded to the event, such as an agenda, a permission slip, or a newsletter. |
+
+## What you can do
 
 <CardGroup cols={2}>
-  <Card title="School Events" icon="calendar-star" href="#school-events">
-    Schedule recurring or one-off activities and manage attendance.
+  <Card title="Plan events" icon="calendar-plus" href="#plan-events">
+    Create an event, set its schedule, repeat it, and attach files or related records.
   </Card>
 
-  <Card title="Urgent Notices" icon="bullhorn" href="#urgent-notices">
-    Send immediate updates to staff, students, or guardians.
+  <Card title="Invite attendees" icon="user-plus" href="#invite-attendees">
+    Invite a student, teacher, guardian, grade level, or stream, or open it to the whole school.
   </Card>
 
-  <Card title="Audience Targeting" icon="users-viewfinder" href="#audience-targeting">
-    Filter recipients by grade, stream, role, or department.
+  <Card title="Reminders" icon="bell" href="#reminders">
+    How the school community is reminded before an event starts.
   </Card>
 
-  <Card title="Automated Reminders" icon="clock-rotate-left" href="#automated-reminders">
-    Configure notifications to go out before an event starts.
+  <Card title="Term markers" icon="calendar-range" href="#term-markers">
+    Read the term openings, closings, and mid-term breaks the calendar fills in for you.
   </Card>
 </CardGroup>
 
-## School Events
+## Plan events
 
-Events are activities with a specific date and time, such as Sports Days, Half-Term breaks, or Exam periods.
+An event is one dated entry on the school calendar. Open **School Calendar** in the sidebar, or go to `/events`. The page opens as a month calendar rather than a list, with each event coloured by its kind and the active term shaded behind the dates.
+
+### Create an event
+
+<Note>
+  **You will need:** an academic year and a term to file the event under. These are seeded for your school under [Academic Years & Terms](/modules/academic-years) and are ready to pick. The event's dates must fall inside the term you choose.
+</Note>
+
+To add an event, open the calendar and start a new entry.
 
 <Steps>
-  <Step title="Create the Event">
-    Go to **Events** and click **New Event**. Provide a clear title, location, and description.
+  <Step title="Open the form">
+    On the **School Calendar**, click **New Event**. A panel slides in with the event form.
   </Step>
-  <Step title="Set Schedule">
-    Select the start and end dates. For multi-day events like "End of Year Exams," the system will mark the entire period on the school calendar.
+  <Step title="Set the academic context">
+    Under **Academic Context**, pick the **Academic Year** and then the **Term**. The form shows the term's date range so you can keep the event inside it.
   </Step>
-  <Step title="Select Audience">
-    Choose who needs to know about this event. You can target the **Whole School**, specific **Grade Levels**, or individual **Roles** (e.g., only Teachers).
+  <Step title="Fill in the event details">
+    Under **Event Details**, enter a **Title** and, optionally, a **Description** and a **Location**. Leave **School-wide Event** off for now if you want to choose specific attendees (see [Invite attendees](#invite-attendees)); turn it on to invite everyone.
   </Step>
-  <Step title="Configure Reminders">
-    Enable automated reminders to go out via SMS, Email, or App Notification (e.g., 24 hours before the event).
+  <Step title="Set the schedule">
+    Under **Schedule**, set the **Start Date & Time** and the **End Date & Time**. The end must be after the start. Turn on **All Day Event** for an entry with no specific time, such as a holiday or an exam day.
+  </Step>
+  <Step title="Save">
+    Click through to save. The event appears on the calendar straight away, and everyone invited is notified that it has been added.
   </Step>
 </Steps>
 
-<Info>
-  Events marked as **Holidays** or **Non-Academic Days** will automatically suppress attendance registers for those dates.
-</Info>
+[Insert screenshot: New Event slide-over on the School Calendar showing the Academic Context section (Academic Year, Term with its date-range hint), the Event Details section (Title, Description, Location, School-wide Event toggle, Recurring Event toggle), and the Schedule section (Start Date & Time, End Date & Time, All Day Event toggle)]
 
-\[Insert screenshot: Events calendar view with color-coded event categories and audience indicators\]
+### Repeat an event
 
-## Urgent Notices
+For an entry that happens on a regular cadence, such as a weekly staff briefing or a monthly assembly, turn on **Recurring Event** on the form. A **Recurrence** section then appears:
 
-Notices are for immediate communication that doesn't necessarily require a calendar slot (e.g., "Reminder: School fees are due tomorrow").
+- **Repeat** sets the cadence: **Daily**, **Weekly**, **Every Weekday (Mon-Fri)**, **Monthly**, or **Yearly**.
+- **On Day** (shown for a weekly repeat) sets which weekday it falls on.
+- **Until** sets an optional date the series stops on. Leave it blank to repeat indefinitely.
 
-<Steps>
-  <Step title="Compose Notice">
-    Navigate to **Notices** and click **Send Notice**.
-  </Step>
-  <Step title="Target Your Audience">
-    Just like events, you can filter your audience to ensure the message only goes to relevant people (e.g., only Grade 4 Guardians).
-  </Step>
-  <Step title="Choose Delivery Channels">
-    Depending on your school's plan, you can send the notice via:
+The calendar then shows the event on every date in the series rather than just the first. A recurring event is marked with a repeat indicator on the calendar and in its details.
 
-    - **In-App Notification**: Appears on the mobile app and dashboard.
-    - **SMS**: For urgent reach without internet access.
-    - **Email**: For detailed announcements or attachments.
-  </Step>
-  <Step title="Send and Track">
-    Click **Send**. You can view the delivery status and history in the **Sent Notices** log.
-  </Step>
-</Steps>
+### Attach files and related records
 
-\[Insert screenshot: Notice composer with delivery channel toggles and audience preview\]
+An event can carry supporting material in two ways, both set on the create or edit form and managed afterwards from the event's own page.
 
-## Audience Targeting
+- **Resource Attachments** link the event to an existing **Assessment** or **Invoice** so staff can open the related record in one click. Pick them in the **Resource Attachments** section of the form, or use **Attach Resource** on the event's **Resource Attachments** tab later.
+- **File Attachments** are uploaded documents, up to 10 MB each. Add them in the **File Attachments** section of the form, or use **Upload File** on the event's **File Attachments** tab later. Each file can be previewed from its row.
 
-One of the most powerful features of the Events module is the ability to segment your school community.
+[Insert screenshot: Event view page tabs showing Attendees, Resource Attachments (linked assessments and invoices with their Attach Resource action), and File Attachments (uploaded documents with Upload File and Preview actions)]
 
-- **By Grade/Stream**: Perfect for class-specific trips or parents' days.
-- **By Role**: Internal staff meetings or administrative updates.
-- **By Department**: Department-specific notices for teachers.
-- **Individual Selection**: For specific student or staff disciplinary or merit notices.
+### Edit or remove an event
 
-## FAQs & Troubleshooting
+Open an event from the calendar to see its details and its **Edit** and **Delete** actions.
+
+- **Edit** reopens the form to change any detail, the schedule, the recurrence, the attendees, or the attachments. When you change the title, dates, location, or description of an event, everyone invited is notified of the update.
+- **Delete** removes the event from the calendar and notifies everyone who was invited that it has been cancelled. A deleted event can be restored by staff with the right permission.
+
+Term markers cannot be edited or deleted. On a term marker, the **Edit** and **Delete** actions are not shown and a banner explains the entry is managed automatically. See [Term markers](#term-markers).
+
+## Invite attendees
+
+Every event reaches an audience. There are two ways to set it: open the event to the whole school, or invite specific people and groups.
+
+### Open an event to the whole school
+
+Turn on **School-wide Event** on the form. The attendee selectors disappear, and every guardian and every teacher in the school becomes a recipient. Use this for anything that concerns everyone, such as a school closure or a whole-school parents' day.
+
+### Invite specific people and groups
+
+<Note>
+  **You will need:** the students, teachers, guardians, grade levels, or streams you want to invite to already exist under [Users & Identity](/modules/users) and [Curriculum & Structure](/modules/curriculum). They ship ready to pick from the selectors.
+</Note>
+
+Leave **School-wide Event** off, then choose attendees in the **Attendees** section of the create or edit form, or add them later from the event's **Attendees** tab using **Add Attendee**. You can mix any of these:
+
+- **Grade Levels** invites every student in the chosen grade level. This is a broadcast invite: each student's guardians become recipients.
+- **Grade Streams** invites every student in the chosen stream, and their guardians.
+- **Individual Students** invites named students, and their guardians.
+- **Teachers** invites named teachers.
+- **Guardians** invites named guardians directly.
+
+The same person or group cannot be added twice; the form blocks a duplicate invite. Inviting a grade level or a stream reaches the guardians of the students in it, so you do not need to add those students one by one.
+
+[Insert screenshot: Attendees tab on an event showing the attendee list with Type badges (Student, Teacher, Guardian, Grade Level, Grade Stream) and names, the Add Attendee action, and its Type and Select pickers]
+
+### Who is notified
+
+When an event is created, updated, or cancelled, the people invited are notified by email and in the panel. For a school-wide event, that is every guardian and teacher. For a targeted event, it is the named teachers and guardians, plus the guardians of every invited student, grade level, and stream. Guardians receive these notices whether or not they log in. Term markers are silent: they never trigger a notification.
+
+## Reminders
+
+Ahead of an event, the school sends reminders so nobody is caught off guard. Reminders go out automatically: each invited person is reminded three days before the event and again the day before it starts. The reminder reaches the same audience as the event itself (see [Who is notified](#who-is-notified)), by email and in the panel.
+
+Reminders are built in and need no setup per event. Term markers do not send reminders.
+
+## Term markers
+
+Some calendar entries are created for you. When the school year is set up, [Academic Years & Terms](/modules/academic-years) writes a marker onto the calendar for each term's opening day, each term's closing day, and each mid-term break. These appear alongside the events staff create, colour-coded by kind, so the whole term is visible at a glance.
+
+Term markers are managed entirely by the term they belong to. They cannot be edited or deleted from the calendar, they send no invitations or reminders, and their dates change only when the underlying term dates change. Treat them as a read-only backdrop to the events you plan.
+
+### Kinds of calendar entry
+
+Every calendar entry carries a kind, which sets its colour. Term markers are assigned their kind automatically; staff-created events are **General** unless they are a school holiday.
+
+| Kind | What it is |
+|---|---|
+| General | A staff-created event such as a meeting, sports day, or parents' day. This is the default for new events. |
+| Holiday | A non-teaching day, such as a public or religious holiday. |
+| Term Opening | The first day of a term. Written automatically as a term marker. |
+| Term Closing | The last day of a term. Written automatically as a term marker. |
+| Mid-Term Break | A term's mid-term break. Written automatically as a term marker when the term has break dates set. |
+
+## How records relate
+
+A few user-visible relationships are worth keeping in mind:
+
+- Every event belongs to one academic year and one term, set under [Academic Years & Terms](/modules/academic-years). The calendar shades the active term behind the dates so events sit in the context of the school year.
+- An event has many attendees. A grade level or stream attendee stands in for all of its students, so inviting a stream reaches every student's guardians without listing them individually.
+- A school-wide event ignores the attendee list entirely and reaches every guardian and teacher.
+- An event can link to assessments and invoices as resource attachments, so a fee deadline event can point straight at the [invoice](/modules/finance) and an exam event straight at the [assessment](/modules/assessments).
+- Term markers are owned by their term, not by the Events module, which is why they cannot be edited on the calendar.
+
+## Reports and analytics
+
+The calendar has one export. On the **School Calendar**, the **Events Calendar Report** action opens a window where you pick a date range (**From** and **To**) and a **Format** (**PDF (Landscape)** or **Excel**), then download. The report lists every event whose start or end falls inside the window, in date order, with each event's attendee summary. It streams straight to your device.
+
+The export is available to anyone who can open the School Calendar, so it is not available to guardians.
+
+## What guardians see
+
+Guardians sign in to the same tenant subdomain as staff. Their account holds the locked **Guardian** role, which is read-only and scoped to their own children. For events, a guardian can read the events their own children are invited to, whether the child was invited individually, through their grade level or stream, or because the event is school-wide.
+
+The Guardian role does **not** see:
+
+- The **School Calendar** sidebar entry or the staff calendar management view. Guardians do not browse the whole-school calendar.
+- The **New Event**, **Edit**, **Delete**, **Add Attendee**, **Attach Resource**, or **Upload File** actions. Guardians cannot create or change events, invitations, or attachments.
+- The **Events Calendar Report** export.
+- Other guardians' children. A guardian only ever sees the events that concern their own children.
+
+Even without logging in, guardians receive an email and an in-panel notification when an event their child is invited to is added, when its title, dates, location, or description change, when it is cancelled, and as a reminder three days and one day before it starts.
+
+## FAQs and troubleshooting
 
 <AccordionGroup>
-  <Accordion title="Can I cancel an event?">
-    Yes. When you cancel an event, the system will ask if you'd like to send a cancellation notice to the assigned audience automatically.
+  <Accordion title="How do I cancel an event after invitations have gone out?">
+    Open the event from the **School Calendar** and click **Delete**. Everyone who was invited is notified that the event is cancelled. If you deleted an event by mistake, staff with the right permission can restore it. To change a date or detail rather than cancel, use **Edit** instead; the invited people are notified of the update.
   </Accordion>
 
-  <Accordion title="How do I attach a file to a notice?">
-    When composing a notice via **Email**, you can upload PDF attachments (e.g., a newsletter or a fee structure document).
+  <Accordion title="Why didn't a guardian get an event notification?">
+    Check that the guardian's child is actually invited: the child must be named individually, or be in an invited grade level or stream, or the event must be school-wide. Then confirm the guardian's email and phone are correct on their profile under [Users & Identity](/modules/users). Term markers never send notifications, so a guardian will not be alerted about a term opening, closing, or mid-term break.
   </Accordion>
 
-  <Accordion title="Why didn't some guardians receive the SMS?">
-    Check the **Notification Log** for any delivery failures. Common causes include incorrect phone numbers or insufficient SMS credits on the school account.
+  <Accordion title="What is a term marker, and why can't I edit it?">
+    A term marker is a calendar entry the system fills in for each term's opening, closing, and mid-term break. It is owned by the term it belongs to (set under [Academic Years & Terms](/modules/academic-years)), not created by hand, so the calendar hides its Edit and Delete actions and shows a note that it is managed automatically. Its dates change only when the term's dates change.
+  </Accordion>
+
+  <Accordion title="Can I invite a whole class without listing every student?">
+    Yes. In the **Attendees** section, pick the class under **Grade Levels** or **Grade Streams**. Every student in that level or stream is invited in one step, and each student's guardians become recipients. To reach everyone in the school, turn on **School-wide Event** instead.
+  </Accordion>
+
+  <Accordion title="How do I make an event repeat?">
+    Turn on **Recurring Event** on the event form, then set the **Repeat** cadence (Daily, Weekly, Every Weekday, Monthly, or Yearly), the day for a weekly repeat, and an optional **Until** date. The event then shows on every date in the series on the calendar.
+  </Accordion>
+
+  <Accordion title="Can I attach a document to an event?">
+    Yes. Add files in the **File Attachments** section of the event form, or use **Upload File** on the event's **File Attachments** tab. Each file can be up to 10 MB and can be previewed from its row. To link an existing assessment or invoice instead of uploading a file, use the **Resource Attachments** section or the **Attach Resource** action.
+  </Accordion>
+
+  <Accordion title="What happens to events when the Events module is turned off?">
+    The **School Calendar** sidebar entry disappears, the calendar and its pages become unreachable, and event invitation and reminder notifications stop going out. Existing events stay in place, and term markers keep being written behind the scenes by Academic Years & Terms. Turn the module back on under Settings to resume.
   </Accordion>
 </AccordionGroup>

@@ -67,9 +67,14 @@ The product modules are defined in the product itself (`App\Enums\Module`). When
   ```
 
   Vague placeholders like `[Insert screenshot: the page]` are not acceptable.
-- **Voice.** Use active voice. Address the reader as "you". One idea per sentence. Lead with the goal ("To enroll a student, ..."). Use consistent terminology — match the labels used in the product UI.
-- **No emojis.**
+- **Voice.** Use active voice. Address the reader as "you". One idea per sentence. Lead with the goal ("To enroll a student, ..."). Use consistent terminology that matches the labels used in the product UI.
+- **No emojis, no em-dashes, no informal language.** Use commas, periods, or "and" / "or" instead of em-dashes. Hyphens in compound words are fine.
 - **Headings.** The page body uses `##` and `###`. Keep the structure shallow.
+- **Prerequisite callouts.** Every workflow that depends on prior setup, an integration, a setting, a permission, or another record existing must open with a `<Note>` callout that names the dependency and links to where it is set up. Examples: M-Pesa workflows depend on the M-Pesa integration being configured; an invoice depends on an active term and the billable existing; attaching a sponsor depends on the sponsor record existing; refunding an earmark depends on an active earmark with a positive balance. Skip the callout only when the prerequisite is satisfied automatically by the system (for example, a wallet is auto-created with a student) **or** is pre-seeded and read-only (for example, curriculum stages and structure are pre-seeded and not editable, so they are always available without setup).
+- **Panel URLs.** Elimu Bora has two panels, each served at the root of its own subdomain. The **staff panel** is at the tenant subdomain root (`<school>.elimuboraerp.com/...`), and is the only panel a school ever uses. The **admin panel** is a company-internal panel at `admin.elimuboraerp.com/...` and is not part of the help-center audience. Both panels serve their routes at the root, not under `/admin`. Refer to staff-panel paths as root-relative on the tenant subdomain (for example, `/invoices`, `/billables`, `/wallets`). The system applies role-based access control to those routes automatically. Do not write `/admin/<resource>` paths anywhere on user-facing pages — that path prefix does not exist in the product, even though some developer docs quote it.
+- **Immutable records.** Some records cannot be edited or deleted once created because doing so would break a downstream ledger or audit trail (for example, invoices and invoice payments). On those pages, do not document an "Edit" or "Delete" workflow; instead, document the read view and explain the alternative path (a new record, a refund, a replacement payment) the user should take.
+- **No developer-level detail.** Help-center pages are read by non-technical school staff. Do not use any of the following on user-facing pages: database table or column names, migration filenames, class names, service names, job names, observer names, enum case identifiers, scheduled-command strings, method names, or code-style permission identifiers such as `invoices.forceDelete` or `payment-integrations.manage`. Describe permissions in plain English and reference the role-editor label when needed. The only product internals that may appear are values a user sees in the panel (status names, action button labels, navigation menu items, URLs they need to copy into Safaricom Daraja, and so on).
+- **Source docs are guides, not templates.** The developer docs under `~/Code/elimubora/docs/` are internal company intellectual property. They guide your understanding of how the product works. Do not transcribe their structure, technical depth, schema details, or terminology into help-center pages. Translate, do not copy. If a fact lives only in the developer docs (a database column, an internal service name, a job class) and is not visible to the user in the panel, it does not belong on a help-center page.
 
 ## Level of detail
 
@@ -77,7 +82,7 @@ Write thoroughly. A school admin should not have to guess or experiment — the 
 
 - **Statuses.** Where a record has a status (an invoice, a requisition, an assessment, an academic year), document **every** status — list each one, explain what it means, and explain what the user can do while a record is in it.
 - **Transitions.** Explain how a record moves from one status to the next: what action triggers the change, who can perform it, and whether the move can be reversed. Do not leave a status flow implicit.
-- **Diagrams.** For status flows and entity relationships, use a Mermaid diagram. Mintlify renders Mermaid from a fenced code block:
+- **Diagrams.** Use Mermaid `stateDiagram-v2` for status lifecycles. Mintlify renders Mermaid from a fenced code block:
 
   ````
   ```mermaid
@@ -89,7 +94,7 @@ Write thoroughly. A school admin should not have to guess or experiment — the 
   ```
   ````
 
-  Use a `stateDiagram-v2` for status lifecycles and an `erDiagram` for how records relate to one another. Place the diagram alongside the prose that describes it — the diagram supports the text, it does not replace it.
+  Do not include `erDiagram`s on user-facing pages. The school staff audience does not need database structure, and an `erDiagram` typically leaks internal table names, join tables, and foreign-key columns that are company intellectual property. Where relationships need explaining, describe them in plain prose using the user-facing record names. Place the diagram alongside the prose that describes it; the diagram supports the text, it does not replace it.
 
 ## Keeping docs in sync with the product
 

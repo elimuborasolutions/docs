@@ -5,7 +5,7 @@
   "description": "Help center for Elimu Bora ERP — a school management system for Kenyan schools running CBC and 8-4-4.",
   "colors": {
     "primary": "#800000",
-    "light": "#800000",
+    "light": "#FF4D4D",
     "dark": "#800000"
   },
   "favicon": "https://media.brand.dev/28107f06-65a0-45ce-9937-4bc6a00d197b.svg",
@@ -36,8 +36,8 @@
               "introduction",
               "quickstart",
               "roles-permissions",
-              "staff/overview",
-              "guardians/overview"
+              "staff/index",
+              "guardians/index"
             ]
           },
           {
@@ -60,7 +60,7 @@
           {
             "group": "More",
             "pages": [
-              "settings/overview"
+              "settings/index"
             ]
           }
         ]
@@ -68,7 +68,6 @@
     ]
   },
   "appearance": { "default": "system" },
-  "background": { "decoration": "windows" },
   "logo": {
     "light": "/images/elimubora-logo-primary.png",
     "dark": "/images/elimubora-logo-white.png"
