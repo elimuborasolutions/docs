@@ -1,76 +1,279 @@
 ---
 title: "Clubs & Societies"
-description: "Manage student clubs, schedule meetings, and track extra-curricular participation."
+description: "Run clubs, schedule meetings, and log activities."
 icon: "users-round"
 ---
 
-Clubs and Societies play a vital role in student development. Elimu Bora helps you manage club memberships, track meeting attendance, and organize club-specific activities.
+Clubs & Societies is where the school records its extracurricular life: each club or society, the staff who run it (patrons), the students who lead and join it, the meetings the club holds, who turned up to each one, and the competitions, trips, exhibitions, and other activities the club takes part in. A clubs coordinator (often a deputy principal) and the patrons attached to each club do the day-to-day work here. Guardians do not run anything; they see a summary of their own children's club involvement and are reminded when a meeting is coming up.
+
+<Note>
+  Clubs & Societies is an optional module. A school can turn it on or off under Settings. When it is off, the **Clubs & Societies** navigation group and its three pages (Clubs, Club Meetings, Club Activities) disappear, the Clubs tab on a student's profile is locked, and meeting reminders are not sent. Turning it back on restores everything, including past records.
+</Note>
+
+## Records you'll work with
+
+| Record | What it is |
+|---|---|
+| Club | A single club or society, such as Drama, Chess, or Scouts. Carries a type, an optional cap on members, a description, and an Active toggle. Holds its patrons, leaders, members, meetings, and activities. |
+| Club membership | One student's enrolment in a club for an academic year. Carries the date the student joined and, once they leave, the date they left. |
+| Club meeting | A recorded gathering of a club, with a date, optional start and end times, a venue, a meeting type, an agenda, and minutes. Tied to a term. |
+| Meeting attendance | One student's attendance row for one meeting, marked Present, Absent, or Excused, with optional notes. |
+| Club activity | An event a club takes part in, such as a competition, trip, exhibition, workshop, or fundraiser. Can belong to more than one club, carries an achievement note, and is tied to a term and academic year. |
+
+## What you can do
 
 <CardGroup cols={2}>
-  <Card title="Club Registry" icon="users-rectangle" href="#club-registry">
-    Define the different clubs available (e.g., Drama, Chess, Scouting).
+  <Card title="Set up clubs" icon="users-rectangle" href="#set-up-clubs">
+    Create a club, attach its patrons, and appoint student leaders.
   </Card>
 
-  <Card title="Membership Management" icon="user-plus" href="#membership-management">
-    Track which students are active in each society.
+  <Card title="Membership" icon="user-plus" href="#membership">
+    Enrol students into a club and record when they leave.
   </Card>
 
-  <Card title="Meetings & Attendance" icon="clipboard-list" href="#meetings-and-attendance">
-    Schedule club sessions and mark attendance.
+  <Card title="Meetings" icon="calendar" href="#meetings">
+    Schedule meetings and take attendance.
   </Card>
 
-  <Card title="Club Activities" icon="star" href="#club-activities">
-    Log major events, competitions, and community service projects.
+  <Card title="Activities" icon="sparkles" href="#activities">
+    Log competitions, trips, and other activities, mirrored on the calendar.
+  </Card>
+
+  <Card title="Reminders" icon="bell" href="#reminders">
+    See how guardians are reminded of upcoming meetings.
   </Card>
 </CardGroup>
 
-## Club Registry
+## Set up clubs
 
-Set up the various clubs and societies offered by your school.
+A club is the home record for everything a society does. Open **Clubs** in the sidebar (under **Clubs & Societies**), or go to `/clubs`.
+
+### Create a club
 
 <Steps>
-  <Step title="Create a Club">
-    Go to **Clubs** and click **New Club**.
+  <Step title="Open the form">
+    Go to **Clubs** and click **New club**.
   </Step>
-  <Step title="Assign Leadership">
-    Assign a **Patron** (staff member) and optionally record student leaders like the Club Chairperson or Secretary.
+  <Step title="Fill in the club details">
+    Enter the **Name** (for example, "Drama Club"), pick the **Club Type** (Academic, Service, Religious, Creative Arts, Uniformed, Environmental, or Other), and add an optional **Max Members** cap and a **Description**. Leave **Is active** on for a club that is currently running.
+  </Step>
+  <Step title="Save">
+    Click **Create**. The club is saved and opens to its view page, where the **Patrons**, **Leaders**, and **Members** tabs become available.
   </Step>
 </Steps>
 
-## Membership Management
+[Insert screenshot: New club form at /clubs/create showing the Name, Club Type, Max Members, Description fields and the Is active toggle]
+
+### Attach patrons
+
+A patron is a teacher attached to a club. Patrons appear on the **Patrons** tab of a club's view page.
+
+<Note>
+  **You will need:** the teacher's staff record to exist under [Users & Identity](/modules/users), and an academic year to assign the role against. A teacher who is set as the **Head Patron** of a club can manage that club's meetings and membership even without the broader clubs permissions.
+</Note>
 
 <Steps>
-  <Step title="Add Members">
-    Open a club's profile and navigate to the **Members** tab. You can add students individually or in bulk.
+  <Step title="Open the Patrons tab">
+    On the club's view page, open the **Patrons** tab and click **New**.
   </Step>
-  <Step title="Track Roles">
-    Assign roles within the club to highlight student leadership responsibilities.
+  <Step title="Pick the teacher and role">
+    Search for and select the **Teacher**, choose the **Role** (**Head Patron** or **Assistant Patron**), and pick the **Academic Year**.
+  </Step>
+  <Step title="Save">
+    Click **Create**. The teacher is now listed as a patron of the club for that year. Use **Edit** or **Delete** on a patron row to change or remove the assignment.
   </Step>
 </Steps>
 
-\[Insert screenshot: Club profile showing the leadership team and member list\]
+### Appoint student leaders
 
-## Meetings and Attendance
+Student leaders hold offices such as Chairperson or Secretary within a club. They appear on the **Leaders** tab.
 
-Track consistency and participation within each club.
+<Note>
+  **You will need:** the student to already be an active member of the club (see [Enrol a member](#enrol-a-member)). The leader picker only lists students who currently belong to that club. Each office can be held by one student per club per academic year, so a club has at most one Chairperson in a given year.
+</Note>
 
 <Steps>
-  <Step title="Schedule a Meeting">
-    Create a recurring or one-off meeting for the club.
+  <Step title="Open the Leaders tab">
+    On the club's view page, open the **Leaders** tab and click **New**.
   </Step>
-  <Step title="Mark Attendance">
-    During or after the meeting, the Patron can mark which members were present. This contributes to the student's holistic extra-curricular profile.
+  <Step title="Pick the student, office, and date">
+    Search for and select the **Student**, choose the **Role** (Chairperson, Vice Chairperson, Secretary, Treasurer, or Organizer), pick the **Academic Year**, and set **Appointed On**.
+  </Step>
+  <Step title="Save">
+    Click **Create**. The student is recorded as holding that office. Their guardians are notified that the student has been appointed a leader.
   </Step>
 </Steps>
 
-## FAQs & Troubleshooting
+[Insert screenshot: Club view page at /clubs/{id} showing the Patrons, Leaders, and Members tabs, with the Leaders tab listing students, their office badge, the appointed date, and the academic year]
+
+## Membership
+
+Membership is a student's enrolment in a club for an academic year. Members are managed on the **Members** tab of a club's view page.
+
+### Enrol a member
+
+<Note>
+  **You will need:** the student's record to exist under [Users & Identity](/modules/users) and an academic year to enrol them against. A student can belong to a club only once in the same academic year.
+</Note>
+
+<Steps>
+  <Step title="Open the Members tab">
+    On the club's view page, open the **Members** tab and click **New**.
+  </Step>
+  <Step title="Pick the student and enrolment dates">
+    Search for and select the **Student**, pick the **Academic Year**, and set **Joined On**. Leave **Left On** blank for an active member.
+  </Step>
+  <Step title="Save">
+    Click **Create**. The student is now an active member of the club, and their guardians are notified that the student has joined.
+  </Step>
+</Steps>
+
+### Record that a member has left
+
+To stop a student's membership, open their row on the **Members** tab, click **Edit**, and set **Left On** to the date they left. The membership stays on the list as a historical record rather than being erased, so the club keeps an accurate roster for past terms. A row can also be removed entirely with **Delete** on the member row.
+
+[Insert screenshot: Members tab on a club's view page showing columns Student, Joined, Left, and Academic Year, with the New, Edit, and Delete actions]
+
+## Meetings
+
+A meeting is a recorded gathering of a club. Open **Club Meetings** in the sidebar, or go to `/club-meetings`.
+
+### Schedule a meeting
+
+<Note>
+  **You will need:** the club to exist, and an active term to record the meeting against. Terms are part of [Academic Years & Terms](/modules/academic-years), which is always available.
+</Note>
+
+<Steps>
+  <Step title="Open the form">
+    Go to **Club Meetings** and click **New club meeting**.
+  </Step>
+  <Step title="Fill in the meeting details">
+    Pick the **Club** and the **Term**, choose the **Meeting Type** (Regular, Special, Planning, or Emergency), and set the **Date**. Add an optional **Start Time**, **End Time**, and **Venue**, plus an **Agenda** and **Minutes** if you have them.
+  </Step>
+  <Step title="Save">
+    Click **Create**. The meeting is saved, and an attendance row is created automatically for every student who is an active member of the club on the meeting date. Each row starts as **Absent**, ready for you to mark.
+  </Step>
+</Steps>
+
+<Note>
+  The attendance roster is built once, when the meeting is saved. Editing the meeting later does not rebuild it, and a student who joins the club after the meeting date will not appear on that meeting's roster. Add members before scheduling a meeting so the roster is complete.
+</Note>
+
+[Insert screenshot: New club meeting form at /club-meetings/create showing the Club, Term, Meeting Type, Date, Start Time, End Time, Venue, Agenda, and Minutes fields]
+
+### Take attendance
+
+Attendance is marked on the **Attendance** tab of a meeting's view page, where every active member already has a row.
+
+<Steps>
+  <Step title="Open the meeting">
+    Go to **Club Meetings**, open the meeting, and look at the **Attendance** tab.
+  </Step>
+  <Step title="Mark each student">
+    Each student has a row with three columns, **P - Present**, **A - Absent**, and **E - Excused**. Click the column that matches to set that student's status. Changes save as you click.
+  </Step>
+  <Step title="Mark everyone at once (optional)">
+    Use **Mark All Present** or **Mark All Absent** at the top of the tab to set every row at once, or tick several students and use the bulk **Mark Present**, **Mark Absent**, or **Mark Excused** actions.
+  </Step>
+  <Step title="Add a note (optional)">
+    Use **Edit** on a student's row to record a free-text **Notes** entry against their attendance, for example the reason a student was excused.
+  </Step>
+</Steps>
+
+[Insert screenshot: Attendance tab on a meeting's view page showing student rows with the P - Present, A - Absent, and E - Excused radio columns, the Mark All Present and Mark All Absent header actions, and the per-row Edit action]
+
+### Edit attendance
+
+Attendance stays editable. Return to the meeting's **Attendance** tab and click a different status column for any student, or use **Edit** to change the status and notes. There is no lock step on a meeting, so corrections can be made at any time.
+
+## Activities
+
+A club activity is a competition, trip, exhibition, workshop, fundraiser, performance, community-service outing, or similar event a club takes part in. Open **Club Activities** in the sidebar, or go to `/club-activities`.
+
+### Log a club activity
+
+<Note>
+  **You will need:** at least one club to link the activity to, and an active term and academic year to record it against. When the [Events](/modules/events) module is on, the activity is also added to the school calendar automatically.
+</Note>
+
+<Steps>
+  <Step title="Open the form">
+    Go to **Club Activities** and click **New club activity**.
+  </Step>
+  <Step title="Fill in the activity details">
+    Enter the **Name**, select one or more **Clubs**, and pick the **Activity Type** (Competition, Community Service, Exhibition, Workshop, Trip, Fundraiser, Performance, or Other). For a competition, set the **Competition Level**. Pick the **Term** and **Academic Year**, set the **Start Date** and optional **End Date** and **Venue**, and record an **Achievement** (for example, "1st place, county finals") and a **Description** if you have them.
+  </Step>
+  <Step title="Save">
+    Click **Create**. The activity is saved. When the Events module is enabled, a matching entry appears on the school calendar so the activity shows up alongside school-wide events.
+  </Step>
+</Steps>
+
+### Record who took part
+
+Open the activity from **Club Activities** and use the **Participants** tab to add the students who took part. For each one, pick the **Student** and add an optional **Role** and **Achievement**. Use **Edit** or **Delete** to change or remove a participant.
+
+[Insert screenshot: New club activity form at /club-activities/create showing the Name, Clubs (multi-select), Activity Type, Competition Level, Term, Academic Year, Start Date, End Date, Venue, Achievement, and Description fields]
+
+## Reminders
+
+The day before a meeting, the school's system sends a reminder to the guardians of the club's active members, so families know a meeting is coming up. There is nothing to switch on for this: any meeting you schedule with a date for the next day is included automatically. Schedule the meeting at least a day ahead so the reminder has time to go out.
+
+## Categorical values used on forms
+
+None of these are lifecycles. They are fixed lists you pick from when filling in a form.
+
+- **Club Type:** Academic, Service, Religious, Creative Arts, Uniformed, Environmental, or Other. Set once on the club and used to group and filter clubs.
+- **Patron Role:** Head Patron or Assistant Patron. Set per patron. The Head Patron can manage the club's meetings and membership without the broader clubs permissions.
+- **Leader Role:** Chairperson, Vice Chairperson, Secretary, Treasurer, or Organizer. Set per student leader, one holder per office per club per year.
+- **Meeting Type:** Regular, Special, Planning, or Emergency. Set per meeting.
+- **Attendance status:** Present, Absent, or Excused. Set per student per meeting. New roster rows start as Absent. Both Present and Excused count as attended when the system works out a student's attendance rate.
+- **Activity Type:** Competition, Community Service, Exhibition, Workshop, Trip, Fundraiser, Performance, or Other. Set per activity. Competition is the type that pairs with a Competition Level.
+
+## How records relate
+
+A few user-visible relationships are worth keeping in mind:
+
+- A club holds its own patrons, student leaders, members, meetings, and activities. Patrons and leaders are tied to an academic year, so the line-up can change from one year to the next.
+- A student must be an active member of a club before they can be appointed a leader of it. Leaving the club (setting a **Left On** date) ends the active membership but keeps the history.
+- Each meeting builds its attendance roster once, from the club's active members on the meeting date. A member who joins later is not added to past meetings.
+- A meeting and an activity each carry a term, and activities also carry an academic year, so club work lines up with the school calendar (see [Academic Years & Terms](/modules/academic-years)).
+- A single activity can belong to more than one club, which is how a joint event such as a shared exhibition is recorded once and shown under each club.
+- A student's club involvement, the clubs they belong to and the activities they took part in, is gathered into their report card each term (see [Assessments & Report Cards](/modules/assessments)).
+
+## What guardians see
+
+Guardians sign in to the same tenant subdomain as staff under the locked, read-only **Guardian** role, scoped to their own children. They do not see the **Clubs & Societies** navigation group or any of its pages. Instead, clubs reach them in two read-only places:
+
+- The **Clubs & Societies** summary on the guardian dashboard shows, per child, how many clubs the child belongs to and how many activities the child has taken part in this term.
+- The **Clubs & Societies** tab on each child's profile lists the child's club memberships with the club name, type, any leadership role, the dates joined and left, and the academic year.
+
+Guardians cannot create or edit clubs, add or remove members, schedule meetings, mark attendance, or log activities. Those actions belong to staff. Guardians are also notified, even without logging in, when their child joins a club, is appointed a club leader, or has a meeting coming up the next day.
+
+## FAQs and troubleshooting
 
 <AccordionGroup>
-  <Accordion title="How do I charge club membership fees?">
-    Club fees should be created as an **Optional Billable** in the **Finance** module. Once a student joins the club, assign that billable to them to include it in their termly invoice.
+  <Accordion title="Can a student belong to more than one club?">
+    Yes. A student can be a member of any number of clubs at once. The only limit is that a student cannot be enrolled in the same club twice in the same academic year.
   </Accordion>
 
-  <Accordion title="Can students join clubs themselves?">
-    Depending on your school settings, students may be able to request to join a club via their own portal, subject to approval by the Club Patron.
+  <Accordion title="How do I close a club mid-term?">
+    Open the club from **Clubs**, click **Edit**, and switch **Is active** off. The club and all its records stay in the system for reference, but it is flagged as no longer running. There is no separate delete step for normal closure; turning it inactive is the intended way to retire a club.
+  </Accordion>
+
+  <Accordion title="A student joined the club after a meeting was held. Why are they not on that meeting's attendance?">
+    The attendance roster for a meeting is built once, when the meeting is saved, from the members who were active on the meeting date. A student who joins later is not added to a past meeting's roster. Enrol students before scheduling a meeting so the roster is complete, and they will appear on every meeting from their join date onward.
+  </Accordion>
+
+  <Accordion title="What if a meeting was cancelled but attendance was already recorded?">
+    Attendance is never locked, so you can correct it at any time. If a meeting did not go ahead, you can mark everyone Absent or Excused from the meeting's **Attendance** tab, or delete the meeting entirely, which removes its attendance rows with it.
+  </Accordion>
+
+  <Accordion title="Why does a teacher who is a patron not need the full clubs permissions?">
+    A teacher set as the **Head Patron** of a club can schedule that club's meetings and manage its membership through a built-in allowance, even without the broader clubs permissions, as long as a year is currently active. Assistant patrons can update meetings for their club. Other clubs and the rest of the module still follow the school's normal permission settings, which you adjust under [Roles and permissions](/roles-permissions).
+  </Accordion>
+
+  <Accordion title="How do I charge a club membership fee?">
+    Club records do not hold fees. If a club charges a fee, set it up as a billable in [Finance](/modules/finance) and apply it to the members, so it appears on their invoices. The two modules are kept separate: membership here, money there.
   </Accordion>
 </AccordionGroup>
