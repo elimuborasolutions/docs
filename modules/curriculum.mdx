@@ -16,7 +16,7 @@ Curriculum is the academic spine of the school: the curricula you teach (CBC and
 |---|---|
 | Curriculum | A curriculum the school runs. Two are pre-seeded: **8-4-4 Education System** (Nursery, Primary, High School) and **Competency-Based Curriculum** (Playgroup through Senior Secondary). Pre-seeded and not editable from the panel. |
 | Curriculum stage | A stage inside a curriculum, such as **Lower Primary**, **Junior Secondary**, **Primary School**, or **High School**. Pre-seeded for both curricula and not editable from the panel. |
-| Grade level | A single grade or class inside a stage, such as **Grade 1**, **PP1**, **Class 5**, or **Form 3**. Pre-seeded; the name can be edited. |
+| Grade level | A single grade or class inside a stage, such as **Grade 1**, **PP1**, **Class 5**, or **Form 3**. Pre-seeded and not editable from the panel. |
 | Grade stream | A concrete class section inside a grade level, such as **Grade 1 A** or **Form 4 Red**. Pre-seeded with the labels picked during onboarding; new streams can be added, and existing streams can be renamed, moved between grade levels, or deleted. Each stream can have one class teacher. |
 | Subject | A teachable subject (for example, **Mathematics**, **English**, **Biology**, **Music**). The full catalogue is pre-seeded for both curricula. The only field a school can change on a subject is whether it is marked **Compulsory**. |
 | Pathway | A senior-school subject track for CBC. Three are pre-seeded: **STEM**, **Social Sciences**, and **Arts & Sports**. Subjects and students are attached to a pathway from its page. |
@@ -30,7 +30,7 @@ Curriculum is the academic spine of the school: the curricula you teach (CBC and
   </Card>
 
   <Card title="Run your classes" icon="door-open" href="#run-your-classes">
-    Add and edit grade streams, rename grade levels, and assign class teachers.
+    Add and edit grade streams, and assign class teachers.
   </Card>
 
   <Card title="Subjects and pathways" icon="book" href="#subjects-and-pathways">
@@ -122,24 +122,11 @@ A class teacher owns the stream's daily registers, the stream's discipline and f
   </Step>
 </Steps>
 
-You can also do this from the teacher's profile: open **Teachers**, open the teacher, switch to the **Class Assignments** tab, and use **Assign Class** to attach a stream. The **Class Assignments** tab is hidden when the Academics module is disabled.
+You can also do this from the teacher's profile: open **Teachers**, open the teacher, switch to the **Class Assignments** tab, and use **Assign Class** to attach a stream.
 
 ### Change or unassign a class teacher
 
 Open the stream from **Settings → Grade Streams**. The header action reads **Change Teacher** when a teacher is already assigned. Click it, pick a different teacher, and save. To unassign without picking a replacement, open the picker, clear the selection, and save. The stream stays in place without a class teacher until you assign one.
-
-### Rename a grade level
-
-Most grade-level names ship in the form your school expects (**Grade 1** to **Grade 12** for CBC, **Class 1** to **Class 8** and **Form 1** to **Form 4** for 8-4-4, **PP1** and **PP2** for Pre-Primary). Where the local convention differs, you can rename a grade level.
-
-<Steps>
-  <Step title="Open the grade level">
-    Go to **Settings → Grade Levels**, open the grade level, and click **Edit**.
-  </Step>
-  <Step title="Update the name">
-    Edit the **Name** field. Save. The new name appears on the student profile, on registers, on report cards, and anywhere else the grade level is shown. The internal grade number does not change, so report ordering and progression rules continue to work.
-  </Step>
-</Steps>
 
 ## Subjects and pathways
 
@@ -207,10 +194,6 @@ You can also attach a student from the pathway side: open **Settings → Pathway
 Open the pathway, switch to the **Students** tab, and use **Detach** on the student's row, or open the student, click **Edit**, and clear the pathway tick box in **Academic Context**. The student stays enrolled and stays on the stream and grade level; only the pathway link is removed.
 
 ## Grading scales
-
-<Note>
-  **You will need:** the **Academics** module to be enabled under Settings. **Grading Scales** is the one Curriculum page gated behind a module: when Academics is off, the page is hidden from the sidebar. The four pre-seeded scales stay in the database and become visible again once you re-enable the module.
-</Note>
 
 A grading scale turns raw scores into the codes that appear on a report card. **CBC Rubric Scale** uses descriptor codes (**E.E** Exceeds Expectations, **M.E** Meets Expectations, **A.E** Approaching Expectations, **B.E** Below Expectations). The **8-4-4 KCSE Percentage Scale** uses letter grades from **A** down to **E**. The two 8-4-4 point scales (**12 Point** and **84 Point**) are alternates for schools that grade in points rather than percentages.
 
@@ -312,10 +295,6 @@ Curriculum information still reaches guardians indirectly: it appears as plain l
 
   <Accordion title="Can I move a stream to a different grade level?">
     Yes. Open the stream from **Settings → Grade Streams**, click **Edit**, and change **Grade Level** (and **Curriculum Stage** if needed). Students enrolled in the stream stay enrolled, so the move is rare in practice; it is typically used to correct a stream that was created in the wrong grade level.
-  </Accordion>
-
-  <Accordion title="Where do the Grading Scales go when the Academics module is off?">
-    The **Grading Scales** page is hidden from the **Settings** sidebar whenever Academics is disabled, because grading scales are only consumed by Academics' report cards. The four pre-seeded scales and your custom scales stay in the database; they reappear on the sidebar the moment Academics is re-enabled.
   </Accordion>
 
   <Accordion title="Can a guardian see the curriculum settings?">
