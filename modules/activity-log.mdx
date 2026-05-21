@@ -1,64 +1,101 @@
 ---
-title: "Activity Log & Audit"
-description: "Maintain a complete audit trail of all actions performed within the system."
+title: "Activity Log"
+description: "Browse the audit trail of every recorded change in your school's data."
 icon: "history"
 ---
 
-The Activity Log ensures full transparency and accountability by recording every significant action taken by users across the platform.
+The Activity Log is your school's audit trail. As staff go about their work across the panel, the system quietly records each change as it happens: a student admitted, a fee amount edited, an invoice payment recorded, a register marked, a module switched on or off. The Activity Log gathers all of those records into one chronological list so leadership can answer who changed what, when, and what the value was before and after. You do not create entries here yourself; the page is read-only and shows the history that the rest of the system writes as it runs. School leadership reviews it; guardians never see it.
 
-<CardGroup cols={2}>
-  <Card title="Audit Trail" icon="history" href="#audit-trail">
-    Review a chronological log of system changes.
-  </Card>
+<Note>
+  Activity Log appears in the optional-modules list under Settings, so it can be switched off like other optional modules. Switching it off only hides this viewer page from the panel. The audit trail keeps recording every change in the background regardless, so the history is never lost and reappears in full the moment the viewer is switched back on. In practice schools leave it on.
+</Note>
 
-  <Card title="User Accountability" icon="user-shield" href="#user-accountability">
-    See exactly who made a change and when.
-  </Card>
+## Records you'll work with
 
-  <Card title="Financial Audit" icon="magnifying-glass-dollar" href="#financial-audit">
-    Track sensitive changes to invoices and payments.
-  </Card>
+| Record | What it is |
+|---|---|
+| Activity entry | One line in the audit trail: a single recorded change to one record in your school's data. It captures who made the change (the user, or **System** when the platform itself made it), what kind of change it was (created, updated, deleted, or exported), which record it was about, when it happened, and, for an edit, the old and new values of each field that changed. |
 
-  <Card title="Data Integrity" icon="database" href="#data-integrity">
-    Monitor for unusual activity or unauthorized access.
-  </Card>
-</CardGroup>
+## Browse the audit trail
 
-## Audit Trail
+The Activity Log lives under **Settings**. Open **Settings** in the sidebar, then **Activity Log** under the **System** group, or go to `/settings/activity-log`. The page shows the school's whole trail as a timeline, newest first, grouped under a heading for each calendar day.
 
-The system automatically logs actions such as creating records, editing existing data, and deleting items.
+<Note>
+  **You will need:** permission to view the Activity Log. This permission sits under the **Settings** group in the role editor and is granted to leadership roles by default. A staff member without it does not see the **Activity Log** entry in the Settings menu. To grant it to another role, see [Roles & permissions](/roles-permissions).
+</Note>
 
-<Steps>
-  <Step title="Access the Log">
-    Administrators can go to **Activity Log** to see a master list of all recent actions.
-  </Step>
-  <Step title="Filter by Module">
-    Filter the logs by module (e.g., Finance, Attendance, Users) to find specific types of actions.
-  </Step>
-  <Step title="View Change Details">
-    Click on an entry to see the "Before" and "After" states of the data. For example, you can see exactly which fee amount was changed on an invoice.
-  </Step>
-</Steps>
+Each line in the timeline shows, at a glance:
 
-\[Insert screenshot: Activity log table showing user, action, module, and timestamp\]
+- **Who** made the change: the staff member's name, or **System** when the platform recorded the change on its own (for example, an overnight scheduled update or an automatic status change).
+- **A description** of what happened, in plain words.
+- **The record** the change was about, named so you can recognise it (for example, *Student Adm No. 1024*, *Invoice INV-0057*, or *Register Grade 4 - Blue*).
+- **The kind of change** as a coloured tag: **Created**, **Updated**, **Deleted**, or **Exported**.
+- **The time** the change was recorded.
 
-## User Accountability
+The list loads the most recent entries first. Click **Load more** at the bottom to pull in older entries as you scroll back through the history.
 
-Every log entry includes:
+[Insert screenshot: Activity Log page at /settings/activity-log showing the day-grouped timeline, each entry with the user name, description, subject label, a coloured event tag (Created, Updated, Deleted, Exported), and the time]
 
-- **The User**: Who performed the action.
-- **The Action**: What was done (Created, Updated, Deleted, Logged In).
-- **The Date & Time**: Precisely when the action occurred.
-- **The IP Address**: (Optional) The network location of the user.
+### Filter by the kind of change
 
-## FAQs & Troubleshooting
+A row of tabs sits across the top of the page: **All Events**, **Created**, **Updated**, **Deleted**, and **Exported**. Click a tab to narrow the timeline to just that kind of change. **All Events** clears the filter and shows everything again. This is the quickest way to, for example, see only deletions, or only data exports, across the whole school.
+
+[Insert screenshot: Activity Log event tabs across the top of the page (All Events, Created, Updated, Deleted, Exported) with the Deleted tab selected and the timeline filtered below it]
+
+### Read a single entry
+
+Click any line in the timeline to open its detail. The panel that opens shows the full record of that one change:
+
+- **User** — who made the change, or **System**.
+- **Date & Time** — the exact moment it was recorded.
+- **Action** — the kind of change (Created, Updated, Deleted, or Exported).
+- **Log Channel** — the area of the system the entry came from (for example, a sign-in entry, a finance entry, or a general entry). This is a grouping label, not something you set.
+- **Subject** — the record the change was about, named so you can identify it.
+- **Description** — the plain-words summary of what happened.
+- **Changes** — for an edit, a table listing each field that changed with its **Old** value and its **New** value side by side. For a newly created or deleted record, the table shows the values that were set. Entries that carry no field-level detail simply omit this table.
+
+This is where you see exactly what changed. For an edited invoice, for instance, the Changes table shows the fee amount before and after, so you can confirm precisely what was adjusted and by whom.
+
+[Insert screenshot: Activity entry detail panel showing the User, Date & Time, Action, Log Channel, Subject, and Description fields, and a Changes table with Field, Old, and New columns]
+
+### Read one record's own history
+
+You do not always have to come to the Activity Log to see what changed. Many records carry their own history inline. When you open a student, a teacher, or another record that keeps a history, an activity timeline appears on that record's page showing only the changes made to that one record, in the same newest-first, click-to-expand format. Use the Activity Log page when you want the whole school's trail in one place; use a record's own history tab when you only care about that record.
+
+## How entries are recorded
+
+You never add to the Activity Log by hand. Entries appear on their own as work happens elsewhere in the panel:
+
+- When a staff member **creates, edits, or deletes** a tracked record anywhere in the system, an entry is written automatically, with that staff member named as the user and, for edits, the before-and-after values captured.
+- When a staff member **exports** a report or a list, an **Exported** entry records who pulled the data and when.
+- When the **platform itself** makes a change without a person clicking anything (for example, an overnight job that moves an academic year or term to its next status), the entry is recorded against **System** rather than a named user. This is normal and expected; it is not a sign that someone signed in.
+
+Automated background housekeeping that does not change any of your school's records is not written to the audit trail, so the timeline stays focused on real changes to your data rather than internal system chatter.
+
+## What guardians see
+
+Nothing. The Activity Log is for school leadership only. Guardians have no access to it: the **Activity Log** page is not part of the guardian view, and the inline history on individual records is hidden from guardians as well, so a guardian opening their own child's record never sees the audit trail behind it.
+
+## FAQs and troubleshooting
 
 <AccordionGroup>
-  <Accordion title="Can activity logs be deleted?">
-    No. To maintain audit integrity, activity logs are permanent and cannot be modified or deleted, even by Super Admins.
+  <Accordion title="Can I delete or edit an entry in the Activity Log?">
+    No. The Activity Log is read-only by design, which is the whole point of an audit trail: a record of what happened that no one can quietly change. There is no edit or delete action on an entry, even for leadership. Entries are removed only by the system's own long-term housekeeping, never by a person.
   </Accordion>
 
-  <Accordion title="How long are logs stored?">
-    Logs are stored indefinitely by default, providing a complete historical record for the life of your school's Elimu Bora account.
+  <Accordion title="Why do some entries say the change was made by System?">
+    Some changes are made by the platform itself rather than by a person clicking in the panel. The clearest example is the overnight update that moves an academic year or term into its next status as dates pass (see [Academic Years & Terms](/modules/academic-years)). Because no staff member triggered it, the entry is recorded against **System**. This is expected and does not mean anyone signed in.
+  </Accordion>
+
+  <Accordion title="How long are entries kept?">
+    Entries are kept for a long period and then pruned automatically by the system, with financial entries held the longest and high-volume sign-in entries kept for a shorter window. This pruning is the only thing that ever removes an entry; you do not manage retention from the panel, and you cannot delete an entry yourself.
+  </Accordion>
+
+  <Accordion title="I cannot see the Activity Log in the menu. Why?">
+    Viewing the Activity Log needs a specific permission, which sits under the **Settings** group in the role editor and is granted to leadership roles by default. If you do not see **Activity Log** under **Settings → System**, your role does not hold that permission; ask an administrator to grant it (see [Roles & permissions](/roles-permissions)). If no one can see it, the Activity Log viewer may have been switched off in the optional-modules list under Settings; switching it back on restores the page, and the full history is still there because recording never stopped.
+  </Accordion>
+
+  <Accordion title="Can I search the trail for one particular record?">
+    Open that record directly. Many records carry their own history inline on their page, showing only the changes made to that one record. Use that when you are investigating a single student, invoice, or other record; use the Activity Log page when you want the whole school's trail, optionally narrowed by the kind of change with the tabs across the top.
   </Accordion>
 </AccordionGroup>
