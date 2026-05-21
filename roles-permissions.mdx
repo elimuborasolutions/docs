@@ -71,14 +71,17 @@ Every school starts with these seventeen roles already created and populated wit
 
 The **Guardian** role is locked, like Super Admin: you cannot edit its permissions or delete it. It is also the only role meant for people outside the staffroom. A guardian account is created automatically when you admit a student and list their guardian, and it is **read-only and scoped to that guardian's own children** — a guardian never sees another family's records.
 
-By default a guardian can:
+A guardian can:
 
-- View their children's profiles and export a financial statement.
-- View their children's invoices, payments, and wallet balance.
-- View the clubs and club activities their children belong to.
-- View fixtures and awards involving their children, and the school events they are invited to.
+- View their children's profiles, report cards (with a PDF download), and attendance history.
+- View their children's invoices, payments, and wallet balance, and export a financial statement.
+- View the clubs and club activities their children belong to, the fixtures and awards involving them, and the school events they are invited to.
 
-A guardian cannot create, edit, or delete anything, cannot see staff or other students, and cannot reach any settings. What each module shows a guardian is documented on each module page and gathered in [For Guardians](/guardians).
+A guardian cannot create, edit, or delete anything, cannot see staff or other students, and cannot reach any settings.
+
+<Note>
+  The Guardian role's reach is fixed by the system, not by its permission checklist. Built-in scoping decides which of their own children's records a guardian may open — and it grants a little more than the role's raw permissions (report cards and attendance, for instance, are opened to guardians by that scoping rather than by a permission). This is why Guardian is locked: its access is wired in, not configured. What each module shows a guardian is documented on each module page and gathered in [For Guardians](/guardians).
+</Note>
 
 ## Editing roles and building custom roles
 
