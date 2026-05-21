@@ -36,8 +36,8 @@
               "introduction",
               "quickstart",
               "roles-permissions",
-              "staff/overview",
-              "guardians/overview"
+              "staff/index",
+              "guardians/index"
             ]
           },
           {
@@ -60,7 +60,7 @@
           {
             "group": "More",
             "pages": [
-              "settings/overview"
+              "settings/index"
             ]
           }
         ]
