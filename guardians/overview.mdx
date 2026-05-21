@@ -1,95 +1,101 @@
 ---
-title: "Parents & Guardians"
-description: "A guide for parents and guardians to stay connected with their child's school progress."
-icon: "user-round-check"
+title: "Overview"
+description: "What guardians see and do."
+icon: "user"
 ---
 
-Elimu Bora provides a dedicated portal for parents and guardians to monitor their children's academic performance, attendance, and financial status in real-time.
+As a parent or guardian you sign in to the same school panel the staff use, but under the locked **Guardian** role. That role is **read-only** and **scoped to your own children** — you see your children's information and nothing about any other family. There is no separate app to install: you open your school's web address, sign in, and land on a dashboard built for guardians.
 
-<CardGroup cols={2}>
-  <Card title="Getting Started" icon="right-to-bracket" href="#getting-started">
-    How to log in and access your children's profiles.
-  </Card>
+<Note>
+  Everything here depends on which parts of the system your school has switched on. A school that does not use the clubs or sports features, for example, simply won't show those cards on your dashboard.
+</Note>
 
-  <Card title="Fees & Payments" icon="money-check-dollar" href="#fees-and-payments">
-    View invoices and make payments securely via M-Pesa.
-  </Card>
+## Signing in
 
-  <Card title="Academic Progress" icon="graduation-cap" href="#academic-progress">
-    Check grades, report cards, and classroom attendance.
-  </Card>
-
-  <Card title="Communication" icon="message" href="#communication">
-    Receive notices and communicate with the school.
-  </Card>
-</CardGroup>
-
-## Getting Started
-
-As a guardian, you will receive a welcome SMS or email once the school enrolls your child and links you to their profile.
+When the school admits your child and links you as a guardian, Elimu Bora creates your account and emails you a **Set Your Password** link.
 
 <Steps>
-  <Step title="Receive Your Credentials">
-    The school will send you a temporary password and a link to the login page.
+  <Step title="Open the welcome email">
+    It carries your school's web address (`https://<your-school>.elimuboraerp.com`) and a button to set your password. Use the same address every time you sign in.
   </Step>
-  <Step title="Log In">
-    Enter your registered phone number or email and the temporary password.
-  </Step>
-  <Step title="Switch Between Siblings">
-    If you have multiple children in the school, you can easily switch between their profiles using the child selector at the top of your dashboard.
+  <Step title="Set your password and sign in">
+    Choose a password, then sign in with your email and that password. If you ever forget it, use **Forgot password** on the sign-in page to get a reset link.
   </Step>
 </Steps>
 
-\[Insert screenshot: Guardian dashboard showing child selector and quick-link cards\]
+<Tip>
+  If you have more than one child at the school, you do not switch between them — your dashboard shows all of your children together, each named on its own cards.
+</Tip>
 
-## Fees and Payments
+## Your dashboard
 
-Stay on top of your school fee obligations with easy viewing and instant payments.
+Your home screen gathers your children's key numbers into a few cards. Which cards appear depends on the features your school runs:
 
-<Tabs>
-  <Tab title="Viewing Invoices">
-    1. Navigate to the **Fees** section.
-    2. View current and past invoices for each child.
-    3. Download PDF copies for your records.
-  </Tab>
-  <Tab title="Making Payments">
-    You can pay fees instantly using **M-Pesa STK Push**:
+- **Children enrolled** — how many of your children are at the school, each shown with their name and class. When the school marks attendance, this card also shows how your children's attendance is tracking for the current week.
+- **Fees** — your total outstanding balance (and how many invoices are overdue), the combined wallet balance across your children, and how much has been paid so far this month. Appears when the school uses the finance features.
+- **Clubs & societies** — for each child, the clubs they belong to and how many activities they have taken part in this term. Appears when the school uses clubs.
+- **Sports & games** — for each child, their team memberships, the fixtures they have played, and the awards they have received this term. Appears when the school uses sports.
 
-    1. Click **Pay Now** on an outstanding invoice.
-    2. Enter your phone number and confirm the amount.
-    3. Enter your M-Pesa PIN on your phone to complete the transaction.
-    4. Your invoice balance will update immediately.
-  </Tab>
-</Tabs>
+## What you can see
 
-## Academic Progress
+Beyond the dashboard, your menu lets you open the records that concern your children, all of it read-only:
 
-Monitor your child's journey through the term.
+- **Your children's profiles** — the basic record the school holds for each child.
+- **Invoices and payments** — each child's invoices with their line-by-line breakdown, and the history of payments made against them.
+- **Wallet** — each child's wallet balance.
+- **Clubs, sports, and events** — the clubs your children belong to, the fixtures and awards involving them, and the school events they are invited to.
 
-- **Real-Time Attendance**: Get notified immediately if your child is marked absent from class.
-- **Assessment Results**: View scores for CATs and exams as soon as they are published by the teacher.
-- **Digital Report Cards**: Download and print official term-end report cards directly from the portal.
+## What you cannot do
 
-\[Insert screenshot: Guardian view of a student's performance chart and attendance calendar\]
+The Guardian role is deliberately narrow, so you never have to worry about changing something by mistake:
 
-## Communication
+- You cannot edit, create, or delete any record.
+- You cannot record a payment in the panel. When you pay by M-Pesa, the school sends the STK push to your phone and your balance updates once it clears — see [Finance & Fee Management](/modules/finance#what-guardians-see) for how payments reach the school.
+- You cannot see other families' children, any staff records, or any school settings.
 
-- **School Notices**: Receive urgent updates about school closures, events, and parents' days.
-- **Newsletter Downloads**: Access school newsletters and termly circulars.
-- **Update Your Profile**: Ensure your contact information is always up to date so you never miss an important message.
+Notifications still reach you whether or not you sign in: when an invoice is raised, when fees fall overdue, when a wallet is funded or runs low, and for the events your children are invited to. Your stored phone and email are where those messages go, so keep them current with the school office.
 
-## FAQs & Troubleshooting
+## Following each part of the school
+
+Every module page has a **What guardians see** section that spells out, for that area, exactly what is visible to you, what stays hidden, and which notifications reach you.
+
+<CardGroup cols={2}>
+  <Card title="Your children's records" icon="users" href="/modules/users#what-guardians-see">
+    What the school holds on each child and how you are linked to them.
+  </Card>
+  <Card title="Fees & payments" icon="wallet" href="/modules/finance#what-guardians-see">
+    Invoices, payment history, and wallet balances for your children.
+  </Card>
+  <Card title="Attendance" icon="clipboard-list" href="/modules/attendance#what-guardians-see">
+    How absences are recorded and when you are notified.
+  </Card>
+  <Card title="Assessments & report cards" icon="graduation-cap" href="/modules/assessments#what-guardians-see">
+    What of your child's results and report cards is shared, and how.
+  </Card>
+  <Card title="Clubs & societies" icon="users-round" href="/modules/clubs#what-guardians-see">
+    The clubs your children belong to and their activities.
+  </Card>
+  <Card title="Sports & games" icon="trophy" href="/modules/sports#what-guardians-see">
+    Your children's teams, fixtures, and awards.
+  </Card>
+  <Card title="Events" icon="calendar-check" href="/modules/events#what-guardians-see">
+    The school events your children are invited to.
+  </Card>
+</CardGroup>
+
+## FAQs
 
 <AccordionGroup>
-  <Accordion title="I forgot my password. How do I reset it?">
-    On the login page, click **Forgot Password**. Enter your registered phone number or email, and we will send you a reset link.
+  <Accordion title="How do I pay school fees?">
+    Payments are processed by the school. When fees are due, the school initiates an M-Pesa STK push to your registered phone; you approve it with your M-Pesa PIN and your child's balance updates once it clears. You can always see what is outstanding on your dashboard and on each invoice.
   </Accordion>
-
-  <Accordion title="Why can't I see one of my children?">
-    If you have a child in the school who doesn't appear in your portal, please contact the school administration to ensure your guardian profile is correctly linked to that student's admission number.
+  <Accordion title="I forgot my password.">
+    Use **Forgot password** on the sign-in page, enter your registered email, and follow the reset link. If you no longer have access to that email, ask the school office to update your contact details.
   </Accordion>
-
-  <Accordion title="Is my payment secure?">
-    Yes. All M-Pesa transactions are processed securely through Safaricom. Elimu Bora does not store your M-Pesa PIN.
+  <Accordion title="One of my children isn't showing.">
+    Your account only shows children you are linked to. If a child is missing, ask the school office to link your guardian profile to that student's record.
+  </Accordion>
+  <Accordion title="Can I change my child's details?">
+    No — guardian access is read-only. Ask the school office to make any correction to a child's record or to your own contact details.
   </Accordion>
 </AccordionGroup>
