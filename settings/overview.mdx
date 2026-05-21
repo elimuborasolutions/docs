@@ -1,100 +1,53 @@
 ---
-title: "School Settings"
-description: "Configure your school profile, branding, and system-wide preferences."
+title: "Settings overview"
+description: "Configure how the school runs."
 icon: "settings"
 ---
 
-The Settings module allows you to customize Elimu Bora to match your school's identity and operational requirements.
+**Settings** is the bottom group in the sidebar, and it gathers everything that configures the school rather than runs it day to day: the school's identity, which optional modules are switched on, the academic structure, grading scales, roles, and the audit log. Most of it is set once during onboarding and rarely touched again. This page is a map of what lives under Settings and where each piece is documented in full.
 
-<CardGroup cols={2}>
-  <Card title="School Profile" icon="school" href="#school-profile">
-    Manage your school's name, contact info, and legal details.
-  </Card>
+<Note>
+  The configuration permissions (managing settings, modules, roles, and the activity log) ship only with the **Super Admin** role. Other roles can run the school but won't see most of Settings unless you grant them those permissions. See [Roles & permissions](/roles-permissions).
+</Note>
 
-  <Card title="Branding" icon="palette" href="#branding">
-    Upload logos and customize report card aesthetics.
-  </Card>
+## School identity and branding
 
-  <Card title="Modules" icon="grid-2" href="#modules">
-    Enable or disable specific features based on your needs.
-  </Card>
+**Settings → School Details** holds the information that identifies your school across the panel and on every document it generates:
 
-  <Card title="Notifications" icon="envelope-open-text" href="#notifications">
-    Configure SMS and Email settings and templates.
-  </Card>
-</CardGroup>
+- **Identity** — the school name, its subdomain, motto, and vision.
+- **Contact information** — phone, email, website, and the postal/physical address (address line, town, city, county).
+- **Branding** — the school logo and a primary colour. These flow onto report cards, invoice PDFs, and other exports.
 
-## School Profile
-
-Define the core identity of your institution.
-
-<Steps>
-  <Step title="Update Basic Info">
-    Go to **Settings → School Profile**. Update the official school name, postal address, and phone number. These details appear on all generated invoices and report cards.
-  </Step>
-  <Step title="Set Registration Details">
-    Include your school's registration number and KRA PIN for official documentation and compliance.
-  </Step>
-  <Step title="Configure Academic Defaults">
-    Set the default school hours and days of operation to help the system auto-generate registers correctly.
-  </Step>
-</Steps>
-
-\[Insert screenshot: School profile settings page with contact and registration fields\]
-
-## Branding
-
-Make the platform your own by adding your school's visual identity.
-
-<Tabs>
-  <Tab title="Logos & Icons">
-    Upload your school logo in high resolution. This logo will be used:
-
-    - On the login page.
-    - At the top of all PDF invoices.
-    - As the header for term-end report cards.
-  </Tab>
-  <Tab title="Report Card Styling">
-    Customize the "look and feel" of your report cards. Choose between different layouts and color schemes that match your school colors.
-  </Tab>
-</Tabs>
+Set these first; the [Quickstart](/quickstart) walks through it as the opening step.
 
 ## Modules
 
-Elimu Bora is modular. You can turn features on or off depending on your school's requirements.
+**Settings → Modules** is where you turn the optional parts of the system on or off. Switching a module off hides its pages from every sidebar; switching it on brings them back.
 
-- **Enable/Disable**: If your school doesn't have a boarding section, you can disable the **Hostels** module to simplify your navigation.
-- **Custom Naming**: (Optional) Rename certain modules to match your school's terminology (e.g., changing "Streams" to "Classes" or "Forms").
+- **Always on** — Users & Identity, Curriculum, Academic Years & Terms, and Assessments & Report Cards. These are the foundation the rest of the school is built on and have no on/off switch.
+- **Optional** — Attendance, Timetable & Lessons, Finance, Inventory & Procurement, Events, Sports & Games, Clubs & Societies, and the Activity Log. Turn on the ones your school uses.
 
-## Notifications
+A page that a colleague can see but you cannot is usually down to one of two things: your role, or a module that is switched off here.
 
-Manage how you communicate with your school community.
+## Academic structure
 
-<Steps>
-  <Step title="Configure SMS Gateway">
-    Link your SMS provider credentials to enable automated attendance and fee alerts.
-  </Step>
-  <Step title="Customize Templates">
-    Edit the standard messages sent for:
+The academic structure ships pre-seeded for both Kenyan curricula, so this area is for **reviewing and adjusting**, not building from scratch. It sits under Settings in a few groups:
 
-    - Welcome messages.
-    - Absentee alerts.
-    - Fee reminders.
-    - Assessment publication notices.
-  </Step>
-  <Step title="Set Notification Rules">
-    Choose which events trigger automatic notifications and which roles should receive them.
-  </Step>
-</Steps>
+| Setting | What it covers | Documented in |
+| --- | --- | --- |
+| Curriculums, Curriculum Stages, Pathways, Subjects | The CBC and 8-4-4 structures, their stages, senior-school pathways, and the subject catalogue. | [Curriculum](/modules/curriculum) |
+| Grade Levels & Streams | The grades each curriculum runs and the streams (classes) your school opens inside them. | [Curriculum](/modules/curriculum) |
+| Grading Scales | The bands that turn raw scores into grades on report cards. | [Curriculum](/modules/curriculum) |
+| Academic Years & Terms | The school calendar that anchors every register, assessment, invoice, and event to a term. | [Academic Years & Terms](/modules/academic-years) |
 
-## FAQs & Troubleshooting
+<Tip>
+  Opening the streams your school actually runs, and pinning a class teacher to each, is the one structural step every school does at setup. The rest of the academic structure is already in place.
+</Tip>
 
-<AccordionGroup>
-  <Accordion title="Can I change my school name later?">
-    Yes, but be aware that any documents generated _before_ the name change (like old invoices) will still show the old name.
-  </Accordion>
+## Roles, files, and the audit log
 
-  <Accordion title="How do I get more SMS credits?">
-    Contact your Elimu Bora account manager or use the **Buy Credits** action within the Notifications module to top up your balance.
-  </Accordion>
-</AccordionGroup>
+| Setting | What it covers | Documented in |
+| --- | --- | --- |
+| Roles & Permissions | The seventeen pre-seeded roles, custom roles, and the permissions inside each. | [Roles & permissions](/roles-permissions) |
+| File Categories | The categories used to organise documents uploaded across the school. | — |
+| Activity Log | The searchable audit trail of every recorded change — who did what, and when. | [Activity Log](/modules/activity-log) |
