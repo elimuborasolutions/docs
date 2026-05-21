@@ -1,106 +1,119 @@
 ---
-title: "Introduction"
-description: "Welcome to Elimu Bora—Kenya's comprehensive school management platform."
-icon: "notebook-pen"
+title: "Welcome"
+description: "The school management platform for Kenyan schools running CBC or 8-4-4."
+icon: "house"
 ---
 
-Elimu Bora is a unified ERP platform designed specifically for Kenyan educational institutions running the **CBC** or **8-4-4** curricula. By digitizing daily operations—from attendance and academic grading to M-Pesa fee collection—we help schools eliminate paperwork and focus on student success.
-
-\[Insert screenshot: Elimu Bora dashboard showing a high-level summary of school operations\]
+Elimu Bora is the school management platform that runs your school's day-to-day work in one place: admissions and staff records, the timetable and registers, assessments and report cards, fees and M-Pesa payments, events, sports, clubs, and the audit trail behind all of it. It is built for Kenyan schools running CBC or 8-4-4, and every school gets its own tenant on its own subdomain so its data stays separate from every other school's. This help center walks you through what each part of the system does, the workflows you run inside it, and what guardians see when they sign in.
 
 ## Who uses Elimu Bora
 
-Elimu Bora is a school management platform built for Kenyan schools running CBC or 8-4-4. It unifies academics, attendance, finance, inventory, communication, and guardian access in one system.
+Three groups sign in to the panel. The work each group does is documented in the section linked beside it.
 
-Each school runs on an isolated subdomain (e.g. `yourschool.elimuboraerp.com`) and uses role-based access — what each user sees depends on the role assigned to them.
+- **School leadership** (principals, deputies, directors) and **non-teaching staff** (bursars, registrars, HR, storekeepers) run admissions, finance, procurement, and school-wide oversight.
+- **Teaching staff** (class teachers, subject teachers, heads of department) mark registers, set up assessments, enter grades, and run their timetables.
+- **Guardians** sign in to a locked, read-only account scoped to their own children. They read attendance, report cards, invoices and payments, wallet and earmark balances, events their child is invited to, and the clubs and teams their child belongs to.
 
-\[Insert screenshot: Elimu Bora dashboard home page after login, showing top navigation and module cards\]
+Students do not sign in to the system. Everything that concerns a student reaches their guardian instead, on the guardian's own login and in the notifications the guardian receives.
 
-## Who uses Elimu Bora
+## Find your way around
 
-Our platform is designed for the entire school community:
-
-- **School Leadership**: Principals and Directors use the dashboard for real-time oversight of finances and academic progress.
-- **Teachers**: Mark registers, enter assessment scores, and manage their class timetables.
-- **Administrators**: Bursars, storekeepers, and HR managers handle invoicing, procurement, and staff records.
-- **Guardians**: Track their children's progress, receive alerts, and pay fees via M-Pesa.
-- **Students**: Access their own results, timetables, and school notices.
-
-## How the Platform is Organized
-
-Elimu Bora is structured around functional modules that work together seamlessly:
-
-<CardGroup cols={3}>
-  <Card title="Academics" icon="graduation-cap" href="/modules/assessments">
-    Curriculum, Assessments, and Report Cards.
-  </Card>
-
-  <Card title="Operations" icon="clipboard-list" href="/modules/attendance">
-    Attendance, Timetables, and Staff Management.
-  </Card>
-
-  <Card title="Finance" icon="money-bill-transfer" href="/modules/finance">
-    Fee billing, M-Pesa, and Student Wallets.
-  </Card>
-</CardGroup>
-
-## Next Steps
-
-<CardGroup cols={2}>
-  <Card title="Quick Start Guide" icon="rocket" href="/quickstart">
-    Set up your school in under a day.
-  </Card>
-
-  <Card title="Roles & Permissions" icon="shield-check" href="/roles/Overview">
-    Understand how access is controlled.
-  </Card>
-
-  <Card title="Parents & Guardians" icon="heart" href="/guardians/Overview">
-    A dedicated guide for the guardian portal.
-  </Card>
-
-  <Card title="Support & Resources" icon="circle-info" href="/resources/links">
-    Talk to our team or find additional links.
-  </Card>
-</CardGroup>
-
-- School leadership — principals, deputies, directors
-- Teachers — class teachers, subject teachers, HODs
-- Administrative staff — bursars, receptionists, librarians, HR
-- Parents and guardians — view child records, fees, reports
-- Students — access timetables, results, and communication
-
-## Core modules
-
-- Users & Identity
-- Curriculum & Structure
-- Academic Years & Terms
-- Attendance
-- Assessments & Report Cards
-- Timetable & Lessons
-- Events
-- Finance
-- Inventory & Procurement
-- Sports & Games
-- Clubs & Societies
-- Activity Log
-
-## Next steps
+Pick the starting point that matches your role.
 
 <CardGroup cols={2}>
   <Card title="Quick Start" icon="rocket" href="/quickstart">
-    Set up your school in under a day.
+    A first-day checklist for setting up a school: school identity, staff, students, the academic year, and the first term's fees.
   </Card>
 
-  <Card title="Roles & Access" icon="shield-check" href="/roles-and-access">
-    See what each role can do.
+  <Card title="Roles & Permissions" icon="shield-check" href="/roles-permissions">
+    The seventeen pre-seeded roles, the locked Super Admin and Guardian roles, and how to assign or build custom roles.
   </Card>
 
-  <Card title="For Guardians" icon="heart" href="/guardians/overview">
-    Parent and guardian guide.
+  <Card title="Teaching & Non-teaching Staff" icon="briefcase" href="/staff/overview">
+    What each staff role does in the system: class teachers, subject teachers, HODs, bursars, registrars, HR.
   </Card>
 
-  <Card title="Book a Demo" icon="calendar-check" href="https://elimuboraerp.com/contact/">
-    Talk to the Elimu Bora team.
+  <Card title="Parents & Guardians" icon="heart" href="/guardians/overview">
+    The guardian portal experience: signing in, reading your child's records, and the notifications you receive.
   </Card>
 </CardGroup>
+
+<Note>
+  School administrators configuring the tenant for the first time should also see [School Settings](/settings/overview) for school identity, integrations, and module toggles.
+</Note>
+
+## How the platform is organised
+
+Each school runs on its own subdomain at `<school>.elimuboraerp.com`. Signing in there lands you on the dashboard, and the sidebar groups the modules your role can reach. The platform is built around twelve modules:
+
+- **Foundation modules** are always on for every school: Users & Identity, Curriculum, Academic Years & Terms, and Assessments & Report Cards. They define who is in the school, the academic structure those people work inside, the calendar that anchors everything to a term, and the assessments and report cards that close each term.
+- **Operational modules** can be turned on per school in [School Settings](/settings/overview): Attendance, Timetable & Lessons, Finance, Inventory & Procurement, Events, Sports, Clubs, and the Activity Log audit trail.
+
+Your role decides what the sidebar shows and what each page lets you do. A class teacher sees the streams they own and the subjects they teach; a bursar sees the finance pages; a guardian sees their own children. Roles and the permissions inside them are documented under [Roles & Permissions](/roles-permissions).
+
+## Modules at a glance
+
+<CardGroup cols={2}>
+  <Card title="Users & Identity" icon="users" href="/modules/users">
+    Admit students, onboard teachers and staff, register guardians, and decide who can do what in the panel.
+  </Card>
+
+  <Card title="Curriculum" icon="book-open" href="/modules/curriculum">
+    Review the school's academic structure, run your class streams, assign class teachers, and set the rules that turn scores into grades.
+  </Card>
+
+  <Card title="Academic Years & Terms" icon="calendar" href="/modules/academic-years">
+    The pre-seeded school calendar that anchors every register, assessment, invoice, and event to a term.
+  </Card>
+
+  <Card title="Attendance" icon="clipboard-list" href="/modules/attendance">
+    Mark daily student and staff registers and follow up on absences.
+  </Card>
+
+  <Card title="Assessments & Report Cards" icon="graduation-cap" href="/modules/assessments">
+    Create assessments, enter grades, and generate term-end report cards.
+  </Card>
+
+  <Card title="Timetable & Lessons" icon="calendar-clock" href="/modules/timetable">
+    Build weekly timetables and run daily lessons.
+  </Card>
+
+  <Card title="Events" icon="calendar-check" href="/modules/events">
+    Plan school events, invite attendees, and send reminders.
+  </Card>
+
+  <Card title="Finance" icon="wallet" href="/modules/finance">
+    Charge fees, issue invoices, accept M-Pesa, run student wallets and earmarks, and reconcile payments.
+  </Card>
+
+  <Card title="Inventory & Procurement" icon="package" href="/modules/inventory">
+    Manage products, suppliers, purchases, stock movements, and requisitions.
+  </Card>
+
+  <Card title="Sports & Games" icon="trophy" href="/modules/sports">
+    Manage sports, teams, fixtures, results, and inter-house points.
+  </Card>
+
+  <Card title="Clubs & Societies" icon="users-round" href="/modules/clubs">
+    Run clubs, schedule meetings, and log activities.
+  </Card>
+
+  <Card title="Activity Log" icon="history" href="/modules/activity-log">
+    Browse the audit trail of every recorded change in your school's data.
+  </Card>
+</CardGroup>
+
+## Using this help center
+
+Every module page has the same shape, so once you know one you know them all:
+
+- **Records you'll work with** names each record the module touches and what it means in plain English.
+- **Workflow sections** are grouped by the area of work (for example, **Set up fees** or **Daily registers**) and lead with the goal. Each workflow opens with the prerequisites you need, then walks the steps.
+- **Statuses and lifecycle** lists every status a record can be in, who can act in it, and a diagram of how the record moves from one status to the next.
+- **Reports and analytics** lists the downloadable reports the module owns and where each one lives in the panel.
+- **What guardians see** describes the same module from the guardian's side: what is visible, what is hidden, and what notifications reach them.
+- **FAQs and troubleshooting** answers the questions schools ask most often.
+
+<Tip>
+  The sidebar and the breadcrumb at the top of every page match the names you see in the panel, so the docs and the product line up. If a screen in the panel does not match what is documented here, the panel is the source of truth; tell us through the **Contact Us** link in the top navigation and we will correct the page.
+</Tip>
