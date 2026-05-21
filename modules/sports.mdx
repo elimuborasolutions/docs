@@ -97,7 +97,7 @@ Each house carries a slate of staff patrons and student leaders for an academic 
 - On the **Patrons** tab, add a teacher and pick their role (**Head Patron** or **Assistant Patron**) for an academic year.
 - On the **Leaders** tab, add a student (from that house) and pick their role (**Captain**, **Vice Captain**, **Secretary**, or **Sports Captain**) for an academic year, with the date they were appointed. One student holds each role per house per year.
 
-The **Students** tab lists the house's members for reference.
+The **Students** tab lists the house's members for reference. The **Point Entries** tab is covered under [Inter-house points](#inter-house-points).
 
 ### Add an external school
 
@@ -130,7 +130,7 @@ A team is a squad fielded for one sport in one academic year. Build the team fir
     Go to **Teams** and click the create action, or go to `/teams`.
   </Step>
   <Step title="Fill in the team">
-    Pick the **Sport** and enter a **Name** (for example, "Under-16 Football"). Pick the **Category** (the age and gender band) and the **Type** (**House** or **School**). When you pick **House**, a **House** picker appears and is required. Optionally pick a **Coach** (a teacher), pick the **Academic Year**, and add a **Description**. Leave **Active** on.
+    Pick the **Sport** and enter a **Name** (for example, "Under-16 Football"). Pick the **Category** (the age and gender band) and the **Type** (**House** or **School**). When you pick **House**, a **House** picker appears and is required. Pick the **Academic Year**. Optionally pick a **Coach** (a teacher) and add a **Description**. Leave **Active** on.
   </Step>
   <Step title="Save">
     Save. The team now exists with an empty roster. The coach you pick can record results and update this team's fixtures without holding the full sports permission.
@@ -180,7 +180,7 @@ A competition groups fixtures into a tournament or league. A fixture is a single
     Go to **Competitions** and click the create action, or go to `/competitions`.
   </Step>
   <Step title="Fill in the competition">
-    Pick the **Sport** and enter a **Name**. Pick the **Level** (**House**, **School**, **Sub-County**, **County**, **Regional**, or **National**), the **Scope** (**Intra-School** or **Inter-School**), and the **Format** (**League**, **Knockout**, or **Group + Knockout**). For a knockout or group-and-knockout format, set the **Total Rounds**. Pick the **Academic Year** and an optional **Term**, set the **Start Date** and an optional **End Date**, and add an optional **Venue** and **Description**.
+    Pick the **Sport** and enter a **Name**. Pick the **Level** (**House**, **School**, **Sub-County**, **County**, **Regional**, or **National**), the **Scope** (**Intra-School** or **Inter-School**), and the **Format** (**League**, **Knockout**, or **Group + Knockout**). For a knockout or group-and-knockout format, optionally set the **Total Rounds**. Pick the **Academic Year** and an optional **Term**, set the **Start Date** and an optional **End Date**, and add an optional **Venue** and **Description**.
   </Step>
   <Step title="Save">
     Save. The competition starts as **Upcoming**. Setting the **Level** to **House** is what turns on the automatic inter-house points sweep when its results are recorded (see [Inter-house points](#inter-house-points)).
@@ -203,6 +203,8 @@ A competition groups fixtures into a tournament or league. A fixture is a single
     - **Intra-School** shows a **Home Team** and an **Away Team** picker, both drawn from the chosen sport's teams.
     - **Inter-School** shows a **Home Team** picker and an **Opponent School** picker for the external school. You can add a new external school here without leaving the form.
 
+    For an **Individual** sport, the team pickers are hidden; you'll add each athlete's placement when you record the result. The **Opponent School** picker still appears for an Inter-School fixture.
+
     Enter an optional **Venue** and **Notes**. The **Status** defaults to **Scheduled**.
   </Step>
   <Step title="Save">
@@ -215,7 +217,7 @@ A competition groups fixtures into a tournament or league. A fixture is a single
 ### Generate a knockout bracket
 
 <Note>
-  **You will need:** a **Knockout** or **Group + Knockout** [competition](#create-a-competition) that is still **Upcoming** and has no bracket yet, and the [teams](#create-a-team) to seed into it.
+  **You will need:** a **Knockout** or **Group + Knockout** [competition](#create-a-competition) that has no bracket yet, and the [teams](#create-a-team) to seed into it.
 </Note>
 
 For a knockout competition, the system draws the whole bracket for you instead of you scheduling each round by hand.
