@@ -74,7 +74,7 @@ The product modules are defined in the product itself (`App\Enums\Module`). When
 - **Panel URLs.** Elimu Bora has two panels, each served at the root of its own subdomain. The **staff panel** is at the tenant subdomain root (`<school>.elimuboraerp.com/...`), and is the only panel a school ever uses. The **admin panel** is a company-internal panel at `admin.elimuboraerp.com/...` and is not part of the help-center audience. Both panels serve their routes at the root, not under `/admin`. Refer to staff-panel paths as root-relative on the tenant subdomain (for example, `/invoices`, `/billables`, `/wallets`). The system applies role-based access control to those routes automatically. Do not write `/admin/<resource>` paths anywhere on user-facing pages — that path prefix does not exist in the product, even though some developer docs quote it.
 - **Immutable records.** Some records cannot be edited or deleted once created because doing so would break a downstream ledger or audit trail (for example, invoices and invoice payments). On those pages, do not document an "Edit" or "Delete" workflow; instead, document the read view and explain the alternative path (a new record, a refund, a replacement payment) the user should take.
 - **No developer-level detail.** Help-center pages are read by non-technical school staff. Do not use any of the following on user-facing pages: database table or column names, migration filenames, class names, service names, job names, observer names, enum case identifiers, scheduled-command strings, method names, or code-style permission identifiers such as `invoices.forceDelete` or `payment-integrations.manage`. Describe permissions in plain English and reference the role-editor label when needed. The only product internals that may appear are values a user sees in the panel (status names, action button labels, navigation menu items, URLs they need to copy into Safaricom Daraja, and so on).
-- **Source docs are guides, not templates.** The developer docs under `~/Code/elimubora/docs/` are internal company intellectual property. They guide your understanding of how the product works. Do not transcribe their structure, technical depth, schema details, or terminology into help-center pages. Translate, do not copy. If a fact lives only in the developer docs (a database column, an internal service name, a job class) and is not visible to the user in the panel, it does not belong on a help-center page.
+- **Source docs are guides, not templates.** The engineering wiki under `~/Code/elimubora-wiki/docs/` (live: `https://wiki.elimuboraerp.com`) is internal company intellectual property. It guides your understanding of how the product works. Do not transcribe its structure, technical depth, schema details, or terminology into help-center pages. Translate, do not copy. If a fact lives only in the engineering wiki (a database column, an internal service name, a job class) and is not visible to the user in the panel, it does not belong on a help-center page.
 
 ## Level of detail
 
@@ -98,10 +98,10 @@ Write thoroughly. A school admin should not have to guess or experiment — the 
 
 ## Keeping docs in sync with the product
 
-The product is the source of truth. The canonical reference is the developer-docs folder in the product repository:
+The product is the source of truth. The canonical reference is the engineering wiki (live: https://wiki.elimuboraerp.com):
 
-- `~/Code/elimubora/docs/project-overview.md`
-- `~/Code/elimubora/docs/conventions.md`
-- `~/Code/elimubora/docs/modules/*.md`
+- `~/Code/elimubora-wiki/docs/get-started/project-overview.mdx` (live: https://wiki.elimuboraerp.com/get-started/project-overview)
+- `~/Code/elimubora-wiki/docs/architecture/*.mdx` (live: https://wiki.elimuboraerp.com/architecture/multitenancy and siblings)
+- `~/Code/elimubora-wiki/docs/modules/*.mdx` (live: https://wiki.elimuboraerp.com/modules/identity and siblings)
 
-When the product changes, update the owning module page in the same effort. Before revising a page, read the matching source doc; if its `Last verified` commit looks stale against recent product changes, crosscheck the codebase at `~/Code/elimubora`. Never document behavior you have not verified against the source docs or the code.
+When the product changes, update the owning module page in the same effort. Before revising a page, read the matching wiki page; if its `Last verified` commit looks stale against recent product changes, crosscheck the codebase at `~/Code/elimubora`. Never document behavior you have not verified against the wiki or the code.
