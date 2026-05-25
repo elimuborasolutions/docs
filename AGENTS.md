@@ -8,11 +8,11 @@ The audience is **non-technical school staff** who operate the Elimu Bora tenant
 
 IMPORTANT: Use retrieval-led reasoning over training-led reasoning for this project. Prefer the source docs, the Elimu Bora codebase, and the Mintlify Skill/MCPs over model memory or generic documentation knowledge.
 
-The canonical product reference is the developer-docs folder in the product repository at `~/Code/elimubora/docs/`:
+The canonical product reference is the engineering wiki at `~/Code/elimubora-wiki/docs/` (live: `https://wiki.elimuboraerp.com`):
 
-- `project-overview.md` — what the platform is, tech stack, module list
-- `conventions.md` — multitenancy, module gating, authorization, panel structure
-- `modules/*.md` — one developer doc per product module
+- `get-started/project-overview.mdx` — what the platform is, tech stack, module list
+- `architecture/*.mdx` — cross-cutting patterns: multitenancy, module gating, authorization, panel structure, models, jobs, testing, code style
+- `modules/*.mdx` — one developer doc per product module
 
 Before writing or revising any help page:
 
@@ -56,7 +56,7 @@ The agent SHOULD use the Mintlify Dashboard MCP when:
 ## Documentation workflow expectations
 
 Before creating or modifying documentation:
-1. Verify the facts against `~/Code/elimubora/docs/` and, when in doubt, the codebase at `~/Code/elimubora`.
+1. Verify the facts against the engineering wiki at `~/Code/elimubora-wiki/docs/` (live: `https://wiki.elimuboraerp.com`) and, when in doubt, the codebase at `~/Code/elimubora`.
 2. Verify the documentation approach against Mintlify Skill/MCP guidance if the task involves Mintlify features or structure.
 3. Prefer official Mintlify patterns over improvised MDX structures.
 4. Follow the structure and page conventions in `CONTRIBUTING.md`.
@@ -91,7 +91,7 @@ Avoid generating examples or components that conflict with the current Mintlify 
 When sources conflict, trust them in this order:
 
 1. The Elimu Bora codebase (`~/Code/elimubora`)
-2. The product developer docs (`~/Code/elimubora/docs/`)
+2. The engineering wiki (`~/Code/elimubora-wiki/docs/`, live: `https://wiki.elimuboraerp.com`)
 3. `CONTRIBUTING.md` in this repository
 4. This file (`AGENTS.md`)
 5. Mintlify Skill and MCP documentation
