@@ -123,5 +123,12 @@
   "thumbnails": {
     "background": "/images/cover.png",
     "fonts": { "family": "Sora" }
+  },
+  "integrations": {
+    "posthog": {
+      "apiKey": "phc_qpX7FwgEJa6osP32UU2YEpCp6hYGcwbzVBUdtdnhgPz6",
+      "apiHost": "https://b.elimuboraerp.com",
+      "sessionRecording": true
+    }
   }
 }
