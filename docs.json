@@ -12,8 +12,8 @@
   "navbar": {
     "primary": {
       "type": "button",
-      "label": "Get Started",
-      "href": "https://elimuboraerp.com/contact/"
+      "label": "Get Started for Free",
+      "href": "https://elimuboraerp.com/get-started/"
     },
     "links": [{ "type": "button", "label": "Login", "href": "https://elimuboraerp.com/login" }]
   },
